@@ -19,3 +19,4 @@ mstack is **inspired by** the structured “virtual team” workflow idea popula
 
 - Narrative workflow: [docs/workflow.md](docs/workflow.md)
 - Install and adoption: [README.md](README.md)
+- **Repo memory (this checkout):** [docs/AGENT_MEMORY.md](docs/AGENT_MEMORY.md) → [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) → [docs/DECISIONS.md](docs/DECISIONS.md). When changing the Ideas API or layout, update these in the same PR.

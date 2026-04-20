@@ -104,4 +104,64 @@ describe("Ideas API", () => {
     const data = (await list.json()) as { ideas: { title: string }[] };
     expect(data.ideas.some((i) => i.title === "Tagged")).toBe(true);
   });
+
+  it("GET /v1/meta returns service metadata", async () => {
+    const res = await fetch(`${baseUrl}/v1/meta`);
+    expect(res.status).toBe(200);
+    const body = (await res.json()) as {
+      service: string;
+      apiVersion: string;
+      node: string;
+    };
+    expect(body.service).toBe("ideas-api");
+    expect(body.apiVersion).toMatch(/^\d+\.\d+\.\d+$/);
+    expect(body.node).toMatch(/^v/);
+  });
+
+  it("PATCH and DELETE /v1/ideas/:id", async () => {
+    const session = "test-session-3";
+    await fetch(`${baseUrl}/v1/session/preferences`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Session-ID": session,
+      },
+      body: JSON.stringify({ defaultTags: ["defaulted"] }),
+    });
+    const create = await fetch(`${baseUrl}/v1/ideas`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Session-ID": session,
+      },
+      body: JSON.stringify({ title: "Original", tags: ["x"] }),
+    });
+    const created = (await create.json()) as {
+      idea: { id: string; updatedAt: string };
+    };
+    const id = created.idea.id;
+    const before = created.idea.updatedAt;
+
+    const patch = await fetch(`${baseUrl}/v1/ideas/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Session-ID": session,
+      },
+      body: JSON.stringify({ tags: ["y"] }),
+    });
+    expect(patch.status).toBe(200);
+    const patched = (await patch.json()) as {
+      idea: { tags: string[]; updatedAt: string };
+    };
+    expect(patched.idea.tags).toEqual(
+      expect.arrayContaining(["defaulted", "y"]),
+    );
+    expect(patched.idea.updatedAt >= before).toBe(true);
+
+    const del = await fetch(`${baseUrl}/v1/ideas/${id}`, { method: "DELETE" });
+    expect(del.status).toBe(204);
+    const get = await fetch(`${baseUrl}/v1/ideas/${id}`);
+    expect(get.status).toBe(404);
+  });
 });

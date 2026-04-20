@@ -36,6 +36,7 @@ flowchart LR
 - **Debug session** (optional): `templates/DEBUG_SESSION_TEMPLATE.md`
 - **Reflect**: `templates/REFLECT_TEMPLATE.md`
 - **Postmortem** (incidents): `templates/POSTMORTEM_TEMPLATE.md`
+- **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 
 ## Optional modes
 
