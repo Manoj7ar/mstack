@@ -1,31 +1,113 @@
 # mstack
 
-**mstack** is a Markdown-first **Cursor Agent** workflow pack: phase-separated work (think → plan → build → review → test → ship → reflect), token-efficient habits, and optional UI research — delivered as `.cursor/rules` and `AGENTS.md` you can copy into any codebase.
+**mstack** is a **Markdown-first Cursor Agent workflow pack**: phase-separated work, token discipline, permission gates, and specialist rules you can **copy into any codebase**. It ships as `.cursor/rules/*.mdc`, root **`AGENTS.md`**, and **`templates/`**.
 
-Inspired by the structured “virtual team” idea popularized by [GStack](https://github.com/garrytan/gstack) (Claude Code). **mstack is independent** content for Cursor; it is not a fork of GStack.
+This repository is also a **reference implementation**: it includes **`docs/`** for agent-oriented memory and an optional **Ideas HTTP API** (`src/`, `tests/`) that exercises structured API patterns.
+
+Inspired by the “virtual team” workflow idea popularized by [GStack](https://github.com/garrytan/gstack) (Claude Code). **mstack is independent** content for Cursor; it is not a fork of GStack.
+
+---
 
 ## What you get
 
-- **Core workflow** — one rule for phases, handoffs, and artifacts.
-- **Token discipline** — search-first, bounded reads, no redundant context.
-- **Permissions** — confirm before destructive git, filesystem, DB, or production actions.
-- **Specialists** — frontend, backend, accessibility, design research, testing/QA, code review, docs/DevEx (`mstack-docs-devx`) and docs/ship (`mstack-docs-ship`), data modeling (`mstack-data-modeling`) and data migrations (`mstack-data-migrations`), CI/quality (`mstack-ci-quality`) and CI workflows (`mstack-ci`), dependencies, debug, security, **model strategy** (suggest-only tier / token advice; `@mstack-model-strategy` or when asked about models/Auto/cost).
-- **Templates** — plan, test plan, design brief, debug session, reflect, postmortem, PR checklist, ADR, model strategy note under `templates/`.
+| Area | What it does |
+| ---- | ------------ |
+| **Phases** | Think → Plan → Build → Review → Test → Ship → Reflect, with explicit handoffs (`mstack-core-workflow.mdc`). |
+| **Token discipline** | Search-first, bounded reads, summary-before-edit (`mstack-token-discipline.mdc`). |
+| **Destructive actions** | Confirm before `git reset --hard`, force push, broad deletes, DB drops, prod changes (`mstack-permissions.mdc`). |
+| **Cursor Plan Mode** | Multi-step planning before code; aligns with `templates/PLAN_TEMPLATE.md` ([docs](https://cursor.com/docs/agent/plan-mode)). |
+| **Cursor Debug Mode** | Runtime hypotheses and instrumentation; mstack adds **consent** before invasive logging ([docs](https://cursor.com/docs/agent/debug-mode)). |
+| **Model strategy** | Advisory tier hints (lighter vs stronger) and token tips in chat—**rules cannot switch your model** (`mstack-model-strategy.mdc`). |
+| **Design research** | Optional web inspiration **only with your permission** (`mstack-design-research.mdc`). |
+| **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, and more (see table below). |
+| **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes (see list below). |
 
-## Quick start
+---
 
-1. Copy into your project (or submodule — see below):
-   - `AGENTS.md`
-   - `.cursor/rules/mstack-*.mdc`
-   - `templates/` (optional but recommended)
-2. Open the project in **Cursor**. Rules are picked up from `.cursor/rules/` and `AGENTS.md` per [Cursor Rules](https://cursor.com/docs/rules).
-3. Tell the Agent: *Use mstack phases for this task* or work through **Think → Plan → Build** explicitly.
+## Workflow at a glance
 
-## Install options
+| Phase | Purpose | Typical artifact |
+| ----- | ------- | ---------------- |
+| **Think** | Goal, constraints, assumptions; optional **Model note** for non-trivial work | — |
+| **Plan** | Architecture, risks, files to touch; use **Cursor Plan Mode** when scope is large or unclear | `templates/PLAN_TEMPLATE.md` |
+| **Build** | Minimal diff; match repo conventions | — |
+| **Review** | Adversarial pass; no new features | `@mstack-review` |
+| **Test** | Proportionate coverage | `templates/TEST_PLAN_TEMPLATE.md` |
+| **Ship** | Lint/tests, migrations, docs, PR readiness | `templates/PR_CHECKLIST_TEMPLATE.md`, ADR if needed |
+| **Reflect** | What worked; what to automate | `templates/REFLECT_TEMPLATE.md` |
 
-### Copy (simplest)
+Human-readable detail: **[docs/workflow.md](docs/workflow.md)**.
 
-From a checkout of this repo:
+---
+
+## Rules reference (`.cursor/rules/`)
+
+Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor Rules](https://cursor.com/docs/rules). You can **@mention** a rule in chat (e.g. `@mstack-debug`, `@mstack-model-strategy`).
+
+| File | Always / scoped | Role |
+| ---- | --------------- | ---- |
+| `mstack-core-workflow.mdc` | Always | Phase machine, handoffs, optional invocations, artifact index. |
+| `mstack-token-discipline.mdc` | Always | Bounded exploration; applies during Plan/Debug/review too. |
+| `mstack-permissions.mdc` | Always | Gate destructive git, filesystem, DB, production operations. |
+| `mstack-frontend.mdc` | Globbed UI files | Components, layout, performance, UI quality. |
+| `mstack-accessibility.mdc` | Globbed UI files | Semantics, keyboard, focus, forms, motion, contrast. |
+| `mstack-design-research.mdc` | Globbed UI + pages | Moodboard-style research; **web only if user permits**. |
+| `mstack-backend.mdc` | API / server paths | Validation, errors, idempotency, logging. |
+| `mstack-data-modeling.mdc` | Schema, SQL, ORM, migrations | Safe schema evolution, rollout, nullability. |
+| `mstack-data-migrations.mdc` | Migration folders | Narrow migration safety (pairs with data modeling). |
+| `mstack-testing-qa.mdc` | Tests / e2e dirs | Pyramid, repro, flakiness, reporting. |
+| `mstack-review.mdc` | Common source globs | PR/code review posture; no implementation creep. |
+| `mstack-ci-quality.mdc` | Workflows, eslint/tsconfig/biome | CI ordering, determinism, secrets in CI. |
+| `mstack-ci.mdc` | Workflow YAML | Targeted pipeline fixes without disabling checks. |
+| `mstack-docs-devx.mdc` | README, docs, GitHub templates | Contributor-facing accuracy, less sprawl. |
+| `mstack-docs-ship.mdc` | README, docs, CHANGELOG | Ship-oriented doc and changelog touchpoints. |
+| `mstack-dependencies.mdc` | Manifests + lockfiles | Intentional bumps, lockfile hygiene, supply-chain mindset. |
+| `mstack-security-review.mdc` | Auth, API, server, webhooks | Lightweight STRIDE/OWASP-style pass at boundaries. |
+| `mstack-debug.mdc` | On demand / mention | Cursor Debug Mode alignment; **consent** for instrumentation. |
+| `mstack-model-strategy.mdc` | On demand / mention | Task taxonomy; lighter vs stronger tier **suggestions** only. |
+| `mstack-repo-memory.mdc` | `docs/`, `src/`, `tests/`, `AGENTS.md`, `README` in **this** repo | Points agents at `docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`. |
+
+**Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
+
+**Recommended minimum when copying elsewhere:** `mstack-core-workflow`, `mstack-token-discipline`, `mstack-permissions`.
+
+---
+
+## Templates (`templates/`)
+
+| Template | Use |
+| -------- | --- |
+| `PLAN_TEMPLATE.md` | Plan phase; align with Cursor Plan Mode output. |
+| `TEST_PLAN_TEMPLATE.md` | QA and test design. |
+| `DESIGN_BRIEF_TEMPLATE.md` | UI/UX before build. |
+| `DEBUG_SESSION_TEMPLATE.md` | Repro, hypotheses, **permission** for invasive debug. |
+| `REFLECT_TEMPLATE.md` | Reflect phase after non-trivial work. |
+| `POSTMORTEM_TEMPLATE.md` | Incident write-up. |
+| `INCIDENT_POSTMORTEM_TEMPLATE.md` | Alternate postmortem structure. |
+| `PR_CHECKLIST_TEMPLATE.md` | Scope, risk, tests, rollback before merge. |
+| `ADR_TEMPLATE.md` | Architecture decision records. |
+| `MODEL_STRATEGY_NOTE_TEMPLATE.md` | Longer model/tier/token session notes (advisory). |
+
+---
+
+## Cursor integration (modes and permissions)
+
+- **Modes:** Use the Agent **mode picker** or **Shift+Tab** to switch **Agent**, **Plan**, and **Debug** modes ([Plan](https://cursor.com/docs/agent/plan-mode), [Debug](https://cursor.com/docs/agent/debug-mode)).
+- **Plan Mode:** Best for unclear requirements or many files; refine the plan before Build.
+- **Debug Mode:** Best for runtime evidence; mstack still requires **your OK** before extra logging or reproduce-for-logs steps (`mstack-debug.mdc`).
+- **Model picker / Auto:** mstack may suggest a **faster vs more capable** tier in chat; **only you** can change the model—project rules cannot.
+- **Web:** No external fetches for design research unless you **explicitly allow** it for that task.
+
+---
+
+## Quick start (consume mstack in another repo)
+
+1. Copy **`AGENTS.md`**, **`.cursor/rules/mstack-*.mdc`**, and optionally **`templates/`** into your project.
+2. Merge **`AGENTS.md`** with your existing file if needed.
+3. In Cursor, rules load from **`.cursor/rules/`** and **`AGENTS.md`** per [Cursor Rules](https://cursor.com/docs/rules).
+4. Say: *Use mstack phases* or step through **Think → Plan → Build**.
+
+### Copy install
 
 ```bash
 # In your app repo root
@@ -35,13 +117,10 @@ cp /path/to/mstack/.cursor/rules/mstack-*.mdc .cursor/rules/
 cp -r /path/to/mstack/templates/* templates/
 ```
 
-Merge `AGENTS.md` if you already have one (combine sections; avoid duplicate global instructions).
-
 ### Git submodule
 
 ```bash
 git submodule add <this-repo-url> vendor/mstack
-# Then copy or symlink rules (symlinks are fine on macOS/Linux if your team allows them)
 mkdir -p .cursor/rules
 ln -sf ../../vendor/mstack/.cursor/rules/mstack-*.mdc .cursor/rules/
 cp vendor/mstack/AGENTS.md ./AGENTS.md.mstack-snippet   # merge manually into your AGENTS.md
@@ -49,78 +128,59 @@ cp vendor/mstack/AGENTS.md ./AGENTS.md.mstack-snippet   # merge manually into yo
 
 Re-init after clone: `git submodule update --init --recursive`.
 
-### Subset of rules
+### Sync script
 
-Omit any `mstack-*.mdc` you do not want (e.g. skip `mstack-security-review.mdc` on tiny prototypes). **Keep** `mstack-core-workflow.mdc`, `mstack-token-discipline.mdc`, and `mstack-permissions.mdc` for the full experience.
-
-### Sync script (submodule)
-
-From your app repo, with mstack at `vendor/mstack`:
+From your app repo with mstack at `vendor/mstack`:
 
 ```bash
 chmod +x vendor/mstack/scripts/sync-mstack.sh
 MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/sync-mstack.sh
 ```
 
-Copies `mstack-*.mdc` and `templates/*.md` into the current directory. With `SYNC_AGENTS_SNIPPET=1`, also writes `AGENTS.md.mstack-snippet` for manual merge. Otherwise merge `AGENTS.md` yourself.
+Copies all **`mstack-*.mdc`** and **`templates/*.md`**. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
 
-### Manual rule in chat
+### Subset of rules
 
-Cursor supports **@mentioning** a rule to apply it. For example, use **`@mstack-debug`** when you want the debug posture even if the rule is not file-scoped.
+Remove any specialist you do not need. For a **minimal** pack, keep at least **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
 
-## Model choice and tokens (advisory)
+---
 
-mstack **`mstack-model-strategy.mdc`** teaches the Agent to classify tasks and suggest whether a **faster / default / more capable** model might fit, and how to **save tokens**—in chat, not by switching models for you. **Cursor does not let project rules change the active model**; use the **model picker** (or Auto) yourself. Optional: `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`.
+## Working in *this* repository
 
-## Cursor Plan Mode
+When you change the **Ideas API**, routes, env vars, or layout, update:
 
-For **complex** or **ambiguous** work (many files, unclear requirements, architectural choice), use **Plan Mode** in the Agent panel — **mode dropdown** or **Shift+Tab**. The Agent asks clarifying questions, researches the codebase, and produces a **plan you can edit** before building; save to workspace for the team. Details: [Cursor Plan Mode](https://cursor.com/docs/agent/plan-mode). Align saved plans with `templates/PLAN_TEMPLATE.md`.
+- **[docs/AGENT_MEMORY.md](docs/AGENT_MEMORY.md)** — orientation and glossary  
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — system map  
+- **[docs/DECISIONS.md](docs/DECISIONS.md)** — decision log  
 
-## Cursor Debug Mode
+Rule **`mstack-repo-memory.mdc`** reminds agents to use these when editing `docs/`, `src/`, or `tests/` here.
 
-For **bugs** that are hard to pin down from code alone (timing, regressions, runtime state), use Cursor’s **Debug Mode** in the Agent panel — **mode dropdown** or **Shift+Tab** to cycle modes. It is built for hypothesize → instrument → you reproduce → analyze logs → fix → verify → cleanup. Details: [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode).
-
-mstack’s `mstack-debug.mdc` adds a **permission gate**: the Agent should **not** add temporary logging, probes, or log-capture reproduction steps until you **explicitly allow** invasive debugging for that session. You can use `templates/DEBUG_SESSION_TEMPLATE.md` to record consent and notes.
-
-## Web & design research (permission)
-
-By default, mstack rules tell the Agent **not** to fetch external sites unless you **explicitly allow** web research for that task. When allowed, use references (Mobbin, 21st.dev, Magic UI, etc.) for **patterns**, not verbatim copying — cite URLs and adapt to your design system.
-
-## Troubleshooting
-
-| Issue | What to try |
-| ----- | ----------- |
-| Rules feel ignored | Confirm files are under `.cursor/rules/`, extension `.mdc` or `.md`; check rule type in Cursor Settings → Rules. |
-| Too much instruction | Remove specialist rules you do not need; shorten `AGENTS.md`. |
-| Wrong rule firing | Adjust `globs` in `.mdc` frontmatter to match your repo layout. |
+---
 
 ## Repo layout
 
 ```text
 AGENTS.md
+LICENSE
+README.md
 .cursor/rules/mstack-*.mdc
-docs/workflow.md
-docs/AGENT_MEMORY.md
-docs/ARCHITECTURE.md
-docs/DECISIONS.md
+docs/
+  workflow.md
+  AGENT_MEMORY.md
+  ARCHITECTURE.md
+  DECISIONS.md
 scripts/sync-mstack.sh
-templates/PLAN_TEMPLATE.md
-templates/TEST_PLAN_TEMPLATE.md
-templates/DESIGN_BRIEF_TEMPLATE.md
-templates/DEBUG_SESSION_TEMPLATE.md
-templates/REFLECT_TEMPLATE.md
-templates/POSTMORTEM_TEMPLATE.md
-templates/PR_CHECKLIST_TEMPLATE.md
-templates/ADR_TEMPLATE.md
-templates/INCIDENT_POSTMORTEM_TEMPLATE.md
-templates/MODEL_STRATEGY_NOTE_TEMPLATE.md
+templates/*.md
+package.json          # Ideas API
+src/                  # Ideas API
+tests/                # Ideas API
 ```
 
-**Agent-oriented docs** (`docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`) are the project’s **long-term memory** — update them when you change API behavior or layout.
+---
 
-## Ideas HTTP API (optional service in this repo)
+## Ideas HTTP API (demo service in this repo)
 
-This branch also includes a small **Node/TypeScript** HTTP service for capturing ideas (validation, session preferences, idempotency, rate limits). Source lives under `src/` and `tests/`.
+A small **Node/TypeScript** HTTP service: validation, session preferences, idempotency, rate limits. Data is **in-memory**; restart clears it.
 
 ### Run
 
@@ -129,20 +189,22 @@ npm install
 npm run dev
 ```
 
-Default port: `3000` (override with `PORT`). Optional: `RATE_LIMIT_MAX`, `RATE_LIMIT_WINDOW_MS`.
+Default port **`3000`** (`PORT`). Optional: **`RATE_LIMIT_MAX`**, **`RATE_LIMIT_WINDOW_MS`**.
 
 ### Endpoints
 
-- `GET /health` — liveness
-- `GET /v1/meta` — service name, API version, Node version
-- `GET /v1/ideas?tag=` — list ideas (optional tag filter)
-- `GET /v1/ideas/:id` — single idea
-- `POST /v1/ideas` — create idea (JSON body: `title`, optional `summary`, `tags`). Headers: optional `X-Session-ID`, optional `Idempotency-Key`
-- `PATCH /v1/ideas/:id` — partial update (`title`, `summary`, and/or `tags`; at least one required). Optional `X-Session-ID` merges session default tags when `tags` is sent
-- `DELETE /v1/ideas/:id` — remove idea (no body)
-- `PATCH /v1/session/preferences` — update preferences for a session. Header: `X-Session-ID` (required). Body: optional `defaultTags`, `summarizeTitles`
+| Method | Path | Notes |
+| ------ | ---- | ----- |
+| `GET` | `/health` | Liveness |
+| `GET` | `/v1/meta` | Service name, API version, Node version |
+| `GET` | `/v1/ideas?tag=` | List ideas; optional tag filter |
+| `GET` | `/v1/ideas/:id` | Single idea |
+| `POST` | `/v1/ideas` | Create (`title`, optional `summary`, `tags`). Headers: optional `X-Session-ID`, optional `Idempotency-Key` |
+| `PATCH` | `/v1/ideas/:id` | Partial update; optional `X-Session-ID` merges session default tags when `tags` sent |
+| `DELETE` | `/v1/ideas/:id` | Remove idea |
+| `PATCH` | `/v1/session/preferences` | Header **`X-Session-ID`** (required). Body: optional `defaultTags`, `summarizeTitles` |
 
-Responses include `X-Request-ID` and a JSON `requestId` field.
+Responses include **`X-Request-ID`** and JSON **`requestId`**.
 
 ### Test / build
 
@@ -151,6 +213,19 @@ npm test
 npm run lint
 npm run build && npm start
 ```
+
+---
+
+## Troubleshooting
+
+| Issue | What to try |
+| ----- | ----------- |
+| Rules not applying | Files under **`.cursor/rules/`**; `.mdc` or `.md`; check **Cursor Settings → Rules**. |
+| Too much guidance | Drop specialist rules; trim **`AGENTS.md`**. |
+| Wrong rule for files | Adjust **`globs`** in each `.mdc` to match your tree. |
+| Merge / vendoring | Use **`sync-mstack.sh`** or copy only the rules you need. |
+
+---
 
 ## License
 
