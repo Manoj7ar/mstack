@@ -14,6 +14,7 @@ This repo ships **mstack**: opinionated Cursor Agent rules for phase-separated w
 8. **Destructive actions**: confirm with the user before irreversible git, filesystem, DB, or production operations — see `mstack-permissions.mdc`.
 9. **Model choice**: rules cannot switch Cursor models. For tier and token advice, follow `mstack-model-strategy.mdc` and give **suggestions** only; the user changes the model in the UI.
 10. **Project memory**: durable design and product preferences live in **`docs/PROJECT_MEMORY.md`** (this repo). Read before substantive UI/product work; append **dated bullets** when the user explicitly locks a preference. See `mstack-project-memory.mdc`. Other repos may set a different path in this file.
+11. **Canvas flight deck (optional):** For a visual overview of mstack phases, repo memory links, and an optional live Ideas API snapshot, the user can invoke **`/mstack-flight-deck`** (skill: `.cursor/skills/mstack-flight-deck/`). Requires Cursor 3.1+ for [Canvas](https://cursor.com/docs/agent/tools/canvas).
 
 ## Inspiration note
 
