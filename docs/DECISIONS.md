@@ -130,3 +130,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`mstack-privacy-data-handling.mdc`** + **`PRIVACY_IMPACT_LITE.md`** (**full** only). Add **`mstack-feature-flags.mdc`** + **`FEATURE_FLAG_CHANGE_CHECKLIST.md`** (**standard** + **full**). Add **`mstack-open-source-license.mdc`** + **`LICENSE_HYGIENE_CHECKLIST.md`** (**full** only). All disclaim **not legal advice**.
 
 **Consequences:** Three new specialists and templates; `verify-packs-internal` enforces manifest ↔ file presence.
+
+---
+
+### 2026-04-20 — Effectiveness and specialist map
+
+**Context:** Users needed **honest** usefulness expectations (bands), explicit **weakness ↔ mitigation** mapping, and guidance to **trim overlapping** specialists without guessing.
+
+**Decision:** Add **`docs/EFFECTIVENESS.md`** (when mstack helps, when not, checklist to maximize value). Add **`docs/SPECIALIST_MAP.md`** (primary vs alternate per domain). Wire README intro, ONBOARDING, AGENT_MEMORY, workflow, POWER_USER, TROUBLESHOOTING, PACKS Custom, AGENTS human docs, README repo layout. Add a **ceremony vs tokens** bullet to **`mstack-token-discipline.mdc`** pointing at mechanical pass and EFFECTIVENESS.
+
+**Consequences:** Slightly more docs to maintain; adopters can self-select packs and reduce overlap with less support churn.

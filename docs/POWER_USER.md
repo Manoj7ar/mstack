@@ -45,6 +45,10 @@ In **this** mstack repo: `npm run mstack:doctor`. Manifest typos: `npm run mstac
 - **`@mstack-mechanical-pass`** — typos, single-file chores, obvious fixes: 3–5 line inline plan, skip long templates; still obey token discipline and destructive-op gates.
 - **Full `mstack-core-workflow`** — auth, migrations, new user-facing behavior, cross-cutting refactors, anything security-sensitive.
 
+## Effectiveness
+
+- [EFFECTIVENESS.md](EFFECTIVENESS.md) — when mstack pays off vs ceremony cost
+
 ## See also
 
 - [PLAYBOOK.md](PLAYBOOK.md) — handoff checklist

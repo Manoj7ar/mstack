@@ -1,5 +1,10 @@
 # mstack troubleshooting
 
+## Is mstack helping or just adding noise?
+
+- Read [EFFECTIVENESS.md](EFFECTIVENESS.md) — usefulness bands and known weaknesses.
+- Shrink packs (Minimal / Lite / Solo) or trim overlap per [SPECIALIST_MAP.md](SPECIALIST_MAP.md).
+
 ## Rules do not seem to apply
 
 1. **Location:** Project rules belong in **`.cursor/rules/`** with extension **`.mdc`** or **`.md`** ([Cursor Rules](https://cursor.com/docs/rules)).

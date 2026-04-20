@@ -26,7 +26,7 @@ mstack is **inspired by** the structured “virtual team” workflow idea popula
 ## Human docs
 
 - Narrative workflow: [docs/workflow.md](docs/workflow.md)
-- Onboarding: [docs/ONBOARDING.md](docs/ONBOARDING.md) · Playbook: [docs/PLAYBOOK.md](docs/PLAYBOOK.md) · Power user: [docs/POWER_USER.md](docs/POWER_USER.md) · GStack mapping: [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) · Troubleshooting: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
+- Onboarding: [docs/ONBOARDING.md](docs/ONBOARDING.md) · Playbook: [docs/PLAYBOOK.md](docs/PLAYBOOK.md) · Power user: [docs/POWER_USER.md](docs/POWER_USER.md) · Usefulness (honest): [docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md) · Specialist overlap: [docs/SPECIALIST_MAP.md](docs/SPECIALIST_MAP.md) · GStack mapping: [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) · Troubleshooting: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
 - Rule packs (minimal / lite / solo / standard / full): [docs/PACKS.md](docs/PACKS.md)
 - Install and adoption: [README.md](README.md)
 - **Repo memory (this checkout):** [docs/AGENT_MEMORY.md](docs/AGENT_MEMORY.md) → [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) → [docs/DECISIONS.md](docs/DECISIONS.md) → [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md). When changing the Ideas API or layout, update these in the same PR.
