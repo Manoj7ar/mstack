@@ -1,0 +1,55 @@
+---
+description: Model and cost strategy — classify task difficulty, suggest when a lighter or stronger Cursor model may fit, and pair with token discipline. User must change model in UI; rules cannot switch models. Use for model questions, cost saving, or non-trivial tasks; @mention mstack-model-strategy.
+alwaysApply: false
+---
+
+# mstack model strategy
+
+**Limits:** Project rules cannot **change** the active Cursor model. Model choice stays with the user (picker, Auto, subscription). This rule makes the Agent **reason in chat** and **recommend** a tier—user switches manually if they agree.
+
+## When to use
+
+- User asks about **which model**, **tokens**, **cost**, **Auto mode**, or **overkill / underpowered**.
+- Starting **non-trivial** work (multi-file, unclear spec, security, architecture, tricky bugs).
+- Optional: after **Think** / before **Plan**, emit a short **Model note** (see below). Skip for trivial one-shot edits.
+
+## Task taxonomy (map to model tier)
+
+| Kind | Examples | Typical tier |
+| ---- | -------- | ------------ |
+| **Mechanical** | typos, single obvious fix, fmt/lint | **Lighter / faster** often enough |
+| **Scoped** | tests from spec, small feature with clear files | **Default** or lighter |
+| **Cross-cutting** | refactors, new modules, API + UI + data | **Stronger reasoning** often helps |
+| **Ambiguous** | “make it better,” unclear product intent | **Stronger** for clarification + plan; or narrow spec first on any tier |
+| **Security / auth** | trust boundaries, crypto, sessions | **Stronger** + `mstack-security-review.mdc` |
+| **Runtime / concurrency** | races, deadlocks, heisenbugs | **Debug Mode** + permission (`mstack-debug.mdc`); model tier secondary |
+| **Exploration** | large unknown codebase before edits | **Stronger** for synthesis; then **narrow context** to save tokens |
+
+## Heuristics
+
+- **Favor lighter / faster** when: few files, precise instructions, mechanical edits, user already locked the design.
+- **Favor stronger** when: tradeoffs, subtle correctness, incident analysis, architecture, “what should we build?”
+- **Auto mode:** treat routing as opaque. Say: *If Auto used a lighter model for this step, consider stepping up for [planning / security / ambiguity]. If the task is mechanical, a lighter tier may save cost.*
+
+## Token efficiency (always)
+
+Per `mstack-token-discipline.mdc`: search narrow, bounded reads, no huge pastes. **Upgrading model does not fix** bloated context.
+
+## Chat output: Model note (compact)
+
+Use this shape when helpful (≤6 lines):
+
+```text
+**Model note**
+- Task: [mechanical | scoped | cross-cutting | ambiguous | security | runtime | exploration]
+- Suggestion: [lighter OK | default balanced | stronger reasoning recommended | clarify goal first]
+- Why: [one sentence]
+- Action: In Cursor, open the model picker and choose a [faster / default / more capable] model for this step if you want to align with that—rules cannot switch it for you.
+- Tokens: [one tip: e.g. narrow @-files, summarize before next step]
+```
+
+**Disclaimer:** Suggestions are **heuristic**; your org, models, and pricing differ.
+
+## Template
+
+For longer sessions: `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`.

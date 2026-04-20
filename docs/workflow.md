@@ -38,6 +38,7 @@ flowchart LR
 - **Postmortem** (incidents): `templates/POSTMORTEM_TEMPLATE.md` or `templates/INCIDENT_POSTMORTEM_TEMPLATE.md`
 - **PR / ship**: `templates/PR_CHECKLIST_TEMPLATE.md`
 - **Architecture decision**: `templates/ADR_TEMPLATE.md`
+- **Model strategy** (optional): `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 
 ## Optional modes
@@ -46,6 +47,7 @@ flowchart LR
 - **Debug**: say *debug mode* or *mstack debug*, or **@mention** `@mstack-debug`. Follow `mstack-debug.mdc`. For bugs that need **runtime evidence**, use **Cursor Debug Mode**: open Agent, use the **mode picker** or press **Shift+Tab** to switch — see [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode). mstack requires **explicit user consent** before invasive instrumentation (extra logging, reproduce-for-logs). Without consent, stick to static analysis and suggest Debug Mode + permission when ready.
 - **Security pass**: for auth/data/boundary changes, `mstack-security-review.mdc` applies when those files are in scope.
 - **Destructive ops**: `mstack-permissions.mdc` — always confirm before `git reset --hard`, force push, `rm -rf`, DB drops, prod changes.
+- **Model / cost**: `mstack-model-strategy.mdc` — classify task difficulty, suggest lighter vs stronger model tier and token moves in chat. **Cursor does not allow rules to change the model**; the user switches in the model picker (including Auto). Use `@mstack-model-strategy` when unsure.
 
 ## Specialist rules
 
@@ -70,6 +72,7 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-debug.mdc` | Structured debugging and permission for invasive steps |
 | `mstack-permissions.mdc` | Destructive git, filesystem, DB, prod (always on when included) |
 | `mstack-repo-memory.mdc` | This repo’s `docs/AGENT_MEMORY`, architecture, decisions |
+| `mstack-model-strategy.mdc` | Model tier + token hints (suggest-only; user changes model in UI) |
 
 ## Cursor integration
 

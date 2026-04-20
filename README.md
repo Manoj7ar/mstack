@@ -9,8 +9,8 @@ Inspired by the structured “virtual team” idea popularized by [GStack](https
 - **Core workflow** — one rule for phases, handoffs, and artifacts.
 - **Token discipline** — search-first, bounded reads, no redundant context.
 - **Permissions** — confirm before destructive git, filesystem, DB, or production actions.
-- **Specialists** — frontend, backend, accessibility, design research, testing/QA, code review, docs/DevEx (`mstack-docs-devx`) and docs/ship (`mstack-docs-ship`), data modeling (`mstack-data-modeling`) and data migrations (`mstack-data-migrations`), CI/quality (`mstack-ci-quality`) and CI workflows (`mstack-ci`), dependencies, debug, security (scoped with `globs` where useful).
-- **Templates** — plan, test plan, design brief, debug session, reflect, postmortem, PR checklist, ADR under `templates/`.
+- **Specialists** — frontend, backend, accessibility, design research, testing/QA, code review, docs/DevEx (`mstack-docs-devx`) and docs/ship (`mstack-docs-ship`), data modeling (`mstack-data-modeling`) and data migrations (`mstack-data-migrations`), CI/quality (`mstack-ci-quality`) and CI workflows (`mstack-ci`), dependencies, debug, security, **model strategy** (suggest-only tier / token advice; `@mstack-model-strategy` or when asked about models/Auto/cost).
+- **Templates** — plan, test plan, design brief, debug session, reflect, postmortem, PR checklist, ADR, model strategy note under `templates/`.
 
 ## Quick start
 
@@ -68,6 +68,10 @@ Copies `mstack-*.mdc` and `templates/*.md` into the current directory. With `SYN
 
 Cursor supports **@mentioning** a rule to apply it. For example, use **`@mstack-debug`** when you want the debug posture even if the rule is not file-scoped.
 
+## Model choice and tokens (advisory)
+
+mstack **`mstack-model-strategy.mdc`** teaches the Agent to classify tasks and suggest whether a **faster / default / more capable** model might fit, and how to **save tokens**—in chat, not by switching models for you. **Cursor does not let project rules change the active model**; use the **model picker** (or Auto) yourself. Optional: `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`.
+
 ## Cursor Plan Mode
 
 For **complex** or **ambiguous** work (many files, unclear requirements, architectural choice), use **Plan Mode** in the Agent panel — **mode dropdown** or **Shift+Tab**. The Agent asks clarifying questions, researches the codebase, and produces a **plan you can edit** before building; save to workspace for the team. Details: [Cursor Plan Mode](https://cursor.com/docs/agent/plan-mode). Align saved plans with `templates/PLAN_TEMPLATE.md`.
@@ -109,6 +113,7 @@ templates/POSTMORTEM_TEMPLATE.md
 templates/PR_CHECKLIST_TEMPLATE.md
 templates/ADR_TEMPLATE.md
 templates/INCIDENT_POSTMORTEM_TEMPLATE.md
+templates/MODEL_STRATEGY_NOTE_TEMPLATE.md
 ```
 
 **Agent-oriented docs** (`docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`) are the project’s **long-term memory** — update them when you change API behavior or layout.
