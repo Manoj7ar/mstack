@@ -38,9 +38,10 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
 2. **Stats row (boxes)** — e.g.:
    - **API:** `meta.service` + `meta.apiVersion` from snapshot, or `API offline`
    - **Runtime:** `meta.node` if present, else `—`
-   - **Pack:** short hint — e.g. “sync: `MSTACK_PACK` (minimal / lite / standard / full / all)” + link `docs/PACKS.md`; add “verify: `scripts/verify-mstack-sync.sh`” + link `docs/POWER_USER.md`
+   - **Pack:** short hint — e.g. “sync: `MSTACK_PACK` (minimal / lite / solo / standard / full / all)” + link `docs/PACKS.md`; add “verify: `scripts/verify-mstack-sync.sh`” + link `docs/POWER_USER.md`
    - **Session:** root `SESSION_BRIEF.md` (handoff) + `templates/SESSION_BRIEF_TEMPLATE.md`
-   - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/CURSOR_LIMITS.md`, `docs/POWER_USER.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`
+   - **Doctor:** `/mstack-doctor` + `scripts/mstack-doctor.sh`; adoption checklist `docs/ADOPTION_AUDIT.md`; first messages `docs/PLAYBOOK_FIRST_MESSAGES.md`
+   - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/CURSOR_LIMITS.md`, `docs/POWER_USER.md`, `docs/ADOPTION_AUDIT.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`
 3. **Table A — Phases → artifacts** (use README / workflow alignment; include typical template paths):
 
    | Phase | Typical artifact |

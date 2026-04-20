@@ -58,6 +58,8 @@ Smaller initiatives: **`templates/PRODUCT_REVIEW_LITE.md`** with the same rule.
 
 ## See also
 
+- [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste Agent openers
+- [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — install checklist; **`@mstack-adoption-audit`** (full pack)
 - [ONBOARDING.md](ONBOARDING.md) — first-time setup
 - [PACKS.md](PACKS.md) — which rules to copy
 - [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) — how this maps to GStack-style roles

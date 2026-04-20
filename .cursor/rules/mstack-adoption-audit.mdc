@@ -1,0 +1,29 @@
+---
+description: Adoption audit — walk the checklist in docs/ADOPTION_AUDIT.md against the workspace; report gaps only; no remote or secret changes. @mention mstack-adoption-audit.
+alwaysApply: false
+---
+
+# mstack adoption audit
+
+Use when the user **@mentions** this rule or asks to **audit mstack setup** in the current repo.
+
+## Posture
+
+1. Read **`docs/ADOPTION_AUDIT.md`** in this workspace (if missing, use the checklist below from memory of that doc’s intent and note the doc is absent).
+2. Check paths **relative to workspace root**: `.cursor/rules/`, key `mstack-*.mdc` files, `AGENTS.md`, `docs/PROJECT_MEMORY.md` or template copy, optional `SESSION_BRIEF.md`, CI workflow if claimed.
+3. Output a **short table**: Item | Status (OK / gap) | note.
+4. **Do not** change git remotes, cloud credentials, or run destructive commands. **Do not** claim the install is “complete” without user confirmation on merge strategy for `AGENTS.md`.
+
+## Reference checklist (if ADOPTION_AUDIT.md unavailable)
+
+- Rules directory exists; required trio: core-workflow, token-discipline, permissions.
+- Pack choice documented or `verify-mstack-sync.sh` / CI aligns with intent.
+- `AGENTS.md` present or deliberate omission noted.
+- Project memory path agreed (`docs/PROJECT_MEMORY.md` typical).
+- Session handoff: `SESSION_BRIEF.md` tracked vs gitignored policy.
+- Optional: `MSTACK_PACK` + `verify-mstack-sync.sh --strict` in CI.
+
+## Pairing
+
+- Fix gaps: user runs **`scripts/sync-mstack.sh`**, merges `AGENTS.md`, runs **`scripts/mstack-doctor.sh`** or **`/mstack-doctor`** skill.
+- Human doc: **`docs/ADOPTION_AUDIT.md`**.

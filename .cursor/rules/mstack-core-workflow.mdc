@@ -50,6 +50,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Product review** (before large Plan): `@mstack-product-review` with `templates/PRODUCT_REVIEW_TEMPLATE.md` (big bets) or `templates/PRODUCT_REVIEW_LITE.md` (small bets) — **no code** in that posture.
 - **Documentation pass** (before Ship when docs-heavy): `@mstack-documentation-pass` with `templates/DOC_TASK_TEMPLATE.md`.
 - **Mechanical pass** (typos, single-file chores, obvious fixes): `@mstack-mechanical-pass` — compress phases; still follow token discipline and permissions.
+- **Adoption audit** (full pack): `@mstack-adoption-audit` with **`docs/ADOPTION_AUDIT.md`** — report install gaps; no secrets/remotes changes.
 
 ## Artifacts (paths in this pack)
 

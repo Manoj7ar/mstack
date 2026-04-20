@@ -17,6 +17,7 @@ This repo ships **mstack**: opinionated Cursor Agent rules for phase-separated w
 11. **Canvas flight deck (optional):** For a visual overview of mstack phases, repo memory links, and an optional live Ideas API snapshot, the user can invoke **`/mstack-flight-deck`** (skill: `.cursor/skills/mstack-flight-deck/`). Requires Cursor 3.1+ for [Canvas](https://cursor.com/docs/agent/tools/canvas).
 12. **Big product bets:** before a large Plan, consider `@mstack-product-review` and `templates/PRODUCT_REVIEW_TEMPLATE.md` (or `templates/PRODUCT_REVIEW_LITE.md` for smaller scope). For doc drift after features, `@mstack-documentation-pass` and `templates/DOC_TASK_TEMPLATE.md`. Human navigation: [docs/ONBOARDING.md](docs/ONBOARDING.md), [docs/PLAYBOOK.md](docs/PLAYBOOK.md).
 13. **Session handoff file:** when switching chats, prefer updating root **`SESSION_BRIEF.md`** using `templates/SESSION_BRIEF_TEMPLATE.md`; see `@mstack-session-handoff`. **Mechanical / chore tasks:** `@mstack-mechanical-pass` (short inline plan; not for auth, migrations, or new product behavior). Power-user patterns: [docs/POWER_USER.md](docs/POWER_USER.md).
+14. **Adoption audit:** **`@mstack-adoption-audit`** walks [docs/ADOPTION_AUDIT.md](docs/ADOPTION_AUDIT.md) against the workspace (full pack). **Install checks:** user may run **`/mstack-doctor`** or `scripts/mstack-doctor.sh`. Copy-paste openers: [docs/PLAYBOOK_FIRST_MESSAGES.md](docs/PLAYBOOK_FIRST_MESSAGES.md).
 
 ## Inspiration note
 
@@ -26,6 +27,6 @@ mstack is **inspired by** the structured “virtual team” workflow idea popula
 
 - Narrative workflow: [docs/workflow.md](docs/workflow.md)
 - Onboarding: [docs/ONBOARDING.md](docs/ONBOARDING.md) · Playbook: [docs/PLAYBOOK.md](docs/PLAYBOOK.md) · Power user: [docs/POWER_USER.md](docs/POWER_USER.md) · GStack mapping: [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) · Troubleshooting: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
-- Rule packs (minimal / lite / standard / full): [docs/PACKS.md](docs/PACKS.md)
+- Rule packs (minimal / lite / solo / standard / full): [docs/PACKS.md](docs/PACKS.md)
 - Install and adoption: [README.md](README.md)
 - **Repo memory (this checkout):** [docs/AGENT_MEMORY.md](docs/AGENT_MEMORY.md) → [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) → [docs/DECISIONS.md](docs/DECISIONS.md) → [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md). When changing the Ideas API or layout, update these in the same PR.

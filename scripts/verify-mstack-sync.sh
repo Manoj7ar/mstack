@@ -19,7 +19,7 @@ done
 
 if [[ ${#ARGS[@]} -lt 1 ]]; then
   echo "Usage: MSTACK_ROOT=<mstack-checkout> $0 [--strict] <pack> [dest]" >&2
-  echo "  pack: minimal | lite | standard | full | all" >&2
+  echo "  pack: minimal | lite | solo | standard | full | all" >&2
   echo "  dest: consumer repo root (default .)" >&2
   exit 2
 fi

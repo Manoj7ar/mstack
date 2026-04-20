@@ -14,6 +14,22 @@ Short patterns for people who already know Cursor. This does **not** add new pla
 
 Pack lists are the source of truth: `vendor/mstack/scripts/packs/<pack>.txt`. Details: [PACKS.md](PACKS.md).
 
+**GitHub Actions:** see `.github/workflows/mstack-pack-verify.yml.example` in this repo (copy and rename to `.yml`).
+
+## Doctor (quick local check)
+
+From consumer repo root (paths may be `vendor/mstack/...`):
+
+```bash
+bash vendor/mstack/scripts/mstack-doctor.sh .
+# Include strict pack verify:
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard MSTACK_VERIFY_STRICT=1 bash vendor/mstack/scripts/mstack-doctor.sh .
+```
+
+In **this** mstack repo: `npm run mstack:doctor`. Manifest typos: `npm run mstack:verify-packs`.
+
+**Cursor:** invoke **`/mstack-doctor`** (skill `.cursor/skills/mstack-doctor/`). Full checklist: [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md).
+
 ## New chat bootstrap
 
 - **Prefer:** maintain root **`SESSION_BRIEF.md`** (shape: `templates/SESSION_BRIEF_TEMPLATE.md`). First message: *Read `SESSION_BRIEF.md` and `docs/PROJECT_MEMORY.md`.*
@@ -32,4 +48,6 @@ Pack lists are the source of truth: `vendor/mstack/scripts/packs/<pack>.txt`. De
 ## See also
 
 - [PLAYBOOK.md](PLAYBOOK.md) — handoff checklist
+- [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste openers
 - [ONBOARDING.md](ONBOARDING.md) — packs and first sync
+- [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — onboarding checklist

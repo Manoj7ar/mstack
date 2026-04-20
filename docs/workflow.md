@@ -2,7 +2,7 @@
 
 mstack separates **cognitive modes** so planning, building, reviewing, and shipping do not blur in one undifferentiated session. Each phase has one job.
 
-**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [POWER_USER.md](POWER_USER.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
+**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [POWER_USER.md](POWER_USER.md) · [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) · [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
 
 ## Phases
 
@@ -61,6 +61,7 @@ flowchart LR
 - **Model / cost**: `mstack-model-strategy.mdc` — classify task difficulty, suggest lighter vs stronger model tier and token moves in chat. **Cursor does not allow rules to change the model**; the user switches in the model picker (including Auto). Use `@mstack-model-strategy` when unsure.
 - **Session handoff**: `mstack-session-handoff.mdc` — prefer root **`SESSION_BRIEF.md`** (`templates/SESSION_BRIEF_TEMPLATE.md`); next chat reads it + `docs/PROJECT_MEMORY.md`. `@mstack-session-handoff`.
 - **Mechanical pass**: `mstack-mechanical-pass.mdc` — chores / trivial fixes; short inline plan. `@mstack-mechanical-pass`.
+- **Adoption audit**: `mstack-adoption-audit.mdc` — checklist pass against **`docs/ADOPTION_AUDIT.md`** (typically **full** pack). `@mstack-adoption-audit`.
 
 ## Specialist rules
 
@@ -96,6 +97,7 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-project-memory.mdc` | Read/update `PROJECT_MEMORY` for design and product prefs |
 | `mstack-product-review.mdc` | Product posture before large plan; no code |
 | `mstack-documentation-pass.mdc` | README/docs/runbook alignment before Ship |
+| `mstack-adoption-audit.mdc` | Onboarding checklist; report gaps only (**full** pack) |
 
 ## Cursor integration
 

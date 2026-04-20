@@ -17,18 +17,20 @@ flowchart TD
   q --> heavy
   tiny --> minimal[Minimal — 3 rules]
   small --> lite[Lite — 5 rules: + session + model hints]
+  small --> solo[Solo — 7 rules: + memory + mechanical]
   app --> standard[Standard — daily product engineering]
   heavy --> full[Full — all specialists]
 ```
 
 - **Minimal** — core workflow + token discipline + destructive-op gates.
 - **Lite** — Minimal + **session handoff** + **model strategy** (still small).
+- **Solo** — Lite + **project memory** + **mechanical pass** (no frontend/backend specialists).
 - **Standard** — typical product engineering (frontend, backend, tests, review, debug, security, docs, CI, **project memory**).
 - **Full** — everything in this repo (design research, data, observability, product review rule, etc.).
 
 Exact file lists: **[PACKS.md](PACKS.md)** and **`scripts/packs/*.txt`** (used by `sync-mstack.sh`).
 
-**Next:** experienced users — [POWER_USER.md](POWER_USER.md) (session file, CI verify, mechanical pass).
+**Next:** experienced users — [POWER_USER.md](POWER_USER.md) (session file, CI verify, mechanical pass). Copy-paste chat openers — [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md). Install checklist — [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md).
 
 ## 1. Choose a rule pack
 

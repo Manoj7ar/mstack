@@ -21,7 +21,7 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 | **Design research** | Optional web inspiration **only with your permission** (`mstack-design-research.mdc`). |
 | **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, web perf, AI product, API contracts, observability, releases, session handoff, and more (see table below). |
 | **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes, OpenAPI delta, runbook (see list below). |
-| **Rule packs** | Minimal / **Lite** / standard / full — **[docs/PACKS.md](docs/PACKS.md)** + **`scripts/packs/*.txt`** for `sync-mstack.sh`. |
+| **Rule packs** | Minimal / **Lite** / **Solo** / standard / full — **[docs/PACKS.md](docs/PACKS.md)** + **`scripts/packs/*.txt`** for `sync-mstack.sh`. |
 | **Project memory** | Durable **design and product** prefs in **`docs/PROJECT_MEMORY.md`**; Agent reads before UI work and updates when you lock decisions (`mstack-project-memory.mdc`). Not a full chat log. |
 
 ---
@@ -50,6 +50,8 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
 | [docs/CURSOR_LIMITS.md](docs/CURSOR_LIMITS.md) | What project rules cannot do (model, modes, persistence) |
 | [docs/POWER_USER.md](docs/POWER_USER.md) | Session brief file, verify sync in CI, mechanical pass |
+| [docs/ADOPTION_AUDIT.md](docs/ADOPTION_AUDIT.md) | Checklist for correct install and drift |
+| [docs/PLAYBOOK_FIRST_MESSAGES.md](docs/PLAYBOOK_FIRST_MESSAGES.md) | Copy-paste Agent chat openers |
 
 ---
 
@@ -89,6 +91,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-product-review.mdc` | On demand / mention | Product challenge before large plan; **no code** |
 | `mstack-documentation-pass.mdc` | README, `docs/`, changelog globs | Doc alignment before Ship |
 | `mstack-mechanical-pass.mdc` | On demand / mention | Compress phases for chores; not for auth/migrations/new UX |
+| `mstack-adoption-audit.mdc` | On demand / mention | Walk `docs/ADOPTION_AUDIT.md`; report gaps (**full** pack) |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
 
@@ -131,7 +134,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes a project skill **`mstack-flight-deck`**: type **`/mstack-flight-deck`** in Agent chat to generate a flight deck (mstack phases, doc links, Ideas API route matrix, optional live data via `node scripts/ideas-snapshot.mjs`). Skill path: `.cursor/skills/mstack-flight-deck/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`.
 
 ---
 
@@ -173,15 +176,17 @@ chmod +x vendor/mstack/scripts/sync-mstack.sh
 MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard INIT_PROJECT_MEMORY=1 vendor/mstack/scripts/sync-mstack.sh
 ```
 
-**Defaults:** **`MSTACK_PACK=all`** copies every **`mstack-*.mdc`** (same as before). Set **`MSTACK_PACK`** to `minimal`, `lite`, `standard`, or `full` to copy only the rules listed in **`vendor/mstack/scripts/packs/<pack>.txt`**. **`SYNC_TEMPLATES=0`** skips **`templates/*.md`**. **`INIT_PROJECT_MEMORY=1`** creates **`docs/PROJECT_MEMORY.md`** from the template if missing.
+**Defaults:** **`MSTACK_PACK=all`** copies every **`mstack-*.mdc`** (same as before). Set **`MSTACK_PACK`** to `minimal`, `lite`, `solo`, `standard`, or `full` to copy only the rules listed in **`vendor/mstack/scripts/packs/<pack>.txt`**. **`SYNC_TEMPLATES=0`** skips **`templates/*.md`**. **`INIT_PROJECT_MEMORY=1`** creates **`docs/PROJECT_MEMORY.md`** from the template if missing.
 
-**Verify** `.cursor/rules` matches the pack (e.g. in CI): `MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh --strict standard`. See **[docs/POWER_USER.md](docs/POWER_USER.md)**.
+**Doctor** (required trio + optional strict pack check): `bash vendor/mstack/scripts/mstack-doctor.sh .` — with `MSTACK_ROOT`, `MSTACK_PACK`, and `MSTACK_VERIFY_STRICT=1` also runs verify. In this repo: `npm run mstack:doctor`.
+
+**Verify** `.cursor/rules` matches the pack (e.g. in CI): `MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh --strict standard`. Example workflow: **`.github/workflows/mstack-pack-verify.yml.example`**. See **[docs/POWER_USER.md](docs/POWER_USER.md)**.
 
 Also copies **`templates/*.md`** (unless skipped) and **`.cursor/skills/*`** when present. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
 
 ### Subset of rules
 
-Remove any specialist you do not need. For curated lists (**minimal**, **lite**, **standard**, **full**), see **[docs/PACKS.md](docs/PACKS.md)** and use **`MSTACK_PACK`**. At minimum, keep **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
+Remove any specialist you do not need. For curated lists (**minimal**, **lite**, **solo**, **standard**, **full**), see **[docs/PACKS.md](docs/PACKS.md)** and use **`MSTACK_PACK`**. At minimum, keep **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
 
 ---
 
@@ -206,6 +211,7 @@ LICENSE
 README.md
 .cursor/rules/mstack-*.mdc
 .cursor/skills/mstack-flight-deck/
+.cursor/skills/mstack-doctor/
 docs/
   workflow.md
   ONBOARDING.md
@@ -214,6 +220,8 @@ docs/
   TROUBLESHOOTING.md
   CURSOR_LIMITS.md
   POWER_USER.md
+  ADOPTION_AUDIT.md
+  PLAYBOOK_FIRST_MESSAGES.md
   PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
@@ -221,6 +229,8 @@ docs/
   PROJECT_MEMORY.md
 scripts/sync-mstack.sh
 scripts/verify-mstack-sync.sh
+scripts/mstack-doctor.sh
+scripts/verify-packs-internal.sh
 scripts/packs/*.txt
 scripts/ideas-snapshot.mjs
 templates/*.md
