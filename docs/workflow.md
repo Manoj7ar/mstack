@@ -34,6 +34,7 @@ flowchart LR
 - **Test plan**: `templates/TEST_PLAN_TEMPLATE.md`
 - **Design brief** (UI): `templates/DESIGN_BRIEF_TEMPLATE.md`
 - **Debug session** (optional): `templates/DEBUG_SESSION_TEMPLATE.md`
+- **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 
 ## Optional modes
 

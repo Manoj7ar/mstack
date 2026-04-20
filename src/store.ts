@@ -1,5 +1,9 @@
 import { randomUUID } from "node:crypto";
-import type { CreateIdeaBody, PatchPreferencesBody } from "./schemas.js";
+import type {
+  CreateIdeaBody,
+  PatchIdeaBody,
+  PatchPreferencesBody,
+} from "./schemas.js";
 
 export type Idea = {
   id: string;
@@ -7,6 +11,7 @@ export type Idea = {
   summary?: string;
   tags: string[];
   createdAt: string;
+  updatedAt: string;
 };
 
 export type SessionPreferences = {
@@ -53,6 +58,14 @@ function normalizeTitle(title: string, summarize: boolean): string {
   return `${t.slice(0, 77)}...`;
 }
 
+function stripIdempotencyForIdea(ideaId: string): void {
+  for (const [key, idea] of idempotency) {
+    if (idea.id === ideaId) {
+      idempotency.delete(key);
+    }
+  }
+}
+
 export function createIdea(
   body: CreateIdeaBody,
   sessionId: string,
@@ -64,12 +77,14 @@ export function createIdea(
   }
   const prefs = getOrCreateSession(sessionId);
   const tagSet = new Set([...prefs.defaultTags, ...(body.tags ?? [])]);
+  const now = new Date().toISOString();
   const idea: Idea = {
     id: randomUUID(),
     title: normalizeTitle(body.title, prefs.summarizeTitles),
     summary: body.summary?.trim() || undefined,
     tags: [...tagSet],
-    createdAt: new Date().toISOString(),
+    createdAt: now,
+    updatedAt: now,
   };
   ideas.set(idea.id, idea);
   if (idempotencyKey) {
@@ -89,4 +104,36 @@ export function listIdeas(tag?: string): Idea[] {
 
 export function getIdea(id: string): Idea | undefined {
   return ideas.get(id);
+}
+
+export function updateIdea(
+  id: string,
+  body: PatchIdeaBody,
+  sessionId: string,
+): Idea | undefined {
+  const existing = ideas.get(id);
+  if (!existing) return undefined;
+  const prefs = getOrCreateSession(sessionId);
+  const next: Idea = { ...existing };
+  if (body.title !== undefined) {
+    next.title = normalizeTitle(body.title, prefs.summarizeTitles);
+  }
+  if (body.summary !== undefined) {
+    const s = body.summary.trim();
+    next.summary = s.length ? s : undefined;
+  }
+  if (body.tags !== undefined) {
+    const tagSet = new Set([...prefs.defaultTags, ...body.tags]);
+    next.tags = [...tagSet];
+  }
+  next.updatedAt = new Date().toISOString();
+  ideas.set(id, next);
+  return next;
+}
+
+export function deleteIdea(id: string): boolean {
+  if (!ideas.has(id)) return false;
+  ideas.delete(id);
+  stripIdempotencyForIdea(id);
+  return true;
 }

@@ -91,12 +91,17 @@ By default, mstack rules tell the Agent **not** to fetch external sites unless y
 AGENTS.md
 .cursor/rules/mstack-*.mdc
 docs/workflow.md
+docs/AGENT_MEMORY.md
+docs/ARCHITECTURE.md
+docs/DECISIONS.md
 scripts/sync-mstack.sh
 templates/PLAN_TEMPLATE.md
 templates/TEST_PLAN_TEMPLATE.md
 templates/DESIGN_BRIEF_TEMPLATE.md
 templates/DEBUG_SESSION_TEMPLATE.md
 ```
+
+**Agent-oriented docs** (`docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`) are the project’s **long-term memory** — update them when you change API behavior or layout.
 
 ## Ideas HTTP API (optional service in this repo)
 
@@ -114,9 +119,12 @@ Default port: `3000` (override with `PORT`). Optional: `RATE_LIMIT_MAX`, `RATE_L
 ### Endpoints
 
 - `GET /health` — liveness
+- `GET /v1/meta` — service name, API version, Node version
 - `GET /v1/ideas?tag=` — list ideas (optional tag filter)
 - `GET /v1/ideas/:id` — single idea
 - `POST /v1/ideas` — create idea (JSON body: `title`, optional `summary`, `tags`). Headers: optional `X-Session-ID`, optional `Idempotency-Key`
+- `PATCH /v1/ideas/:id` — partial update (`title`, `summary`, and/or `tags`; at least one required). Optional `X-Session-ID` merges session default tags when `tags` is sent
+- `DELETE /v1/ideas/:id` — remove idea (no body)
 - `PATCH /v1/session/preferences` — update preferences for a session. Header: `X-Session-ID` (required). Body: optional `defaultTags`, `summarizeTitles`
 
 Responses include `X-Request-ID` and a JSON `requestId` field.

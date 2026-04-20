@@ -1,14 +1,21 @@
 import http from "node:http";
 import { randomUUID } from "node:crypto";
 import { URL, pathToFileURL } from "node:url";
-import { createIdeaBodySchema, patchPreferencesSchema } from "./schemas.js";
+import {
+  createIdeaBodySchema,
+  patchIdeaBodySchema,
+  patchPreferencesSchema,
+} from "./schemas.js";
 import { log } from "./logger.js";
 import { checkRateLimit } from "./rateLimit.js";
+import { API_VERSION, SERVICE_NAME } from "./version.js";
 import {
   createIdea,
+  deleteIdea,
   getIdea,
   listIdeas,
   patchSessionPreferences,
+  updateIdea,
 } from "./store.js";
 
 const PORT = Number(process.env.PORT) || 3000;
@@ -26,6 +33,11 @@ function json(
     ...headers,
   });
   res.end(JSON.stringify(body));
+}
+
+function sendNoContent(res: http.ServerResponse): void {
+  res.writeHead(204);
+  res.end();
 }
 
 function readBody(req: http.IncomingMessage): Promise<string> {
@@ -89,6 +101,16 @@ export async function handleRequest(
       return;
     }
 
+    if (req.method === "GET" && url.pathname === "/v1/meta") {
+      json(res, 200, {
+        service: SERVICE_NAME,
+        apiVersion: API_VERSION,
+        node: process.version,
+        requestId,
+      });
+      return;
+    }
+
     if (req.method === "GET" && url.pathname === "/v1/ideas") {
       const tag = url.searchParams.get("tag") ?? undefined;
       const ideas = listIdeas(tag);
@@ -97,18 +119,83 @@ export async function handleRequest(
     }
 
     const ideaMatch = /^\/v1\/ideas\/([^/]+)$/.exec(url.pathname);
-    if (req.method === "GET" && ideaMatch) {
-      const idea = getIdea(ideaMatch[1]!);
-      if (!idea) {
-        json(res, 404, {
-          error: "not_found",
-          message: "Idea not found",
-          requestId,
-        });
+    if (ideaMatch) {
+      const ideaId = ideaMatch[1]!;
+
+      if (req.method === "GET") {
+        const idea = getIdea(ideaId);
+        if (!idea) {
+          json(res, 404, {
+            error: "not_found",
+            message: "Idea not found",
+            requestId,
+          });
+          return;
+        }
+        json(res, 200, { idea, requestId });
         return;
       }
-      json(res, 200, { idea, requestId });
-      return;
+
+      if (req.method === "PATCH") {
+        const raw = await readBody(req);
+        let parsed: unknown;
+        try {
+          parsed = raw.length ? JSON.parse(raw) : {};
+        } catch {
+          json(res, 400, {
+            error: "invalid_json",
+            message: "Body must be valid JSON",
+            requestId,
+          });
+          return;
+        }
+        const bodyResult = patchIdeaBodySchema.safeParse(parsed);
+        if (!bodyResult.success) {
+          json(res, 422, {
+            error: "validation_error",
+            message: "Invalid idea patch",
+            requestId,
+            details: bodyResult.error.flatten(),
+          });
+          return;
+        }
+        const sessionHeader = req.headers["x-session-id"];
+        const sessionId =
+          typeof sessionHeader === "string" && sessionHeader.length > 0
+            ? sessionHeader
+            : "anonymous";
+        const updated = updateIdea(ideaId, bodyResult.data, sessionId);
+        if (!updated) {
+          json(res, 404, {
+            error: "not_found",
+            message: "Idea not found",
+            requestId,
+          });
+          return;
+        }
+        log("info", "idea_updated", {
+          requestId,
+          ideaId: updated.id,
+          sessionId,
+        });
+        json(res, 200, { idea: updated, requestId });
+        return;
+      }
+
+      if (req.method === "DELETE") {
+        const removed = deleteIdea(ideaId);
+        if (!removed) {
+          json(res, 404, {
+            error: "not_found",
+            message: "Idea not found",
+            requestId,
+          });
+          return;
+        }
+        log("info", "idea_deleted", { requestId, ideaId });
+        sendNoContent(res);
+        return;
+      }
     }
 
     if (req.method === "POST" && url.pathname === "/v1/ideas") {
