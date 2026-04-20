@@ -2,7 +2,7 @@
 
 mstack separates **cognitive modes** so planning, building, reviewing, and shipping do not blur in one undifferentiated session. Each phase has one job.
 
-**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
+**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [POWER_USER.md](POWER_USER.md) · [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) · [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
 
 ## Phases
 
@@ -36,6 +36,7 @@ flowchart LR
 - **Test plan**: `templates/TEST_PLAN_TEMPLATE.md`
 - **Design brief** (UI): `templates/DESIGN_BRIEF_TEMPLATE.md`
 - **Debug session** (optional): `templates/DEBUG_SESSION_TEMPLATE.md`
+- **Session handoff** (optional): root `SESSION_BRIEF.md` from `templates/SESSION_BRIEF_TEMPLATE.md`
 - **Reflect**: `templates/REFLECT_TEMPLATE.md`
 - **Postmortem** (incidents): `templates/POSTMORTEM_TEMPLATE.md` or `templates/INCIDENT_POSTMORTEM_TEMPLATE.md`
 - **PR / ship**: `templates/PR_CHECKLIST_TEMPLATE.md`
@@ -49,6 +50,7 @@ flowchart LR
 - **Risk register** (optional): `templates/RISK_REGISTER_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 - **Rule presets**: [PACKS.md](PACKS.md)
+- **Power-user recipes**: [POWER_USER.md](POWER_USER.md)
 
 ## Optional modes
 
@@ -57,7 +59,9 @@ flowchart LR
 - **Security pass**: for auth/data/boundary changes, `mstack-security-review.mdc` applies when those files are in scope.
 - **Destructive ops**: `mstack-permissions.mdc` — always confirm before `git reset --hard`, force push, `rm -rf`, DB drops, prod changes.
 - **Model / cost**: `mstack-model-strategy.mdc` — classify task difficulty, suggest lighter vs stronger model tier and token moves in chat. **Cursor does not allow rules to change the model**; the user switches in the model picker (including Auto). Use `@mstack-model-strategy` when unsure.
-- **Session handoff**: `mstack-session-handoff.mdc` — fresh chat or parallel agents; minimal briefing. `@mstack-session-handoff`.
+- **Session handoff**: `mstack-session-handoff.mdc` — prefer root **`SESSION_BRIEF.md`** (`templates/SESSION_BRIEF_TEMPLATE.md`); next chat reads it + `docs/PROJECT_MEMORY.md`. `@mstack-session-handoff`.
+- **Mechanical pass**: `mstack-mechanical-pass.mdc` — chores / trivial fixes; short inline plan. `@mstack-mechanical-pass`.
+- **Adoption audit**: `mstack-adoption-audit.mdc` — checklist pass against **`docs/ADOPTION_AUDIT.md`** (typically **full** pack). `@mstack-adoption-audit`.
 
 ## Specialist rules
 
@@ -83,7 +87,8 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-permissions.mdc` | Destructive git, filesystem, DB, prod (always on when included) |
 | `mstack-repo-memory.mdc` | This repo’s `docs/AGENT_MEMORY`, architecture, decisions |
 | `mstack-model-strategy.mdc` | Model tier + token hints (suggest-only; user changes model in UI) |
-| `mstack-session-handoff.mdc` | New chat / multi-agent; what to paste for continuity |
+| `mstack-session-handoff.mdc` | New chat / multi-agent; prefer root `SESSION_BRIEF.md` |
+| `mstack-mechanical-pass.mdc` | Trivial/chore work; compressed plan (not auth/migrations/new UX) |
 | `mstack-web-performance.mdc` | CWV, lazy loading, fonts, layout stability, bundler config |
 | `mstack-ai-product.mdc` | LLM features, tools, RAG, streaming, injection/PII awareness |
 | `mstack-api-contracts.mdc` | Versioning, errors, OpenAPI/spec alignment |
@@ -92,6 +97,7 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-project-memory.mdc` | Read/update `PROJECT_MEMORY` for design and product prefs |
 | `mstack-product-review.mdc` | Product posture before large plan; no code |
 | `mstack-documentation-pass.mdc` | README/docs/runbook alignment before Ship |
+| `mstack-adoption-audit.mdc` | Onboarding checklist; report gaps only (**full** pack) |
 
 ## Cursor integration
 

@@ -1,0 +1,26 @@
+---
+description: Mechanical or chore tasks — compress Think/Plan to a short inline plan; skip long templates unless asked. For typos, single-file fixes, obvious refactors. Not for auth, migrations, or new product behavior. @mention mstack-mechanical-pass.
+alwaysApply: false
+---
+
+# mstack mechanical pass
+
+Use when the user marks work as **mechanical**, **chore**, **trivial**, or **quick patch**, or **@mentions** this rule.
+
+## Posture
+
+- **Think + Plan** in **3–5 lines** in chat (goal, files, verify command)—do **not** open `templates/PLAN_TEMPLATE.md` unless the user asks.
+- **Build** with minimal diff; match repo style.
+- Still follow **`mstack-token-discipline.mdc`** (narrow search, bounded reads).
+- Still follow **`mstack-permissions.mdc`** — confirm before destructive git, filesystem, DB, or production ops.
+
+## When **not** to use this rule
+
+- **Security-sensitive** paths (auth, crypto, sessions, webhooks).
+- **Schema / migrations** (`mstack-data-modeling.mdc`, `mstack-data-migrations.mdc`).
+- **New user-facing behavior** or unclear product scope — use full **`mstack-core-workflow.mdc`** and optionally **`mstack-product-review.mdc`**.
+- **Multi-file or cross-cutting** refactors without an agreed spec — use Plan Mode and normal Plan.
+
+## Output
+
+- Short summary of what changed and how to verify (one command if possible).

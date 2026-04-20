@@ -1,0 +1,24 @@
+# Example: verify vendored mstack rules match a pack (strict = no extra mstack-*.mdc).
+# Copy to .github/workflows/mstack-pack-verify.yml and adjust paths/branches.
+#
+# Prerequisites: mstack as submodule at vendor/mstack (or use checkout action).
+#
+# name: mstack pack verify
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+# jobs:
+#   verify:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           submodules: recursive
+#       - name: Verify mstack rules match pack
+#         run: |
+#           MSTACK_ROOT="${{ github.workspace }}/vendor/mstack" \
+#             "${{ github.workspace }}/vendor/mstack/scripts/verify-mstack-sync.sh" \
+#             --strict standard "${{ github.workspace }}"
+#         # Change "standard" to minimal | lite | solo | full | all as needed.

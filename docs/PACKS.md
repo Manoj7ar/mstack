@@ -2,7 +2,23 @@
 
 Presets for copying **`mstack-*.mdc`** into another repo. Names match [`README.md`](../README.md) guidance.
 
-**Machine-readable lists** (for `scripts/sync-mstack.sh`): [`scripts/packs/minimal.txt`](../scripts/packs/minimal.txt), [`lite.txt`](../scripts/packs/lite.txt), [`standard.txt`](../scripts/packs/standard.txt), [`full.txt`](../scripts/packs/full.txt).
+**Machine-readable lists** (for `scripts/sync-mstack.sh` and `scripts/verify-mstack-sync.sh`): [`scripts/packs/minimal.txt`](../scripts/packs/minimal.txt), [`lite.txt`](../scripts/packs/lite.txt), [`solo.txt`](../scripts/packs/solo.txt), [`standard.txt`](../scripts/packs/standard.txt), [`full.txt`](../scripts/packs/full.txt).
+
+## Verify sync (CI / local)
+
+After syncing, prove `.cursor/rules` matches the pack (from **consumer repo** root):
+
+```bash
+MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh standard
+# Fail if stray rules exist (drift detection):
+MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh --strict standard
+```
+
+**Local sanity** (required trio + optional pack verify): `bash vendor/mstack/scripts/mstack-doctor.sh .` — with `MSTACK_ROOT`, `MSTACK_PACK`, and `MSTACK_VERIFY_STRICT=1` also runs `verify-mstack-sync.sh`. See [POWER_USER.md](POWER_USER.md).
+
+**CI template:** copy [`.github/workflows/mstack-pack-verify.yml.example`](../.github/workflows/mstack-pack-verify.yml.example) to `.github/workflows/mstack-pack-verify.yml` and adjust submodule path and pack name.
+
+Use pack `all` to assert every `mstack-*.mdc` from the mstack checkout is present in the consumer. See [POWER_USER.md](POWER_USER.md).
 
 ## Sync from a vendored checkout
 
@@ -16,7 +32,7 @@ MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard INIT_PROJECT_MEMORY=1 vendor/msta
 MSTACK_ROOT=vendor/mstack MSTACK_PACK=lite SYNC_TEMPLATES=0 vendor/mstack/scripts/sync-mstack.sh
 ```
 
-- **`MSTACK_PACK`:** `minimal` | `lite` | `standard` | `full` | `all` (default **`all`** = every `mstack-*.mdc`, backward compatible).
+- **`MSTACK_PACK`:** `minimal` | `lite` | `solo` | `standard` | `full` | `all` (default **`all`** = every `mstack-*.mdc`, backward compatible).
 - **`SYNC_TEMPLATES`:** `1` (default) or `0` to skip `templates/*.md`.
 - **`INIT_PROJECT_MEMORY`:** `1` creates `docs/PROJECT_MEMORY.md` from the template only if it does not exist.
 
@@ -38,6 +54,18 @@ Core safety and workflow only.
 - `mstack-session-handoff.mdc`
 - `mstack-model-strategy.mdc`
 
+## Solo power (7 files)
+
+**Lite** plus **project memory** and **mechanical pass**—solo developers who want durable prefs and a turbo path without the full Standard specialist set.
+
+- `mstack-core-workflow.mdc`
+- `mstack-token-discipline.mdc`
+- `mstack-permissions.mdc`
+- `mstack-session-handoff.mdc`
+- `mstack-model-strategy.mdc`
+- `mstack-project-memory.mdc`
+- `mstack-mechanical-pass.mdc`
+
 ## Standard (minimal + common product work)
 
 Add specialists most teams hit daily.
@@ -57,6 +85,7 @@ Add specialists most teams hit daily.
 - `mstack-model-strategy.mdc`
 - `mstack-session-handoff.mdc`
 - `mstack-project-memory.mdc`
+- `mstack-mechanical-pass.mdc` (compress phases for chores; see rule body)
 
 ## Full (everything in this repository)
 
@@ -75,6 +104,7 @@ Add specialists most teams hit daily.
 - `mstack-product-review.mdc`
 - `mstack-documentation-pass.mdc`
 - `mstack-repo-memory.mdc` (only if you are **vendoring from this repo** and keep `docs/AGENT_MEMORY` pattern; skip in generic app repos)
+- `mstack-adoption-audit.mdc` (walk **`docs/ADOPTION_AUDIT.md`** in workspace; **`@mstack-adoption-audit`**)
 
 **Note:** Add **`docs/PROJECT_MEMORY.md`** (copy from `templates/PROJECT_MEMORY_TEMPLATE.md`) in **consumer** repos when using `mstack-project-memory.mdc`. Copy **`docs/ONBOARDING.md`**, **`PLAYBOOK.md`**, etc., if you want the same navigation docs in your app repo.
 

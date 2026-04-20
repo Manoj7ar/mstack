@@ -26,6 +26,8 @@ flowchart LR
 
 ## Handoff checklist (copy-paste)
 
+When **switching chats** or **parallel agents**, prefer a root **`SESSION_BRIEF.md`** filled from **`templates/SESSION_BRIEF_TEMPLATE.md`**; next message: *Read `SESSION_BRIEF.md` and `docs/PROJECT_MEMORY.md`.* Power-user recipes: [POWER_USER.md](POWER_USER.md).
+
 Before **Build**, confirm:
 
 - [ ] Goal and **non-goals** stated
@@ -56,6 +58,8 @@ Smaller initiatives: **`templates/PRODUCT_REVIEW_LITE.md`** with the same rule.
 
 ## See also
 
+- [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste Agent openers
+- [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — install checklist; **`@mstack-adoption-audit`** (full pack)
 - [ONBOARDING.md](ONBOARDING.md) — first-time setup
 - [PACKS.md](PACKS.md) — which rules to copy
 - [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) — how this maps to GStack-style roles

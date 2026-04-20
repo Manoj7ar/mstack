@@ -8,7 +8,9 @@
     "start": "node dist/server.js",
     "dev": "node --watch --import tsx src/server.ts",
     "test": "vitest run",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "mstack:doctor": "bash scripts/mstack-doctor.sh .",
+    "mstack:verify-packs": "bash scripts/verify-packs-internal.sh"
   },
   "engines": {
     "node": ">=20"

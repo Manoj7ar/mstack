@@ -90,3 +90,23 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`scripts/packs/{minimal,lite,standard,full}.txt`** (newline-separated rule basenames). Extend **`scripts/sync-mstack.sh`** with **`MSTACK_PACK`** (`minimal` | `lite` | `standard` | `full` | **`all`**). Default **`all`** preserves previous “copy all rules” behavior. Add **`SYNC_TEMPLATES`** and **`INIT_PROJECT_MEMORY`** for optional template skip and `docs/PROJECT_MEMORY.md` bootstrap.
 
 **Consequences:** PACKS.md and onboarding point to the `.txt` files as source of truth for automation; adopters can sync a curated subset in one command.
+
+---
+
+### 2026-04-20 — Verify script, session brief, mechanical pass
+
+**Context:** Power users wanted **provable** vendored rule sets, **file-based** chat handoffs, and an explicit **turbo** path without bloating minimal/lite packs.
+
+**Decision:** Add **`scripts/verify-mstack-sync.sh`** (`--strict` flags extra rules). Prefer root **`SESSION_BRIEF.md`** via **`templates/SESSION_BRIEF_TEMPLATE.md`** in **`mstack-session-handoff.mdc`**. Add **`mstack-mechanical-pass.mdc`** only to **standard** and **full** pack manifests.
+
+**Consequences:** CI can gate drift; session handoffs are copy-paste optional; mechanical work has a documented escape hatch that still respects token discipline and permissions.
+
+---
+
+### 2026-04-20 — Doctor, adoption audit, solo pack, CI example
+
+**Context:** Adopters needed **one-command** local checks, a **repeatable** onboarding checklist, optional **CI** recipe, faster **chat bootstraps**, and a **solo** pack between Lite and Standard.
+
+**Decision:** Add **`scripts/mstack-doctor.sh`** (required trio + optional `verify-mstack-sync` via `MSTACK_PACK` / `MSTACK_ROOT` / `MSTACK_VERIFY_STRICT`), **`scripts/verify-packs-internal.sh`** for manifest typos in this repo, **`docs/ADOPTION_AUDIT.md`**, **`mstack-adoption-audit.mdc`** (in **full** pack only), **`docs/PLAYBOOK_FIRST_MESSAGES.md`**, **`.cursor/skills/mstack-doctor`**, **`scripts/packs/solo.txt`**, and **`.github/workflows/mstack-pack-verify.yml.example`**. Wire **`npm run mstack:doctor`** and **`mstack:verify-packs`**.
+
+**Consequences:** Teams can gate drift in CI; solo devs get a 7-rule preset; subjective “usefulness scores” still depend on human discipline—tooling only reduces silent misconfiguration.

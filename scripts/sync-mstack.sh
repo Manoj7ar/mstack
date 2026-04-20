@@ -2,7 +2,7 @@
 # Copy mstack rules and templates from a vendored path into the current repo root.
 # Usage: MSTACK_ROOT=vendor/mstack ./scripts/sync-mstack.sh [DEST]
 #
-# MSTACK_PACK: minimal | lite | standard | full | all (default: all — copy every mstack-*.mdc)
+# MSTACK_PACK: minimal | lite | solo | standard | full | all (default: all — copy every mstack-*.mdc)
 # SYNC_TEMPLATES: 1 (default) copy templates/*.md; 0 skip
 # INIT_PROJECT_MEMORY: 1 creates DEST/docs/PROJECT_MEMORY.md from template if missing
 # SYNC_AGENTS_SNIPPET: 1 writes AGENTS.md.mstack-snippet for manual merge

@@ -1,0 +1,8 @@
+# Lite + project memory + mechanical pass (7 rules) — see docs/PACKS.md
+mstack-core-workflow
+mstack-token-discipline
+mstack-permissions
+mstack-session-handoff
+mstack-model-strategy
+mstack-project-memory
+mstack-mechanical-pass

@@ -1,5 +1,5 @@
 ---
-description: Session and chat handoff — when to start a fresh Cursor chat, what to carry over (plan path, open questions), token-aware context for multi-step work. @mention mstack-session-handoff.
+description: Session and chat handoff — refresh SESSION_BRIEF.md for the next agent, or paste minimal bullets. Token-aware continuity across Cursor chats. @mention mstack-session-handoff.
 alwaysApply: false
 ---
 
@@ -7,13 +7,22 @@ alwaysApply: false
 
 Cursor has no shared memory between chats. This rule defines **human-in-the-loop** continuity.
 
+## Preferred: file handoff
+
+1. **Write or refresh** **`SESSION_BRIEF.md`** at the **repo root** with the current state (use `templates/SESSION_BRIEF_TEMPLATE.md` as shape).
+2. Tell the next chat: *Read **`SESSION_BRIEF.md`** and **`docs/PROJECT_MEMORY.md`** (if present), then continue.*
+
+Commit **`SESSION_BRIEF.md`** if the team wants history; **gitignore** it if it is scratch-only.
+
 ## When to start a new chat
 
 - Context is **large** or **stale** (many files pasted, old errors irrelevant).
 - **Phase change** with clean handoff: e.g. finished Plan, starting Build in a focused chat.
 - **Stuck** after several retries; fresh thread with a short **briefing** often beats more patches.
 
-## What to paste into the new chat (minimal)
+## Fallback: paste into the new chat (minimal)
+
+If you cannot write `SESSION_BRIEF.md`:
 
 1. **Goal** (one sentence) and **non-goals**.
 2. **Plan file path** or link if saved (`templates/PLAN_TEMPLATE.md` in repo).
@@ -23,9 +32,9 @@ Cursor has no shared memory between chats. This rule defines **human-in-the-loop
 
 ## Multi-agent (Cursor)
 
-If the user runs **parallel** agents, they choose the winner; rules do not auto-merge. Each agent should still follow `mstack-token-discipline.mdc` to avoid duplicate megapastes.
+If the user runs **parallel** agents, they choose the winner; rules do not auto-merge. Each agent should still follow `mstack-token-discipline.mdc` to avoid duplicate megapastes. **One owner** should consolidate updates into **`SESSION_BRIEF.md`** before the next round.
 
 ## Do not
 
-- Assume the new chat read the old one—**restate** only what is needed.
+- Assume the new chat read the old one—**restate** only what is needed (or rely on **`SESSION_BRIEF.md`**).
 - Hand off mid-debug without `templates/DEBUG_SESSION_TEMPLATE.md` or equivalent bullets.
