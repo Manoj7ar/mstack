@@ -13,6 +13,7 @@ This repo ships **mstack**: opinionated Cursor Agent rules for phase-separated w
 7. **Complex planning**: use **Cursor Plan Mode** when requirements or blast radius are unclear ([Plan Mode](https://cursor.com/docs/agent/plan-mode)); align saved plans with `templates/PLAN_TEMPLATE.md`.
 8. **Destructive actions**: confirm with the user before irreversible git, filesystem, DB, or production operations — see `mstack-permissions.mdc`.
 9. **Model choice**: rules cannot switch Cursor models. For tier and token advice, follow `mstack-model-strategy.mdc` and give **suggestions** only; the user changes the model in the UI.
+10. **Canvas flight deck (optional):** For a visual overview of mstack phases, repo memory links, and an optional live Ideas API snapshot, the user can invoke **`/mstack-flight-deck`** (skill: `.cursor/skills/mstack-flight-deck/`). Requires Cursor 3.1+ for [Canvas](https://cursor.com/docs/agent/tools/canvas).
 
 ## Inspiration note
 

@@ -107,6 +107,10 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 - **Model picker / Auto:** mstack may suggest a **faster vs more capable** tier in chat; **only you** can change the model—project rules cannot.
 - **Web:** No external fetches for design research unless you **explicitly allow** it for that task.
 
+### Cursor Canvas (3.1+)
+
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes a project skill **`mstack-flight-deck`**: type **`/mstack-flight-deck`** in Agent chat to generate a flight deck (mstack phases, doc links, Ideas API route matrix, optional live data via `node scripts/ideas-snapshot.mjs`). Skill path: `.cursor/skills/mstack-flight-deck/SKILL.md`.
+
 ---
 
 ## Quick start (consume mstack in another repo)
@@ -146,7 +150,7 @@ chmod +x vendor/mstack/scripts/sync-mstack.sh
 MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/sync-mstack.sh
 ```
 
-Copies all **`mstack-*.mdc`** and **`templates/*.md`**. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
+Copies all **`mstack-*.mdc`**, **`templates/*.md`**, and **`.cursor/skills/*`** when present. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
 
 ### Subset of rules
 
@@ -173,6 +177,7 @@ AGENTS.md
 LICENSE
 README.md
 .cursor/rules/mstack-*.mdc
+.cursor/skills/mstack-flight-deck/
 docs/
   workflow.md
   PACKS.md
@@ -180,6 +185,7 @@ docs/
   ARCHITECTURE.md
   DECISIONS.md
 scripts/sync-mstack.sh
+scripts/ideas-snapshot.mjs
 templates/*.md
 package.json          # Ideas API
 src/                  # Ideas API

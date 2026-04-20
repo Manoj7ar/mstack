@@ -60,3 +60,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add `GET /v1/meta` (service name, `API_VERSION` in `src/version.ts`, Node version). Add `PATCH /v1/ideas/:id` with Zod-validated partial body and `DELETE /v1/ideas/:id` (204, empty body). Ideas gain `updatedAt`; DELETE removes matching idempotency map entries.
 
 **Consequences:** Clients can probe compatibility via `/v1/meta`; in-memory idempotency keys do not resurrect deleted ideas.
+
+---
+
+### 2026-04-20 — Cursor Canvas flight-deck skill
+
+**Context:** Cursor 3.1+ supports durable interactive [Canvases](https://cursor.com/docs/agent/tools/canvas); this repo benefits from a repeatable layout for onboarding and API visibility.
+
+**Decision:** Add project skill **`.cursor/skills/mstack-flight-deck`** with `disable-model-invocation: true` so users invoke **`/mstack-flight-deck`** explicitly. Add **`scripts/ideas-snapshot.mjs`** (no extra deps) for `GET /v1/meta` and `GET /v1/ideas` JSON. Extend **`scripts/sync-mstack.sh`** to copy **`.cursor/skills`** when vendoring.
+
+**Consequences:** Canvas content is produced in the IDE by the agent; the skill and script are versioned here. Adopters who omit `src/` can delete the skill or leave it (harmless if API not run).
