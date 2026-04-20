@@ -80,3 +80,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add `docs/ONBOARDING.md`, `PLAYBOOK.md`, `GSTACK_INSPIRATION.md`, `TROUBLESHOOTING.md`; add templates `PRODUCT_REVIEW_TEMPLATE.md`, `DOC_TASK_TEMPLATE.md`, `RISK_REGISTER_TEMPLATE.md`; add rules `mstack-product-review.mdc` and `mstack-documentation-pass.mdc`. Wire `AGENTS.md`, `workflow.md`, `PACKS.md` (Custom), README, flight-deck skill, and `mstack-core-workflow.mdc` artifacts.
 
 **Consequences:** More files to maintain; flight-deck reads a few extra doc headings (bounded). No vendored GStack content.
+
+---
+
+### 2026-04-20 — Pack manifests and `MSTACK_PACK`
+
+**Context:** Copying every `mstack-*.mdc` forced adopters to delete files manually to match [PACKS.md](PACKS.md).
+
+**Decision:** Add **`scripts/packs/{minimal,lite,standard,full}.txt`** (newline-separated rule basenames). Extend **`scripts/sync-mstack.sh`** with **`MSTACK_PACK`** (`minimal` | `lite` | `standard` | `full` | **`all`**). Default **`all`** preserves previous “copy all rules” behavior. Add **`SYNC_TEMPLATES`** and **`INIT_PROJECT_MEMORY`** for optional template skip and `docs/PROJECT_MEMORY.md` bootstrap.
+
+**Consequences:** PACKS.md and onboarding point to the `.txt` files as source of truth for automation; adopters can sync a curated subset in one command.

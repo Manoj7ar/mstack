@@ -46,7 +46,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Observability**: `@mstack-observability` for logs, traces, metrics, correlation IDs on server paths.
 - **Release / semver**: `@mstack-release-versioning` for CHANGELOG, tags, release workflows.
 - **Project memory** (design / product prefs): `@mstack-project-memory` or globs in `mstack-project-memory.mdc`; starter `templates/PROJECT_MEMORY_TEMPLATE.md`.
-- **Product review** (before large Plan): `@mstack-product-review` with `templates/PRODUCT_REVIEW_TEMPLATE.md` — **no code** in that posture.
+- **Product review** (before large Plan): `@mstack-product-review` with `templates/PRODUCT_REVIEW_TEMPLATE.md` (big bets) or `templates/PRODUCT_REVIEW_LITE.md` (small bets) — **no code** in that posture.
 - **Documentation pass** (before Ship when docs-heavy): `@mstack-documentation-pass` with `templates/DOC_TASK_TEMPLATE.md`.
 
 ## Artifacts (paths in this pack)
@@ -65,6 +65,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/RUNBOOK_TEMPLATE.md` (ops: deploy, health, rollback)
 - `docs/PROJECT_MEMORY.md` (this repo: durable design/product memory); `templates/PROJECT_MEMORY_TEMPLATE.md` (copy for other repos)
 - `templates/PRODUCT_REVIEW_TEMPLATE.md` (product posture before big bets)
+- `templates/PRODUCT_REVIEW_LITE.md` (five-field product check for smaller scope)
 - `templates/DOC_TASK_TEMPLATE.md` (which docs to update after a change)
 - `templates/RISK_REGISTER_TEMPLATE.md` (living risk table)
 

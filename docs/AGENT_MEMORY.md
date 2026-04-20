@@ -16,6 +16,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
 | **GStack vs mstack** | [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) |
 | **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
+| **What rules cannot do** (model, modes) | [CURSOR_LIMITS.md](CURSOR_LIMITS.md) |
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
 | **Design / product memory** (voice, UX prefs, terminology) | [PROJECT_MEMORY.md](PROJECT_MEMORY.md) |

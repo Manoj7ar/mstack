@@ -23,6 +23,12 @@
 - Remove overlapping rules from your vendored set (see [PACKS.md](PACKS.md) **Custom**).
 - Narrow `globs` on noisy rules; prefer **@mention** for rare postures.
 
+## Too many rules / feels heavy
+
+- Switch to **[Lite](PACKS.md#lite-5-files)** or **[Minimal](PACKS.md#minimal-3-files)** in [PACKS.md](PACKS.md).
+- Re-sync with a smaller pack: `MSTACK_ROOT=vendor/mstack MSTACK_PACK=lite vendor/mstack/scripts/sync-mstack.sh` (or `minimal`).
+- Turn off template copy if you only need rules: `SYNC_TEMPLATES=0`.
+
 ## Design research without permission
 
 - **`mstack-design-research.mdc`** requires **explicit user permission** before web fetches. If the agent browsed without ask, tighten your user message or add a project rule line reinforcing the gate.

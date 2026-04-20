@@ -38,7 +38,8 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
 2. **Stats row (boxes)** — e.g.:
    - **API:** `meta.service` + `meta.apiVersion` from snapshot, or `API offline`
    - **Runtime:** `meta.node` if present, else `—`
-   - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`
+   - **Pack:** short hint — e.g. “sync: `MSTACK_PACK` (minimal / lite / standard / full / all)” + link `docs/PACKS.md`
+   - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/CURSOR_LIMITS.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`
 3. **Table A — Phases → artifacts** (use README / workflow alignment; include typical template paths):
 
    | Phase | Typical artifact |
@@ -51,7 +52,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
    | Ship | `templates/PR_CHECKLIST_TEMPLATE.md`, `templates/ADR_TEMPLATE.md` if needed |
    | Reflect | `templates/REFLECT_TEMPLATE.md` |
 
-   Add a second small table or rows for **optional** artifacts from `docs/workflow.md`: Design brief (`templates/DESIGN_BRIEF_TEMPLATE.md`), Debug (`templates/DEBUG_SESSION_TEMPLATE.md`), Postmortem (`templates/POSTMORTEM_TEMPLATE.md` / `INCIDENT_POSTMORTEM_TEMPLATE.md`), OpenAPI delta, Runbook, Product review (`templates/PRODUCT_REVIEW_TEMPLATE.md`), Doc task (`templates/DOC_TASK_TEMPLATE.md`), Risk register — keep Table A scannable (merge into one table if cleaner).
+   Add a second small table or rows for **optional** artifacts from `docs/workflow.md`: Design brief (`templates/DESIGN_BRIEF_TEMPLATE.md`), Debug (`templates/DEBUG_SESSION_TEMPLATE.md`), Postmortem (`templates/POSTMORTEM_TEMPLATE.md` / `INCIDENT_POSTMORTEM_TEMPLATE.md`), OpenAPI delta, Runbook, Product review (`templates/PRODUCT_REVIEW_TEMPLATE.md` / **`PRODUCT_REVIEW_LITE.md`**), Doc task (`templates/DOC_TASK_TEMPLATE.md`), Risk register — keep Table A scannable (merge into one table if cleaner).
 
 4. **Table B — Ideas API routes** — mirror `docs/ARCHITECTURE.md` endpoint summary. Add column **Notes** with short hints: in-memory store, `X-Request-ID`, rate limits, `X-Session-ID` / `Idempotency-Key` where relevant.
 

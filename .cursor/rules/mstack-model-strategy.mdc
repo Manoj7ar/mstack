@@ -5,6 +5,8 @@ alwaysApply: false
 
 # mstack model strategy
 
+**Reality:** Rules cannot change your model or Cursor modes. See **`docs/CURSOR_LIMITS.md`** in this repo (or add a short “Cursor limits” page in your app when vendoring mstack).
+
 **Limits:** Project rules cannot **change** the active Cursor model. Model choice stays with the user (picker, Auto, subscription). This rule makes the Agent **reason in chat** and **recommend** a tier—user switches manually if they agree.
 
 ## When to use

@@ -1,5 +1,5 @@
 ---
-description: Product review posture — challenge problem, scope, and success before a large plan or build. No code; use templates/PRODUCT_REVIEW_TEMPLATE.md. @mention mstack-product-review.
+description: Product review posture — challenge problem, scope, and success before a large plan or build. No code; use PRODUCT_REVIEW_TEMPLATE or PRODUCT_REVIEW_LITE. @mention mstack-product-review.
 alwaysApply: false
 ---
 
@@ -11,8 +11,13 @@ Use when starting a **non-trivial** feature, initiative, or direction change—*
 
 - **Pressure-test** the problem, user, scope, and “why now.”
 - **No code**, no drive-by refactors, no shipping in this pass.
-- Prefer **`templates/PRODUCT_REVIEW_TEMPLATE.md`** (or equivalent bullets in chat).
+- **Smaller bets:** `templates/PRODUCT_REVIEW_LITE.md` (five fields).
+- **Larger bets:** `templates/PRODUCT_REVIEW_TEMPLATE.md` (or equivalent bullets in chat).
 - For growing risk lists, use **`templates/RISK_REGISTER_TEMPLATE.md`**.
+
+## User input gate
+
+Before recommending **proceed to Plan**, the user must confirm **at least two** of: **success metric** (or observable), **non-goals**, **primary user/persona**, **cancel condition**. If missing, ask only for those gaps—then proceed.
 
 ## Output
 
