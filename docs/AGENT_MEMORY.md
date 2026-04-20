@@ -19,6 +19,8 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **First-message snippets** | [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) |
 | **Honest usefulness / weaknesses** | [EFFECTIVENESS.md](EFFECTIVENESS.md) |
 | **Overlap: which specialist to drop** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md) |
+| **Showcase / FAQ** | [SHOWCASE.md](SHOWCASE.md), [FAQ.md](FAQ.md) |
+| **Contributing** | [CONTRIBUTING.md](../CONTRIBUTING.md), [CHANGELOG.md](../CHANGELOG.md) |
 | **GStack vs mstack** | [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) |
 | **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
 | **What rules cannot do** (model, modes) | [CURSOR_LIMITS.md](CURSOR_LIMITS.md) |

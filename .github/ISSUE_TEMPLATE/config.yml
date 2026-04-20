@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/Manoj7ar/mstack/blob/main/CONTRIBUTING.md
+    about: How to propose rules, packs, and run local checks before a PR.
+  - name: FAQ
+    url: https://github.com/Manoj7ar/mstack/blob/main/docs/FAQ.md
+    about: Common questions about Cursor limits, packs, and tokens.
