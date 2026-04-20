@@ -1,0 +1,37 @@
+---
+description: UI and UX design research — moodboard, references (Mobbin, 21st.dev, Magic UI as pattern libraries), accessibility; web only with user permission.
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.svelte"
+  - "**/*.css"
+  - "**/*.scss"
+  - "**/components/**/*"
+  - "**/app/**/*"
+  - "**/pages/**/*"
+alwaysApply: false
+---
+
+# mstack design research
+
+## Before pixels
+
+- Fill or sketch `templates/DESIGN_BRIEF_TEMPLATE.md` (persona, density, motion, a11y bar).
+- Ask only **high-signal** missing inputs (e.g. WCAG target, dark mode).
+
+## External inspiration (web)
+
+- **Only** fetch external sites if the user **explicitly allows** web research for this task.
+- Use references such as **Mobbin**, **21st.dev**, **Magic UI** for **patterns** (layout, hierarchy, motion level) — **not** long verbatim copy. Cite URLs.
+- Translate patterns into the project’s **existing** design system and tokens.
+
+## Quality bar
+
+- **Hierarchy**: one clear focal point per view; avoid generic “AI slop” layouts.
+- **Accessibility**: focus order, labels, contrast, keyboard paths; respect `prefers-reduced-motion` when adding motion.
+- **States**: loading, empty, error, success — designed, not afterthoughts.
+
+## Handoff to build
+
+- Component inventory, spacing scale notes, and **what to reuse** vs net-new.

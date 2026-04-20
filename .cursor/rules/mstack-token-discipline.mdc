@@ -1,0 +1,32 @@
+---
+description: mstack token discipline — bounded exploration, search-first, no redundant reads or giant pastes.
+alwaysApply: true
+---
+
+# mstack token discipline
+
+## Discovery
+
+- **Search before reading**: narrow paths with repo search; read only what you need.
+- **Bounded reads**: prefer line ranges or small chunks for large files; avoid rereading the same file without reason.
+- **One summary gate**: after non-trivial exploration, write a short **state-of-world** (≤15 lines) before editing.
+
+## Edits
+
+- **Minimal scope**: touch only files required for the task; no cosmetic churn in unrelated code.
+- **No duplicate context**: do not paste the same code block twice; reference paths.
+- **Prefer existing patterns**: reuse helpers, types, and conventions already in the repo.
+
+## Tools
+
+- Use **fast, narrow** queries; widen only when blocked.
+- **Batch** independent reads when the environment allows.
+
+## Communication
+
+- Lead with **decision or diff intent**, then evidence.
+- For errors: **relevant** stack trace or message snippet — not entire logs unless necessary.
+
+## Rules interaction
+
+- Specialist rules (`mstack-frontend`, `mstack-backend`, etc.) add detail; this rule always applies to **how** work is done.

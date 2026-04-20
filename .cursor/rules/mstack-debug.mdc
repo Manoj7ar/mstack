@@ -1,0 +1,28 @@
+---
+description: Debug mode — hypotheses, bisect, reproduce, instrument; avoid random fixes. Trigger when user says debug mode, mstack debug, or debugging a defect.
+alwaysApply: false
+---
+
+# mstack debug
+
+Activate when the user asks for **debugging**, **root cause**, or says **debug mode** / **mstack debug**. In Cursor, the user can **@mention** this rule (e.g. `@mstack-debug`) to apply it manually.
+
+## Order of operations
+
+1. **Reproduce** — exact steps, environment, first known good commit if regression.
+2. **Hypotheses** — list 2–5 plausible causes; order by likelihood.
+3. **Narrow** — bisect (git or logical), smallest failing case, binary search in code paths.
+4. **Instrument** — minimal logging or probes; remove noise after confirmation.
+5. **Fix** — one cause per patch when possible; add a test or guard if cheap.
+
+## Do not
+
+- Stack unrelated refactors on a bugfix.
+- Guess without evidence when reproduction is feasible.
+- Silence errors without understanding.
+
+## Handoff
+
+- Document **symptom → cause → fix** in the PR or commit message body (concise).
+
+Resume normal **Build → Review → Test** from `mstack-core-workflow.mdc` after the fix.
