@@ -41,6 +41,7 @@ flowchart LR
 - **Model strategy** (optional): `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`
 - **API delta** (optional): `templates/OPENAPI_DELTA_TEMPLATE.md`
 - **Runbook** (ops): `templates/RUNBOOK_TEMPLATE.md`
+- **Project memory** (design / product): `docs/PROJECT_MEMORY.md`; starter for other repos: `templates/PROJECT_MEMORY_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 - **Rule presets**: [PACKS.md](PACKS.md)
 
@@ -83,6 +84,7 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-api-contracts.mdc` | Versioning, errors, OpenAPI/spec alignment |
 | `mstack-observability.mdc` | Logs, traces, metrics, correlation IDs |
 | `mstack-release-versioning.mdc` | Semver, CHANGELOG, release workflows |
+| `mstack-project-memory.mdc` | Read/update `PROJECT_MEMORY` for design and product prefs |
 
 ## Cursor integration
 

@@ -15,9 +15,12 @@ When editing **this repository** (not only consuming rules elsewhere), use the d
 1. **[docs/AGENT_MEMORY.md](../../docs/AGENT_MEMORY.md)** — what the repo is, where to look, glossary.
 2. **[docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md)** — directory roles, API lifecycle, endpoints, env vars.
 3. **[docs/DECISIONS.md](../../docs/DECISIONS.md)** — why key choices were made; **append** when you change behavior or layout.
+4. **[docs/PROJECT_MEMORY.md](../../docs/PROJECT_MEMORY.md)** — durable **design and product** preferences, terminology, standing user choices; **append dated bullets** when those are explicitly agreed (see `mstack-project-memory.mdc`).
 
 ## Maintenance rule
 
 If you change **HTTP routes**, **env vars**, **invariants** of the Ideas API, or **folder purpose**, update `ARCHITECTURE.md` and add a dated bullet to `DECISIONS.md` in the same change (or immediately after).
+
+If you lock **design language**, **branding**, **product naming**, or **standing UX preferences**, update `PROJECT_MEMORY.md` (dated bullets).
 
 For **mstack-only** edits (rules/templates), a short `DECISIONS.md` note is enough when the change affects how agents should behave globally.

@@ -14,8 +14,8 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 3. **Build** — Minimal diff; match repo conventions; **no drive-by refactors** unless requested.
 4. **Review** — Adversarial: correctness, edge cases, naming, failure modes. **No new features** in this pass.
 5. **Test** — Proportionate to change; use `templates/TEST_PLAN_TEMPLATE.md` when running QA or adding tests.
-6. **Ship** — Checklist: lint/tests if present, migrations, rollback, docs touchpoints. Use `templates/PR_CHECKLIST_TEMPLATE.md` when opening a PR; add an ADR (`templates/ADR_TEMPLATE.md`) if architecture changed materially. After incidents, use `templates/POSTMORTEM_TEMPLATE.md` (or `templates/INCIDENT_POSTMORTEM_TEMPLATE.md`) for a formal write-up.
-7. **Reflect** — 3–5 bullets: what worked, what to automate next time. Prefer `templates/REFLECT_TEMPLATE.md` for non-trivial work.
+6. **Ship** — Checklist: lint/tests if present, migrations, rollback, docs touchpoints. Use `templates/PR_CHECKLIST_TEMPLATE.md` when opening a PR; add an ADR (`templates/ADR_TEMPLATE.md`) if architecture changed materially. After incidents, use `templates/POSTMORTEM_TEMPLATE.md` (or `templates/INCIDENT_POSTMORTEM_TEMPLATE.md`) for a formal write-up. If new **standing** design or product preferences were explicitly agreed, update `docs/PROJECT_MEMORY.md` (or your project’s `PROJECT_MEMORY.md` path in `AGENTS.md`).
+7. **Reflect** — 3–5 bullets: what worked, what to automate next time. Prefer `templates/REFLECT_TEMPLATE.md` for non-trivial work. Optional: note whether `PROJECT_MEMORY` needs updates.
 
 ## Handoff rules
 
@@ -45,6 +45,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **API contracts**: `@mstack-api-contracts` when changing public HTTP/RPC surfaces; use `templates/OPENAPI_DELTA_TEMPLATE.md` for spec deltas.
 - **Observability**: `@mstack-observability` for logs, traces, metrics, correlation IDs on server paths.
 - **Release / semver**: `@mstack-release-versioning` for CHANGELOG, tags, release workflows.
+- **Project memory** (design / product prefs): `@mstack-project-memory` or globs in `mstack-project-memory.mdc`; starter `templates/PROJECT_MEMORY_TEMPLATE.md`.
 
 ## Artifacts (paths in this pack)
 
@@ -60,5 +61,6 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md` (model tier + token hints; advisory)
 - `templates/OPENAPI_DELTA_TEMPLATE.md` (API / OpenAPI change summary)
 - `templates/RUNBOOK_TEMPLATE.md` (ops: deploy, health, rollback)
+- `docs/PROJECT_MEMORY.md` (this repo: durable design/product memory); `templates/PROJECT_MEMORY_TEMPLATE.md` (copy for other repos)
 
 Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`.
