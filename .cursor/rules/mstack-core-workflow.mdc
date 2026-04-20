@@ -9,7 +9,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 
 ## Phases (order)
 
-1. **Think** — Goal, constraints, unknowns. List **assumptions**; ask the user only for **blocking** decisions.
+1. **Think** — Goal, constraints, unknowns. List **assumptions**; ask the user only for **blocking** decisions. For **non-trivial** work, optionally add a short **Model note** per `mstack-model-strategy.mdc` (suggest-only; user changes model in Cursor).
 2. **Plan** — Architecture, risks, file touch list. Prefer filling `templates/PLAN_TEMPLATE.md` (or equivalent bullets in chat). For **complex or multi-file** work, use Cursor **Plan Mode**: Agent researches, asks clarifying questions, produces a **reviewable plan** before building — mode picker or **Shift+Tab** ([Plan Mode](https://cursor.com/docs/agent/plan-mode)). Save the plan to the workspace when useful so it matches this template.
 3. **Build** — Minimal diff; match repo conventions; **no drive-by refactors** unless requested.
 4. **Review** — Adversarial: correctness, edge cases, naming, failure modes. **No new features** in this pass.
@@ -38,6 +38,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Docs / DevEx**: `@mstack-docs-devx` when updating `README`, `docs/`, or contributor templates.
 - **Data / schema**: `@mstack-data-modeling` for migrations, ORM schema, and SQL-heavy changes.
 - **CI / quality**: `@mstack-ci-quality` when editing workflows or repo-wide lint/tsconfig.
+- **Model / cost**: `@mstack-model-strategy` when choosing model tier, saving tokens, or using Auto—advisory only; see template `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`.
 
 ## Artifacts (paths in this pack)
 
@@ -50,5 +51,6 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/REFLECT_TEMPLATE.md` (reflect phase)
 - `templates/POSTMORTEM_TEMPLATE.md` (incident write-ups)
 - `templates/INCIDENT_POSTMORTEM_TEMPLATE.md` (alternate incident template)
+- `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md` (model tier + token hints; advisory)
 
 Human-readable narrative: `docs/workflow.md`.
