@@ -140,3 +140,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/EFFECTIVENESS.md`** (when mstack helps, when not, checklist to maximize value). Add **`docs/SPECIALIST_MAP.md`** (primary vs alternate per domain). Wire README intro, ONBOARDING, AGENT_MEMORY, workflow, POWER_USER, TROUBLESHOOTING, PACKS Custom, AGENTS human docs, README repo layout. Add a **ceremony vs tokens** bullet to **`mstack-token-discipline.mdc`** pointing at mechanical pass and EFFECTIVENESS.
 
 **Consequences:** Slightly more docs to maintain; adopters can self-select packs and reduce overlap with less support churn.
+
+---
+
+### 2026-04-20 — Community wave 6 (contributors + discoverability)
+
+**Context:** Sharing mstack with ambassadors and broader Cursor users needed a **low-friction** path to feedback and PRs, plus **trust signals** (conduct, templates, CI) without adding new specialist rules.
+
+**Decision:** Add **`CONTRIBUTING.md`**, **`CODE_OF_CONDUCT.md`**, **`.github/ISSUE_TEMPLATE/*`**, **`PULL_REQUEST_TEMPLATE.md`**, **`docs/SHOWCASE.md`**, **`docs/FAQ.md`**, **`CHANGELOG.md`**, and **`.github/workflows/mstack-ci.yml`** (verify-packs, doctor, strict sync smoke for minimal/standard/full, lint, test). Polish **README** (badges, mermaid map, contributor links). Point **`AGENTS.md`** and **`mstack-core-workflow.mdc`** at CONTRIBUTING/CHANGELOG.
+
+**Consequences:** More maintainer surface area (templates, changelog entries); CI must stay green on `main` and `cursor/**` branches.

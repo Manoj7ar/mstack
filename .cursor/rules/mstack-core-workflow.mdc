@@ -85,3 +85,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/LICENSE_HYGIENE_CHECKLIST.md` (NOTICE, attribution, root license—not legal advice)
 
 Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
+
+## Contributing
+
+- Proposing rules, packs, or docs: see root **`CONTRIBUTING.md`** and **`CHANGELOG.md`**.

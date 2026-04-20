@@ -1,5 +1,9 @@
 # mstack
 
+[![mstack CI](https://github.com/Manoj7ar/mstack/actions/workflows/mstack-ci.yml/badge.svg)](https://github.com/Manoj7ar/mstack/actions/workflows/mstack-ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Made for Cursor](https://img.shields.io/badge/Made%20for-Cursor-000000?logo=cursor&logoColor=white)](https://cursor.com)
+
 **mstack** is a **Markdown-first Cursor Agent workflow pack**: phase-separated work, token discipline, permission gates, and specialist rules you can **copy into any codebase**. It ships as `.cursor/rules/*.mdc`, root **`AGENTS.md`**, and **`templates/`**.
 
 This repository is also a **reference implementation**: it includes **`docs/`** for agent-oriented memory and an optional **Ideas HTTP API** (`src/`, `tests/`) that exercises structured API patterns.
@@ -7,6 +11,40 @@ This repository is also a **reference implementation**: it includes **`docs/`** 
 Inspired by the “virtual team” workflow idea popularized by [GStack](https://github.com/garrytan/gstack) (Claude Code). **mstack is independent** content for Cursor; it is not a fork of GStack.
 
 **Reality check:** mstack is **team glue and guardrails**, not automatic model intelligence. See **[docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md)** for when it tends to help, when it does not, and known weak spots.
+
+If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**.
+
+### At a glance (how pieces connect)
+
+```mermaid
+flowchart TB
+  subgraph adopt [Adopt]
+    P[Pack choice docs/PACKS.md]
+    S[sync-mstack.sh + scripts/packs/*.txt]
+  end
+  subgraph cursor [Cursor]
+    R[.cursor/rules mstack-*.mdc]
+    A[AGENTS.md]
+    K[.cursor/skills optional]
+  end
+  subgraph artifacts [Artifacts]
+    T[templates/*.md]
+    M[docs/PROJECT_MEMORY.md]
+  end
+  subgraph verify [Verify]
+    D[mstack-doctor.sh]
+    V[verify-mstack-sync.sh --strict]
+  end
+  P --> S
+  S --> R
+  S --> T
+  S --> K
+  R --> A
+  R --> T
+  R --> M
+  D --> R
+  V --> R
+```
 
 ---
 
@@ -222,8 +260,16 @@ Rule **`mstack-repo-memory.mdc`** reminds agents to use these when editing `docs
 
 ```text
 AGENTS.md
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+CHANGELOG.md
 LICENSE
 README.md
+.github/
+  workflows/mstack-ci.yml
+  workflows/mstack-pack-verify.yml.example
+  ISSUE_TEMPLATE/
+  PULL_REQUEST_TEMPLATE.md
 .cursor/rules/mstack-*.mdc
 .cursor/skills/mstack-flight-deck/
 .cursor/skills/mstack-doctor/
@@ -240,6 +286,8 @@ docs/
   PLAYBOOK_FIRST_MESSAGES.md
   EFFECTIVENESS.md
   SPECIALIST_MAP.md
+  SHOWCASE.md
+  FAQ.md
   PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
@@ -313,3 +361,11 @@ Longer guide: **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Contributing
+
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- [CHANGELOG.md](CHANGELOG.md)
+- [docs/FAQ.md](docs/FAQ.md)
+- [docs/SHOWCASE.md](docs/SHOWCASE.md)

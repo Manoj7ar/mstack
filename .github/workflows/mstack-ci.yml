@@ -1,0 +1,52 @@
+# CI for the mstack repository (rules pack + sample API).
+name: mstack CI
+
+on:
+  push:
+    branches: [main, "cursor/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Pack manifest integrity
+        run: npm run mstack:verify-packs
+
+      - name: Doctor (this repo)
+        run: npm run mstack:doctor
+
+      - name: Doctor + full strict verify
+        env:
+          MSTACK_ROOT: ${{ github.workspace }}
+          MSTACK_PACK: full
+          MSTACK_VERIFY_STRICT: "1"
+        run: bash scripts/mstack-doctor.sh .
+
+      - name: Sync smoke (minimal, standard, full strict)
+        env:
+          MSTACK_ROOT: ${{ github.workspace }}
+        run: |
+          set -euo pipefail
+          for p in minimal standard full; do
+            d=$(mktemp -d)
+            MSTACK_PACK="$p" MSTACK_ROOT="${{ github.workspace }}" bash scripts/sync-mstack.sh "$d"
+            MSTACK_ROOT="${{ github.workspace }}" bash scripts/verify-mstack-sync.sh --strict "$p" "$d"
+          done
+
+      - name: Lint (tsc --noEmit)
+        run: npm run lint
+
+      - name: Test
+        run: npm test
