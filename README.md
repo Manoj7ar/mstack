@@ -9,8 +9,8 @@ Inspired by the structured “virtual team” idea popularized by [GStack](https
 - **Core workflow** — one rule for phases, handoffs, and artifacts.
 - **Token discipline** — search-first, bounded reads, no redundant context.
 - **Permissions** — confirm before destructive git, filesystem, DB, or production actions.
-- **Specialists** — frontend, backend, accessibility, design research, testing/QA, code review, docs/ship, data migrations, CI, dependencies, debug, security (scoped with `globs` where useful).
-- **Templates** — plan, test plan, design brief, debug session, PR checklist, ADR, postmortem under `templates/`.
+- **Specialists** — frontend, backend, accessibility, design research, testing/QA, code review, docs/DevEx (`mstack-docs-devx`) and docs/ship (`mstack-docs-ship`), data modeling (`mstack-data-modeling`) and data migrations (`mstack-data-migrations`), CI/quality (`mstack-ci-quality`) and CI workflows (`mstack-ci`), dependencies, debug, security (scoped with `globs` where useful).
+- **Templates** — plan, test plan, design brief, debug session, reflect, postmortem, PR checklist, ADR under `templates/`.
 
 ## Quick start
 
@@ -62,7 +62,7 @@ chmod +x vendor/mstack/scripts/sync-mstack.sh
 MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/sync-mstack.sh
 ```
 
-Copies `mstack-*.mdc` and `templates/*.md` into the current directory. Merge `AGENTS.md` yourself.
+Copies `mstack-*.mdc` and `templates/*.md` into the current directory. With `SYNC_AGENTS_SNIPPET=1`, also writes `AGENTS.md.mstack-snippet` for manual merge. Otherwise merge `AGENTS.md` yourself.
 
 ### Manual rule in chat
 
@@ -96,14 +96,55 @@ By default, mstack rules tell the Agent **not** to fetch external sites unless y
 AGENTS.md
 .cursor/rules/mstack-*.mdc
 docs/workflow.md
+docs/AGENT_MEMORY.md
+docs/ARCHITECTURE.md
+docs/DECISIONS.md
 scripts/sync-mstack.sh
 templates/PLAN_TEMPLATE.md
 templates/TEST_PLAN_TEMPLATE.md
 templates/DESIGN_BRIEF_TEMPLATE.md
 templates/DEBUG_SESSION_TEMPLATE.md
+templates/REFLECT_TEMPLATE.md
+templates/POSTMORTEM_TEMPLATE.md
 templates/PR_CHECKLIST_TEMPLATE.md
 templates/ADR_TEMPLATE.md
 templates/INCIDENT_POSTMORTEM_TEMPLATE.md
+```
+
+**Agent-oriented docs** (`docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`) are the project’s **long-term memory** — update them when you change API behavior or layout.
+
+## Ideas HTTP API (optional service in this repo)
+
+This branch also includes a small **Node/TypeScript** HTTP service for capturing ideas (validation, session preferences, idempotency, rate limits). Source lives under `src/` and `tests/`.
+
+### Run
+
+```bash
+npm install
+npm run dev
+```
+
+Default port: `3000` (override with `PORT`). Optional: `RATE_LIMIT_MAX`, `RATE_LIMIT_WINDOW_MS`.
+
+### Endpoints
+
+- `GET /health` — liveness
+- `GET /v1/meta` — service name, API version, Node version
+- `GET /v1/ideas?tag=` — list ideas (optional tag filter)
+- `GET /v1/ideas/:id` — single idea
+- `POST /v1/ideas` — create idea (JSON body: `title`, optional `summary`, `tags`). Headers: optional `X-Session-ID`, optional `Idempotency-Key`
+- `PATCH /v1/ideas/:id` — partial update (`title`, `summary`, and/or `tags`; at least one required). Optional `X-Session-ID` merges session default tags when `tags` is sent
+- `DELETE /v1/ideas/:id` — remove idea (no body)
+- `PATCH /v1/session/preferences` — update preferences for a session. Header: `X-Session-ID` (required). Body: optional `defaultTags`, `summarizeTitles`
+
+Responses include `X-Request-ID` and a JSON `requestId` field.
+
+### Test / build
+
+```bash
+npm test
+npm run lint
+npm run build && npm start
 ```
 
 ## License
