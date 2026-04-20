@@ -49,6 +49,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
 | [docs/CURSOR_LIMITS.md](docs/CURSOR_LIMITS.md) | What project rules cannot do (model, modes, persistence) |
+| [docs/POWER_USER.md](docs/POWER_USER.md) | Session brief file, verify sync in CI, mechanical pass |
 
 ---
 
@@ -87,6 +88,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-project-memory.mdc` | `PROJECT_MEMORY.md`, design brief, `theme/`, `tokens/` | Read/update durable design and product preferences. |
 | `mstack-product-review.mdc` | On demand / mention | Product challenge before large plan; **no code** |
 | `mstack-documentation-pass.mdc` | README, `docs/`, changelog globs | Doc alignment before Ship |
+| `mstack-mechanical-pass.mdc` | On demand / mention | Compress phases for chores; not for auth/migrations/new UX |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
 
@@ -102,6 +104,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `TEST_PLAN_TEMPLATE.md` | QA and test design. |
 | `DESIGN_BRIEF_TEMPLATE.md` | UI/UX before build. |
 | `DEBUG_SESSION_TEMPLATE.md` | Repro, hypotheses, **permission** for invasive debug. |
+| `SESSION_BRIEF_TEMPLATE.md` | Shape for root **`SESSION_BRIEF.md`** — durable handoff between Cursor chats. |
 | `REFLECT_TEMPLATE.md` | Reflect phase after non-trivial work. |
 | `POSTMORTEM_TEMPLATE.md` | Incident write-up. |
 | `INCIDENT_POSTMORTEM_TEMPLATE.md` | Alternate postmortem structure. |
@@ -172,6 +175,8 @@ MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard INIT_PROJECT_MEMORY=1 vendor/msta
 
 **Defaults:** **`MSTACK_PACK=all`** copies every **`mstack-*.mdc`** (same as before). Set **`MSTACK_PACK`** to `minimal`, `lite`, `standard`, or `full` to copy only the rules listed in **`vendor/mstack/scripts/packs/<pack>.txt`**. **`SYNC_TEMPLATES=0`** skips **`templates/*.md`**. **`INIT_PROJECT_MEMORY=1`** creates **`docs/PROJECT_MEMORY.md`** from the template if missing.
 
+**Verify** `.cursor/rules` matches the pack (e.g. in CI): `MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh --strict standard`. See **[docs/POWER_USER.md](docs/POWER_USER.md)**.
+
 Also copies **`templates/*.md`** (unless skipped) and **`.cursor/skills/*`** when present. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
 
 ### Subset of rules
@@ -208,12 +213,14 @@ docs/
   GSTACK_INSPIRATION.md
   TROUBLESHOOTING.md
   CURSOR_LIMITS.md
+  POWER_USER.md
   PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
   DECISIONS.md
   PROJECT_MEMORY.md
 scripts/sync-mstack.sh
+scripts/verify-mstack-sync.sh
 scripts/packs/*.txt
 scripts/ideas-snapshot.mjs
 templates/*.md

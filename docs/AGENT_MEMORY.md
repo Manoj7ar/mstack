@@ -14,6 +14,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **First-time setup** | [ONBOARDING.md](ONBOARDING.md) |
 | **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
+| **Power-user recipes** (session brief, CI verify, mechanical pass) | [POWER_USER.md](POWER_USER.md) |
 | **GStack vs mstack** | [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) |
 | **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
 | **What rules cannot do** (model, modes) | [CURSOR_LIMITS.md](CURSOR_LIMITS.md) |

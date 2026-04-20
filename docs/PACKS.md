@@ -2,7 +2,19 @@
 
 Presets for copying **`mstack-*.mdc`** into another repo. Names match [`README.md`](../README.md) guidance.
 
-**Machine-readable lists** (for `scripts/sync-mstack.sh`): [`scripts/packs/minimal.txt`](../scripts/packs/minimal.txt), [`lite.txt`](../scripts/packs/lite.txt), [`standard.txt`](../scripts/packs/standard.txt), [`full.txt`](../scripts/packs/full.txt).
+**Machine-readable lists** (for `scripts/sync-mstack.sh` and `scripts/verify-mstack-sync.sh`): [`scripts/packs/minimal.txt`](../scripts/packs/minimal.txt), [`lite.txt`](../scripts/packs/lite.txt), [`standard.txt`](../scripts/packs/standard.txt), [`full.txt`](../scripts/packs/full.txt).
+
+## Verify sync (CI / local)
+
+After syncing, prove `.cursor/rules` matches the pack (from **consumer repo** root):
+
+```bash
+MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh standard
+# Fail if stray rules exist (drift detection):
+MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/verify-mstack-sync.sh --strict standard
+```
+
+Use pack `all` to assert every `mstack-*.mdc` from the mstack checkout is present in the consumer. See [POWER_USER.md](POWER_USER.md).
 
 ## Sync from a vendored checkout
 
@@ -57,6 +69,7 @@ Add specialists most teams hit daily.
 - `mstack-model-strategy.mdc`
 - `mstack-session-handoff.mdc`
 - `mstack-project-memory.mdc`
+- `mstack-mechanical-pass.mdc` (compress phases for chores; see rule body)
 
 ## Full (everything in this repository)
 

@@ -26,6 +26,8 @@ flowchart LR
 
 ## Handoff checklist (copy-paste)
 
+When **switching chats** or **parallel agents**, prefer a root **`SESSION_BRIEF.md`** filled from **`templates/SESSION_BRIEF_TEMPLATE.md`**; next message: *Read `SESSION_BRIEF.md` and `docs/PROJECT_MEMORY.md`.* Power-user recipes: [POWER_USER.md](POWER_USER.md).
+
 Before **Build**, confirm:
 
 - [ ] Goal and **non-goals** stated

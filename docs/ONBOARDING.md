@@ -28,6 +28,8 @@ flowchart TD
 
 Exact file lists: **[PACKS.md](PACKS.md)** and **`scripts/packs/*.txt`** (used by `sync-mstack.sh`).
 
+**Next:** experienced users — [POWER_USER.md](POWER_USER.md) (session file, CI verify, mechanical pass).
+
 ## 1. Choose a rule pack
 
 Open **[PACKS.md](PACKS.md)** and pick one of the above.
