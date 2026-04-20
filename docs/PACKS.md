@@ -83,6 +83,7 @@ Add specialists most teams hit daily.
 - `mstack-docs-devx.mdc`
 - `mstack-ci-quality.mdc`
 - `mstack-dependencies.mdc`
+- `mstack-feature-flags.mdc` (rollouts, kill switches, flag hygiene)
 - `mstack-model-strategy.mdc`
 - `mstack-session-handoff.mdc`
 - `mstack-project-memory.mdc`
@@ -93,6 +94,8 @@ Add specialists most teams hit daily.
 **All of Standard, plus:**
 
 - `mstack-design-research.mdc`
+- `mstack-privacy-data-handling.mdc` (retention, export/delete, minimization; not legal advice)
+- `mstack-open-source-license.mdc` (`LICENSE`, `NOTICE`, third-party; not legal advice)
 - `mstack-data-modeling.mdc`
 - `mstack-data-migrations.mdc`
 - `mstack-ci.mdc`

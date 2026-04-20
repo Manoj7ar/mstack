@@ -53,6 +53,9 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Documentation pass** (before Ship when docs-heavy): `@mstack-documentation-pass` with `templates/DOC_TASK_TEMPLATE.md`.
 - **Mechanical pass** (typos, single-file chores, obvious fixes): `@mstack-mechanical-pass` — compress phases; still follow token discipline and permissions.
 - **Adoption audit** (full pack): `@mstack-adoption-audit` with **`docs/ADOPTION_AUDIT.md`** — report install gaps; no secrets/remotes changes.
+- **Feature flags** (standard + full): `@mstack-feature-flags` when editing flag SDKs, experiments, or gated rollouts.
+- **Privacy / personal data** (full pack): `@mstack-privacy-data-handling` for retention, export/delete, privacy-oriented paths—not legal advice.
+- **OSS license files** (full pack): `@mstack-open-source-license` for `LICENSE`, `NOTICE`, third-party attribution—not legal advice.
 
 ## Artifacts (paths in this pack)
 
@@ -77,5 +80,8 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/SECRETS_AND_ENV_CHECKLIST.md` (before commits/PRs touching env or CI secrets)
 - `templates/LOCALIZATION_QA_TEMPLATE.md` (locale / RTL / formatting QA)
 - `templates/RELEASE_OWNER_CHECKLIST.md` (version, changelog, migrations, ship — pairs with release rule)
+- `templates/PRIVACY_IMPACT_LITE.md` (engineering alignment for data use; not legal advice)
+- `templates/FEATURE_FLAG_CHANGE_CHECKLIST.md` (rollout, rollback, flag hygiene)
+- `templates/LICENSE_HYGIENE_CHECKLIST.md` (NOTICE, attribution, root license—not legal advice)
 
 Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.

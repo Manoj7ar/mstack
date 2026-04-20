@@ -120,3 +120,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`mstack-secrets-env.mdc`** + **`templates/SECRETS_AND_ENV_CHECKLIST.md`** to **standard** and **full** packs. Add **`mstack-i18n-localization.mdc`** + **`templates/LOCALIZATION_QA_TEMPLATE.md`** to **full** only. Add **`templates/RELEASE_OWNER_CHECKLIST.md`** (no new rule). Add skill **`.cursor/skills/mstack-pack-picker`** (`/mstack-pack-picker`). Wire **`mstack-core-workflow.mdc`**, README, PACKS, workflow, AGENTS.
 
 **Consequences:** Standard grows by one specialist (secrets-env); full adds i18n; consumers sync three new templates via existing `sync-mstack.sh` behavior.
+
+---
+
+### 2026-04-20 — Wave 5: privacy, feature flags, OSS license hygiene
+
+**Context:** Security and secrets rules did not cover **product privacy posture**, **flag rollouts**, or **LICENSE/NOTICE** maintenance.
+
+**Decision:** Add **`mstack-privacy-data-handling.mdc`** + **`PRIVACY_IMPACT_LITE.md`** (**full** only). Add **`mstack-feature-flags.mdc`** + **`FEATURE_FLAG_CHANGE_CHECKLIST.md`** (**standard** + **full**). Add **`mstack-open-source-license.mdc`** + **`LICENSE_HYGIENE_CHECKLIST.md`** (**full** only). All disclaim **not legal advice**.
+
+**Consequences:** Three new specialists and templates; `verify-packs-internal` enforces manifest ↔ file presence.

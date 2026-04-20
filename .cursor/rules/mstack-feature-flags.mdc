@@ -1,0 +1,33 @@
+---
+description: Feature flags and experiments — safe defaults, kill switches, rollout/rollback, server vs client evaluation. @mention mstack-feature-flags.
+globs:
+  - "**/*feature*flag*"
+  - "**/*launchdarkly*"
+  - "**/*unleash*"
+  - "**/flags/**"
+  - "**/experiments/**"
+  - "**/*growthbook*"
+  - "**/*statsig*"
+alwaysApply: false
+---
+
+# mstack feature flags
+
+Use when editing **flag definitions**, **experiment frameworks**, or **runtime flag evaluation**.
+
+## Posture
+
+- **Defaults:** document whether the flag is on or off for new users/environments; prefer **fail closed** or explicit “off until configured” unless product requires otherwise.
+- **Rollback:** every flag that gates risky behavior should have a **kill path** (toggle off, revert config, or code fallback).
+- **Hot paths:** avoid unbounded flag lookups or dynamic string keys in tight loops without caching; keep cardinality manageable.
+- **Server vs client:** sensitive or entitlement flags should be evaluated **server-side**; client flags are hints only unless product accepts tampering risk.
+- **Config:** environment-specific flag values belong in **env / secret store**, not committed secrets (`mstack-secrets-env.mdc`).
+
+## Checklist
+
+Use **`templates/FEATURE_FLAG_CHANGE_CHECKLIST.md`** before merge when behavior is user-visible.
+
+## Pairing
+
+- **Ship docs:** `mstack-docs-ship` or `mstack-docs-devx` if operators need runbook notes.
+- **API surface:** if flags change public behavior, `mstack-api-contracts.mdc`.
