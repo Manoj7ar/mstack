@@ -22,6 +22,7 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 | **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, web perf, AI product, API contracts, observability, releases, session handoff, and more (see table below). |
 | **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes, OpenAPI delta, runbook (see list below). |
 | **Rule packs** | Minimal / standard / full copy lists: **[docs/PACKS.md](docs/PACKS.md)**. |
+| **Project memory** | Durable **design and product** prefs in **`docs/PROJECT_MEMORY.md`**; Agent reads before UI work and updates when you lock decisions (`mstack-project-memory.mdc`). Not a full chat log. |
 
 ---
 
@@ -72,7 +73,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-api-contracts.mdc` | API / OpenAPI / routes | Versioning, error consistency, spec deltas. |
 | `mstack-observability.mdc` | API, server, tracing paths | Structured logs, traces, metrics, correlation IDs. |
 | `mstack-release-versioning.mdc` | CHANGELOG, release CI, manifests | Semver, changelog, tags. |
-| `mstack-repo-memory.mdc` | `docs/`, `src/`, `tests/`, `AGENTS.md`, `README` in **this** repo | Points agents at `docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`. |
+| `mstack-repo-memory.mdc` | `docs/`, `src/`, `tests/`, `AGENTS.md`, `README` in **this** repo | Points agents at `docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`, `PROJECT_MEMORY.md`. |
+| `mstack-project-memory.mdc` | `PROJECT_MEMORY.md`, design brief, `theme/`, `tokens/` | Read/update durable design and product preferences. |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
 
@@ -96,6 +98,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `MODEL_STRATEGY_NOTE_TEMPLATE.md` | Longer model/tier/token session notes (advisory). |
 | `OPENAPI_DELTA_TEMPLATE.md` | Summarize API or OpenAPI changes for PRs or releases. |
 | `RUNBOOK_TEMPLATE.md` | Deploy, health checks, rollback, on-call. |
+| `PROJECT_MEMORY_TEMPLATE.md` | Copy to `docs/PROJECT_MEMORY.md` in consumer repos; design/product standing prefs. |
 
 ---
 
@@ -161,8 +164,9 @@ When you change the **Ideas API**, routes, env vars, or layout, update:
 - **[docs/AGENT_MEMORY.md](docs/AGENT_MEMORY.md)** — orientation and glossary  
 - **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — system map  
 - **[docs/DECISIONS.md](docs/DECISIONS.md)** — decision log  
+- **[docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md)** — design language, product terminology, standing user preferences (when explicitly agreed)
 
-Rule **`mstack-repo-memory.mdc`** reminds agents to use these when editing `docs/`, `src/`, or `tests/` here.
+Rule **`mstack-repo-memory.mdc`** reminds agents to use these when editing `docs/`, `src/`, or `tests/` here. Rule **`mstack-project-memory.mdc`** applies when editing project memory, design briefs, or theme/tokens paths.
 
 ---
 
@@ -179,6 +183,7 @@ docs/
   AGENT_MEMORY.md
   ARCHITECTURE.md
   DECISIONS.md
+  PROJECT_MEMORY.md
 scripts/sync-mstack.sh
 templates/*.md
 package.json          # Ideas API

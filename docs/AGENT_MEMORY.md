@@ -14,11 +14,12 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
+| **Design / product memory** (voice, UX prefs, terminology) | [PROJECT_MEMORY.md](PROJECT_MEMORY.md) |
 | Human install / copy instructions | [README.md](../README.md) |
 
 ## Conventions for agents
 
-- **Update memory when behavior changes**: If you add routes, change env vars, or alter the purpose of a folder, edit `docs/ARCHITECTURE.md` and add a short entry to `docs/DECISIONS.md`.
+- **Update memory when behavior changes**: If you add routes, change env vars, or alter the purpose of a folder, edit `docs/ARCHITECTURE.md` and add a short entry to `docs/DECISIONS.md`. If you lock **design or product** preferences, add dated bullets to `docs/PROJECT_MEMORY.md`.
 - **Prefer small diffs** that match existing TypeScript and markdown style.
 - **Rules**: `mstack-core-workflow.mdc` is `alwaysApply`. Specialist rules use `globs` (frontend, backend, accessibility, data modeling, CI quality, docs/DevEx, etc.); use `@rule-name` when you need a posture that is not file-scoped. **`mstack-repo-memory.mdc`** applies when editing `docs/`, `src/`, or `tests/` in this repo — it points back to the docs above.
 

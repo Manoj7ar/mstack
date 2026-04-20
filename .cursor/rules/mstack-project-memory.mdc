@@ -1,0 +1,43 @@
+---
+description: Project memory — read docs/PROJECT_MEMORY.md before UI/product work; append dated bullets when user locks design or product preferences. @mention mstack-project-memory.
+alwaysApply: false
+globs:
+  - "docs/PROJECT_MEMORY.md"
+  - "**/PROJECT_MEMORY.md"
+  - "templates/DESIGN_BRIEF_TEMPLATE.md"
+  - "**/theme/**"
+  - "**/tokens/**"
+---
+
+# mstack project memory
+
+## Read first
+
+Before **meaningful** UI, UX, branding, or product-copy work, **skim** the project’s memory file (this repo: **`docs/PROJECT_MEMORY.md`**). If your app uses another path, document it in `AGENTS.md`.
+
+Rules **do not** auto-save every conversation. Persistence happens when someone **edits this file**—usually after the user agrees to a durable preference.
+
+## When to update
+
+Add a **dated bullet** under the right section when the user **explicitly** confirms something long-lived, for example:
+
+- “Always use …” / “Never ship …”
+- Brand voice, density, motion level
+- Canonical product names or glossary choices
+
+Keep entries **short**. Do not dump full chat transcripts.
+
+## Conflicts
+
+- **Technical decisions** → `templates/ADR_TEMPLATE.md` or `docs/DECISIONS.md` (this repo).
+- **Exploration only** → no update until the user locks it.
+
+## Pairing
+
+- `mstack-design-research.mdc` for external references (web only with user permission).
+- `mstack-docs-devx.mdc` when memory belongs in contributor-facing docs too.
+- `mstack-session-handoff.mdc` — in a new chat, user can `@` or paste **`docs/PROJECT_MEMORY.md`**.
+
+## Hygiene
+
+Respect `mstack-permissions.mdc` and `mstack-token-discipline.mdc`—small, intentional edits only.

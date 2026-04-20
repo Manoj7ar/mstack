@@ -28,6 +28,7 @@ Add specialists most teams hit daily.
 - `mstack-dependencies.mdc`
 - `mstack-model-strategy.mdc`
 - `mstack-session-handoff.mdc`
+- `mstack-project-memory.mdc`
 
 ## Full (everything in this repository)
 
@@ -44,6 +45,8 @@ Add specialists most teams hit daily.
 - `mstack-observability.mdc`
 - `mstack-release-versioning.mdc`
 - `mstack-repo-memory.mdc` (only if you are **vendoring from this repo** and keep `docs/AGENT_MEMORY` pattern; skip in generic app repos)
+
+**Note:** Add **`docs/PROJECT_MEMORY.md`** (copy from `templates/PROJECT_MEMORY_TEMPLATE.md`) in **consumer** repos when using `mstack-project-memory.mdc`.
 
 ## Templates
 
