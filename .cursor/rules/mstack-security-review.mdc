@@ -1,0 +1,32 @@
+---
+description: Lightweight security pass — authn/z, input, secrets, SSRF, OWASP-minded checklist for boundary-touching code.
+globs:
+  - "**/auth/**/*"
+  - "**/middleware/**/*"
+  - "**/session/**/*"
+  - "**/oauth/**/*"
+  - "**/webhook/**/*"
+  - "**/admin/**/*"
+  - "**/api/**/*"
+  - "**/server/**/*"
+alwaysApply: false
+---
+
+# mstack security review
+
+Use as an **extra posture** when changing auth, sessions, webhooks, admin surfaces, or public APIs.
+
+## Checklist (adapt to stack)
+
+- **Authn/Authz**: who can call this? role checks on every path? IDOR prevented?
+- **Input**: validation, size limits, content types; path traversal; SSRF on outbound URL fetches.
+- **Secrets**: env-only; never logged; rotation story if leaked.
+- **Headers / cookies**: secure, httpOnly, sameSite as appropriate; CSRF for cookie sessions.
+- **Dependencies**: no known-bad patterns introduced (eval, unsanitized HTML).
+
+## Output
+
+- Short list: **Finding | Severity | Fix | Note**
+- **No** full penetration test claim — this is a disciplined dev pass.
+
+If issues are out of scope, file follow-ups explicitly.

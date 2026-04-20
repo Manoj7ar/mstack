@@ -1,0 +1,58 @@
+---
+description: Debug mode — align with Cursor Debug Mode, user consent for instrumentation, hypotheses and cleanup. Trigger when debugging defects, or say mstack debug; @mention mstack-debug to apply manually.
+alwaysApply: false
+---
+
+# mstack debug
+
+Activate when the user asks for **debugging**, **root cause**, **fix this bug**, or says **debug mode** / **mstack debug**. In Cursor, **@mention** this rule (e.g. `@mstack-debug`) to apply it manually in any Agent mode.
+
+## Cursor Debug Mode (preferred for runtime bugs)
+
+Cursor provides **Debug Mode** in the Agent panel: explore and hypothesize → add instrumentation → you reproduce so runtime data is captured → analyze → targeted fix → verify → remove instrumentation. Official overview: [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode).
+
+**Ask the user** to switch to Debug Mode when the issue needs **runtime evidence** (race conditions, timing, regressions, “can’t repro from code alone,” performance). They can use the **mode picker** in Agent or **Shift+Tab** to cycle modes.
+
+In **Debug Mode**, follow Cursor’s loop **and** the **permission** and **cleanup** rules below.
+
+## Features vs bugs
+
+- **Debug Mode / this rule** target **defects** (wrong behavior, crashes, unexpected output).
+- **Greenfield features** use the normal **Think → Plan → Build** track in `mstack-core-workflow.mdc`.
+- If the user is **building a feature** but **debugging bad behavior** on a branch, use this rule for the defect part; same **permission** rules apply.
+
+## Permission gate (required)
+
+Do **not** add or request **invasive** debugging until the user clearly opts in for **this session**, for example by saying **yes**, **instrumentation allowed**, **debug logging OK**, or equivalent.
+
+**Invasive** includes: temporary `console.log` / logger spam, debug endpoints, extra probes, asking the user to **reproduce specifically to capture logs**, or any change whose only purpose is runtime diagnosis.
+
+- **If allowed**: proceed with instrumentation (or let Cursor Debug Mode drive it), keep changes **minimal**, and **remove** them after verification.
+- **If not allowed**: **static analysis only** (read code, stack traces, types, config). Suggest enabling **Cursor Debug Mode** and granting instrumentation consent when they are ready.
+
+Optional: capture context in `templates/DEBUG_SESSION_TEMPLATE.md`.
+
+## Order of operations (general)
+
+1. **Reproduce** — exact steps, environment, first known good commit if regression.
+2. **Hypotheses** — 2–5 plausible causes, ordered by likelihood.
+3. **Narrow** — bisect (git or logical), smallest failing case.
+4. **Instrument** — only after permission; minimal surface area.
+5. **Fix** — one cause per patch when possible; add a test or guard if cheap.
+
+## Cleanup
+
+After the bug is **verified fixed**, remove **all** temporary debug code (logs, probes, flags). Do not leave “we might need this later” instrumentation in the repo.
+
+## Do not
+
+- Stack unrelated refactors on a bugfix.
+- Guess without evidence when reproduction is feasible.
+- Silence errors without understanding.
+
+## Handoff
+
+- Document **symptom → cause → fix** in the PR or commit message (concise).
+- After the fix, use `templates/TEST_PLAN_TEMPLATE.md` for regression cases when helpful.
+
+Resume **Build → Review → Test** from `mstack-core-workflow.mdc` after the fix.
