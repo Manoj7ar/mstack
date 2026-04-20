@@ -1,0 +1,41 @@
+---
+description: Web performance — Core Web Vitals mindset, lazy loading, fonts, images, layout stability; pairs with mstack-frontend. Use for perf-sensitive UI and bundler config.
+alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.astro"
+  - "**/app/**/*"
+  - "**/vite.config.*"
+  - "**/next.config.*"
+  - "**/astro.config.*"
+---
+
+# mstack web performance
+
+Complements `mstack-frontend.mdc` with **user-perceived speed** and **CWV** thinking (LCP, INP, CLS).
+
+## Loading
+
+- **Critical path**: avoid render-blocking where the stack allows; defer non-critical JS.
+- **Code splitting / lazy** routes and heavy widgets when the framework supports it.
+- **Images**: explicit dimensions or aspect ratio where CLS is a risk; modern formats when appropriate.
+
+## Fonts and layout
+
+- **Font loading**: reduce FOIT/FOUT; subset when possible; `font-display` strategy that matches design.
+- **CLS**: reserve space for async content (skeletons, min-height) when layout would jump.
+
+## Runtime
+
+- Avoid **main-thread** long tasks in hot paths; debounce expensive handlers when needed.
+- **Lists**: virtualize only when measured or clearly large.
+
+## Verification
+
+- Prefer **Lighthouse / Web Vitals** or stack-specific profiling when the user cares about perf; state what was **not** run.
+
+## Do not
+
+- Micro-optimize without a **budget** or symptom; match `mstack-token-discipline.mdc` (no drive-by perf churn).

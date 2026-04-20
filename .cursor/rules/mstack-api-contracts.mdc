@@ -1,0 +1,32 @@
+---
+description: API contracts — versioning, breaking vs additive changes, consistent errors and pagination; use when changing public HTTP or RPC surfaces.
+alwaysApply: false
+globs:
+  - "**/api/**/*"
+  - "**/openapi*"
+  - "**/*openapi*"
+  - "**/swagger*"
+  - "**/routes/**/*"
+  - "**/*route*.ts"
+  - "**/*route*.js"
+---
+
+# mstack API contracts
+
+## Stability
+
+- Prefer **additive** changes (new fields optional, new endpoints) over breaking renames.
+- **Version** in path or header when consumers cannot move in lockstep; document deprecation windows.
+
+## Consistency
+
+- **Errors**: stable machine-readable `code` or `type` + human message; align status codes with repo norms.
+- **Pagination / filters**: consistent param names and defaults across resources.
+
+## Documentation
+
+- When the repo keeps **OpenAPI** (or similar), update spec with code; use `templates/OPENAPI_DELTA_TEMPLATE.md` for notable deltas in PR description or docs.
+
+## Pairing
+
+- `mstack-backend.mdc` for validation and idempotency; `mstack-security-review.mdc` for authz on every route.

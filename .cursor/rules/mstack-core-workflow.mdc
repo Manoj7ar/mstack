@@ -39,6 +39,12 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Data / schema**: `@mstack-data-modeling` for migrations, ORM schema, and SQL-heavy changes.
 - **CI / quality**: `@mstack-ci-quality` when editing workflows or repo-wide lint/tsconfig.
 - **Model / cost**: `@mstack-model-strategy` when choosing model tier, saving tokens, or using Auto—advisory only; see template `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`.
+- **Session handoff**: `@mstack-session-handoff` when starting a fresh chat or parallel agent; paste minimal briefing and plan path.
+- **Web perf**: rely on globs in `mstack-web-performance.mdc` or `@mstack-web-performance` for CWV and bundle work.
+- **AI product** (LLM UI, tools, RAG): `@mstack-ai-product` or matching globs.
+- **API contracts**: `@mstack-api-contracts` when changing public HTTP/RPC surfaces; use `templates/OPENAPI_DELTA_TEMPLATE.md` for spec deltas.
+- **Observability**: `@mstack-observability` for logs, traces, metrics, correlation IDs on server paths.
+- **Release / semver**: `@mstack-release-versioning` for CHANGELOG, tags, release workflows.
 
 ## Artifacts (paths in this pack)
 
@@ -52,5 +58,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/POSTMORTEM_TEMPLATE.md` (incident write-ups)
 - `templates/INCIDENT_POSTMORTEM_TEMPLATE.md` (alternate incident template)
 - `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md` (model tier + token hints; advisory)
+- `templates/OPENAPI_DELTA_TEMPLATE.md` (API / OpenAPI change summary)
+- `templates/RUNBOOK_TEMPLATE.md` (ops: deploy, health, rollback)
 
-Human-readable narrative: `docs/workflow.md`.
+Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`.

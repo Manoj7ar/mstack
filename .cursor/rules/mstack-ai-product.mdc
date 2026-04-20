@@ -1,0 +1,36 @@
+---
+description: AI product features — prompts, tools, RAG, streaming UX; injection and PII awareness, allowlists, failure modes. Not legal advice.
+alwaysApply: false
+globs:
+  - "**/*prompt*"
+  - "**/ai/**/*"
+  - "**/llm/**/*"
+  - "**/rag/**/*"
+  - "**/agents/**/*"
+  - "**/mcp/**/*"
+---
+
+# mstack AI product
+
+For **user-facing** LLM features: chat, agents, tool calling, retrieval.
+
+## Safety and abuse
+
+- Treat **user content** in prompts as **untrusted**; avoid instruction injection patterns (clear system/user boundaries when the stack allows).
+- **Tool allowlist**: only expose actions that are safe and expected; validate **arguments** server-side.
+- **PII**: minimize what enters the model; redact or block where policy requires—this rule is **not** legal advice.
+
+## Reliability
+
+- **Streaming**: handle abort, timeouts, and partial failures; show recoverable errors.
+- **Fallbacks**: degrade gracefully when provider or tool fails; log **correlation id** (see `mstack-observability.mdc`).
+
+## Quality
+
+- **Eval hooks**: suggest tests or golden outputs for critical prompts when cheap.
+- **Version prompts** with the app (changelog or config) when behavior must stay reproducible.
+
+## Pairing
+
+- Security-sensitive flows: also `mstack-security-review.mdc`.
+- API boundaries: `mstack-backend.mdc`.
