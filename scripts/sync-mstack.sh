@@ -16,6 +16,11 @@ mkdir -p "$DEST/.cursor/rules" "$DEST/templates"
 cp "$ROOT"/.cursor/rules/mstack-*.mdc "$DEST/.cursor/rules/"
 cp "$ROOT"/templates/*.md "$DEST/templates/" 2>/dev/null || true
 
+if [[ -d "$ROOT/.cursor/skills" ]]; then
+  mkdir -p "$DEST/.cursor/skills"
+  cp -R "$ROOT"/.cursor/skills/* "$DEST/.cursor/skills/"
+fi
+
 if [[ "${SYNC_AGENTS_SNIPPET:-0}" == "1" ]]; then
   if [[ ! -f "$ROOT/AGENTS.md" ]]; then
     echo "SYNC_AGENTS_SNIPPET=1 set but $ROOT/AGENTS.md not found." >&2
@@ -30,4 +35,4 @@ if [[ "${SYNC_AGENTS_SNIPPET:-0}" == "1" ]]; then
   echo "Wrote $SNIPPET (merge into your AGENTS.md manually)"
 fi
 
-echo "Synced mstack rules and templates from $ROOT into $DEST"
+echo "Synced mstack rules, templates, and .cursor/skills (if present) from $ROOT into $DEST"

@@ -15,6 +15,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
 | Human install / copy instructions | [README.md](../README.md) |
+| **Cursor Canvas flight deck** (visual overview; type `/mstack-flight-deck`) | [.cursor/skills/mstack-flight-deck/SKILL.md](../.cursor/skills/mstack-flight-deck/SKILL.md) |
 
 ## Conventions for agents
 
