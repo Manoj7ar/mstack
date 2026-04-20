@@ -1,0 +1,45 @@
+---
+description: Data and persistence — schema changes, migrations, indexing, and safe rollout. Use when editing ORMs, SQL, or migration folders.
+globs:
+  - "**/prisma/**/*"
+  - "**/drizzle/**/*"
+  - "**/migrations/**/*"
+  - "**/*.sql"
+  - "**/schema.*"
+  - "**/models/**/*"
+alwaysApply: false
+---
+
+# mstack data modeling
+
+Complements `mstack-backend.mdc` (API boundaries); this rule focuses on **durable data** and **schema evolution**.
+
+## Migration safety
+
+- Prefer **expand → migrate data → contract** for breaking changes: add new columns/tables first, backfill, switch readers/writers, then remove old shapes.
+- **Reversible steps** where the stack allows; note irreversible steps (data loss) in the plan and ship checklist.
+- **Locking and downtime**: flag long-running migrations (full table scans, blocking DDL); suggest batching, indexes first, or maintenance windows.
+
+## Nullability and defaults
+
+- Adding `NOT NULL`: often requires a **default** or **multi-phase** rollout (nullable + backfill + enforce).
+- **Defaults** in the DB vs app: be explicit about who owns the default and how existing rows are handled.
+
+## Indexing and queries
+
+- New filters or sorts: add **indexes** that match real query patterns; avoid redundant indexes that slow writes.
+- **Uniqueness**: constraints over “check in app only” when correctness requires it.
+
+## Integrity
+
+- **Foreign keys** and **on delete/update** behavior should match product rules (cascade vs restrict).
+- **Enums**: prefer additive values; removing or renaming enum values may need data migration.
+
+## Privacy and logs
+
+- **PII**: no secrets or full sensitive payloads in logs, error messages, or analytics events — align with `mstack-backend.mdc` and `mstack-security-review.mdc` when in doubt.
+
+## Testing
+
+- Exercise migrations against a **copy** of production-like data when available; verify rollback or forward-only plan.
+- Add tests for **invariants** (counts, constraints) when migrations are non-trivial.

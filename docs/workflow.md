@@ -34,12 +34,31 @@ flowchart LR
 - **Test plan**: `templates/TEST_PLAN_TEMPLATE.md`
 - **Design brief** (UI): `templates/DESIGN_BRIEF_TEMPLATE.md`
 - **Debug session** (optional): `templates/DEBUG_SESSION_TEMPLATE.md`
+- **Reflect**: `templates/REFLECT_TEMPLATE.md`
+- **Postmortem** (incidents): `templates/POSTMORTEM_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 
 ## Optional modes
 
 - **Debug**: say *debug mode* or *mstack debug*, or **@mention** `@mstack-debug`. Follow `mstack-debug.mdc`. For bugs that need **runtime evidence**, use **Cursor Debug Mode**: open Agent, use the **mode picker** or press **Shift+Tab** to switch — see [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode). mstack requires **explicit user consent** before invasive instrumentation (extra logging, reproduce-for-logs). Without consent, stick to static analysis and suggest Debug Mode + permission when ready.
 - **Security pass**: for auth/data/boundary changes, `mstack-security-review.mdc` applies when those files are in scope.
+
+## Specialist rules
+
+These `.mdc` files add focused guidance; most use `globs` so they apply when matching files are in scope. You can also **@mention** the rule name in chat (for example `@mstack-accessibility`).
+
+| Rule file | When to use |
+| --------- | ----------- |
+| `mstack-frontend.mdc` | Components, styles, client UI implementation |
+| `mstack-accessibility.mdc` | Keyboard, focus, semantics, assistive-tech-friendly UI |
+| `mstack-design-research.mdc` | External UI references (with user permission for web research) |
+| `mstack-backend.mdc` | APIs, validation, errors, service boundaries |
+| `mstack-data-modeling.mdc` | Schema, migrations, SQL, ORM models |
+| `mstack-testing-qa.mdc` | Tests, QA plans, repro steps |
+| `mstack-ci-quality.mdc` | CI workflows, lint, typecheck, repo-wide tooling |
+| `mstack-docs-devx.mdc` | README, docs, contributing guides, GitHub templates |
+| `mstack-security-review.mdc` | Auth, data protection, trust boundaries |
+| `mstack-debug.mdc` | Structured debugging and permission for invasive steps |
 
 ## Cursor integration
 
