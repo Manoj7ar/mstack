@@ -1,0 +1,6 @@
+# Minimal + session + model strategy (5 rules) — see docs/PACKS.md
+mstack-core-workflow
+mstack-token-discipline
+mstack-permissions
+mstack-session-handoff
+mstack-model-strategy

@@ -42,6 +42,13 @@ Before **Ship**, confirm:
 
 Before a large **Plan**, consider filling **`templates/PRODUCT_REVIEW_TEMPLATE.md`** and invoking **`@mstack-product-review`** — product posture, **no code** in that pass.
 
+Smaller initiatives: **`templates/PRODUCT_REVIEW_LITE.md`** with the same rule.
+
+### When you skip product review
+
+- **OK:** mechanical fixes, typos, dependency bumps, tests for existing behavior, refactors with an already-approved spec.
+- **Not OK:** new user-facing behavior, product positioning, or scope you have not named—do a **lite** or **full** product review first.
+
 ## After the sprint
 
 - **Reflect:** `templates/REFLECT_TEMPLATE.md`

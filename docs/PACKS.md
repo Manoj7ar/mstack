@@ -2,6 +2,24 @@
 
 Presets for copying **`mstack-*.mdc`** into another repo. Names match [`README.md`](../README.md) guidance.
 
+**Machine-readable lists** (for `scripts/sync-mstack.sh`): [`scripts/packs/minimal.txt`](../scripts/packs/minimal.txt), [`lite.txt`](../scripts/packs/lite.txt), [`standard.txt`](../scripts/packs/standard.txt), [`full.txt`](../scripts/packs/full.txt).
+
+## Sync from a vendored checkout
+
+From your **app repo** root (with mstack at `vendor/mstack`):
+
+```bash
+# Standard pack + bootstrap PROJECT_MEMORY if missing
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard INIT_PROJECT_MEMORY=1 vendor/mstack/scripts/sync-mstack.sh
+
+# Rules only (no templates)
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=lite SYNC_TEMPLATES=0 vendor/mstack/scripts/sync-mstack.sh
+```
+
+- **`MSTACK_PACK`:** `minimal` | `lite` | `standard` | `full` | `all` (default **`all`** = every `mstack-*.mdc`, backward compatible).
+- **`SYNC_TEMPLATES`:** `1` (default) or `0` to skip `templates/*.md`.
+- **`INIT_PROJECT_MEMORY`:** `1` creates `docs/PROJECT_MEMORY.md` from the template only if it does not exist.
+
 ## Minimal (3 files)
 
 Core safety and workflow only.
@@ -9,6 +27,16 @@ Core safety and workflow only.
 - `mstack-core-workflow.mdc`
 - `mstack-token-discipline.mdc`
 - `mstack-permissions.mdc`
+
+## Lite (5 files)
+
+**Minimal** plus session handoff and model strategy—good for **solo / small** repos that want continuity and cost hints without the full Standard set.
+
+- `mstack-core-workflow.mdc`
+- `mstack-token-discipline.mdc`
+- `mstack-permissions.mdc`
+- `mstack-session-handoff.mdc`
+- `mstack-model-strategy.mdc`
 
 ## Standard (minimal + common product work)
 

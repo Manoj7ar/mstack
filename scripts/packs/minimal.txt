@@ -1,0 +1,4 @@
+# Core only — see docs/PACKS.md
+mstack-core-workflow
+mstack-token-discipline
+mstack-permissions

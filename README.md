@@ -21,7 +21,7 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 | **Design research** | Optional web inspiration **only with your permission** (`mstack-design-research.mdc`). |
 | **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, web perf, AI product, API contracts, observability, releases, session handoff, and more (see table below). |
 | **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes, OpenAPI delta, runbook (see list below). |
-| **Rule packs** | Minimal / standard / full copy lists: **[docs/PACKS.md](docs/PACKS.md)**. |
+| **Rule packs** | Minimal / **Lite** / standard / full — **[docs/PACKS.md](docs/PACKS.md)** + **`scripts/packs/*.txt`** for `sync-mstack.sh`. |
 | **Project memory** | Durable **design and product** prefs in **`docs/PROJECT_MEMORY.md`**; Agent reads before UI work and updates when you lock decisions (`mstack-project-memory.mdc`). Not a full chat log. |
 
 ---
@@ -48,6 +48,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/PLAYBOOK.md](docs/PLAYBOOK.md) | Sprint shape, handoffs, modes |
 | [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
+| [docs/CURSOR_LIMITS.md](docs/CURSOR_LIMITS.md) | What project rules cannot do (model, modes, persistence) |
 
 ---
 
@@ -111,6 +112,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `RUNBOOK_TEMPLATE.md` | Deploy, health checks, rollback, on-call. |
 | `PROJECT_MEMORY_TEMPLATE.md` | Copy to `docs/PROJECT_MEMORY.md` in consumer repos; design/product standing prefs. |
 | `PRODUCT_REVIEW_TEMPLATE.md` | Product posture before big bets (GStack-style “CEO review” intent) |
+| `PRODUCT_REVIEW_LITE.md` | Five-field product check for smaller initiatives |
 | `DOC_TASK_TEMPLATE.md` | Checklist of docs to update after a change |
 | `RISK_REGISTER_TEMPLATE.md` | Living risk table for initiatives |
 
@@ -164,14 +166,17 @@ From your app repo with mstack at `vendor/mstack`:
 
 ```bash
 chmod +x vendor/mstack/scripts/sync-mstack.sh
-MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/sync-mstack.sh
+# Curated pack + project memory bootstrap (recommended for most apps)
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard INIT_PROJECT_MEMORY=1 vendor/mstack/scripts/sync-mstack.sh
 ```
 
-Copies all **`mstack-*.mdc`**, **`templates/*.md`**, and **`.cursor/skills/*`** when present. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
+**Defaults:** **`MSTACK_PACK=all`** copies every **`mstack-*.mdc`** (same as before). Set **`MSTACK_PACK`** to `minimal`, `lite`, `standard`, or `full` to copy only the rules listed in **`vendor/mstack/scripts/packs/<pack>.txt`**. **`SYNC_TEMPLATES=0`** skips **`templates/*.md`**. **`INIT_PROJECT_MEMORY=1`** creates **`docs/PROJECT_MEMORY.md`** from the template if missing.
+
+Also copies **`templates/*.md`** (unless skipped) and **`.cursor/skills/*`** when present. With **`SYNC_AGENTS_SNIPPET=1`**, also writes **`AGENTS.md.mstack-snippet`** for manual merge.
 
 ### Subset of rules
 
-Remove any specialist you do not need. For curated lists (**minimal**, **standard**, **full**), see **[docs/PACKS.md](docs/PACKS.md)**. At minimum, keep **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
+Remove any specialist you do not need. For curated lists (**minimal**, **lite**, **standard**, **full**), see **[docs/PACKS.md](docs/PACKS.md)** and use **`MSTACK_PACK`**. At minimum, keep **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
 
 ---
 
@@ -202,12 +207,14 @@ docs/
   PLAYBOOK.md
   GSTACK_INSPIRATION.md
   TROUBLESHOOTING.md
+  CURSOR_LIMITS.md
   PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
   DECISIONS.md
   PROJECT_MEMORY.md
 scripts/sync-mstack.sh
+scripts/packs/*.txt
 scripts/ideas-snapshot.mjs
 templates/*.md
 package.json          # Ideas API

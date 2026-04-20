@@ -1,0 +1,17 @@
+# Standard pack — see docs/PACKS.md
+mstack-core-workflow
+mstack-token-discipline
+mstack-permissions
+mstack-frontend
+mstack-accessibility
+mstack-backend
+mstack-testing-qa
+mstack-review
+mstack-debug
+mstack-security-review
+mstack-docs-devx
+mstack-ci-quality
+mstack-dependencies
+mstack-model-strategy
+mstack-session-handoff
+mstack-project-memory

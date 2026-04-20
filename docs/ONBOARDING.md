@@ -2,20 +2,43 @@
 
 Use this path when you first adopt mstack in a project (or when onboarding a teammate).
 
+## Which pack? (quick)
+
+```mermaid
+flowchart TD
+  q[What are you building?]
+  tiny[Tiny solo / scripts / infra only]
+  small[Small app, few files]
+  app[App with UI + API]
+  heavy[Monolith, compliance, many domains]
+  q --> tiny
+  q --> small
+  q --> app
+  q --> heavy
+  tiny --> minimal[Minimal — 3 rules]
+  small --> lite[Lite — 5 rules: + session + model hints]
+  app --> standard[Standard — daily product engineering]
+  heavy --> full[Full — all specialists]
+```
+
+- **Minimal** — core workflow + token discipline + destructive-op gates.
+- **Lite** — Minimal + **session handoff** + **model strategy** (still small).
+- **Standard** — typical product engineering (frontend, backend, tests, review, debug, security, docs, CI, **project memory**).
+- **Full** — everything in this repo (design research, data, observability, product review rule, etc.).
+
+Exact file lists: **[PACKS.md](PACKS.md)** and **`scripts/packs/*.txt`** (used by `sync-mstack.sh`).
+
 ## 1. Choose a rule pack
 
-Open **[PACKS.md](PACKS.md)** and pick:
-
-- **Minimal** — fastest: core workflow + tokens + permissions only.
-- **Standard** — most apps: Minimal plus frontend, backend, tests, review, debug, security, docs, CI, etc.
-- **Full** — everything in this repository, including design research, data modeling, observability, and more.
+Open **[PACKS.md](PACKS.md)** and pick one of the above.
 
 ## 2. Copy files into your repo
 
 From a checkout of mstack (or after `git submodule add`):
 
-- `.cursor/rules/mstack-*.mdc` (only the files in your chosen pack)
-- Merge **`AGENTS.md`** (or use `SYNC_AGENTS_SNIPPET=1` with `scripts/sync-mstack.sh`)
+- **Preferred:** `MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard INIT_PROJECT_MEMORY=1 vendor/mstack/scripts/sync-mstack.sh` — copies **only** that pack’s rules (see [PACKS.md](PACKS.md)); use `MSTACK_PACK=all` for every `mstack-*.mdc` (legacy default).
+- **`SYNC_TEMPLATES=0`** if you only want rules.
+- Merge **`AGENTS.md`** (or `SYNC_AGENTS_SNIPPET=1` with `scripts/sync-mstack.sh`). Optional next step: ask the Agent to **merge** `AGENTS.md.mstack-snippet` into your existing **`AGENTS.md`** if the snippet is noisy to paste by hand.
 - **`templates/*.md`** you need (at minimum those referenced in `mstack-core-workflow.mdc`)
 
 See **[README.md](../README.md)** for copy commands and **`scripts/sync-mstack.sh`**.

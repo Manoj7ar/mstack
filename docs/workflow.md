@@ -2,7 +2,7 @@
 
 mstack separates **cognitive modes** so planning, building, reviewing, and shipping do not blur in one undifferentiated session. Each phase has one job.
 
-**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
 
 ## Phases
 
@@ -44,7 +44,7 @@ flowchart LR
 - **API delta** (optional): `templates/OPENAPI_DELTA_TEMPLATE.md`
 - **Runbook** (ops): `templates/RUNBOOK_TEMPLATE.md`
 - **Project memory** (design / product): `docs/PROJECT_MEMORY.md`; starter for other repos: `templates/PROJECT_MEMORY_TEMPLATE.md`
-- **Product review** (before big bets): `templates/PRODUCT_REVIEW_TEMPLATE.md`
+- **Product review** (before big bets): `templates/PRODUCT_REVIEW_TEMPLATE.md`; smaller scope: `templates/PRODUCT_REVIEW_LITE.md`
 - **Doc task list** (after changes): `templates/DOC_TASK_TEMPLATE.md`
 - **Risk register** (optional): `templates/RISK_REGISTER_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
