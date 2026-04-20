@@ -10,6 +10,10 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    # Some environments set NODE_ENV=production globally; npm ci would then skip devDependencies
+    # and `tsc` / `vitest` would be missing (lint + test fail in ~1s).
+    env:
+      NODE_ENV: development
     steps:
       - uses: actions/checkout@v4
 
