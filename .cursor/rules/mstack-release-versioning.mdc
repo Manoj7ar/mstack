@@ -1,0 +1,31 @@
+---
+description: Release and versioning — semver, tags, changelog discipline; use when editing CHANGELOG, release workflows, or version constants.
+alwaysApply: false
+globs:
+  - "**/CHANGELOG*"
+  - "**/changelog*"
+  - "**/.github/workflows/**/*release*"
+  - "**/package.json"
+  - "**/Cargo.toml"
+  - "**/pyproject.toml"
+---
+
+# mstack release versioning
+
+## Versioning
+
+- Follow the repo’s **semver** (or document if calver); bump **version constants** and **lockfiles** per ecosystem norms.
+
+## Changelog
+
+- **User-visible** changes first; **breaking** sections obvious; link issues or ADRs when the repo does.
+- Avoid dumping internal refactors into user notes unless they affect behavior.
+
+## Tags and CI
+
+- **Release workflows**: idempotent; artifacts signed or checksummed per project policy.
+- Coordinate with `mstack-docs-ship.mdc` and `mstack-ci-quality.mdc` for release gates.
+
+## Pairing
+
+- `mstack-permissions.mdc` before destructive git or production config during release.

@@ -1,0 +1,31 @@
+---
+description: Session and chat handoff — when to start a fresh Cursor chat, what to carry over (plan path, open questions), token-aware context for multi-step work. @mention mstack-session-handoff.
+alwaysApply: false
+---
+
+# mstack session handoff
+
+Cursor has no shared memory between chats. This rule defines **human-in-the-loop** continuity.
+
+## When to start a new chat
+
+- Context is **large** or **stale** (many files pasted, old errors irrelevant).
+- **Phase change** with clean handoff: e.g. finished Plan, starting Build in a focused chat.
+- **Stuck** after several retries; fresh thread with a short **briefing** often beats more patches.
+
+## What to paste into the new chat (minimal)
+
+1. **Goal** (one sentence) and **non-goals**.
+2. **Plan file path** or link if saved (`templates/PLAN_TEMPLATE.md` in repo).
+3. **Open questions** / decisions still needed.
+4. **Branch / commit** and **how to verify** (command or URL).
+5. Optional: **Model note** per `mstack-model-strategy.mdc`.
+
+## Multi-agent (Cursor)
+
+If the user runs **parallel** agents, they choose the winner; rules do not auto-merge. Each agent should still follow `mstack-token-discipline.mdc` to avoid duplicate megapastes.
+
+## Do not
+
+- Assume the new chat read the old one—**restate** only what is needed.
+- Hand off mid-debug without `templates/DEBUG_SESSION_TEMPLATE.md` or equivalent bullets.

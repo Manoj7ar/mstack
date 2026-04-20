@@ -1,0 +1,30 @@
+---
+description: Observability — structured logs, traces, metrics, correlation IDs; pairs with mstack-backend for production diagnosability.
+alwaysApply: false
+globs:
+  - "**/api/**/*"
+  - "**/server/**/*"
+  - "**/instrumentation.*"
+  - "**/otel/**/*"
+  - "**/tracing/**/*"
+---
+
+# mstack observability
+
+## Logs
+
+- **Structured** fields (JSON or key=value) when the codebase already does; include **request / correlation id** on request paths.
+- **Levels**: error for actionable failures; avoid logging secrets or full PII.
+
+## Traces and metrics
+
+- Add **spans** around meaningful boundaries when OpenTelemetry or the stack’s tracer is in use—do not invent a second tracing style.
+- **Metrics**: latency, error rate, saturation—only where the project already exports; note dashboards in `templates/RUNBOOK_TEMPLATE.md` when relevant.
+
+## Debugging production
+
+- Prefer **correlation** across services; align with `mstack-debug.mdc` for local invasive steps (permissioned).
+
+## Pairing
+
+- `mstack-backend.mdc` for request lifecycle; `mstack-release-versioning.mdc` for deploy notes when behavior affects SLOs.

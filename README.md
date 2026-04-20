@@ -19,8 +19,9 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 | **Cursor Debug Mode** | Runtime hypotheses and instrumentation; mstack adds **consent** before invasive logging ([docs](https://cursor.com/docs/agent/debug-mode)). |
 | **Model strategy** | Advisory tier hints (lighter vs stronger) and token tips in chat—**rules cannot switch your model** (`mstack-model-strategy.mdc`). |
 | **Design research** | Optional web inspiration **only with your permission** (`mstack-design-research.mdc`). |
-| **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, and more (see table below). |
-| **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes (see list below). |
+| **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, web perf, AI product, API contracts, observability, releases, session handoff, and more (see table below). |
+| **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes, OpenAPI delta, runbook (see list below). |
+| **Rule packs** | Minimal / standard / full copy lists: **[docs/PACKS.md](docs/PACKS.md)**. |
 
 ---
 
@@ -36,7 +37,7 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 | **Ship** | Lint/tests, migrations, docs, PR readiness | `templates/PR_CHECKLIST_TEMPLATE.md`, ADR if needed |
 | **Reflect** | What worked; what to automate | `templates/REFLECT_TEMPLATE.md` |
 
-Human-readable detail: **[docs/workflow.md](docs/workflow.md)**.
+Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bundles: **[docs/PACKS.md](docs/PACKS.md)**.
 
 ---
 
@@ -65,6 +66,12 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-security-review.mdc` | Auth, API, server, webhooks | Lightweight STRIDE/OWASP-style pass at boundaries. |
 | `mstack-debug.mdc` | On demand / mention | Cursor Debug Mode alignment; **consent** for instrumentation. |
 | `mstack-model-strategy.mdc` | On demand / mention | Task taxonomy; lighter vs stronger tier **suggestions** only. |
+| `mstack-session-handoff.mdc` | On demand / mention | Fresh chat or parallel agents; minimal briefing and plan path. |
+| `mstack-web-performance.mdc` | UI + bundler globs | Core Web Vitals mindset, lazy loading, fonts, CLS. |
+| `mstack-ai-product.mdc` | AI / LLM / RAG paths | Prompt injection awareness, tools, PII minimization, streaming UX. |
+| `mstack-api-contracts.mdc` | API / OpenAPI / routes | Versioning, error consistency, spec deltas. |
+| `mstack-observability.mdc` | API, server, tracing paths | Structured logs, traces, metrics, correlation IDs. |
+| `mstack-release-versioning.mdc` | CHANGELOG, release CI, manifests | Semver, changelog, tags. |
 | `mstack-repo-memory.mdc` | `docs/`, `src/`, `tests/`, `AGENTS.md`, `README` in **this** repo | Points agents at `docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`. |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
@@ -87,6 +94,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `PR_CHECKLIST_TEMPLATE.md` | Scope, risk, tests, rollback before merge. |
 | `ADR_TEMPLATE.md` | Architecture decision records. |
 | `MODEL_STRATEGY_NOTE_TEMPLATE.md` | Longer model/tier/token session notes (advisory). |
+| `OPENAPI_DELTA_TEMPLATE.md` | Summarize API or OpenAPI changes for PRs or releases. |
+| `RUNBOOK_TEMPLATE.md` | Deploy, health checks, rollback, on-call. |
 
 ---
 
@@ -141,7 +150,7 @@ Copies all **`mstack-*.mdc`** and **`templates/*.md`**. With **`SYNC_AGENTS_SNIP
 
 ### Subset of rules
 
-Remove any specialist you do not need. For a **minimal** pack, keep at least **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
+Remove any specialist you do not need. For curated lists (**minimal**, **standard**, **full**), see **[docs/PACKS.md](docs/PACKS.md)**. At minimum, keep **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, and **`mstack-permissions.mdc`**.
 
 ---
 
@@ -166,6 +175,7 @@ README.md
 .cursor/rules/mstack-*.mdc
 docs/
   workflow.md
+  PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
   DECISIONS.md

@@ -39,7 +39,10 @@ flowchart LR
 - **PR / ship**: `templates/PR_CHECKLIST_TEMPLATE.md`
 - **Architecture decision**: `templates/ADR_TEMPLATE.md`
 - **Model strategy** (optional): `templates/MODEL_STRATEGY_NOTE_TEMPLATE.md`
+- **API delta** (optional): `templates/OPENAPI_DELTA_TEMPLATE.md`
+- **Runbook** (ops): `templates/RUNBOOK_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
+- **Rule presets**: [PACKS.md](PACKS.md)
 
 ## Optional modes
 
@@ -48,6 +51,7 @@ flowchart LR
 - **Security pass**: for auth/data/boundary changes, `mstack-security-review.mdc` applies when those files are in scope.
 - **Destructive ops**: `mstack-permissions.mdc` — always confirm before `git reset --hard`, force push, `rm -rf`, DB drops, prod changes.
 - **Model / cost**: `mstack-model-strategy.mdc` — classify task difficulty, suggest lighter vs stronger model tier and token moves in chat. **Cursor does not allow rules to change the model**; the user switches in the model picker (including Auto). Use `@mstack-model-strategy` when unsure.
+- **Session handoff**: `mstack-session-handoff.mdc` — fresh chat or parallel agents; minimal briefing. `@mstack-session-handoff`.
 
 ## Specialist rules
 
@@ -73,6 +77,12 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-permissions.mdc` | Destructive git, filesystem, DB, prod (always on when included) |
 | `mstack-repo-memory.mdc` | This repo’s `docs/AGENT_MEMORY`, architecture, decisions |
 | `mstack-model-strategy.mdc` | Model tier + token hints (suggest-only; user changes model in UI) |
+| `mstack-session-handoff.mdc` | New chat / multi-agent; what to paste for continuity |
+| `mstack-web-performance.mdc` | CWV, lazy loading, fonts, layout stability, bundler config |
+| `mstack-ai-product.mdc` | LLM features, tools, RAG, streaming, injection/PII awareness |
+| `mstack-api-contracts.mdc` | Versioning, errors, OpenAPI/spec alignment |
+| `mstack-observability.mdc` | Logs, traces, metrics, correlation IDs |
+| `mstack-release-versioning.mdc` | Semver, CHANGELOG, release workflows |
 
 ## Cursor integration
 
