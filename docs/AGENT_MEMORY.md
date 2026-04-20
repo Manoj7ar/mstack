@@ -20,7 +20,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 
 - **Update memory when behavior changes**: If you add routes, change env vars, or alter the purpose of a folder, edit `docs/ARCHITECTURE.md` and add a short entry to `docs/DECISIONS.md`.
 - **Prefer small diffs** that match existing TypeScript and markdown style.
-- **Rules**: `mstack-core-workflow.mdc` is `alwaysApply`. Specialist rules use `globs`; use `@rule-name` when you need a posture that is not file-scoped.
+- **Rules**: `mstack-core-workflow.mdc` is `alwaysApply`. Specialist rules use `globs` (frontend, backend, accessibility, data modeling, CI quality, docs/DevEx, etc.); use `@rule-name` when you need a posture that is not file-scoped. **`mstack-repo-memory.mdc`** applies when editing `docs/`, `src/`, or `tests/` in this repo — it points back to the docs above.
 
 ## Glossary
 

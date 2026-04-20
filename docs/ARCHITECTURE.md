@@ -32,7 +32,7 @@ flowchart TB
 | ---- | ---- |
 | `.cursor/rules/` | Cursor Rules (`.mdc`): phases, specialists, token discipline. |
 | `AGENTS.md` | Short bootstrap for agents; points at rules and templates. |
-| `templates/` | Plan, test plan, design brief, debug session skeletons. |
+| `templates/` | Plan, test plan, design brief, debug, reflect, postmortem skeletons. |
 | `docs/` | Human/agent narrative: workflow, **this file**, decisions, agent memory. |
 | `scripts/sync-mstack.sh` | Copy rules/templates into another repo (submodule workflow). |
 | `src/` | HTTP server: routing, validation, observability hooks. |
