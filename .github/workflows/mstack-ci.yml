@@ -5,15 +5,16 @@ on:
   push:
     branches: [main, "cursor/**"]
   pull_request:
-    branches: [main]
+    branches: [main, "cursor/**"]
 
 jobs:
   verify:
     runs-on: ubuntu-latest
-    # Some environments set NODE_ENV=production globally; npm ci would then skip devDependencies
-    # and `tsc` / `vitest` would be missing (lint + test fail in ~1s).
+    # Org/repo npm config sometimes sets production=true or NODE_ENV=production, which makes
+    # `npm ci` skip devDependencies — then `tsc` / `vitest` are missing (fails in ~1–2s).
     env:
       NODE_ENV: development
+      NPM_CONFIG_PRODUCTION: "false"
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +24,8 @@ jobs:
           cache: npm
 
       - name: Install
-        run: npm ci
+        # --include=dev: install devDependencies even if org sets production / omit=dev
+        run: npm ci --include=dev
 
       - name: Pack manifest integrity
         run: npm run mstack:verify-packs
