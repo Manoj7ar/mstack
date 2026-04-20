@@ -48,6 +48,9 @@ flowchart LR
 - **Product review** (before big bets): `templates/PRODUCT_REVIEW_TEMPLATE.md`; smaller scope: `templates/PRODUCT_REVIEW_LITE.md`
 - **Doc task list** (after changes): `templates/DOC_TASK_TEMPLATE.md`
 - **Risk register** (optional): `templates/RISK_REGISTER_TEMPLATE.md`
+- **Secrets / env** (optional): `templates/SECRETS_AND_ENV_CHECKLIST.md`
+- **Localization QA** (optional, full pack): `templates/LOCALIZATION_QA_TEMPLATE.md`
+- **Release owner** (optional): `templates/RELEASE_OWNER_CHECKLIST.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 - **Rule presets**: [PACKS.md](PACKS.md)
 - **Power-user recipes**: [POWER_USER.md](POWER_USER.md)
@@ -83,6 +86,8 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-docs-ship.mdc` | Changelog / ship-oriented doc touchpoints |
 | `mstack-dependencies.mdc` | Manifests and lockfiles |
 | `mstack-security-review.mdc` | Auth, data protection, trust boundaries |
+| `mstack-secrets-env.mdc` | Env files, CI YAML, compose; secret stores and redaction (**standard** + **full**) |
+| `mstack-i18n-localization.mdc` | Message catalogs, locales, formatting (**full** only) |
 | `mstack-debug.mdc` | Structured debugging and permission for invasive steps |
 | `mstack-permissions.mdc` | Destructive git, filesystem, DB, prod (always on when included) |
 | `mstack-repo-memory.mdc` | This repo’s `docs/AGENT_MEMORY`, architecture, decisions |

@@ -26,6 +26,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | Human install / copy instructions | [README.md](../README.md) |
 | **Cursor Canvas flight deck** (visual overview; type `/mstack-flight-deck`) | [.cursor/skills/mstack-flight-deck/SKILL.md](../.cursor/skills/mstack-flight-deck/SKILL.md) |
 | **mstack doctor** (local install check; type `/mstack-doctor`) | [.cursor/skills/mstack-doctor/SKILL.md](../.cursor/skills/mstack-doctor/SKILL.md) |
+| **Pack picker** (which `MSTACK_PACK`; type `/mstack-pack-picker`) | [.cursor/skills/mstack-pack-picker/SKILL.md](../.cursor/skills/mstack-pack-picker/SKILL.md) |
 
 ## Conventions for agents
 

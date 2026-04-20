@@ -45,7 +45,9 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **AI product** (LLM UI, tools, RAG): `@mstack-ai-product` or matching globs.
 - **API contracts**: `@mstack-api-contracts` when changing public HTTP/RPC surfaces; use `templates/OPENAPI_DELTA_TEMPLATE.md` for spec deltas.
 - **Observability**: `@mstack-observability` for logs, traces, metrics, correlation IDs on server paths.
-- **Release / semver**: `@mstack-release-versioning` for CHANGELOG, tags, release workflows.
+- **Release / semver**: `@mstack-release-versioning` for CHANGELOG, tags, release workflows; use **`templates/RELEASE_OWNER_CHECKLIST.md`** when you own a release.
+- **Secrets / env files**: `@mstack-secrets-env` when editing `.env`, CI workflows, compose, or credential paths.
+- **i18n / locales** (full pack): `@mstack-i18n-localization` for catalogs and localization plumbing.
 - **Project memory** (design / product prefs): `@mstack-project-memory` or globs in `mstack-project-memory.mdc`; starter `templates/PROJECT_MEMORY_TEMPLATE.md`.
 - **Product review** (before large Plan): `@mstack-product-review` with `templates/PRODUCT_REVIEW_TEMPLATE.md` (big bets) or `templates/PRODUCT_REVIEW_LITE.md` (small bets) — **no code** in that posture.
 - **Documentation pass** (before Ship when docs-heavy): `@mstack-documentation-pass` with `templates/DOC_TASK_TEMPLATE.md`.
@@ -72,5 +74,8 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/DOC_TASK_TEMPLATE.md` (which docs to update after a change)
 - `templates/RISK_REGISTER_TEMPLATE.md` (living risk table)
 - `templates/SESSION_BRIEF_TEMPLATE.md` (shape for root `SESSION_BRIEF.md` handoffs)
+- `templates/SECRETS_AND_ENV_CHECKLIST.md` (before commits/PRs touching env or CI secrets)
+- `templates/LOCALIZATION_QA_TEMPLATE.md` (locale / RTL / formatting QA)
+- `templates/RELEASE_OWNER_CHECKLIST.md` (version, changelog, migrations, ship — pairs with release rule)
 
 Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
