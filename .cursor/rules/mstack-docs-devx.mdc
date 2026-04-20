@@ -1,0 +1,38 @@
+---
+description: Docs and DevEx — keep README, contributing guides, and project docs accurate without sprawl. Use when editing documentation or contributor workflows.
+globs:
+  - "**/README.md"
+  - "docs/**/*"
+  - "CONTRIBUTING.md"
+  - "CONTRIBUTING"
+  - ".github/**/*.md"
+  - ".github/PULL_REQUEST_TEMPLATE/**/*"
+  - ".github/ISSUE_TEMPLATE/**/*"
+alwaysApply: false
+---
+
+# mstack docs & DevEx
+
+## Principles
+
+- **Update in place** when behavior changes: fix the doc that users already read (often `README.md` or `docs/`) instead of adding a new markdown file unless the user asked for it.
+- **Link to code**: reference directories or entry files (e.g. `src/…`, `packages/…`) so readers can navigate quickly.
+- **Avoid duplicating AGENTS.md**: for app repos, merge mstack snippets into a single `AGENTS.md`; do not maintain two competing “source of truth” instruction files.
+
+## Audience
+
+- **New contributors**: prerequisites, install, build, test, env vars (names only; secrets via vault), common failure modes.
+- **Operators / release**: deployment, migrations, rollback pointers, feature flags if any.
+
+## Changelog and releases
+
+- If the repo keeps a **CHANGELOG** or release notes, add a concise entry for user-visible changes; match existing format and section order.
+- Call out **breaking changes** and migrations explicitly.
+
+## CI and badges
+
+- If documenting CI status or commands, match **actual workflow names** and scripts in the repo; stale badges erode trust.
+
+## Scope control
+
+- Large generated trees (`node_modules`, `dist`, API dumps): **do not** edit for “documentation” unless the task is specifically about those outputs.

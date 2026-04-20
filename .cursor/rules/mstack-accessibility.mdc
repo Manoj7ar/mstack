@@ -1,0 +1,48 @@
+---
+description: Accessibility — keyboard paths, focus, labels, semantics, and async feedback for interactive UI. Use when building or changing user-facing components.
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.svelte"
+  - "**/*.astro"
+  - "**/*.html"
+alwaysApply: false
+---
+
+# mstack accessibility
+
+Pair with `mstack-frontend.mdc` for layout and performance; this rule covers **inclusive interaction** and screen-reader behavior.
+
+## Semantics and structure
+
+- Use **semantic elements** (`button`, `a`, `nav`, `main`, `h1`–`h6`) instead of clickable `div`s unless the pattern is justified and fully wired for accessibility.
+- **Heading order** reflects outline, not visual size alone.
+- **Landmarks**: one `main`; avoid redundant `role` when native elements suffice.
+
+## Keyboard and focus
+
+- Every interactive control is **reachable by Tab** (or documented custom roving tabindex) and **operable with keyboard** (Enter/Space, Escape to dismiss, arrows where expected).
+- **Focus management**: open dialogs move focus inside; on close, restore focus to the trigger; trap focus inside modal surfaces that block the page.
+- **Visible focus**: do not remove focus rings without an equivalent custom style that meets contrast.
+
+## Forms and inputs
+
+- **Labels**: every control has a visible label or `aria-label` / `aria-labelledby` when the design uses a pattern that hides text — prefer visible text.
+- **Errors**: associate messages with fields (`aria-describedby`, `aria-invalid`); do not rely on color alone.
+- **Required fields**: mark in code (`required`, `aria-required`) and match UI copy.
+
+## Dynamic content
+
+- **Loading and async errors**: expose status to assistive tech (`aria-live` / `role="status"` or polite regions); avoid noisy announcements for every keystroke.
+- **Client routing**: update document `title` and move focus to main content when the stack supports it without breaking user expectations.
+
+## Motion and visuals
+
+- Respect **`prefers-reduced-motion`** for non-essential animation; provide a static equivalent.
+- **Contrast**: interactive text and controls meet readable contrast against backgrounds (align with project tokens).
+
+## Quick verification
+
+- Tab through the changed flow: order, focus trap, Escape.
+- Screen reader smoke (VoiceOver/NVDA): button names, form errors, live region for async state.
