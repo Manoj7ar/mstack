@@ -119,7 +119,7 @@ Copy **`templates/*.md`** for the presets you use; at minimum match templates re
 
 ## Custom
 
-Start from **Standard**, add domain rules (e.g. only `mstack-ai-product` if you ship LLM features), remove overlapping pairs if you prefer one of `mstack-ci` vs `mstack-ci-quality` or `mstack-docs-devx` vs `mstack-docs-ship`.
+Start from **Standard**, add domain rules (e.g. only `mstack-ai-product` if you ship LLM features). To drop one of a **pair** of overlapping specialists, see **[SPECIALIST_MAP.md](SPECIALIST_MAP.md)** (e.g. `mstack-ci` vs `mstack-ci-quality`, `mstack-docs-devx` vs `mstack-docs-ship`).
 
 ### Product and docs (optional add-ons)
 
