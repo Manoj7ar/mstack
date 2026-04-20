@@ -8,8 +8,9 @@ Inspired by the structured “virtual team” idea popularized by [GStack](https
 
 - **Core workflow** — one rule for phases, handoffs, and artifacts.
 - **Token discipline** — search-first, bounded reads, no redundant context.
-- **Specialists** — frontend, backend, design research, testing/QA, debug, security (scoped with `globs` where useful).
-- **Templates** — plan, test plan, design brief, debug session under `templates/`.
+- **Permissions** — confirm before destructive git, filesystem, DB, or production actions.
+- **Specialists** — frontend, backend, accessibility, design research, testing/QA, code review, docs/ship, data migrations, CI, dependencies, debug, security (scoped with `globs` where useful).
+- **Templates** — plan, test plan, design brief, debug session, PR checklist, ADR, postmortem under `templates/`.
 
 ## Quick start
 
@@ -50,7 +51,7 @@ Re-init after clone: `git submodule update --init --recursive`.
 
 ### Subset of rules
 
-Omit any `mstack-*.mdc` you do not want (e.g. skip `mstack-security-review.mdc` on tiny prototypes). **Keep** `mstack-core-workflow.mdc` and `mstack-token-discipline.mdc` for the full experience.
+Omit any `mstack-*.mdc` you do not want (e.g. skip `mstack-security-review.mdc` on tiny prototypes). **Keep** `mstack-core-workflow.mdc`, `mstack-token-discipline.mdc`, and `mstack-permissions.mdc` for the full experience.
 
 ### Sync script (submodule)
 
@@ -66,6 +67,10 @@ Copies `mstack-*.mdc` and `templates/*.md` into the current directory. Merge `AG
 ### Manual rule in chat
 
 Cursor supports **@mentioning** a rule to apply it. For example, use **`@mstack-debug`** when you want the debug posture even if the rule is not file-scoped.
+
+## Cursor Plan Mode
+
+For **complex** or **ambiguous** work (many files, unclear requirements, architectural choice), use **Plan Mode** in the Agent panel — **mode dropdown** or **Shift+Tab**. The Agent asks clarifying questions, researches the codebase, and produces a **plan you can edit** before building; save to workspace for the team. Details: [Cursor Plan Mode](https://cursor.com/docs/agent/plan-mode). Align saved plans with `templates/PLAN_TEMPLATE.md`.
 
 ## Cursor Debug Mode
 
@@ -96,6 +101,9 @@ templates/PLAN_TEMPLATE.md
 templates/TEST_PLAN_TEMPLATE.md
 templates/DESIGN_BRIEF_TEMPLATE.md
 templates/DEBUG_SESSION_TEMPLATE.md
+templates/PR_CHECKLIST_TEMPLATE.md
+templates/ADR_TEMPLATE.md
+templates/INCIDENT_POSTMORTEM_TEMPLATE.md
 ```
 
 ## License

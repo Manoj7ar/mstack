@@ -1,0 +1,21 @@
+---
+description: mstack destructive-action gate — confirm with user before irreversible git, filesystem, database, or production operations.
+alwaysApply: true
+---
+
+# mstack permissions (destructive actions)
+
+Before running or suggesting any **destructive** or **hard-to-revert** operation, **stop and get explicit user confirmation** (they must understand the impact).
+
+## Requires confirmation
+
+- **Git**: `git reset --hard`, force push (`--force`, `--force-with-lease` to shared branches), history rewrite, deleting remote branches.
+- **Filesystem**: `rm -rf` on project or broad paths, mass deletes outside clearly scoped trash.
+- **Data**: dropping databases/schemas, truncating tables, destructive migrations without backup story.
+- **Production**: changing prod config, secrets, feature flags affecting users, live traffic routing.
+
+## If unsure
+
+Treat the action as **destructive** and ask. Prefer **dry-run** or **backup** steps when the repo or tooling supports them.
+
+Works with `mstack-core-workflow.mdc` — **Ship** is never an excuse to skip confirmation.

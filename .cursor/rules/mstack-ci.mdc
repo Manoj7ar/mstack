@@ -1,0 +1,29 @@
+---
+description: CI and workflows — fix failing pipelines from logs; minimal targeted changes; no disabling checks without user consent.
+alwaysApply: false
+globs:
+  - "**/.github/workflows/**/*"
+  - "**/.gitlab-ci.yml"
+  - "**/ci/**/*"
+  - "**/.circleci/**/*"
+---
+
+# mstack CI
+
+## Approach
+
+- Read **failure logs**; identify the **root** failure (first error, not cascading noise).
+- Fix with the **smallest** change that restores green; match existing workflow style.
+
+## Do not
+
+- Comment out tests, remove linters, or `|| true` failures **without explicit user approval** (same spirit as `mstack-permissions.mdc`).
+- Bump images or actions blindly — note **why** and pin when the repo pins.
+
+## Secrets and env
+
+- Never embed secrets in workflow YAML; use **secrets** / **vars** per platform conventions.
+
+## After fix
+
+- State what was run locally vs what CI will prove; suggest follow-up if flaky.

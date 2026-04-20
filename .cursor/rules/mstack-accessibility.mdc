@@ -1,0 +1,29 @@
+---
+description: Accessibility depth — WCAG-oriented checks for interactive UI beyond baseline frontend patterns.
+alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.svelte"
+---
+
+# mstack accessibility
+
+Complements `mstack-frontend.mdc` with **a11y-specific** rigor.
+
+## Checklist (adapt to stack)
+
+- **Focus**: visible focus rings; no `outline: none` without replacement; trap focus only in true modals.
+- **Semantics**: buttons vs links; headings in order; landmarks where appropriate.
+- **Forms**: labels tied to inputs; errors announced (live region or equivalent).
+- **Motion**: respect `prefers-reduced-motion` for non-essential animation.
+- **Contrast**: text and interactive states meet team target (often WCAG AA).
+
+## Testing
+
+- Keyboard-only pass for new flows; spot-check with **screen reader** when high-stakes.
+
+## Do not
+
+- Fix a11y by **suppressing** warnings without addressing cause.

@@ -5,11 +5,13 @@ This repo ships **mstack**: opinionated Cursor Agent rules for phase-separated w
 ## For Cursor Agent
 
 1. **Follow** the project rules under `.cursor/rules/mstack-*.mdc`. The phase machine and handoffs live in `mstack-core-workflow.mdc`.
-2. **Use** `templates/PLAN_TEMPLATE.md`, `templates/TEST_PLAN_TEMPLATE.md`, `templates/DESIGN_BRIEF_TEMPLATE.md`, and `templates/DEBUG_SESSION_TEMPLATE.md` when planning, testing, UI work, or structured debugging respectively.
+2. **Use** `templates/PLAN_TEMPLATE.md`, `templates/TEST_PLAN_TEMPLATE.md`, `templates/DESIGN_BRIEF_TEMPLATE.md`, `templates/DEBUG_SESSION_TEMPLATE.md`, `templates/PR_CHECKLIST_TEMPLATE.md`, `templates/ADR_TEMPLATE.md`, and `templates/INCIDENT_POSTMORTEM_TEMPLATE.md` when relevant.
 3. **Token discipline** is in `mstack-token-discipline.mdc` — prefer narrow search, bounded file reads, and short summaries before large edits.
 4. **Web and external design research** (e.g. inspiration sites): only after the user **explicitly permits** web research for this task. See `mstack-design-research.mdc` and the root `README.md`.
 5. **Scope**: match existing repo conventions; avoid drive-by refactors unless asked.
 6. **Runtime debugging**: prefer **Cursor Debug Mode** for bugs that need execution evidence ([Debug Mode](https://cursor.com/docs/agent/debug-mode)). **Ask the user** before adding temporary logging, probes, or asking them to reproduce solely to capture logs — see `mstack-debug.mdc`.
+7. **Complex planning**: use **Cursor Plan Mode** when requirements or blast radius are unclear ([Plan Mode](https://cursor.com/docs/agent/plan-mode)); align saved plans with `templates/PLAN_TEMPLATE.md`.
+8. **Destructive actions**: confirm with the user before irreversible git, filesystem, DB, or production operations — see `mstack-permissions.mdc`.
 
 ## Inspiration note
 

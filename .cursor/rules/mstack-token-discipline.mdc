@@ -30,3 +30,4 @@ alwaysApply: true
 ## Rules interaction
 
 - Specialist rules (`mstack-frontend`, `mstack-backend`, etc.) add detail; this rule always applies to **how** work is done.
+- **Plan Mode**, **Debug Mode**, and **review-only** sessions still use bounded exploration and the **summary gate** before large edits.

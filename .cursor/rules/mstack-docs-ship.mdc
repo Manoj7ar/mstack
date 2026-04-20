@@ -1,0 +1,28 @@
+---
+description: Documentation and ship hygiene — README, docs, changelog, ADRs when architecture changes; align with Ship phase.
+alwaysApply: false
+globs:
+  - "**/README.md"
+  - "**/readme.md"
+  - "**/docs/**/*"
+  - "**/CHANGELOG*"
+  - "**/changelog*"
+---
+
+# mstack docs and ship
+
+## When editing docs or shipping
+
+- **README**: keep quickstart accurate (install, env vars, common commands); remove dead sections.
+- **Changelog** (if the repo keeps one): user-visible changes, migration notes, breaking changes called out.
+- **Architecture decisions**: for non-trivial design choices, add or update an ADR using `templates/ADR_TEMPLATE.md` under `docs/adr/` or the repo’s convention.
+
+## Ship alignment
+
+- Link **how to run** tests and **how to deploy** if maintainers expect it.
+- Note **rollback** for risky releases (migrations, feature flags).
+
+## Do not
+
+- Paste large generated dumps into docs unless the user asked.
+- Contradict `mstack-token-discipline.mdc` — small, accurate edits only.

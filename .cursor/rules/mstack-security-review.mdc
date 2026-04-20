@@ -22,7 +22,7 @@ Use as an **extra posture** when changing auth, sessions, webhooks, admin surfac
 - **Input**: validation, size limits, content types; path traversal; SSRF on outbound URL fetches.
 - **Secrets**: env-only; never logged; rotation story if leaked.
 - **Headers / cookies**: secure, httpOnly, sameSite as appropriate; CSRF for cookie sessions.
-- **Dependencies**: no known-bad patterns introduced (eval, unsanitized HTML).
+- **Dependencies**: no known-bad patterns introduced (eval, unsanitized HTML). For manifest/lockfile-focused changes, see `mstack-dependencies.mdc`.
 
 ## Output
 

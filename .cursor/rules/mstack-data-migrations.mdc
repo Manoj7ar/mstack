@@ -1,0 +1,28 @@
+---
+description: Database and schema migrations — backwards compatibility, rollout, rollback, and safe data movement.
+alwaysApply: false
+globs:
+  - "**/migrations/**/*"
+  - "**/prisma/**/*"
+  - "**/drizzle/**/*"
+  - "**/knex/**/*"
+  - "**/*migration*"
+---
+
+# mstack data migrations
+
+## Principles
+
+- Prefer **expand → migrate → contract** (add nullable columns first, backfill, then enforce).
+- **Reversible** when possible; document **irreversible** steps explicitly.
+- **Downtime / locks**: call out long-running migrations and index builds.
+
+## Safety
+
+- No silent **data loss**; confirm destructive steps with the user per `mstack-permissions.mdc`.
+- **Prod**: batch size, idempotency, and monitoring hooks if the codebase uses them.
+
+## Testing
+
+- Exercise **up** and **down** (or forward-only with compensating strategy) in dev.
+- Note **seed** or fixture updates when schema changes.
