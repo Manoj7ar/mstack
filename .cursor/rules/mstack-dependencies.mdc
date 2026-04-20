@@ -1,0 +1,35 @@
+---
+description: Dependencies and supply chain — intentional version changes, lockfiles, audit mindset; avoid unnecessary churn.
+alwaysApply: false
+globs:
+  - "**/package.json"
+  - "**/package-lock.json"
+  - "**/pnpm-lock.yaml"
+  - "**/yarn.lock"
+  - "**/bun.lockb"
+  - "**/Cargo.toml"
+  - "**/Cargo.lock"
+  - "**/go.mod"
+  - "**/go.sum"
+  - "**/requirements.txt"
+  - "**/pyproject.toml"
+  - "**/Gemfile"
+  - "**/Gemfile.lock"
+---
+
+# mstack dependencies
+
+## Changes
+
+- **Why first**: security patch, bugfix, needed API — state the reason.
+- **Lockfile**: always keep lockfile in sync with manifest when the ecosystem uses one.
+- Prefer **minimal** semver jumps; avoid drive-by major upgrades unless requested.
+
+## Review
+
+- Skim **release notes** for breaking changes when upgrading materially.
+- Avoid adding **duplicate** libraries for the same job.
+
+## Security
+
+- Treat **new transitive deps** as risk; flag obvious red flags (install scripts, unexpected binaries) for human review.

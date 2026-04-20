@@ -1,5 +1,6 @@
 ---
-description: Accessibility — keyboard paths, focus, labels, semantics, and async feedback for interactive UI. Use when building or changing user-facing components.
+description: Accessibility — keyboard paths, focus, labels, semantics, WCAG-minded checks, and async feedback for interactive UI. Use when building or changing user-facing components.
+alwaysApply: false
 globs:
   - "**/*.tsx"
   - "**/*.jsx"
@@ -7,7 +8,6 @@ globs:
   - "**/*.svelte"
   - "**/*.astro"
   - "**/*.html"
-alwaysApply: false
 ---
 
 # mstack accessibility
@@ -40,9 +40,13 @@ Pair with `mstack-frontend.mdc` for layout and performance; this rule covers **i
 ## Motion and visuals
 
 - Respect **`prefers-reduced-motion`** for non-essential animation; provide a static equivalent.
-- **Contrast**: interactive text and controls meet readable contrast against backgrounds (align with project tokens).
+- **Contrast**: interactive text and controls meet readable contrast against backgrounds (align with project tokens; often WCAG AA).
 
 ## Quick verification
 
 - Tab through the changed flow: order, focus trap, Escape.
 - Screen reader smoke (VoiceOver/NVDA): button names, form errors, live region for async state.
+
+## Do not
+
+- Fix a11y by **suppressing** warnings or linter output without addressing the underlying issue.

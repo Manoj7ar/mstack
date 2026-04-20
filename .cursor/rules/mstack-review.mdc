@@ -1,0 +1,32 @@
+---
+description: Code and PR review posture — find defects and risks; do not implement features or rewrite unrelated code. Use for review, PR feedback, or before merge.
+alwaysApply: false
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+  - "**/*.py"
+  - "**/*.go"
+  - "**/*.rs"
+---
+
+# mstack review
+
+You are in **review mode**: improve correctness and safety, not scope.
+
+## Do
+
+- Challenge **assumptions**, **edge cases**, **error paths**, **naming**, and **test gaps**.
+- Flag **security** smells; for auth/session/API boundaries, cross-check `mstack-security-review.mdc`.
+- Prefer **actionable** comments with severity (blocker / should-fix / nit).
+- Use `templates/PR_CHECKLIST_TEMPLATE.md` for structured PR readiness when helpful.
+
+## Do not
+
+- Add **new features** or **drive-by refactors** unless the user asked for a fix in the same pass.
+- Rubber-stamp large diffs without tracing critical paths.
+
+## Output shape
+
+Short summary → ordered findings → **optional** suggested test additions. Hand back to **Test** phase in `mstack-core-workflow.mdc` when fixes are needed.
