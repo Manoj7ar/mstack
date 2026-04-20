@@ -44,9 +44,11 @@ Add specialists most teams hit daily.
 - `mstack-api-contracts.mdc`
 - `mstack-observability.mdc`
 - `mstack-release-versioning.mdc`
+- `mstack-product-review.mdc`
+- `mstack-documentation-pass.mdc`
 - `mstack-repo-memory.mdc` (only if you are **vendoring from this repo** and keep `docs/AGENT_MEMORY` pattern; skip in generic app repos)
 
-**Note:** Add **`docs/PROJECT_MEMORY.md`** (copy from `templates/PROJECT_MEMORY_TEMPLATE.md`) in **consumer** repos when using `mstack-project-memory.mdc`.
+**Note:** Add **`docs/PROJECT_MEMORY.md`** (copy from `templates/PROJECT_MEMORY_TEMPLATE.md`) in **consumer** repos when using `mstack-project-memory.mdc`. Copy **`docs/ONBOARDING.md`**, **`PLAYBOOK.md`**, etc., if you want the same navigation docs in your app repo.
 
 ## Templates
 
@@ -55,3 +57,10 @@ Copy **`templates/*.md`** for the presets you use; at minimum match templates re
 ## Custom
 
 Start from **Standard**, add domain rules (e.g. only `mstack-ai-product` if you ship LLM features), remove overlapping pairs if you prefer one of `mstack-ci` vs `mstack-ci-quality` or `mstack-docs-devx` vs `mstack-docs-ship`.
+
+### Product and docs (optional add-ons)
+
+For GStack-style **product challenge** before a big plan, and a **documentation pass** before ship:
+
+- `mstack-product-review.mdc` — use with `templates/PRODUCT_REVIEW_TEMPLATE.md` (and `templates/RISK_REGISTER_TEMPLATE.md` if needed)
+- `mstack-documentation-pass.mdc` — use with `templates/DOC_TASK_TEMPLATE.md`

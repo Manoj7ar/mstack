@@ -12,6 +12,10 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | Question | Read |
 | -------- | ---- |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
+| **First-time setup** | [ONBOARDING.md](ONBOARDING.md) |
+| **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
+| **GStack vs mstack** | [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) |
+| **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
 | **Design / product memory** (voice, UX prefs, terminology) | [PROJECT_MEMORY.md](PROJECT_MEMORY.md) |

@@ -40,6 +40,15 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 
 Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bundles: **[docs/PACKS.md](docs/PACKS.md)**.
 
+## Documentation (reference)
+
+| Doc | Purpose |
+| --- | ------- |
+| [docs/ONBOARDING.md](docs/ONBOARDING.md) | 5-minute first-time adoption |
+| [docs/PLAYBOOK.md](docs/PLAYBOOK.md) | Sprint shape, handoffs, modes |
+| [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
+| [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
+
 ---
 
 ## Rules reference (`.cursor/rules/`)
@@ -75,6 +84,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-release-versioning.mdc` | CHANGELOG, release CI, manifests | Semver, changelog, tags. |
 | `mstack-repo-memory.mdc` | `docs/`, `src/`, `tests/`, `AGENTS.md`, `README` in **this** repo | Points agents at `docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`, `PROJECT_MEMORY.md`. |
 | `mstack-project-memory.mdc` | `PROJECT_MEMORY.md`, design brief, `theme/`, `tokens/` | Read/update durable design and product preferences. |
+| `mstack-product-review.mdc` | On demand / mention | Product challenge before large plan; **no code** |
+| `mstack-documentation-pass.mdc` | README, `docs/`, changelog globs | Doc alignment before Ship |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
 
@@ -99,6 +110,9 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `OPENAPI_DELTA_TEMPLATE.md` | Summarize API or OpenAPI changes for PRs or releases. |
 | `RUNBOOK_TEMPLATE.md` | Deploy, health checks, rollback, on-call. |
 | `PROJECT_MEMORY_TEMPLATE.md` | Copy to `docs/PROJECT_MEMORY.md` in consumer repos; design/product standing prefs. |
+| `PRODUCT_REVIEW_TEMPLATE.md` | Product posture before big bets (GStack-style “CEO review” intent) |
+| `DOC_TASK_TEMPLATE.md` | Checklist of docs to update after a change |
+| `RISK_REGISTER_TEMPLATE.md` | Living risk table for initiatives |
 
 ---
 
@@ -184,6 +198,10 @@ README.md
 .cursor/skills/mstack-flight-deck/
 docs/
   workflow.md
+  ONBOARDING.md
+  PLAYBOOK.md
+  GSTACK_INSPIRATION.md
+  TROUBLESHOOTING.md
   PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
@@ -238,6 +256,8 @@ npm run build && npm start
 ---
 
 ## Troubleshooting
+
+Longer guide: **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 
 | Issue | What to try |
 | ----- | ----------- |

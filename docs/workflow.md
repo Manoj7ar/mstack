@@ -2,6 +2,8 @@
 
 mstack separates **cognitive modes** so planning, building, reviewing, and shipping do not blur in one undifferentiated session. Each phase has one job.
 
+**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+
 ## Phases
 
 | Phase | Purpose |
@@ -42,6 +44,9 @@ flowchart LR
 - **API delta** (optional): `templates/OPENAPI_DELTA_TEMPLATE.md`
 - **Runbook** (ops): `templates/RUNBOOK_TEMPLATE.md`
 - **Project memory** (design / product): `docs/PROJECT_MEMORY.md`; starter for other repos: `templates/PROJECT_MEMORY_TEMPLATE.md`
+- **Product review** (before big bets): `templates/PRODUCT_REVIEW_TEMPLATE.md`
+- **Doc task list** (after changes): `templates/DOC_TASK_TEMPLATE.md`
+- **Risk register** (optional): `templates/RISK_REGISTER_TEMPLATE.md`
 - **Repo memory** (this mstack checkout): `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md` — keep in sync when behavior or structure changes.
 - **Rule presets**: [PACKS.md](PACKS.md)
 
@@ -85,6 +90,8 @@ These `.mdc` files add focused guidance; most use `globs` so they apply when mat
 | `mstack-observability.mdc` | Logs, traces, metrics, correlation IDs |
 | `mstack-release-versioning.mdc` | Semver, CHANGELOG, release workflows |
 | `mstack-project-memory.mdc` | Read/update `PROJECT_MEMORY` for design and product prefs |
+| `mstack-product-review.mdc` | Product posture before large plan; no code |
+| `mstack-documentation-pass.mdc` | README/docs/runbook alignment before Ship |
 
 ## Cursor integration
 
