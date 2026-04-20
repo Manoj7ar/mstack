@@ -1,0 +1,39 @@
+---
+description: CI and quality gates — workflows, lint, typecheck, and proportionate checks. Use when editing CI config or repo-wide quality tooling.
+globs:
+  - ".github/workflows/**/*"
+  - ".gitlab-ci.yml"
+  - "**/turbo.json"
+  - "**/eslint.config.*"
+  - "**/.eslintrc*"
+  - "**/biome.json"
+  - "**/.prettierrc*"
+  - "**/prettier.config.*"
+  - "**/tsconfig*.json"
+alwaysApply: false
+---
+
+# mstack CI & quality gates
+
+## Goals
+
+- **Fast feedback**: fail on the **cheapest** signal first when it catches most issues (format/lint before heavy e2e), unless the repo already orders jobs intentionally.
+- **Deterministic**: pinned tool versions or lockfiles; avoid “latest” floating tags in CI without a policy.
+- **Secrets**: use platform secret stores; never echo tokens; mask outputs; least privilege tokens.
+
+## Changing rules or checks
+
+- Do **not** disable lint rules, lower coverage thresholds, or remove typecheck steps to “go green” **without explicit user consent** — prefer fixing code or scoped overrides with rationale.
+- If splitting jobs, keep **artifact** or **cache** keys aligned with lockfiles.
+
+## Monorepos
+
+- Use existing **task runner** patterns (`turbo`, `nx`, workspace filters) instead of ad hoc `cd` spaghetti; match cache configuration to the host (GitHub Actions cache, etc.).
+
+## When skipping checks
+
+- Document **why** in the PR or commit message (e.g. emergency hotfix with follow-up issue); prefer feature flags or branch protections over permanent skips.
+
+## Docs
+
+- If CI commands change, update **contributor docs** (`README`, `CONTRIBUTING`) in the same change when reasonable.

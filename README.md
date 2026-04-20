@@ -8,8 +8,8 @@ Inspired by the structured “virtual team” idea popularized by [GStack](https
 
 - **Core workflow** — one rule for phases, handoffs, and artifacts.
 - **Token discipline** — search-first, bounded reads, no redundant context.
-- **Specialists** — frontend, backend, design research, testing/QA, debug, security (scoped with `globs` where useful).
-- **Templates** — plan, test plan, design brief, debug session under `templates/`.
+- **Specialists** — frontend, backend, design research, testing/QA, debug, security, accessibility, docs/DevEx, data modeling, CI/quality (scoped with `globs` where useful).
+- **Templates** — plan, test plan, design brief, debug session, reflect, postmortem under `templates/`.
 
 ## Quick start
 
@@ -61,7 +61,7 @@ chmod +x vendor/mstack/scripts/sync-mstack.sh
 MSTACK_ROOT=vendor/mstack vendor/mstack/scripts/sync-mstack.sh
 ```
 
-Copies `mstack-*.mdc` and `templates/*.md` into the current directory. Merge `AGENTS.md` yourself.
+Copies `mstack-*.mdc` and `templates/*.md` into the current directory. With `SYNC_AGENTS_SNIPPET=1`, also writes `AGENTS.md.mstack-snippet` for manual merge. Otherwise merge `AGENTS.md` yourself.
 
 ### Manual rule in chat
 
@@ -96,6 +96,8 @@ templates/PLAN_TEMPLATE.md
 templates/TEST_PLAN_TEMPLATE.md
 templates/DESIGN_BRIEF_TEMPLATE.md
 templates/DEBUG_SESSION_TEMPLATE.md
+templates/REFLECT_TEMPLATE.md
+templates/POSTMORTEM_TEMPLATE.md
 ```
 
 ## License
