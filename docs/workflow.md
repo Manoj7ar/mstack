@@ -33,10 +33,11 @@ flowchart LR
 - **Plan**: `templates/PLAN_TEMPLATE.md`
 - **Test plan**: `templates/TEST_PLAN_TEMPLATE.md`
 - **Design brief** (UI): `templates/DESIGN_BRIEF_TEMPLATE.md`
+- **Debug session** (optional): `templates/DEBUG_SESSION_TEMPLATE.md`
 
 ## Optional modes
 
-- **Debug**: say *debug mode* or *mstack debug*, or **@mention** `@mstack-debug` in Cursor; Agent follows `mstack-debug.mdc` (hypotheses, bisect, instrumentation).
+- **Debug**: say *debug mode* or *mstack debug*, or **@mention** `@mstack-debug`. Follow `mstack-debug.mdc`. For bugs that need **runtime evidence**, use **Cursor Debug Mode**: open Agent, use the **mode picker** or press **Shift+Tab** to switch — see [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode). mstack requires **explicit user consent** before invasive instrumentation (extra logging, reproduce-for-logs). Without consent, stick to static analysis and suggest Debug Mode + permission when ready.
 - **Security pass**: for auth/data/boundary changes, `mstack-security-review.mdc` applies when those files are in scope.
 
 ## Cursor integration

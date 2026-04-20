@@ -9,7 +9,7 @@ Inspired by the structured “virtual team” idea popularized by [GStack](https
 - **Core workflow** — one rule for phases, handoffs, and artifacts.
 - **Token discipline** — search-first, bounded reads, no redundant context.
 - **Specialists** — frontend, backend, design research, testing/QA, debug, security (scoped with `globs` where useful).
-- **Templates** — plan, test plan, design brief under `templates/`.
+- **Templates** — plan, test plan, design brief, debug session under `templates/`.
 
 ## Quick start
 
@@ -67,6 +67,12 @@ Copies `mstack-*.mdc` and `templates/*.md` into the current directory. Merge `AG
 
 Cursor supports **@mentioning** a rule to apply it. For example, use **`@mstack-debug`** when you want the debug posture even if the rule is not file-scoped.
 
+## Cursor Debug Mode
+
+For **bugs** that are hard to pin down from code alone (timing, regressions, runtime state), use Cursor’s **Debug Mode** in the Agent panel — **mode dropdown** or **Shift+Tab** to cycle modes. It is built for hypothesize → instrument → you reproduce → analyze logs → fix → verify → cleanup. Details: [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode).
+
+mstack’s `mstack-debug.mdc` adds a **permission gate**: the Agent should **not** add temporary logging, probes, or log-capture reproduction steps until you **explicitly allow** invasive debugging for that session. You can use `templates/DEBUG_SESSION_TEMPLATE.md` to record consent and notes.
+
 ## Web & design research (permission)
 
 By default, mstack rules tell the Agent **not** to fetch external sites unless you **explicitly allow** web research for that task. When allowed, use references (Mobbin, 21st.dev, Magic UI, etc.) for **patterns**, not verbatim copying — cite URLs and adapt to your design system.
@@ -89,6 +95,7 @@ scripts/sync-mstack.sh
 templates/PLAN_TEMPLATE.md
 templates/TEST_PLAN_TEMPLATE.md
 templates/DESIGN_BRIEF_TEMPLATE.md
+templates/DEBUG_SESSION_TEMPLATE.md
 ```
 
 ## License
