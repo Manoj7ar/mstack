@@ -86,6 +86,11 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-api-contracts.mdc` | API / OpenAPI / routes | Versioning, error consistency, spec deltas. |
 | `mstack-observability.mdc` | API, server, tracing paths | Structured logs, traces, metrics, correlation IDs. |
 | `mstack-release-versioning.mdc` | CHANGELOG, release CI, manifests | Semver, changelog, tags. |
+| `mstack-secrets-env.mdc` | `.env*`, workflows, compose, credentials paths | No secrets in git; CI secret stores; redaction. |
+| `mstack-i18n-localization.mdc` | Locales, i18n, `*.po`, message catalogs | ICU/MessageFormat; RTL; locale formatting (**full** pack). |
+| `mstack-feature-flags.mdc` | Flags, experiments, LD/Unleash-style paths | Safe defaults, kill switch, server vs client (**standard** + **full**). |
+| `mstack-privacy-data-handling.mdc` | Privacy, retention, export/delete, PII paths | Minimization, logging; not legal advice (**full**). |
+| `mstack-open-source-license.mdc` | `LICENSE`, `NOTICE`, `third_party/` | Attribution, SPDX; not legal advice (**full**). |
 | `mstack-repo-memory.mdc` | `docs/`, `src/`, `tests/`, `AGENTS.md`, `README` in **this** repo | Points agents at `docs/AGENT_MEMORY.md`, `ARCHITECTURE.md`, `DECISIONS.md`, `PROJECT_MEMORY.md`. |
 | `mstack-project-memory.mdc` | `PROJECT_MEMORY.md`, design brief, `theme/`, `tokens/` | Read/update durable design and product preferences. |
 | `mstack-product-review.mdc` | On demand / mention | Product challenge before large plan; **no code** |
@@ -121,6 +126,12 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `PRODUCT_REVIEW_LITE.md` | Five-field product check for smaller initiatives |
 | `DOC_TASK_TEMPLATE.md` | Checklist of docs to update after a change |
 | `RISK_REGISTER_TEMPLATE.md` | Living risk table for initiatives |
+| `SECRETS_AND_ENV_CHECKLIST.md` | Before PRs touching env, CI, credentials |
+| `LOCALIZATION_QA_TEMPLATE.md` | Locale matrix, truncation, date/number checks |
+| `RELEASE_OWNER_CHECKLIST.md` | Release owner: version, changelog, migrations, rollback |
+| `PRIVACY_IMPACT_LITE.md` | Data purpose, retention, access (not legal advice) |
+| `FEATURE_FLAG_CHANGE_CHECKLIST.md` | Flag rollout, rollback, docs |
+| `LICENSE_HYGIENE_CHECKLIST.md` | NOTICE, third-party, root license (not legal advice) |
 
 ---
 
@@ -134,7 +145,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`.
 
 ---
 
@@ -212,6 +223,7 @@ README.md
 .cursor/rules/mstack-*.mdc
 .cursor/skills/mstack-flight-deck/
 .cursor/skills/mstack-doctor/
+.cursor/skills/mstack-pack-picker/
 docs/
   workflow.md
   ONBOARDING.md

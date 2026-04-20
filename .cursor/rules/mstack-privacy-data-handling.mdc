@@ -1,0 +1,39 @@
+---
+description: Privacy and data handling — minimization, retention, export/delete flows, logging without PII; not legal advice. @mention mstack-privacy-data-handling.
+globs:
+  - "**/privacy*"
+  - "**/gdpr*"
+  - "**/dpa*"
+  - "**/data-retention*"
+  - "**/pii*"
+  - "**/personal-data*"
+  - "**/legal/**"
+  - "**/*user*export*"
+  - "**/*data*export*"
+  - "**/*delete*account*"
+  - "**/*account*deletion*"
+alwaysApply: false
+---
+
+# mstack privacy and data handling
+
+Use when changing **privacy policy plumbing**, **retention**, **user data export or deletion**, or **personal-data** storage paths.
+
+**Not legal advice.** Escalate to legal/privacy owners for compliance decisions.
+
+## Posture
+
+- **Data minimization:** collect and store only what the product needs; document purpose in code comments or product docs when non-obvious.
+- **Logs and analytics:** avoid PII in events and application logs; align with `mstack-observability.mdc` and `mstack-backend.mdc`.
+- **Retention:** config or docs should reflect how long data lives; migrations that delete data need explicit review.
+- **Export / delete:** flows should be auditable, idempotent where appropriate, and authorized (`mstack-security-review.mdc` for authz).
+- **Secrets:** credentials never in privacy payloads; `mstack-secrets-env.mdc`.
+
+## Template
+
+For a lightweight product pass, use **`templates/PRIVACY_IMPACT_LITE.md`**.
+
+## Do not
+
+- Store sensitive health/financial/etc. data without explicit user direction and org policy.
+- Bypass user consent or legal review by “just shipping” a feature.

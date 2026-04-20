@@ -1,0 +1,35 @@
+---
+description: i18n and localization — message catalogs, ICU/MessageFormat, locale fallbacks, RTL and a11y; avoid unsafe string concatenation. @mention mstack-i18n-localization.
+globs:
+  - "**/locales/**/*"
+  - "**/i18n/**/*"
+  - "**/messages/**/*"
+  - "**/lang/**/*"
+  - "**/*.po"
+  - "**/*.pot"
+  - "**/intl/**/*"
+  - "**/translations/**/*"
+alwaysApply: false
+---
+
+# mstack i18n and localization
+
+Use when editing **message catalogs**, **locale files**, or **i18n plumbing**.
+
+## Posture
+
+- **User-visible strings** belong in catalogs or message files—not scattered literals in components when the product is localized.
+- **Interpolation:** use your stack’s **ICU**, **MessageFormat**, or equivalent—do not split sentences around dynamic chunks in a way that breaks grammar in other languages.
+- **Plurals / gender / ordinals:** use library support; avoid English-only plural rules.
+- **Fallbacks:** define default locale behavior; avoid silent missing-key failures in production without a clear policy.
+- **RTL:** layout and icons that assume LTR may need review; pair with `mstack-accessibility.mdc` for focus order and semantics.
+- **Dates, numbers, currency:** format per locale, not hard-coded locale.
+
+## QA
+
+For release or regression passes, use **`templates/LOCALIZATION_QA_TEMPLATE.md`**.
+
+## Do not
+
+- Concatenate translator-supplied fragments with raw variables in the middle without a structured message API.
+- Ship pseudo-localization or debug keys to end users without intent.

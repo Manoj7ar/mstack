@@ -79,9 +79,11 @@ Add specialists most teams hit daily.
 - `mstack-review.mdc`
 - `mstack-debug.mdc`
 - `mstack-security-review.mdc`
+- `mstack-secrets-env.mdc` (`.env`, CI workflows, compose; no secrets in git)
 - `mstack-docs-devx.mdc`
 - `mstack-ci-quality.mdc`
 - `mstack-dependencies.mdc`
+- `mstack-feature-flags.mdc` (rollouts, kill switches, flag hygiene)
 - `mstack-model-strategy.mdc`
 - `mstack-session-handoff.mdc`
 - `mstack-project-memory.mdc`
@@ -92,6 +94,8 @@ Add specialists most teams hit daily.
 **All of Standard, plus:**
 
 - `mstack-design-research.mdc`
+- `mstack-privacy-data-handling.mdc` (retention, export/delete, minimization; not legal advice)
+- `mstack-open-source-license.mdc` (`LICENSE`, `NOTICE`, third-party; not legal advice)
 - `mstack-data-modeling.mdc`
 - `mstack-data-migrations.mdc`
 - `mstack-ci.mdc`
@@ -101,6 +105,7 @@ Add specialists most teams hit daily.
 - `mstack-api-contracts.mdc`
 - `mstack-observability.mdc`
 - `mstack-release-versioning.mdc`
+- `mstack-i18n-localization.mdc` (locales, catalogs, ICU/MessageFormat)
 - `mstack-product-review.mdc`
 - `mstack-documentation-pass.mdc`
 - `mstack-repo-memory.mdc` (only if you are **vendoring from this repo** and keep `docs/AGENT_MEMORY` pattern; skip in generic app repos)

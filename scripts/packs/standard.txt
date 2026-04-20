@@ -9,9 +9,11 @@ mstack-testing-qa
 mstack-review
 mstack-debug
 mstack-security-review
+mstack-secrets-env
 mstack-docs-devx
 mstack-ci-quality
 mstack-dependencies
+mstack-feature-flags
 mstack-model-strategy
 mstack-session-handoff
 mstack-project-memory

@@ -110,3 +110,23 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`scripts/mstack-doctor.sh`** (required trio + optional `verify-mstack-sync` via `MSTACK_PACK` / `MSTACK_ROOT` / `MSTACK_VERIFY_STRICT`), **`scripts/verify-packs-internal.sh`** for manifest typos in this repo, **`docs/ADOPTION_AUDIT.md`**, **`mstack-adoption-audit.mdc`** (in **full** pack only), **`docs/PLAYBOOK_FIRST_MESSAGES.md`**, **`.cursor/skills/mstack-doctor`**, **`scripts/packs/solo.txt`**, and **`.github/workflows/mstack-pack-verify.yml.example`**. Wire **`npm run mstack:doctor`** and **`mstack:verify-packs`**.
 
 **Consequences:** Teams can gate drift in CI; solo devs get a 7-rule preset; subjective “usefulness scores” still depend on human discipline—tooling only reduces silent misconfiguration.
+
+---
+
+### 2026-04-20 — Wave 4: secrets-env, i18n, release checklist, pack-picker
+
+**Context:** Teams needed explicit **env/CI secret** posture beyond generic security review; localized products needed a **catalog-focused** rule; release owners wanted a single **checklist**; adopters asked “which pack?” interactively.
+
+**Decision:** Add **`mstack-secrets-env.mdc`** + **`templates/SECRETS_AND_ENV_CHECKLIST.md`** to **standard** and **full** packs. Add **`mstack-i18n-localization.mdc`** + **`templates/LOCALIZATION_QA_TEMPLATE.md`** to **full** only. Add **`templates/RELEASE_OWNER_CHECKLIST.md`** (no new rule). Add skill **`.cursor/skills/mstack-pack-picker`** (`/mstack-pack-picker`). Wire **`mstack-core-workflow.mdc`**, README, PACKS, workflow, AGENTS.
+
+**Consequences:** Standard grows by one specialist (secrets-env); full adds i18n; consumers sync three new templates via existing `sync-mstack.sh` behavior.
+
+---
+
+### 2026-04-20 — Wave 5: privacy, feature flags, OSS license hygiene
+
+**Context:** Security and secrets rules did not cover **product privacy posture**, **flag rollouts**, or **LICENSE/NOTICE** maintenance.
+
+**Decision:** Add **`mstack-privacy-data-handling.mdc`** + **`PRIVACY_IMPACT_LITE.md`** (**full** only). Add **`mstack-feature-flags.mdc`** + **`FEATURE_FLAG_CHANGE_CHECKLIST.md`** (**standard** + **full**). Add **`mstack-open-source-license.mdc`** + **`LICENSE_HYGIENE_CHECKLIST.md`** (**full** only). All disclaim **not legal advice**.
+
+**Consequences:** Three new specialists and templates; `verify-packs-internal` enforces manifest ↔ file presence.

@@ -1,0 +1,33 @@
+---
+description: Open-source license hygiene — LICENSE, NOTICE, third-party attribution, SPDX; not legal advice. @mention mstack-open-source-license.
+globs:
+  - "LICENSE*"
+  - "COPYING*"
+  - "NOTICE*"
+  - "**/THIRD_PARTY*"
+  - "**/third_party/**"
+alwaysApply: false
+---
+
+# mstack open-source license hygiene
+
+Use when editing **repository license files**, **NOTICE**, **third-party** bundles, or **attribution** docs.
+
+**Not legal advice.** License compatibility and distribution obligations need human/legal review for your situation.
+
+## Posture
+
+- **Root `LICENSE` (or `COPYING`):** present and matches project intent; prefer standard SPDX identifiers in package manifests where applicable.
+- **NOTICE:** include required **attribution** for bundled or vendored code when licenses demand it.
+- **Headers:** do not strip **copyright or license headers** from upstream files unless counsel approves.
+- **Bundled deps:** document **third-party** code in `NOTICE` or `THIRD_PARTY_NOTICES` as your stack requires.
+- **Version bumps:** pair with `mstack-dependencies.mdc` — license changes can accompany dependency upgrades.
+
+## Checklist
+
+Use **`templates/LICENSE_HYGIENE_CHECKLIST.md`** before a major release or large vendor import.
+
+## Do not
+
+- Assume “MIT everywhere” without checking **actual** package or file licenses.
+- Commit **proprietary** third-party SDKs against license terms.

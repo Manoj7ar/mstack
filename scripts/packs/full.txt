@@ -9,9 +9,13 @@ mstack-testing-qa
 mstack-review
 mstack-debug
 mstack-security-review
+mstack-secrets-env
+mstack-privacy-data-handling
 mstack-docs-devx
 mstack-ci-quality
 mstack-dependencies
+mstack-open-source-license
+mstack-feature-flags
 mstack-model-strategy
 mstack-session-handoff
 mstack-project-memory
@@ -25,6 +29,7 @@ mstack-ai-product
 mstack-api-contracts
 mstack-observability
 mstack-release-versioning
+mstack-i18n-localization
 mstack-product-review
 mstack-documentation-pass
 mstack-repo-memory

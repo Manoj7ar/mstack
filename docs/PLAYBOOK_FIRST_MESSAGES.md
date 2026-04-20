@@ -38,6 +38,12 @@ Runtime bug: [symptom]. Use mstack-debug / Debug Mode. Do not add logging or rep
 Run: bash vendor/mstack/scripts/mstack-doctor.sh . (or from mstack repo root: npm run mstack:doctor). Summarize.
 ```
 
+## Pack choice
+
+```text
+/mstack-pack-picker — solo dev, [UI+API or scripts-only], [localized app yes/no]. Recommend MSTACK_PACK and sync command.
+```
+
 ## See also
 
 - [PLAYBOOK.md](PLAYBOOK.md) — sprint shape
