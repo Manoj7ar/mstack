@@ -1,0 +1,33 @@
+---
+description: Documentation pass — after feature work, verify README, architecture, runbook, and PROJECT_MEMORY pointers match code. Use before Ship when docs-heavy.
+alwaysApply: false
+globs:
+  - "**/README.md"
+  - "**/docs/**/*"
+  - "CHANGELOG*"
+  - "changelog*"
+---
+
+# mstack documentation pass
+
+Run toward **Ship** when behavior, routes, env vars, or UX promises changed.
+
+## Checklist
+
+- **README**: install, run, test commands still work; env var **names** listed.
+- **Architecture / API docs**: paths and endpoints match code (this repo: `docs/ARCHITECTURE.md`).
+- **Decisions**: non-obvious behavior → `docs/DECISIONS.md` (or ADR).
+- **Project memory**: standing **design/product** prefs → `docs/PROJECT_MEMORY.md` if user agreed.
+- **Runbook / ops**: `templates/RUNBOOK_TEMPLATE.md` or team runbook if production paths changed.
+
+Use **`templates/DOC_TASK_TEMPLATE.md`** to track file-level updates in the PR description when helpful.
+
+## Pairing
+
+- **`mstack-docs-devx.mdc`** — contributor-facing tone and sprawl.
+- **`mstack-docs-ship.mdc`** — changelog and release notes.
+- **`mstack-api-contracts.mdc`** + **`templates/OPENAPI_DELTA_TEMPLATE.md`** for public API deltas.
+
+## Do not
+
+- Rewrite entire doc trees unless requested; **minimal** accurate deltas per `mstack-token-discipline.mdc`.

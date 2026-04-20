@@ -17,6 +17,8 @@ Open an interactive **Canvas** (Cursor 3.1+ Agents Window or editor) so the user
 
 1. Read **headings and key bullets only** from:
    - `docs/AGENT_MEMORY.md`
+   - `docs/ONBOARDING.md`, `docs/PLAYBOOK.md` (one-line summary each for nav links)
+   - `docs/PROJECT_MEMORY.md` (if present — design/product prefs heading only)
    - `docs/ARCHITECTURE.md` (especially the **Ideas API — endpoints** table)
    - Last ~400 lines of `docs/DECISIONS.md` or tail ~25 lines for **recent decisions** — do not load the whole file if huge.
 2. Optional **live API snapshot** (from repo root):
@@ -36,7 +38,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
 2. **Stats row (boxes)** — e.g.:
    - **API:** `meta.service` + `meta.apiVersion` from snapshot, or `API offline`
    - **Runtime:** `meta.node` if present, else `—`
-   - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`
+   - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`
 3. **Table A — Phases → artifacts** (use README / workflow alignment; include typical template paths):
 
    | Phase | Typical artifact |
@@ -49,7 +51,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
    | Ship | `templates/PR_CHECKLIST_TEMPLATE.md`, `templates/ADR_TEMPLATE.md` if needed |
    | Reflect | `templates/REFLECT_TEMPLATE.md` |
 
-   Add a second small table or rows for **optional** artifacts from `docs/workflow.md`: Design brief (`templates/DESIGN_BRIEF_TEMPLATE.md`), Debug (`templates/DEBUG_SESSION_TEMPLATE.md`), Postmortem (`templates/POSTMORTEM_TEMPLATE.md` / `INCIDENT_POSTMORTEM_TEMPLATE.md`), OpenAPI delta, Runbook — keep Table A scannable (merge into one table if cleaner).
+   Add a second small table or rows for **optional** artifacts from `docs/workflow.md`: Design brief (`templates/DESIGN_BRIEF_TEMPLATE.md`), Debug (`templates/DEBUG_SESSION_TEMPLATE.md`), Postmortem (`templates/POSTMORTEM_TEMPLATE.md` / `INCIDENT_POSTMORTEM_TEMPLATE.md`), OpenAPI delta, Runbook, Product review (`templates/PRODUCT_REVIEW_TEMPLATE.md`), Doc task (`templates/DOC_TASK_TEMPLATE.md`), Risk register — keep Table A scannable (merge into one table if cleaner).
 
 4. **Table B — Ideas API routes** — mirror `docs/ARCHITECTURE.md` endpoint summary. Add column **Notes** with short hints: in-memory store, `X-Request-ID`, rate limits, `X-Session-ID` / `Idempotency-Key` where relevant.
 

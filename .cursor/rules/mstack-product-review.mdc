@@ -1,0 +1,30 @@
+---
+description: Product review posture — challenge problem, scope, and success before a large plan or build. No code; use templates/PRODUCT_REVIEW_TEMPLATE.md. @mention mstack-product-review.
+alwaysApply: false
+---
+
+# mstack product review
+
+Use when starting a **non-trivial** feature, initiative, or direction change—**before** deep implementation.
+
+## Posture
+
+- **Pressure-test** the problem, user, scope, and “why now.”
+- **No code**, no drive-by refactors, no shipping in this pass.
+- Prefer **`templates/PRODUCT_REVIEW_TEMPLATE.md`** (or equivalent bullets in chat).
+- For growing risk lists, use **`templates/RISK_REGISTER_TEMPLATE.md`**.
+
+## Output
+
+- **Recommend:** proceed to Plan | narrow scope | defer — with **short** rationale.
+- **Open questions** for the user (blocking only).
+
+## Pairing
+
+- After approval → **`mstack-core-workflow.mdc`** **Plan** phase and `templates/PLAN_TEMPLATE.md`.
+- **Technical** review later → `mstack-review.mdc`; **security** → `mstack-security-review.mdc`.
+
+## Do not
+
+- Replace **user** product judgment with generic “ship it.”
+- Contradict `mstack-token-discipline.mdc` — keep the review concise.

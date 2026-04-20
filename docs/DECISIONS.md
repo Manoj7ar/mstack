@@ -70,3 +70,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add project skill **`.cursor/skills/mstack-flight-deck`** with `disable-model-invocation: true` so users invoke **`/mstack-flight-deck`** explicitly. Add **`scripts/ideas-snapshot.mjs`** (no extra deps) for `GET /v1/meta` and `GET /v1/ideas` JSON. Extend **`scripts/sync-mstack.sh`** to copy **`.cursor/skills`** when vendoring.
 
 **Consequences:** Canvas content is produced in the IDE by the agent; the skill and script are versioned here. Adopters who omit `src/` can delete the skill or leave it (harmless if API not run).
+
+---
+
+### 2026-04-20 — Docs expansion and GStack-parity navigation
+
+**Context:** Adopters asked for clearer onboarding, a single “playbook” for sprints, troubleshooting, and an explicit mapping to GStack-style *roles* without copying GStack prompts.
+
+**Decision:** Add `docs/ONBOARDING.md`, `PLAYBOOK.md`, `GSTACK_INSPIRATION.md`, `TROUBLESHOOTING.md`; add templates `PRODUCT_REVIEW_TEMPLATE.md`, `DOC_TASK_TEMPLATE.md`, `RISK_REGISTER_TEMPLATE.md`; add rules `mstack-product-review.mdc` and `mstack-documentation-pass.mdc`. Wire `AGENTS.md`, `workflow.md`, `PACKS.md` (Custom), README, flight-deck skill, and `mstack-core-workflow.mdc` artifacts.
+
+**Consequences:** More files to maintain; flight-deck reads a few extra doc headings (bounded). No vendored GStack content.
