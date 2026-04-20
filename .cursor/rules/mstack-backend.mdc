@@ -1,0 +1,42 @@
+---
+description: Backend and API work — validation, errors, idempotency, logging, security-minded defaults.
+globs:
+  - "**/api/**/*"
+  - "**/server/**/*"
+  - "**/routes/**/*"
+  - "**/*route*.ts"
+  - "**/*route*.js"
+  - "**/trpc/**/*"
+  - "**/graphql/**/*"
+  - "**/lambda/**/*"
+  - "**/functions/**/*"
+alwaysApply: false
+---
+
+# mstack backend
+
+## Boundaries
+
+- Validate **all external input** at the boundary (schema, types, limits).
+- Use **explicit error types** or HTTP status semantics consistent with the codebase.
+
+## Reliability
+
+- **Idempotency** for mutating endpoints or webhooks where duplicates are possible.
+- **Timeouts and retries** where the stack allows; document partial-failure behavior.
+
+## Data
+
+- **Least privilege** for DB and service credentials; no secrets in logs or responses.
+- Migrations: reversible where possible; note backfill or locking risks.
+
+## Observability
+
+- Structured logs with **request/correlation id** if the project uses them.
+- Metrics or traces only if already in use — match existing patterns.
+
+## Testing hooks
+
+- Prefer **pure** domain logic in testable units; integration tests at API boundary when valuable.
+
+For security-heavy changes, also apply `mstack-security-review.mdc`.

@@ -1,0 +1,42 @@
+---
+description: Testing and QA — test plans, pyramid, repro steps, backend vs frontend checks, flakiness avoidance. Use when user asks for tests, QA, or verification.
+globs:
+  - "**/*.test.*"
+  - "**/*.spec.*"
+  - "**/e2e/**/*"
+  - "**/tests/**/*"
+  - "**/__tests__/**/*"
+alwaysApply: false
+---
+
+# mstack testing & QA
+
+## When this applies
+
+- User requests **tests**, **QA**, **regression**, **e2e**, or **verify** — or you are editing files matched by this rule’s globs.
+
+## Process
+
+1. Capture scope in `templates/TEST_PLAN_TEMPLATE.md` (or a short inline equivalent).
+2. **Minimal repro** for bugs: steps, data, expected vs actual.
+3. Choose **lowest effective layer**: unit → integration → e2e.
+
+## Backend
+
+- Exercise **validation paths** (400), authz (403), and happy path.
+- Contract tests for **critical** APIs when multiple clients exist.
+
+## Frontend
+
+- **User flows** that changed; accessibility smoke (focus, labels) for new interactive UI.
+- Prefer stable selectors; avoid flaky timing — use framework test utilities correctly.
+
+## Flakiness
+
+- No arbitrary `sleep`; retry only where documented; isolate network and clock.
+
+## Reporting
+
+- State **what ran**, **what failed**, and **what was skipped** (with reason).
+
+Handoff from **Review** in `mstack-core-workflow.mdc` should list risk areas to cover here.

@@ -1,0 +1,44 @@
+---
+description: mstack phase machine — think, plan, build, review, test, ship, reflect with clear handoffs and artifacts.
+alwaysApply: true
+---
+
+# mstack core workflow
+
+Use **separate postures** per phase. Do not plan and ship in the same breath on non-trivial work.
+
+## Phases (order)
+
+1. **Think** — Goal, constraints, unknowns. List **assumptions**; ask the user only for **blocking** decisions.
+2. **Plan** — Architecture, risks, file touch list. Prefer filling `templates/PLAN_TEMPLATE.md` (or equivalent bullets in chat).
+3. **Build** — Minimal diff; match repo conventions; **no drive-by refactors** unless requested.
+4. **Review** — Adversarial: correctness, edge cases, naming, failure modes. **No new features** in this pass.
+5. **Test** — Proportionate to change; use `templates/TEST_PLAN_TEMPLATE.md` when running QA or adding tests.
+6. **Ship** — Checklist: lint/tests if present, migrations, rollback, docs touchpoints.
+7. **Reflect** — 3–5 bullets: what worked, what to automate next time.
+
+## Handoff rules
+
+- **Plan → Build**: plan must name **files/dirs** to touch and **out of scope** items.
+- **Build → Review**: summarize diff intent in ≤10 lines before review.
+- **Review → Test**: call out risk areas and suggested test cases.
+- **Test → Ship**: list what was run vs skipped (with reason).
+
+## When to compress phases
+
+- Trivial one-file fixes: Think + Build + Review in one pass; still state assumptions.
+- User explicitly says *quick patch only*: skip long plan template.
+
+## Optional invocations
+
+- **Debug mode** / *mstack debug*: follow `mstack-debug.mdc`. For runtime-heavy bugs, **prefer [Cursor Debug Mode](https://cursor.com/docs/agent/debug-mode)** (Agent mode picker or **Shift+Tab**). **Ask permission** before instrumentation or log-capture repros; use `templates/DEBUG_SESSION_TEMPLATE.md` if useful.
+- **UI / UX**: follow `mstack-design-research.mdc` when gathering references; user must **permit** web research before fetching external sites.
+
+## Artifacts (paths in this pack)
+
+- `templates/PLAN_TEMPLATE.md`
+- `templates/TEST_PLAN_TEMPLATE.md`
+- `templates/DESIGN_BRIEF_TEMPLATE.md`
+- `templates/DEBUG_SESSION_TEMPLATE.md` (debug sessions)
+
+Human-readable narrative: `docs/workflow.md`.

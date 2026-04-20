@@ -1,0 +1,42 @@
+---
+description: Frontend implementation — React/Vue/Svelte-friendly patterns, layout, performance, a11y, avoid generic UI slop.
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.svelte"
+  - "**/*.css"
+  - "**/*.scss"
+alwaysApply: false
+---
+
+# mstack frontend
+
+## Structure
+
+- Prefer **small, composable** components; colocate styles and tests when the repo does.
+- **Named exports** if that is the repo convention; otherwise follow existing files.
+
+## UI quality
+
+- Clear **typography scale** and spacing rhythm; align to design tokens if present.
+- **Semantic HTML**; meaningful labels; no div-only interactive controls.
+- **Responsive**: mobile-first unless the product dictates otherwise.
+
+## State & data
+
+- Handle **loading and errors** at boundaries; avoid silent failures.
+- Avoid unnecessary client-side waterfalls; prefer patterns already used in the repo (RSC, loaders, etc.).
+
+## Performance
+
+- Lazy-load heavy routes or widgets when the stack supports it.
+- Memoize only when measured or obviously expensive; do not blanket `useMemo`.
+
+## Anti-slop checklist
+
+- [ ] Distinct visual hierarchy (not everything centered gray-on-gray).
+- [ ] Real copy or realistic placeholders (not “Lorem” for final review).
+- [ ] Focus states visible; motion justified.
+
+For research phase, see `mstack-design-research.mdc`.
