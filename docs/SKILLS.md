@@ -13,11 +13,14 @@ Skills are **explicit-invocation** procedures in Agent chat. They complement **p
 | **`/mstack-context-budget`** | Pasteable **@ paths + file cap + stop condition** for long threads / huge tasks | [.cursor/skills/mstack-context-budget/SKILL.md](../.cursor/skills/mstack-context-budget/SKILL.md) |
 | **`/mstack-ship-check`** | Pre-merge / pre-PR **numbered checklist** (lint, tests, secrets, security, QA, UI) | [.cursor/skills/mstack-ship-check/SKILL.md](../.cursor/skills/mstack-ship-check/SKILL.md) |
 | **`/mstack-agent-habits`** | Pasteable **Agent kickoff** — progress notes, bounded parallel reads, mstack hooks | [.cursor/skills/mstack-agent-habits/SKILL.md](../.cursor/skills/mstack-agent-habits/SKILL.md) |
+| **`/mstack-pitch-short`** | Pasteable **README / Slack / social** blurbs (honest, no fake metrics) | [.cursor/skills/mstack-pitch-short/SKILL.md](../.cursor/skills/mstack-pitch-short/SKILL.md) |
 
 **Note:** Skills do **not** change Cursor’s model or modes—see [CURSOR_LIMITS.md](CURSOR_LIMITS.md).
 
 ## See also
 
+- [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) — pitches + comparison table  
+- [BADGE.md](BADGE.md) — README shields  
 - [GLOSSARY.md](GLOSSARY.md) — what “skill” vs “rule” means
 - [CURSOR_MCP.md](CURSOR_MCP.md) — MCP + Agent tools
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — how skills sit on Cursor’s base Chat/Agent behavior

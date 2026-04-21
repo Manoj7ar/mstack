@@ -50,6 +50,14 @@ mstack is **inspired by** workflow ideas popularized by projects like GStack; it
 
 Share [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md): pilot one pack, name an **`AGENTS.md`** owner, and point people at [STARTER_KIT.md](STARTER_KIT.md) + [SKILLS.md](SKILLS.md).
 
+## How do I pitch mstack in Slack or my README?
+
+Use **`/mstack-pitch-short`** in Cursor for pasteable blurbs, or open [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) and [BADGE.md](BADGE.md).
+
+## How do I report a security issue?
+
+See [SECURITY.md](../SECURITY.md) (private advisory preferred; do not post exploit details in public issues).
+
 ## The sample API — do I need it?
 
 **No.** Consumers can delete `src/`, `tests/`, and related docs if they only want the rules pack.

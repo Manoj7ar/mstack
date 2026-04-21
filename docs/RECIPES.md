@@ -33,6 +33,8 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | New Agent thread / kickoff habits | **`/mstack-agent-habits`** | [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) |
 | Breaking API / major dep / migration | `@mstack-breaking-change` (full pack; manual) | `BREAKING_CHANGE_CHECKLIST.md` |
 | Install audit | `@mstack-adoption-audit` (full pack) | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
+| Pitch / README / Slack blurb | **`/mstack-pitch-short`** | [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md), [BADGE.md](BADGE.md) |
+| List your project publicly | — | [SHOWCASE.md](SHOWCASE.md) (PR to mstack) |
 | Before merge / open PR | **`/mstack-ship-check`** | `PR_CHECKLIST_TEMPLATE.md`, `SECRETS_AND_ENV_CHECKLIST.md`, optional `UI_ACCEPTANCE_CHECKLIST.md`, `SECURITY_REVIEW_LITE.md` |
 | MCP / external tool servers (issues, DB, APIs) | [CURSOR_MCP.md](CURSOR_MCP.md), `@mstack-permissions` (mutations), `@mstack-secrets-env` (credentials) | [ANTI_PATTERNS.md](ANTI_PATTERNS.md) |
 
@@ -40,6 +42,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 
 ## See also
 
+- [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) — attract adopters without overselling  
 - [CURSOR_MCP.md](CURSOR_MCP.md) — MCP stack and safety
 - [GLOSSARY.md](GLOSSARY.md) — terms
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + mstack

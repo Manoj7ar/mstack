@@ -39,7 +39,7 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 
 **Where to start (by role):** **[docs/DOCS_MAP.md](docs/DOCS_MAP.md)** — first links for mobile, first-time install, daily dev, champions, agents.
 
-If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**.
+If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**. **Spread the word:** [docs/SHARE_AND_COMPARE.md](docs/SHARE_AND_COMPARE.md), **`/mstack-pitch-short`**, [docs/BADGE.md](docs/BADGE.md). **Security:** [SECURITY.md](SECURITY.md).
 
 **Fastest install (another repo):** **[docs/STARTER_KIT.md](docs/STARTER_KIT.md)** — sync, doctor, first Agent messages.
 
@@ -141,6 +141,8 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/GLOSSARY.md](docs/GLOSSARY.md) | Cursor + mstack terms (Agent, pack, skill, globs, …) |
 | [docs/ANTI_PATTERNS.md](docs/ANTI_PATTERNS.md) | Common mistakes and fixes |
 | [docs/CURSOR_MCP.md](docs/CURSOR_MCP.md) | MCP servers + trust boundaries with mstack |
+| [docs/SHARE_AND_COMPARE.md](docs/SHARE_AND_COMPARE.md) | README / Slack snippets, comparison vs DIY rules |
+| [docs/BADGE.md](docs/BADGE.md) | Optional shields for your project README |
 
 ---
 
@@ -244,7 +246,7 @@ mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). **`mstack-ship-check`** — type **`/mstack-ship-check`** for a **pre-merge / pre-PR** checklist to paste into GitHub. **`mstack-agent-habits`** — type **`/mstack-agent-habits`** for a pasteable **Agent kickoff** (progress notes, bounded reads, mstack hooks); see **`docs/CURSOR_BASE_BEHAVIOR.md`**. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`, `.cursor/skills/mstack-ship-check/SKILL.md`, `.cursor/skills/mstack-agent-habits/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). **`mstack-ship-check`** — type **`/mstack-ship-check`** for a **pre-merge / pre-PR** checklist to paste into GitHub. **`mstack-agent-habits`** — type **`/mstack-agent-habits`** for a pasteable **Agent kickoff** (progress notes, bounded reads, mstack hooks); see **`docs/CURSOR_BASE_BEHAVIOR.md`**. **`mstack-pitch-short`** — type **`/mstack-pitch-short`** for **README / Slack** blurbs; see **`docs/SHARE_AND_COMPARE.md`**. Full index: **`docs/SKILLS.md`**. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`, `.cursor/skills/mstack-ship-check/SKILL.md`, `.cursor/skills/mstack-agent-habits/SKILL.md`, `.cursor/skills/mstack-pitch-short/SKILL.md`.
 
 ---
 
@@ -338,6 +340,8 @@ README.md
 .cursor/skills/mstack-context-budget/
 .cursor/skills/mstack-ship-check/
 .cursor/skills/mstack-agent-habits/
+.cursor/skills/mstack-pitch-short/
+SECURITY.md
 docs/
   workflow.md
   DOCS_MAP.md
@@ -367,6 +371,8 @@ docs/
   EFFECTIVENESS.md
   SPECIALIST_MAP.md
   SHOWCASE.md
+  SHARE_AND_COMPARE.md
+  BADGE.md
   FAQ.md
   PACKS.md
   AGENT_MEMORY.md

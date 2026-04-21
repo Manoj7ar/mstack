@@ -33,6 +33,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Context budget (long threads)** | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`** |
 | **Overlap: which specialist to drop** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md) |
 | **Showcase / FAQ** | [SHOWCASE.md](SHOWCASE.md), [FAQ.md](FAQ.md) |
+| **Share / pitch / badges** | [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md), [BADGE.md](BADGE.md), **`/mstack-pitch-short`** |
 | **Contributing** | [CONTRIBUTING.md](../CONTRIBUTING.md), [CHANGELOG.md](../CHANGELOG.md) |
 | **GStack vs mstack** | [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) |
 | **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |

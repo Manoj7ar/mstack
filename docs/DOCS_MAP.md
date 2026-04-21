@@ -31,9 +31,11 @@
 ## Team champion (rolling out to others)
 
 1. [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md) — pilot, agreements, first week  
-2. [RULES_SOURCE.md](RULES_SOURCE.md) — submodule vs remote rule import  
-3. [POWER_USER.md](POWER_USER.md) — verify sync, session brief  
-4. [EFFECTIVENESS.md](EFFECTIVENESS.md) — set expectations with the team
+2. [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) — one-line hook, README snippet, comparison table  
+3. [BADGE.md](BADGE.md) — optional README shields · **`/mstack-pitch-short`**  
+4. [RULES_SOURCE.md](RULES_SOURCE.md) — submodule vs remote rule import  
+5. [POWER_USER.md](POWER_USER.md) — verify sync, session brief  
+6. [EFFECTIVENESS.md](EFFECTIVENESS.md) — set expectations with the team
 
 ## Agent / maintainer (this repo or heavy edits)
 
@@ -72,4 +74,5 @@ flowchart LR
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE  
 - [CURSOR_MCP.md](CURSOR_MCP.md) — MCP + mstack  
 - [GLOSSARY.md](GLOSSARY.md) — terminology  
-- [SHOWCASE.md](SHOWCASE.md) — public adopters
+- [SHOWCASE.md](SHOWCASE.md) — public adopters  
+- [SECURITY.md](../SECURITY.md) — report vulnerabilities
