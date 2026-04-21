@@ -10,7 +10,8 @@
     "test": "vitest run",
     "lint": "tsc --noEmit",
     "mstack:doctor": "bash scripts/mstack-doctor.sh .",
-    "mstack:verify-packs": "bash scripts/verify-packs-internal.sh"
+    "mstack:verify-packs": "bash scripts/verify-packs-internal.sh",
+    "mstack:ci": "bash scripts/mstack-ci-local.sh"
   },
   "engines": {
     "node": ">=20"

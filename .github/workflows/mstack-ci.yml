@@ -1,4 +1,7 @@
 # CI for the mstack repository (rules pack + sample API).
+# Local parity: npm run mstack:ci  (scripts/mstack-ci-local.sh)
+# If GitHub shows "job was not started — account locked due to a billing issue",
+# fix billing on the org/account; the workflow itself is not at fault.
 name: mstack CI
 
 on:

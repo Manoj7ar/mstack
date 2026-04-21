@@ -305,6 +305,7 @@ docs/
 scripts/sync-mstack.sh
 scripts/verify-mstack-sync.sh
 scripts/mstack-doctor.sh
+scripts/mstack-ci-local.sh
 scripts/verify-packs-internal.sh
 scripts/packs/*.txt
 scripts/ideas-snapshot.mjs
@@ -360,6 +361,7 @@ Longer guide: **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 
 | Issue | What to try |
 | ----- | ----------- |
+| **GitHub CI** fails in seconds, no logs | Often **billing / account locked** on GitHub—see **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**. Run **`npm run mstack:ci`** locally (same steps as Actions). |
 | Rules not applying | Files under **`.cursor/rules/`**; `.mdc` or `.md`; check **Cursor Settings → Rules**. |
 | Too much guidance | Drop specialist rules; trim **`AGENTS.md`**. |
 | Wrong rule for files | Adjust **`globs`** in each `.mdc` to match your tree. |

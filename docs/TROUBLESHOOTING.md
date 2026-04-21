@@ -1,5 +1,17 @@
 # mstack troubleshooting
 
+## GitHub Actions: mstack CI fails in 2–4s with no step logs
+
+If the run shows an annotation like **“The job was not started because your account is locked due to a billing issue”**, GitHub is **not starting runners** for your org/user. Fix **Billing** in GitHub **Settings** (user or organization). This is **not** a bug in `.github/workflows/mstack-ci.yml`.
+
+**Run the same checks locally** (mirrors CI):
+
+```bash
+npm run mstack:ci
+```
+
+Or: `bash scripts/mstack-ci-local.sh` from the repo root.
+
 ## Is mstack helping or just adding noise?
 
 - Read [EFFECTIVENESS.md](EFFECTIVENESS.md) — usefulness bands and known weaknesses.

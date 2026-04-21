@@ -22,16 +22,15 @@ See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 ## Before you open a PR
 
 1. **Small diffs**; match existing Markdown and rule style.
-2. Run locally (from repo root):
+2. Run locally (from repo root). **Full CI parity** (same as GitHub Actions):
 
    ```bash
-   npm install
-   npm run mstack:verify-packs
-   npm run mstack:doctor
-   MSTACK_ROOT=. MSTACK_PACK=full MSTACK_VERIFY_STRICT=1 bash scripts/mstack-doctor.sh .
-   npm test
-   npm run lint
+   npm run mstack:ci
    ```
+
+   Or step-by-step: `npm install`, `npm run mstack:verify-packs`, `npm run mstack:doctor`, strict doctor + sync smoke (see `scripts/mstack-ci-local.sh`), `npm test`, `npm run lint`.
+
+   If **GitHub CI** fails instantly with a **billing / account locked** message, see [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 3. If you changed packs, smoke sync:
 
