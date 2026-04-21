@@ -1,6 +1,6 @@
 # First messages (copy-paste)
 
-Low-latency openers for Agent chat. Adjust paths to your repo. **Task → rule index:** [RECIPES.md](RECIPES.md).
+Low-latency openers for Agent chat. Adjust paths to your repo. **Task → rule index:** [RECIPES.md](RECIPES.md). **Share / pitch:** **`/mstack-pitch-short`** · [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md).
 
 ## New chat after handoff
 
@@ -114,6 +114,12 @@ Answer in ≤7 bullets, cite file paths only (no code blocks unless one line). Q
 
 ```text
 /mstack-ship-check — Changed: [UI | API | auth | deps | docs only]. Lint/test commands: [npm run lint && npm test or your commands]. Emit numbered checklist I can paste into the PR.
+```
+
+## Pitch (README / Slack / social)
+
+```text
+/mstack-pitch-short — Audience: [README one-liner | Slack | both]. Include honest caveat line if I’m posting publicly.
 ```
 
 ## See also

@@ -280,3 +280,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** **`package.json` `name`:** **`mstack`** + description. **`/v1/meta`:** **`product`** + **`service`** (`mstack-ideas-api`). Refactor **`src/store.ts`** to **`IdeasStore`**, **`InMemoryIdeasStore`**, **`FileIdeasStore`** (`IDEAS_STORE_PATH`); idempotency stores **body fingerprint**; mismatch → **409**. **`createAppServer` options** for tests; **`resetRateLimitState`**. Add **`docs/DEMO_WALKTHROUGH.md`**, **`docs/SRC_INTERNAL.md`**, **`docs/sample-workflow/`**; extend **README** and **ARCHITECTURE** with two-layer story. Bump HTTP **`API_VERSION`** to **0.4.0**.
 
 **Consequences:** Consumers parsing **`/v1/meta`** must allow **`product`**; **`service`** string changed from `ideas-api`. Lockfile name updates with **`npm install`**.
+
+---
+
+### 2026-04-21 — Pitch skill + SHARE_AND_COMPARE + SECURITY.md
+
+**Context:** Teams wanted **low-friction** ways to describe mstack in **README / Slack** without inventing metrics; GitHub users expect a **SECURITY** policy for reporting issues.
+
+**Decision:** Add skill **`/mstack-pitch-short`** (`disable-model-invocation: true`), **`docs/SHARE_AND_COMPARE.md`**, **`docs/BADGE.md`**, root **`SECURITY.md`**. Cross-link navigation; **no** new `.mdc` or **`scripts/packs`** edits.
+
+**Consequences:** One more skill and docs to maintain; clearer path from **curiosity → star → showcase row**.

@@ -6,6 +6,10 @@ Thanks for helping improve mstack. This repo is a **Cursor rules pack** plus doc
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
+## Security
+
+See [SECURITY.md](SECURITY.md) for how to report vulnerabilities.
+
 ## What belongs here
 
 - **Rules** (`.cursor/rules/mstack-*.mdc`): narrow, opt-in specialists with clear `description` and sensible `globs` (or `alwaysApply` only when justified). Cursor suggests keeping rules **under ~500 lines**, focused and scannable—see [Cursor Rules](https://cursor.com/docs/context/rules) best practices. Prefer **skills** (`.cursor/skills/`) for long multi-step workflows vs stuffing everything into one rule—[Skills](https://cursor.com/docs/agent/chat/commands) vs Rules in Cursor docs.

@@ -44,6 +44,7 @@ No fake “% faster” claims—try a **pilot pack** and see if your **team** sh
 ## Try it
 
 - [STARTER_KIT.md](STARTER_KIT.md) — fastest path in another repo  
+- [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) — tell others; **`/mstack-pitch-short`** in Cursor  
 - [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md) — see the **whole** story in the mstack repo (optional Ideas API)  
 - [SKILLS.md](SKILLS.md) — `/mstack-first-sync`, `/mstack-ship-check`, etc.  
 - [GLOSSARY.md](GLOSSARY.md) — terms · [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — avoid foot-guns  

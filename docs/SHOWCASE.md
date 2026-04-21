@@ -21,7 +21,7 @@ Enough to list here: **one** chosen **pack** ([PACKS.md](PACKS.md)), **`sync-mst
 
 ## Optional README snippet for adopters
 
-You can drop this into your project **`README.md`** (adjust the link if you vendor or fork mstack):
+You can drop this into your project **`README.md`** (adjust the link if you vendor or fork mstack). More options: [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) · [BADGE.md](BADGE.md). In Cursor: **`/mstack-pitch-short`** for pasteable blurbs.
 
 ```markdown
 ## Cursor / mstack
