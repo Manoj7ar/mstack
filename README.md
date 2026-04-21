@@ -273,6 +273,7 @@ LICENSE
 README.md
 .github/
   workflows/mstack-ci.yml
+  workflows/mstack-ci-smoke.yml
   workflows/mstack-pack-verify.yml.example
   ISSUE_TEMPLATE/
   PULL_REQUEST_TEMPLATE.md

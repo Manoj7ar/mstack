@@ -1,20 +1,30 @@
 # CI for the mstack repository (rules pack + sample API).
 # Local parity: npm run mstack:ci  (scripts/mstack-ci-local.sh)
-# If GitHub shows "job was not started — account locked due to a billing issue",
-# fix billing on the org/account; the workflow itself is not at fault.
+#
+# If runs finish in ~1–3s with empty step logs / runner never starts, see
+# docs/TROUBLESHOOTING.md (Actions disabled, org policy, fork approvals, spend limits).
 name: mstack CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [main, "cursor/**"]
   pull_request:
     branches: [main, "cursor/**"]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: mstack-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     # Org/repo npm config sometimes sets production=true or NODE_ENV=production, which makes
-    # `npm ci` skip devDependencies — then `tsc` / `vitest` are missing (fails in ~1–2s).
+    # `npm ci` skip devDependencies — then `tsc` / `vitest` would be missing.
     env:
       NODE_ENV: development
       NPM_CONFIG_PRODUCTION: "false"

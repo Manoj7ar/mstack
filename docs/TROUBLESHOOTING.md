@@ -1,8 +1,14 @@
 # mstack troubleshooting
 
-## GitHub Actions: mstack CI fails in 2–4s with no step logs
+## GitHub Actions: workflow fails in 1–4s with no step logs
 
-If the run shows an annotation like **“The job was not started because your account is locked due to a billing issue”**, GitHub is **not starting runners** for your org/user. Fix **Billing** in GitHub **Settings** (user or organization). This is **not** a bug in `.github/workflows/mstack-ci.yml`.
+If the job shows **no steps ran** (or finishes almost instantly), GitHub **never assigned a runner**—this is **not** a failing `npm` command in your YAML. Check, in order:
+
+1. **Repo:** **Settings → Actions → General** — Actions must be **allowed** (not “Disable actions”).
+2. **Fork PRs:** **Settings → Actions → General → Fork pull request workflows** — if PRs are from forks, choose **Require approval for all outside collaborators** or allow workflows as needed; otherwise fork PRs never run.
+3. **Organization:** Org **Settings → Actions → Policies** — the org may **restrict** which workflows run or require approval for public repos.
+4. **Billing / limits:** **Settings → Billing** (user or org) — **Actions minutes**, **spend limits**, or account flags can block hosted runners. The UI sometimes says **“billing issue”** even when the fix is **raising the spend limit** or **enabling Actions** on a free/org plan.
+5. **Sanity check:** Open **Actions → “mstack CI smoke” → Run workflow** (manual). If **smoke** also fails with empty steps, the problem is **platform/settings**, not the main `mstack-ci.yml` script.
 
 **Run the same checks locally** (mirrors CI):
 
