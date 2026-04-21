@@ -1,5 +1,9 @@
 # mstack FAQ
 
+## Where do I start? There are too many docs.
+
+Open **[DOCS_MAP.md](DOCS_MAP.md)** — pick **mobile**, **first-time install**, **daily dev**, or **team champion**; each lists 3–6 pages in order.
+
 ## What should I do in the first 10 minutes?
 
 1. Open **[STARTER_KIT.md](STARTER_KIT.md)** — copy the **sync** and **doctor** commands for your repo layout (`vendor/mstack` or adjust `MSTACK_ROOT`).

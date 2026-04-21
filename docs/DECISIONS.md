@@ -240,3 +240,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add skill **`/mstack-ship-check`** (`disable-model-invocation: true`). Add **`templates/UI_ACCEPTANCE_CHECKLIST.md`** and **`templates/SECURITY_REVIEW_LITE.md`**. Add **`docs/WHY_MSTACK.md`** (honest positioning vs raw Agent). Wire **README**, **SKILLS**, **core-workflow**, **RECIPES**, **flight-deck**, **PLAYBOOK_FIRST_MESSAGES**, etc. **No** new rules or **`scripts/packs/*.txt`** edits.
 
 **Consequences:** More templates and one more skill to maintain; clearer entry for GitHub readers.
+
+---
+
+### 2026-04-21 — Wave 13: DOCS_MAP + alternatives note
+
+**Context:** The repo had **many** docs and skills; new visitors did not know **which pages to open first** by role.
+
+**Decision:** Add **`docs/DOCS_MAP.md`** with ordered paths (mobile/browser, first-time, daily, champion, agent maintainer) and a small **mermaid** role diagram. Cross-link **README**, **FAQ** (“too many docs”), **workflow**, **AGENT_MEMORY**, **STARTER_KIT**, **CURSOR_INTEGRATION**, **AGENTS**. Add **Alternatives** to **`WHY_MSTACK.md`**. Extend **EFFECTIVENESS** (lower band mitigation, weaknesses row, checklist step 0, See also). **No** new rules or **`scripts/packs`** edits.
+
+**Consequences:** One more doc to maintain when adding major new pages; improves wayfinding without new Cursor features.

@@ -34,8 +34,16 @@ A **one-page** answer for visitors deciding whether to try this repo. For instal
 
 No fake “% faster” claims—try a **pilot pack** and see if your **team** ships with less thrash.
 
+## Alternatives (factual)
+
+- **Cursor project rules only** — You can maintain a few `.mdc` files yourself without mstack; you trade **pack manifests**, **verify scripts**, and **this doc set** for less to sync.
+- **GStack / Claude-oriented workflows** — Popular in other tools; mstack is **Cursor-native** (`.cursor/rules`, `AGENTS.md`). See [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md).
+- **Remote rule import** — Cursor can pull rules from GitHub without a submodule; see [RULES_SOURCE.md](RULES_SOURCE.md) for tradeoffs vs `sync-mstack.sh`.
+- **Team `AGENTS.md` only** — Works for bootstrap; you still may want **specialists** and **templates** for security, API, and ship discipline.
+
 ## Try it
 
 - [STARTER_KIT.md](STARTER_KIT.md) — fastest path in another repo  
 - [SKILLS.md](SKILLS.md) — `/mstack-first-sync`, `/mstack-ship-check`, etc.  
 - [SHOWCASE.md](SHOWCASE.md) — add your project when you adopt  
+- [DOCS_MAP.md](DOCS_MAP.md) — next pages to read by role  

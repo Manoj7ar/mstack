@@ -70,6 +70,7 @@ Refresh after **`git submodule update`** or pulling mstack: [VENDOR_UPGRADE.md](
 
 ## See also
 
+- [DOCS_MAP.md](DOCS_MAP.md) — reading order by role if this repo feels huge
 - [WHY_MSTACK.md](WHY_MSTACK.md) — why try mstack (honest)
 - [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative
 - [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — full audit list

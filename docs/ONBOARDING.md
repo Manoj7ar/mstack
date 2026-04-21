@@ -30,6 +30,8 @@ flowchart TD
 
 Exact file lists: **[PACKS.md](PACKS.md)** and **`scripts/packs/*.txt`** (used by `sync-mstack.sh`).
 
+**Overwhelmed by docs?** [DOCS_MAP.md](DOCS_MAP.md) — pick a path by role first.
+
 **Fastest path (one page):** [STARTER_KIT.md](STARTER_KIT.md) — sync, doctor, first messages. In Agent: **`/mstack-first-sync`**.
 
 **Monorepo:** [MONOREPO.md](MONOREPO.md) — one `vendor/mstack`, root vs nested `AGENTS.md`, narrow `@` context.

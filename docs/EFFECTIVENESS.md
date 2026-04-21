@@ -19,7 +19,7 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 | Situation | Typical band | Why |
 | --------- | ------------ | --- |
 | **Solo expert** with a strong personal system | ~45–60 / 100 | Much of mstack **documents** habits you already follow. |
-| **Rules copied but never merged into behavior** | ~10–25 / 100 | If nobody uses packs, session brief, or permissions posture, value stays on disk. |
+| **Rules copied but never merged into behavior** | ~10–25 / 100 | If nobody uses packs, session brief, or permissions posture, value stays on disk. Mitigate with rituals: [DOCS_MAP.md](DOCS_MAP.md), [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md), **`/mstack-ship-check`**. |
 | **Expecting automatic model switching or “smarter LLM”** | Near 0 extra | Rules cannot change Cursor’s model; see [CURSOR_LIMITS.md](CURSOR_LIMITS.md). |
 
 ## Known weaknesses (and what we already ship to offset them)
@@ -34,6 +34,7 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 | **No proof of token savings without measurement** | [TOKEN_LEVERS.md](TOKEN_LEVERS.md) + Cursor **Usage** UI; same-task paired runs (with vs without recap / smaller context) if you want a subjective comparison |
 | **Long threads / huge context** (over-@, re-read drift) | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`**, `@mstack-surgical-investigation` |
 | **Product judgment** still on humans | `mstack-product-review`, `PRODUCT_REVIEW_LITE` |
+| **Too many docs / where to start** | [DOCS_MAP.md](DOCS_MAP.md) — role-based reading order |
 
 ## Strongest parts of this stack (measurable + design)
 
@@ -44,7 +45,7 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 
 ## Make your install “actually useful” (checklist)
 
-0. Skim **[STARTER_KIT.md](STARTER_KIT.md)** or run **`/mstack-first-sync`** once so sync + verify are not guesswork.
+0. Open **[DOCS_MAP.md](DOCS_MAP.md)** if you are lost; then skim **[STARTER_KIT.md](STARTER_KIT.md)** or run **`/mstack-first-sync`** once so sync + verify are not guesswork.
 1. Pick **one** pack; do not start at Full unless you need it ([PACKS.md](PACKS.md)).
 2. Run **`mstack-doctor`** and optionally **strict verify** ([POWER_USER.md](POWER_USER.md)).
 3. Adopt **`SESSION_BRIEF.md`** or accept more paste-heavy handoffs ([PLAYBOOK.md](PLAYBOOK.md)).
@@ -53,5 +54,6 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 
 ## See also
 
+- [DOCS_MAP.md](DOCS_MAP.md) — pick a short reading path
 - [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
 - [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) — what this is / isn’t

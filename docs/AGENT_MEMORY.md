@@ -11,6 +11,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 
 | Question | Read |
 | -------- | ---- |
+| **Where to start (by role)** | [DOCS_MAP.md](DOCS_MAP.md) |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **First-time setup** | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md) |
 | **Why mstack (pitch)** | [WHY_MSTACK.md](WHY_MSTACK.md) |

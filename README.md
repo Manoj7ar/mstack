@@ -13,6 +13,8 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 
 **Why bother?** One-page pitch + honest comparison: **[docs/WHY_MSTACK.md](docs/WHY_MSTACK.md)**.
 
+**Where to start (by role):** **[docs/DOCS_MAP.md](docs/DOCS_MAP.md)** — first links for mobile, first-time install, daily dev, champions, agents.
+
 If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**.
 
 **Fastest install (another repo):** **[docs/STARTER_KIT.md](docs/STARTER_KIT.md)** — sync, doctor, first Agent messages.
@@ -87,6 +89,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 
 | Doc | Purpose |
 | --- | ------- |
+| [docs/DOCS_MAP.md](docs/DOCS_MAP.md) | **Start here** — reading order by role (mobile, install, daily, champion) |
 | [docs/WHY_MSTACK.md](docs/WHY_MSTACK.md) | One-page “why mstack” + honest raw-Agent comparison |
 | [docs/STARTER_KIT.md](docs/STARTER_KIT.md) | One-page sync + doctor + first messages (**fastest path**) |
 | [docs/VENDOR_UPGRADE.md](docs/VENDOR_UPGRADE.md) | Refresh vendored/submodule mstack + re-sync + verify |
@@ -306,6 +309,7 @@ README.md
 .cursor/skills/mstack-ship-check/
 docs/
   workflow.md
+  DOCS_MAP.md
   WHY_MSTACK.md
   CONTEXT_BUDGET.md
   STARTER_KIT.md
