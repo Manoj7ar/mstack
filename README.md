@@ -100,6 +100,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
 | [docs/CURSOR_LIMITS.md](docs/CURSOR_LIMITS.md) | What project rules cannot do (model, modes, persistence) |
 | [docs/CURSOR_INTEGRATION.md](docs/CURSOR_INTEGRATION.md) | Cursor Rules, Skills, modes — **Agent vs IDE** when to use which |
+| [docs/CURSOR_BASE_BEHAVIOR.md](docs/CURSOR_BASE_BEHAVIOR.md) | Cursor base Chat/Agent posture + mstack layering; **`/mstack-agent-habits`** |
 | [docs/POWER_USER.md](docs/POWER_USER.md) | Session brief file, verify sync in CI, mechanical pass |
 | [docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md) | Honest usefulness bands, weaknesses, how to get value |
 | [docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md) | What actually reduces wasted context (no magic savings) |
@@ -214,7 +215,7 @@ mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). **`mstack-ship-check`** — type **`/mstack-ship-check`** for a **pre-merge / pre-PR** checklist to paste into GitHub. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`, `.cursor/skills/mstack-ship-check/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). **`mstack-ship-check`** — type **`/mstack-ship-check`** for a **pre-merge / pre-PR** checklist to paste into GitHub. **`mstack-agent-habits`** — type **`/mstack-agent-habits`** for a pasteable **Agent kickoff** (progress notes, bounded reads, mstack hooks); see **`docs/CURSOR_BASE_BEHAVIOR.md`**. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`, `.cursor/skills/mstack-ship-check/SKILL.md`, `.cursor/skills/mstack-agent-habits/SKILL.md`.
 
 ---
 
@@ -307,6 +308,7 @@ README.md
 .cursor/skills/mstack-upgrade-vendor/
 .cursor/skills/mstack-context-budget/
 .cursor/skills/mstack-ship-check/
+.cursor/skills/mstack-agent-habits/
 docs/
   workflow.md
   DOCS_MAP.md
@@ -324,6 +326,7 @@ docs/
   GSTACK_INSPIRATION.md
   TROUBLESHOOTING.md
   CURSOR_LIMITS.md
+  CURSOR_BASE_BEHAVIOR.md
   CURSOR_INTEGRATION.md
   POWER_USER.md
   ADOPTION_AUDIT.md

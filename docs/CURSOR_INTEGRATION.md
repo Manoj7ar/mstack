@@ -2,6 +2,8 @@
 
 mstack is a **project rules pack** for **Cursor Agent (chat)**. It works best when you **pick the right Cursor surface** for the job: sometimes the editor is faster; sometimes Agent + Plan/Debug + project rules is safer.
 
+Cursor also injects **built-in** instructions for **Chat** vs **Agent**; mstack **layers on top** of that stack (it does not replace the product’s base prompts). See [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md).
+
 **Limits:** Project rules do **not** control every Cursor feature. See [CURSOR_LIMITS.md](CURSOR_LIMITS.md).
 
 **Full Cursor doc index:** [cursor.com/llms.txt](https://cursor.com/llms.txt)
@@ -43,6 +45,7 @@ Use the **smallest surface** that solves the task. mstack rules **complement** A
 
 ## See also
 
+- [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent posture + habits merged with mstack
 - [DOCS_MAP.md](DOCS_MAP.md) — which docs to open first (by role)
 - [RULES_SOURCE.md](RULES_SOURCE.md) — vendor + sync vs remote import
 - [SKILLS.md](SKILLS.md) — `/mstack-*` index

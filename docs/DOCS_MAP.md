@@ -21,7 +21,8 @@
 2. [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste openers  
 3. [workflow.md](workflow.md) — phases and artifacts  
 4. [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) + **`/mstack-context-budget`** — long threads  
-5. **`/mstack-ship-check`** — before opening a PR ([SKILLS.md](SKILLS.md))
+5. [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + **`/mstack-agent-habits`**  
+6. **`/mstack-ship-check`** — before opening a PR ([SKILLS.md](SKILLS.md))
 
 ## Team champion (rolling out to others)
 
@@ -56,6 +57,7 @@ flowchart LR
 ## Honesty and limits
 
 - [CURSOR_LIMITS.md](CURSOR_LIMITS.md) — what project rules cannot do  
+- [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — product base prompts vs mstack (paraphrased)  
 - [EFFECTIVENESS.md](EFFECTIVENESS.md) — when mstack helps vs adds noise
 
 ## See also
