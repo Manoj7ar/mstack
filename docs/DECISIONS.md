@@ -250,3 +250,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/DOCS_MAP.md`** with ordered paths (mobile/browser, first-time, daily, champion, agent maintainer) and a small **mermaid** role diagram. Cross-link **README**, **FAQ** (“too many docs”), **workflow**, **AGENT_MEMORY**, **STARTER_KIT**, **CURSOR_INTEGRATION**, **AGENTS**. Add **Alternatives** to **`WHY_MSTACK.md`**. Extend **EFFECTIVENESS** (lower band mitigation, weaknesses row, checklist step 0, See also). **No** new rules or **`scripts/packs`** edits.
 
 **Consequences:** One more doc to maintain when adding major new pages; improves wayfinding without new Cursor features.
+
+---
+
+### 2026-04-21 — Cursor base behavior doc + agent-habits skill
+
+**Context:** A sibling repo collects **verbatim** Cursor system prompt snapshots. Teams asked how that relates to mstack without **vendoring** huge, fast-stale prompt text into the pack.
+
+**Decision:** Add **`docs/CURSOR_BASE_BEHAVIOR.md`** (paraphrased layering, Chat vs Agent table, distilled habits, link to research only) and skill **`/mstack-agent-habits`** (`disable-model-invocation: true`) for a pasteable kickoff. Wire **CURSOR_INTEGRATION**, **CURSOR_LIMITS**, **SKILLS**, **DOCS_MAP**, **RECIPES**, **AGENTS**, **AGENT_MEMORY**, **PLAYBOOK_FIRST_MESSAGES**, **FAQ**, **README**, **workflow**, **flight-deck** skill. **No** new `.mdc` rules or **`scripts/packs`** edits.
+
+**Consequences:** One more doc and skill to maintain; clearer mental model of **product base + project rules** without duplicating Cursor’s internal prompts.

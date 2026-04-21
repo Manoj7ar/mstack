@@ -12,11 +12,13 @@ Skills are **explicit-invocation** procedures in Agent chat. They complement **p
 | **`/mstack-upgrade-vendor`** | Copy-paste **submodule/update → re-sync → doctor** after bumping mstack | [.cursor/skills/mstack-upgrade-vendor/SKILL.md](../.cursor/skills/mstack-upgrade-vendor/SKILL.md) |
 | **`/mstack-context-budget`** | Pasteable **@ paths + file cap + stop condition** for long threads / huge tasks | [.cursor/skills/mstack-context-budget/SKILL.md](../.cursor/skills/mstack-context-budget/SKILL.md) |
 | **`/mstack-ship-check`** | Pre-merge / pre-PR **numbered checklist** (lint, tests, secrets, security, QA, UI) | [.cursor/skills/mstack-ship-check/SKILL.md](../.cursor/skills/mstack-ship-check/SKILL.md) |
+| **`/mstack-agent-habits`** | Pasteable **Agent kickoff** — progress notes, bounded parallel reads, mstack hooks | [.cursor/skills/mstack-agent-habits/SKILL.md](../.cursor/skills/mstack-agent-habits/SKILL.md) |
 
 **Note:** Skills do **not** change Cursor’s model or modes—see [CURSOR_LIMITS.md](CURSOR_LIMITS.md).
 
 ## See also
 
+- [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — how skills sit on Cursor’s base Chat/Agent behavior
 - [DOCS_MAP.md](DOCS_MAP.md) — which docs to read first by role
 - [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) — habits behind **`/mstack-context-budget`**
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE, rules precedence

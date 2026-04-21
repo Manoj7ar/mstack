@@ -35,6 +35,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
 | **What rules cannot do** (model, modes) | [CURSOR_LIMITS.md](CURSOR_LIMITS.md) |
 | **Cursor features + Agent vs IDE** | [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) |
+| **Cursor base Chat/Agent + mstack** | [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) |
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
 | **Design / product memory** (voice, UX prefs, terminology) | [PROJECT_MEMORY.md](PROJECT_MEMORY.md) |
@@ -47,6 +48,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Upgrade vendor** (submodule refresh + re-sync; type `/mstack-upgrade-vendor`) | [.cursor/skills/mstack-upgrade-vendor/SKILL.md](../.cursor/skills/mstack-upgrade-vendor/SKILL.md) |
 | **Context budget** (pasteable cap + `@`; type `/mstack-context-budget`) | [.cursor/skills/mstack-context-budget/SKILL.md](../.cursor/skills/mstack-context-budget/SKILL.md) |
 | **Ship check** (pre-merge checklist; type `/mstack-ship-check`) | [.cursor/skills/mstack-ship-check/SKILL.md](../.cursor/skills/mstack-ship-check/SKILL.md) |
+| **Agent habits** (pasteable kickoff; type `/mstack-agent-habits`) | [.cursor/skills/mstack-agent-habits/SKILL.md](../.cursor/skills/mstack-agent-habits/SKILL.md) |
 
 ## Conventions for agents
 

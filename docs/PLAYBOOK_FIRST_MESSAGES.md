@@ -14,6 +14,12 @@ Read SESSION_BRIEF.md and docs/PROJECT_MEMORY.md, then continue: [one-line goal]
 mstack phases: Think → Plan only. Scope: [X]. Use Plan Mode; output should fit templates/PLAN_TEMPLATE.md. Follow mstack-token-discipline.
 ```
 
+## Agent kickoff (Cursor base + mstack)
+
+```text
+/mstack-agent-habits — Goal: [one line]. Narrow @ paths: [dirs/files]. Paste the block; then execute. docs/CURSOR_BASE_BEHAVIOR.md if layering is unclear.
+```
+
 ## Debug (consent-aware)
 
 ```text

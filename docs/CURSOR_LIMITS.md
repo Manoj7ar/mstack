@@ -32,6 +32,7 @@ When guidance conflicts, Cursor applies rules in this order: **Team Rules → Pr
 
 ## Related
 
+- [Cursor base behavior + mstack](CURSOR_BASE_BEHAVIOR.md)
 - [Cursor integration (Agent + IDE)](CURSOR_INTEGRATION.md)
 - [Debug Mode](https://cursor.com/docs/agent/debug-mode)
 - [Plan Mode](https://cursor.com/docs/agent/plan-mode)

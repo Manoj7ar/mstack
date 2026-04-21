@@ -14,6 +14,10 @@ Open **[DOCS_MAP.md](DOCS_MAP.md)** — pick **mobile**, **first-time install**,
 
 **No.** Rules cannot change the model, Plan Mode, or Debug Mode. See [CURSOR_LIMITS.md](CURSOR_LIMITS.md).
 
+## How is mstack different from Cursor’s built-in Agent prompt?
+
+Cursor injects **product-level** instructions for Chat vs Agent; mstack adds **project** rules, templates, and skills on top. We **paraphrase** how that stacks in [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md); use **`/mstack-agent-habits`** for a pasteable kickoff block.
+
 ## Will mstack save tokens?
 
 **Sometimes.** Token discipline nudges narrower reads; phase gates can add confirmation turns. See [EFFECTIVENESS.md](EFFECTIVENESS.md).

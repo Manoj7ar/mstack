@@ -30,6 +30,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | OSS license / NOTICE | `@mstack-open-source-license` | `LICENSE_HYGIENE_CHECKLIST.md` |
 | Session / chat handoff | `@mstack-session-handoff`, **`/mstack-lean-handoff`** | `SESSION_BRIEF_TEMPLATE.md`, `AGENT_RECAP_TEMPLATE.md` |
 | Long thread / huge `@` context | **`/mstack-context-budget`**, `@mstack-surgical-investigation` | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) |
+| New Agent thread / kickoff habits | **`/mstack-agent-habits`** | [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) |
 | Breaking API / major dep / migration | `@mstack-breaking-change` (full pack; manual) | `BREAKING_CHANGE_CHECKLIST.md` |
 | Install audit | `@mstack-adoption-audit` (full pack) | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
 | Before merge / open PR | **`/mstack-ship-check`** | `PR_CHECKLIST_TEMPLATE.md`, `SECRETS_AND_ENV_CHECKLIST.md`, optional `UI_ACCEPTANCE_CHECKLIST.md`, `SECURITY_REVIEW_LITE.md` |
@@ -38,6 +39,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 
 ## See also
 
+- [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + mstack
 - [workflow.md](workflow.md) — phases
 - [PACKS.md](PACKS.md) — which rules ship in each pack
 - [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste openers
