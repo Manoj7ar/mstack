@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **Wave 10 (discovery + team adoption):** `docs/TEAM_ROLLOUT.md`, `docs/RULES_SOURCE.md` (vendor + sync vs Cursor remote import), `docs/SKILLS.md` (`/mstack-*` index); FAQ + SHOWCASE + ONBOARDING + CURSOR_INTEGRATION + README / AGENTS / AGENT_MEMORY / workflow / STARTER_KIT wiring. **No** new GitHub Actions, pack entries, or `alwaysApply` rules.
 - **Wave 9 (post-adoption):** `docs/VENDOR_UPGRADE.md`, **`/mstack-upgrade-vendor`** skill; `docs/MONOREPO.md`; `docs/RECIPES.md` (task → rule → template); `templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md`; wiring across README, STARTER_KIT, TROUBLESHOOTING, ONBOARDING, FAQ, EFFECTIVENESS, SPECIALIST_MAP, workflow, PLAYBOOK_FIRST_MESSAGES, CURSOR_INTEGRATION, AGENT_MEMORY, `mstack-core-workflow.mdc`, AGENTS. **No** new pack entries or `alwaysApply` rules.
 - **Wave 8 (adoption):** `docs/STARTER_KIT.md` (one-page sync, doctor, first messages); **`/mstack-first-sync`** skill (`.cursor/skills/mstack-first-sync/`); `templates/MSTACK_DAY_ONE_CHECKLIST.md`; FAQ “first 10 minutes,” SHOWCASE README snippet, EFFECTIVENESS + ADOPTION_AUDIT wiring; README / ONBOARDING / AGENTS / AGENT_MEMORY / workflow / PLAYBOOK_FIRST_MESSAGES updates. **No** new rule packs or `alwaysApply` rules.
 

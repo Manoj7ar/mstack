@@ -16,6 +16,9 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Upgrade vendored mstack** | [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md) |
 | **Monorepos** | [MONOREPO.md](MONOREPO.md) |
 | **Task → rule / template** | [RECIPES.md](RECIPES.md) |
+| **Team rollout (champion)** | [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md) |
+| **Vendor vs remote rules** | [RULES_SOURCE.md](RULES_SOURCE.md) |
+| **Skills index (`/mstack-*`)** | [SKILLS.md](SKILLS.md) |
 | **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
 | **Power-user recipes** (session brief, CI verify, mechanical pass) | [POWER_USER.md](POWER_USER.md) |
 | **Adoption checklist** | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |

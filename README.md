@@ -101,6 +101,9 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/ADOPTION_AUDIT.md](docs/ADOPTION_AUDIT.md) | Checklist for correct install and drift |
 | [docs/PLAYBOOK_FIRST_MESSAGES.md](docs/PLAYBOOK_FIRST_MESSAGES.md) | Copy-paste Agent chat openers |
 | [docs/RECIPES.md](docs/RECIPES.md) | Task → `@mention` / skill → template index |
+| [docs/TEAM_ROLLOUT.md](docs/TEAM_ROLLOUT.md) | Champion guide: pilot pack, agreements, first-week links |
+| [docs/RULES_SOURCE.md](docs/RULES_SOURCE.md) | Vendor + `sync-mstack.sh` vs Cursor remote rule import |
+| [docs/SKILLS.md](docs/SKILLS.md) | Index of **`/mstack-*`** commands and skill paths |
 
 ---
 
@@ -297,6 +300,9 @@ docs/
   VENDOR_UPGRADE.md
   MONOREPO.md
   RECIPES.md
+  TEAM_ROLLOUT.md
+  RULES_SOURCE.md
+  SKILLS.md
   ONBOARDING.md
   PLAYBOOK.md
   GSTACK_INSPIRATION.md

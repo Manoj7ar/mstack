@@ -19,7 +19,7 @@ mstack is a **project rules pack** for **Cursor Agent (chat)**. It works best wh
 | **Plan Mode** (mode picker, **Shift+Tab**) | [Plan Mode](https://cursor.com/docs/agent/plan-mode) | Use for ambiguous / multi-file work; save plans to the **workspace** when useful; align with `templates/PLAN_TEMPLATE.md`. |
 | **Debug Mode** | [Debug Mode](https://cursor.com/docs/agent/debug-mode) | Runtime bugs; pair with `mstack-debug.mdc` (consent before invasive logging). |
 | **Canvas** | [Canvas](https://cursor.com/docs/agent/tools/canvas) | Visual overview via `/mstack-flight-deck` (Cursor 3.1+). |
-| **Remote rule import** (GitHub → `.cursor/rules/imported/`) | [Rules](https://cursor.com/docs/context/rules) | Alternative to vendoring + `sync-mstack.sh`: Cursor pulls rules from a repo; you trade **explicit pack manifests / verify scripts** for **dashboard-managed sync**—pick what fits your team. |
+| **Remote rule import** (GitHub → `.cursor/rules/imported/`) | [Rules](https://cursor.com/docs/context/rules) | Alternative to vendoring + `sync-mstack.sh`: Cursor pulls rules from a repo; you trade **explicit pack manifests / verify scripts** for **dashboard-managed sync**. Full tradeoffs: [RULES_SOURCE.md](RULES_SOURCE.md). |
 
 ---
 
@@ -43,6 +43,9 @@ Use the **smallest surface** that solves the task. mstack rules **complement** A
 
 ## See also
 
+- [RULES_SOURCE.md](RULES_SOURCE.md) — vendor + sync vs remote import
+- [SKILLS.md](SKILLS.md) — `/mstack-*` index
+- [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md) — introducing mstack to a team
 - [RECIPES.md](RECIPES.md) — task → `@mention` index
 - [TOKEN_LEVERS.md](TOKEN_LEVERS.md) — context habits (narrow `@`, recap files)
 - [workflow.md](workflow.md) — mstack phases

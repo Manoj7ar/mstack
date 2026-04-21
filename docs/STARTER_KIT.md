@@ -50,6 +50,8 @@ Copy-paste library: [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md).
 - **Guided commands:** Type **`/mstack-first-sync`** (prints sync + merge hints; does not edit files unless you ask).
 - **Overview (Canvas):** **`/mstack-flight-deck`** (Cursor 3.1+).
 
+**All `/mstack-*` skills:** [SKILLS.md](SKILLS.md). **No submodule?** [RULES_SOURCE.md](RULES_SOURCE.md). **Team rollout:** [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md).
+
 ## Optional — drift check
 
 ```bash

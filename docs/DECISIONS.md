@@ -210,3 +210,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/VENDOR_UPGRADE.md`** + skill **`/mstack-upgrade-vendor`** (copy-paste only). Add **`docs/MONOREPO.md`** (nested `AGENTS.md`, one `vendor/mstack`, `@` narrowing). Add **`docs/RECIPES.md`** as the task-first index; cross-link **`SPECIALIST_MAP`**. Add **`templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md`** wired in **core-workflow** and first messages—**no** new `mstack-hotfix.mdc` in packs for this slice.
 
 **Consequences:** More docs; **`mstack-core-workflow`** artifact list grows by one template line; pack manifests unchanged.
+
+---
+
+### 2026-04-21 — Wave 10: discovery + team adoption (docs only)
+
+**Context:** Champions needed a **single page** to roll out mstack; many users do not know **remote rule import** vs **vendoring**; **`/mstack-*` skills** were only listed inline in README.
+
+**Decision:** Add **`docs/TEAM_ROLLOUT.md`**, **`docs/RULES_SOURCE.md`**, **`docs/SKILLS.md`**. Extend **FAQ**, **SHOWCASE** (“what counts as adopted”), **CURSOR_INTEGRATION** remote-import row, **ONBOARDING**, and navigation (**README**, **AGENTS**, **AGENT_MEMORY**, **workflow**, **STARTER_KIT**). **No** CI in this repo; **no** new rules or pack files.
+
+**Consequences:** More docs to maintain; clearer paths for teams and for “no submodule” questions.
