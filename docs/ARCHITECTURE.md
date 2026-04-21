@@ -14,6 +14,7 @@ flowchart TB
     server["src/server.ts"]
     store["src/store.ts"]
     schemas["src/schemas.ts"]
+    openapi["src/openapi.ts"]
     log["src/logger.ts"]
     rl["src/rateLimit.ts"]
     ver["src/version.ts"]
@@ -21,6 +22,7 @@ flowchart TB
   rules --> agents
   server --> store
   server --> schemas
+  server --> openapi
   server --> log
   server --> rl
   server --> ver
@@ -35,7 +37,7 @@ flowchart TB
 | `templates/` | Plan, test plan, design brief, debug, reflect, postmortem skeletons. |
 | `docs/` | Human/agent narrative: workflow, **this file**, decisions, agent memory. |
 | `scripts/sync-mstack.sh` | Copy rules/templates into another repo (submodule workflow). |
-| `src/` | HTTP server: routing, validation, observability hooks. |
+| `src/` | HTTP server: routing, validation, OpenAPI doc (`openapi.ts`), observability hooks. |
 | `tests/` | Vitest integration tests against `createAppServer()`. |
 
 ## Ideas API — request lifecycle
@@ -43,7 +45,8 @@ flowchart TB
 1. **Correlation**: Every response sets `X-Request-ID` (from client header or generated UUID).
 2. **Rate limit**: Sliding window per client key (`X-Session-ID` if present, else first `X-Forwarded-For` hop or socket address). Tunable via `RATE_LIMIT_MAX`, `RATE_LIMIT_WINDOW_MS`.
 3. **Routing**: `handleRequest` in `src/server.ts` dispatches by method + path. JSON bodies parsed once; errors return structured `{ error, message, requestId }` (and `details` for Zod failures).
-4. **State**: `src/store.ts` holds in-memory `Map`s for ideas, sessions, and idempotency keys. **Not durable** across restarts.
+4. **Listing**: `GET /v1/ideas` returns a **paginated** window (default `limit=50`, max `100`) sorted by `createdAt` descending, tie-broken by `id`. Pass `cursor` from `nextCursor` to fetch the next page. Invalid `limit` or `cursor` returns **400** with `invalid_limit` / `invalid_cursor`.
+5. **State**: `src/store.ts` holds in-memory `Map`s for ideas, sessions, and idempotency keys. **Not durable** across restarts.
 
 ## Ideas API — data model (in-memory)
 
@@ -56,7 +59,8 @@ flowchart TB
 | ------ | ---- | ------- |
 | GET | `/health` | Liveness. |
 | GET | `/v1/meta` | Service name, API version, Node version. |
-| GET | `/v1/ideas` | List ideas; optional `?tag=`. |
+| GET | `/v1/openapi.json` | OpenAPI 3.0 document (`src/openapi.ts`). |
+| GET | `/v1/ideas` | List ideas; optional `?tag=`, `?limit=`, `?cursor=` (see lifecycle). |
 | GET | `/v1/ideas/:id` | Single idea. |
 | POST | `/v1/ideas` | Create; optional `X-Session-ID`, `Idempotency-Key`. |
 | PATCH | `/v1/ideas/:id` | Partial update; optional `X-Session-ID` for prefs-aware title/tags. |
