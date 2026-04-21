@@ -1,0 +1,29 @@
+---
+description: Surgical investigation — hypothesis, file budget, stop condition before wide reads. For unfamiliar codebases or spelunking. Invoke with @mstack-surgical-investigation; not file-scoped.
+alwaysApply: false
+---
+
+# mstack surgical investigation
+
+Use when the task is **explore-first** (find where X lives, trace a flow, map a subsystem) and **wide reading** would waste context. **@mention** this rule or say *surgical investigation* in the first message.
+
+## Before any broad file reads
+
+1. **Hypothesis** — 1–3 sentences: what you think is true and what would **falsify** it.
+2. **File budget** — max **N** files to open next (pick N ≤ 8 unless the user raises it); name **search queries or paths** you will use first.
+3. **Stop condition** — what “enough to proceed” looks like (e.g. “found entrypoint + one call site”).
+
+## During exploration
+
+- **Search-first**, **bounded reads** per `mstack-token-discipline.mdc`; no duplicate megapastes.
+- After those N files (or sooner if blocked), output a **state-of-world** ≤15 lines: what you learned, what is still unknown, **next** N files only if needed.
+
+## Output
+
+- If still blocked: ask the user **one** narrowing question instead of opening the whole tree.
+
+## When **not** to use
+
+- User already named exact files — just read them.
+- **Mechanical** one-file fix — `@mstack-mechanical-pass`.
+- **Runtime debug** with repro — `mstack-debug.mdc` / Debug Mode with consent.

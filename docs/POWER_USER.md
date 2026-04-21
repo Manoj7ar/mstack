@@ -2,6 +2,8 @@
 
 Short patterns for people who already know Cursor. This does **not** add new platform capabilities—see [CURSOR_LIMITS.md](CURSOR_LIMITS.md).
 
+**Token habits (honest scope):** [TOKEN_LEVERS.md](TOKEN_LEVERS.md) — narrow context, recap files, smaller packs; rules do not guarantee bill reduction.
+
 ## Vendored mstack + CI
 
 1. Submodule or copy mstack to e.g. `vendor/mstack`.

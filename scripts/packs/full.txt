@@ -34,4 +34,5 @@ mstack-product-review
 mstack-documentation-pass
 mstack-repo-memory
 mstack-mechanical-pass
+mstack-surgical-investigation
 mstack-adoption-audit

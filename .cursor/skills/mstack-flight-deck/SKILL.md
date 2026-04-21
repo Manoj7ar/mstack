@@ -39,7 +39,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
    - **API:** `meta.service` + `meta.apiVersion` from snapshot, or `API offline`
    - **Runtime:** `meta.node` if present, else `—`
    - **Pack:** short hint — e.g. “sync: `MSTACK_PACK` (minimal / lite / solo / standard / full / all)” + link `docs/PACKS.md`; add “verify: `scripts/verify-mstack-sync.sh`” + link `docs/POWER_USER.md`
-   - **Session:** root `SESSION_BRIEF.md` (handoff) + `templates/SESSION_BRIEF_TEMPLATE.md`
+   - **Session:** root `SESSION_BRIEF.md` (handoff) + `templates/SESSION_BRIEF_TEMPLATE.md`; optional compact **`docs/AGENT_RECAP.md`** + `templates/AGENT_RECAP_TEMPLATE.md` / **`/mstack-lean-handoff`**
    - **Doctor:** `/mstack-doctor` + `scripts/mstack-doctor.sh`; adoption checklist `docs/ADOPTION_AUDIT.md`; first messages `docs/PLAYBOOK_FIRST_MESSAGES.md`
    - **Pack picker:** `/mstack-pack-picker` — skill `.cursor/skills/mstack-pack-picker/`
    - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/CURSOR_LIMITS.md`, `docs/POWER_USER.md`, `docs/ADOPTION_AUDIT.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`

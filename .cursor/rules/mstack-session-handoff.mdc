@@ -14,6 +14,10 @@ Cursor has no shared memory between chats. This rule defines **human-in-the-loop
 
 Commit **`SESSION_BRIEF.md`** if the team wants history; **gitignore** it if it is scratch-only.
 
+## Optional: compact recap (same chat or long thread)
+
+For a **lighter** snapshot—goal, paths touched, decisions, next step—use **`docs/AGENT_RECAP.md`** (or root) shaped by **`templates/AGENT_RECAP_TEMPLATE.md`**. Prefer this when context is growing but you are not doing a full chat switch yet. For **new chat**, still prefer **`SESSION_BRIEF.md`**.
+
 ## When to start a new chat
 
 - Context is **large** or **stale** (many files pasted, old errors irrelevant).

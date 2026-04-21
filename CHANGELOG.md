@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **Wave 7 (efficiency):** `docs/TOKEN_LEVERS.md`, `templates/AGENT_RECAP_TEMPLATE.md`, `mstack-surgical-investigation.mdc` (standard + full), `/mstack-lean-handoff` skill; tighter debug hypothesis/instrumentation guidance in `mstack-debug.mdc`; extended `PLAYBOOK_FIRST_MESSAGES.md`.
 - Community wave: CONTRIBUTING, CODE_OF_CONDUCT, issue/PR templates, SHOWCASE, FAQ, CHANGELOG, CI workflow for this repo.
 
 ## [0.6.0] - 2026-04-20

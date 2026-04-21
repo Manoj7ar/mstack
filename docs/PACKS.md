@@ -88,6 +88,7 @@ Add specialists most teams hit daily.
 - `mstack-session-handoff.mdc`
 - `mstack-project-memory.mdc`
 - `mstack-mechanical-pass.mdc` (compress phases for chores; see rule body)
+- `mstack-surgical-investigation.mdc` (hypothesis + file budget before spelunking; **@mention** only)
 
 ## Full (everything in this repository)
 

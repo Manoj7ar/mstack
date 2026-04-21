@@ -150,3 +150,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`CONTRIBUTING.md`**, **`CODE_OF_CONDUCT.md`**, **`.github/ISSUE_TEMPLATE/*`**, **`PULL_REQUEST_TEMPLATE.md`**, **`docs/SHOWCASE.md`**, **`docs/FAQ.md`**, **`CHANGELOG.md`**, and **`.github/workflows/mstack-ci.yml`** (verify-packs, doctor, strict sync smoke for minimal/standard/full, lint, test). Polish **README** (badges, mermaid map, contributor links). Point **`AGENTS.md`** and **`mstack-core-workflow.mdc`** at CONTRIBUTING/CHANGELOG.
 
 **Consequences:** More maintainer surface area (templates, changelog entries); CI must stay green on `main` and `cursor/**` branches.
+
+---
+
+### 2026-04-20 — Wave 7: token levers, recap, surgical investigation
+
+**Context:** Users wanted **more useful / efficient** agent behavior without claiming automatic token % or model switching. EFFECTIVENESS already stated measurement limits.
+
+**Decision:** Add **`docs/TOKEN_LEVERS.md`** (honest habits). Add **`templates/AGENT_RECAP_TEMPLATE.md`** and optional **`/mstack-lean-handoff`** skill. Add **`mstack-surgical-investigation.mdc`** to **standard** and **full** packs only (invoke via **@mention**; no `globs` so it is not always attached). Tighten **`mstack-debug.mdc`** with a short hypothesis ladder and minimal-instrumentation guidance. Extend first-message snippets. **No** token benchmark suite.
+
+**Consequences:** Standard pack grows by one optional rule; Lite/Minimal unchanged. Maintainers must keep README/PACKS tables in sync when adding rules.

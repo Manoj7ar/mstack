@@ -2,7 +2,7 @@
 
 mstack separates **cognitive modes** so planning, building, reviewing, and shipping do not blur in one undifferentiated session. Each phase has one job.
 
-**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [POWER_USER.md](POWER_USER.md) · [EFFECTIVENESS.md](EFFECTIVENESS.md) · [SPECIALIST_MAP.md](SPECIALIST_MAP.md) · [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) · [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) · [SHOWCASE.md](SHOWCASE.md) · [FAQ.md](FAQ.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
+**Quick links:** [ONBOARDING.md](ONBOARDING.md) · [PLAYBOOK.md](PLAYBOOK.md) · [POWER_USER.md](POWER_USER.md) · [TOKEN_LEVERS.md](TOKEN_LEVERS.md) · [EFFECTIVENESS.md](EFFECTIVENESS.md) · [SPECIALIST_MAP.md](SPECIALIST_MAP.md) · [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) · [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) · [SHOWCASE.md](SHOWCASE.md) · [FAQ.md](FAQ.md) · [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) · [TROUBLESHOOTING.md](TROUBLESHOOTING.md) · [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
 
 ## Phases
 
@@ -37,6 +37,7 @@ flowchart LR
 - **Design brief** (UI): `templates/DESIGN_BRIEF_TEMPLATE.md`
 - **Debug session** (optional): `templates/DEBUG_SESSION_TEMPLATE.md`
 - **Session handoff** (optional): root `SESSION_BRIEF.md` from `templates/SESSION_BRIEF_TEMPLATE.md`
+- **Agent recap** (optional): `docs/AGENT_RECAP.md` from `templates/AGENT_RECAP_TEMPLATE.md` or **`/mstack-lean-handoff`**
 - **Reflect**: `templates/REFLECT_TEMPLATE.md`
 - **Postmortem** (incidents): `templates/POSTMORTEM_TEMPLATE.md` or `templates/INCIDENT_POSTMORTEM_TEMPLATE.md`
 - **PR / ship**: `templates/PR_CHECKLIST_TEMPLATE.md`
