@@ -8,15 +8,19 @@ import {
 } from "./schemas.js";
 import { log } from "./logger.js";
 import { checkRateLimit } from "./rateLimit.js";
+import { openApiDocument } from "./openapi.js";
 import { API_VERSION, SERVICE_NAME } from "./version.js";
 import {
   createIdea,
   deleteIdea,
   getIdea,
-  listIdeas,
+  listIdeasPage,
   patchSessionPreferences,
   updateIdea,
 } from "./store.js";
+
+const LIST_DEFAULT_LIMIT = 50;
+const LIST_MAX_LIMIT = 100;
 
 const PORT = Number(process.env.PORT) || 3000;
 const RATE_MAX = Number(process.env.RATE_LIMIT_MAX) || 120;
@@ -111,10 +115,50 @@ export async function handleRequest(
       return;
     }
 
+    if (req.method === "GET" && url.pathname === "/v1/openapi.json") {
+      json(res, 200, openApiDocument());
+      return;
+    }
+
     if (req.method === "GET" && url.pathname === "/v1/ideas") {
       const tag = url.searchParams.get("tag") ?? undefined;
-      const ideas = listIdeas(tag);
-      json(res, 200, { ideas, requestId });
+      const limitRaw = url.searchParams.get("limit");
+      let limit = LIST_DEFAULT_LIMIT;
+      if (limitRaw !== null && limitRaw !== "") {
+        const n = Number(limitRaw);
+        if (!Number.isInteger(n) || n < 1 || n > LIST_MAX_LIMIT) {
+          json(res, 400, {
+            error: "invalid_limit",
+            message: `limit must be an integer from 1 to ${LIST_MAX_LIMIT}`,
+            requestId,
+          });
+          return;
+        }
+        limit = n;
+      }
+      const cursorParam = url.searchParams.get("cursor");
+      const cursor =
+        cursorParam !== null && cursorParam.length > 0
+          ? cursorParam
+          : undefined;
+      const page = listIdeasPage(tag, limit, cursor);
+      if (page === null) {
+        json(res, 400, {
+          error: "invalid_cursor",
+          message: "cursor is missing, malformed, or does not match the current result set",
+          requestId,
+        });
+        return;
+      }
+      const body: {
+        ideas: typeof page.ideas;
+        requestId: string;
+        nextCursor?: string;
+      } = { ideas: page.ideas, requestId };
+      if (page.nextCursor !== undefined) {
+        body.nextCursor = page.nextCursor;
+      }
+      json(res, 200, body);
       return;
     }
 

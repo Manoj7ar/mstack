@@ -278,7 +278,8 @@ Default port **`3000`** (`PORT`). Optional: **`RATE_LIMIT_MAX`**, **`RATE_LIMIT_
 | ------ | ---- | ----- |
 | `GET` | `/health` | Liveness |
 | `GET` | `/v1/meta` | Service name, API version, Node version |
-| `GET` | `/v1/ideas?tag=` | List ideas; optional tag filter |
+| `GET` | `/v1/openapi.json` | OpenAPI 3.0 spec (`src/openapi.ts`) |
+| `GET` | `/v1/ideas?tag=&limit=&cursor=` | List ideas (paginated; default `limit=50`, max `100`; use `nextCursor` for more) |
 | `GET` | `/v1/ideas/:id` | Single idea |
 | `POST` | `/v1/ideas` | Create (`title`, optional `summary`, `tags`). Headers: optional `X-Session-ID`, optional `Idempotency-Key` |
 | `PATCH` | `/v1/ideas/:id` | Partial update; optional `X-Session-ID` merges session default tags when `tags` sent |

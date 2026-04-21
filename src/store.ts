@@ -66,6 +66,44 @@ function stripIdempotencyForIdea(ideaId: string): void {
   }
 }
 
+function compareIdeasDesc(a: Idea, b: Idea): number {
+  const byTime = b.createdAt.localeCompare(a.createdAt);
+  if (byTime !== 0) return byTime;
+  return b.id.localeCompare(a.id);
+}
+
+function sortedFilteredIdeas(tag?: string): Idea[] {
+  const all = [...ideas.values()].sort(compareIdeasDesc);
+  if (!tag) return all;
+  const t = tag.toLowerCase();
+  return all.filter((i) => i.tags.some((x) => x.toLowerCase() === t));
+}
+
+type CursorPayload = { t: string; i: string };
+
+function encodeIdeaCursor(idea: Idea): string {
+  const payload: CursorPayload = { t: idea.createdAt, i: idea.id };
+  return Buffer.from(JSON.stringify(payload), "utf8").toString("base64url");
+}
+
+function decodeIdeaCursor(cursor: string): CursorPayload | null {
+  try {
+    const raw = Buffer.from(cursor, "base64url").toString("utf8");
+    const p = JSON.parse(raw) as unknown;
+    if (
+      !p ||
+      typeof p !== "object" ||
+      typeof (p as CursorPayload).t !== "string" ||
+      typeof (p as CursorPayload).i !== "string"
+    ) {
+      return null;
+    }
+    return p as CursorPayload;
+  } catch {
+    return null;
+  }
+}
+
 export function createIdea(
   body: CreateIdeaBody,
   sessionId: string,
@@ -94,12 +132,31 @@ export function createIdea(
 }
 
 export function listIdeas(tag?: string): Idea[] {
-  const all = [...ideas.values()].sort(
-    (a, b) => b.createdAt.localeCompare(a.createdAt),
-  );
-  if (!tag) return all;
-  const t = tag.toLowerCase();
-  return all.filter((i) => i.tags.some((x) => x.toLowerCase() === t));
+  return sortedFilteredIdeas(tag);
+}
+
+export function listIdeasPage(
+  tag: string | undefined,
+  limit: number,
+  cursor: string | undefined,
+): { ideas: Idea[]; nextCursor?: string } | null {
+  const list = sortedFilteredIdeas(tag);
+  let start = 0;
+  if (cursor !== undefined && cursor.length > 0) {
+    const decoded = decodeIdeaCursor(cursor);
+    if (!decoded) return null;
+    const idx = list.findIndex(
+      (x) => x.createdAt === decoded.t && x.id === decoded.i,
+    );
+    if (idx === -1) return null;
+    start = idx + 1;
+  }
+  const page = list.slice(start, start + limit);
+  const nextCursor =
+    start + limit < list.length && page.length > 0
+      ? encodeIdeaCursor(page[page.length - 1]!)
+      : undefined;
+  return { ideas: page, nextCursor };
 }
 
 export function getIdea(id: string): Idea | undefined {

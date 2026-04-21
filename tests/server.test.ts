@@ -105,6 +105,70 @@ describe("Ideas API", () => {
     expect(data.ideas.some((i) => i.title === "Tagged")).toBe(true);
   });
 
+  it("GET /v1/openapi.json returns OpenAPI document", async () => {
+    const res = await fetch(`${baseUrl}/v1/openapi.json`);
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toContain("application/json");
+    const doc = (await res.json()) as {
+      openapi: string;
+      paths: Record<string, unknown>;
+    };
+    expect(doc.openapi).toBe("3.0.3");
+    expect(doc.paths["/health"]).toBeDefined();
+    expect(doc.paths["/v1/ideas"]).toBeDefined();
+    expect(doc.paths["/v1/openapi.json"]).toBeDefined();
+  });
+
+  it("GET /v1/ideas paginates with cursor and tag filter", async () => {
+    const session = "test-session-pagination";
+    const tag = `paginate-${Date.now()}`;
+    for (let i = 0; i < 3; i++) {
+      const r = await fetch(`${baseUrl}/v1/ideas`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Session-ID": session,
+        },
+        body: JSON.stringify({ title: `Page idea ${i}`, tags: [tag] }),
+      });
+      expect(r.status).toBe(201);
+    }
+    const p1 = await fetch(
+      `${baseUrl}/v1/ideas?tag=${encodeURIComponent(tag)}&limit=2`,
+    );
+    expect(p1.status).toBe(200);
+    const j1 = (await p1.json()) as {
+      ideas: { title: string }[];
+      nextCursor?: string;
+      requestId: string;
+    };
+    expect(j1.ideas).toHaveLength(2);
+    expect(j1.nextCursor).toBeDefined();
+
+    const p2 = await fetch(
+      `${baseUrl}/v1/ideas?tag=${encodeURIComponent(tag)}&limit=2&cursor=${encodeURIComponent(j1.nextCursor!)}`,
+    );
+    expect(p2.status).toBe(200);
+    const j2 = (await p2.json()) as {
+      ideas: { title: string }[];
+      nextCursor?: string;
+    };
+    expect(j2.ideas).toHaveLength(1);
+    expect(j2.nextCursor).toBeUndefined();
+  });
+
+  it("GET /v1/ideas rejects invalid limit and cursor", async () => {
+    const badLimit = await fetch(`${baseUrl}/v1/ideas?limit=0`);
+    expect(badLimit.status).toBe(400);
+    const limBody = (await badLimit.json()) as { error: string };
+    expect(limBody.error).toBe("invalid_limit");
+
+    const badCursor = await fetch(`${baseUrl}/v1/ideas?cursor=%%%`);
+    expect(badCursor.status).toBe(400);
+    const curBody = (await badCursor.json()) as { error: string };
+    expect(curBody.error).toBe("invalid_cursor");
+  });
+
   it("GET /v1/meta returns service metadata", async () => {
     const res = await fetch(`${baseUrl}/v1/meta`);
     expect(res.status).toBe(200);

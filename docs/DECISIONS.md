@@ -140,3 +140,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/EFFECTIVENESS.md`** (when mstack helps, when not, checklist to maximize value). Add **`docs/SPECIALIST_MAP.md`** (primary vs alternate per domain). Wire README intro, ONBOARDING, AGENT_MEMORY, workflow, POWER_USER, TROUBLESHOOTING, PACKS Custom, AGENTS human docs, README repo layout. Add a **ceremony vs tokens** bullet to **`mstack-token-discipline.mdc`** pointing at mechanical pass and EFFECTIVENESS.
 
 **Consequences:** Slightly more docs to maintain; adopters can self-select packs and reduce overlap with less support churn.
+
+---
+
+### 2026-04-21 — OpenAPI surface and cursor pagination for ideas list
+
+**Context:** The sample API had no machine-readable contract, and `GET /v1/ideas` always returned the full in-memory list.
+
+**Decision:** Serve **`GET /v1/openapi.json`** from `src/openapi.ts` (no extra npm deps). Paginate **`GET /v1/ideas`** with `limit` (default 50, max 100) and opaque **`cursor`** (base64url JSON of last item’s `createdAt` + `id`); response adds optional **`nextCursor`**. Stable ordering: **`createdAt` desc, then `id` desc**. Bump **`API_VERSION`** to **0.3.0**.
+
+**Consequences:** Clients that need every idea must follow `nextCursor` until absent. Tools that only fetch the first page (e.g. `scripts/ideas-snapshot.mjs`) see at most `limit` items unless extended.
