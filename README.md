@@ -11,6 +11,8 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 
 **Reality check:** mstack is **team glue and guardrails**, not automatic model intelligence. See **[docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md)** for when it tends to help, when it does not, and known weak spots. **Token habits (honest):** **[docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md)**.
 
+**Why bother?** One-page pitch + honest comparison: **[docs/WHY_MSTACK.md](docs/WHY_MSTACK.md)**.
+
 If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**.
 
 **Fastest install (another repo):** **[docs/STARTER_KIT.md](docs/STARTER_KIT.md)** — sync, doctor, first Agent messages.
@@ -85,6 +87,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 
 | Doc | Purpose |
 | --- | ------- |
+| [docs/WHY_MSTACK.md](docs/WHY_MSTACK.md) | One-page “why mstack” + honest raw-Agent comparison |
 | [docs/STARTER_KIT.md](docs/STARTER_KIT.md) | One-page sync + doctor + first messages (**fastest path**) |
 | [docs/VENDOR_UPGRADE.md](docs/VENDOR_UPGRADE.md) | Refresh vendored/submodule mstack + re-sync + verify |
 | [docs/MONOREPO.md](docs/MONOREPO.md) | One vendor copy, nested `AGENTS.md`, package `@` context |
@@ -172,6 +175,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `MSTACK_DAY_ONE_CHECKLIST.md` | First-day onboarding checks; pairs with **`docs/STARTER_KIT.md`**. |
 | `HOTFIX_OR_ROLLBACK_CHECKLIST.md` | Prod hotfix / rollback trace; then **`POSTMORTEM_TEMPLATE.md`**. |
 | `BREAKING_CHANGE_CHECKLIST.md` | Breaking API/schema/deps; **`@mstack-breaking-change`** (**full** pack). |
+| `UI_ACCEPTANCE_CHECKLIST.md` | User-visible UI states + quick a11y before merge. |
+| `SECURITY_REVIEW_LITE.md` | Short human security pass; pair with **`@mstack-security-review`** when needed. |
 | `REFLECT_TEMPLATE.md` | Reflect phase after non-trivial work. |
 | `POSTMORTEM_TEMPLATE.md` | Incident write-up. |
 | `INCIDENT_POSTMORTEM_TEMPLATE.md` | Alternate postmortem structure. |
@@ -206,7 +211,7 @@ mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). **`mstack-ship-check`** — type **`/mstack-ship-check`** for a **pre-merge / pre-PR** checklist to paste into GitHub. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`, `.cursor/skills/mstack-ship-check/SKILL.md`.
 
 ---
 
@@ -298,8 +303,10 @@ README.md
 .cursor/skills/mstack-first-sync/
 .cursor/skills/mstack-upgrade-vendor/
 .cursor/skills/mstack-context-budget/
+.cursor/skills/mstack-ship-check/
 docs/
   workflow.md
+  WHY_MSTACK.md
   CONTEXT_BUDGET.md
   STARTER_KIT.md
   VENDOR_UPGRADE.md

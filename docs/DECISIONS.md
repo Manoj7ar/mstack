@@ -230,3 +230,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/CONTEXT_BUDGET.md`** + skill **`/mstack-context-budget`** (`disable-model-invocation: true`). Add **`templates/BREAKING_CHANGE_CHECKLIST.md`** and **`mstack-breaking-change.mdc`** (`alwaysApply: false`, **no globs**, manual **`@mstack-breaking-change`**), listed only in **`scripts/packs/full.txt`**. Wire navigation and **RECIPES** / **SPECIALIST_MAP** / **core-workflow**.
 
 **Consequences:** Full pack gains one more `.mdc`; verify-packs must list it in `full.txt` (already required for all shipped rules).
+
+---
+
+### 2026-04-21 — Wave 12: ship-check skill + UI/security lite templates + WHY_MSTACK
+
+**Context:** Visitors wanted **immediate, reusable** pre-PR habits and **scannable** design/security checklists without adding **`alwaysApply`** rules or expanding **standard** pack.
+
+**Decision:** Add skill **`/mstack-ship-check`** (`disable-model-invocation: true`). Add **`templates/UI_ACCEPTANCE_CHECKLIST.md`** and **`templates/SECURITY_REVIEW_LITE.md`**. Add **`docs/WHY_MSTACK.md`** (honest positioning vs raw Agent). Wire **README**, **SKILLS**, **core-workflow**, **RECIPES**, **flight-deck**, **PLAYBOOK_FIRST_MESSAGES**, etc. **No** new rules or **`scripts/packs/*.txt`** edits.
+
+**Consequences:** More templates and one more skill to maintain; clearer entry for GitHub readers.

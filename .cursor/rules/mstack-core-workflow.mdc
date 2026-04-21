@@ -59,6 +59,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Privacy / personal data** (full pack): `@mstack-privacy-data-handling` for retention, export/delete, privacy-oriented paths—not legal advice.
 - **OSS license files** (full pack): `@mstack-open-source-license` for `LICENSE`, `NOTICE`, third-party attribution—not legal advice.
 - **Breaking changes** (full pack): `@mstack-breaking-change` when removing/renaming public API, schema, webhooks, or shipping **consumer-visible** breaking behavior—use `templates/BREAKING_CHANGE_CHECKLIST.md`; pair with `@mstack-api-contracts`, `@mstack-dependencies`, `@mstack-release-versioning` as needed.
+- **Pre-merge / PR:** **`/mstack-ship-check`** — pasteable checklist (lint/tests, secrets, security, QA, UI); templates `PR_CHECKLIST_TEMPLATE.md`, `SECRETS_AND_ENV_CHECKLIST.md`, `UI_ACCEPTANCE_CHECKLIST.md`, `SECURITY_REVIEW_LITE.md`.
 
 ## Artifacts (paths in this pack)
 
@@ -90,6 +91,8 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/MSTACK_DAY_ONE_CHECKLIST.md` (onboarding checklist; pairs with `docs/STARTER_KIT.md`)
 - `templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md` (prod hotfix / rollback trace; then postmortem)
 - `templates/BREAKING_CHANGE_CHECKLIST.md` (breaking API/schema/dep rollout; full pack + `@mstack-breaking-change`)
+- `templates/UI_ACCEPTANCE_CHECKLIST.md` (user-visible UI states + quick a11y before merge)
+- `templates/SECURITY_REVIEW_LITE.md` (human security pass; not a pen test—pair with `@mstack-security-review` when needed)
 
 Human-readable narrative: `docs/workflow.md`. Task → rule index: `docs/RECIPES.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
 

@@ -13,6 +13,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | -------- | ---- |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **First-time setup** | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md) |
+| **Why mstack (pitch)** | [WHY_MSTACK.md](WHY_MSTACK.md) |
 | **Upgrade vendored mstack** | [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md) |
 | **Monorepos** | [MONOREPO.md](MONOREPO.md) |
 | **Task → rule / template** | [RECIPES.md](RECIPES.md) |
@@ -44,6 +45,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **First sync** (adopt in another repo; type `/mstack-first-sync`) | [.cursor/skills/mstack-first-sync/SKILL.md](../.cursor/skills/mstack-first-sync/SKILL.md) |
 | **Upgrade vendor** (submodule refresh + re-sync; type `/mstack-upgrade-vendor`) | [.cursor/skills/mstack-upgrade-vendor/SKILL.md](../.cursor/skills/mstack-upgrade-vendor/SKILL.md) |
 | **Context budget** (pasteable cap + `@`; type `/mstack-context-budget`) | [.cursor/skills/mstack-context-budget/SKILL.md](../.cursor/skills/mstack-context-budget/SKILL.md) |
+| **Ship check** (pre-merge checklist; type `/mstack-ship-check`) | [.cursor/skills/mstack-ship-check/SKILL.md](../.cursor/skills/mstack-ship-check/SKILL.md) |
 
 ## Conventions for agents
 
