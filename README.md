@@ -89,6 +89,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
 | [docs/CURSOR_LIMITS.md](docs/CURSOR_LIMITS.md) | What project rules cannot do (model, modes, persistence) |
+| [docs/CURSOR_INTEGRATION.md](docs/CURSOR_INTEGRATION.md) | Cursor Rules, Skills, modes — **Agent vs IDE** when to use which |
 | [docs/POWER_USER.md](docs/POWER_USER.md) | Session brief file, verify sync in CI, mechanical pass |
 | [docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md) | Honest usefulness bands, weaknesses, how to get value |
 | [docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md) | What actually reduces wasted context (no magic savings) |
@@ -181,6 +182,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 ---
 
 ## Cursor integration (modes and permissions)
+
+mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal IDE work—editor, search, terminal, debugger, Tab—for fast local edits; use Agent + phases when scope is wide or you want rule-consistent behavior. See **[docs/CURSOR_INTEGRATION.md](docs/CURSOR_INTEGRATION.md)**.
 
 - **Modes:** Use the Agent **mode picker** or **Shift+Tab** to switch **Agent**, **Plan**, and **Debug** modes ([Plan](https://cursor.com/docs/agent/plan-mode), [Debug](https://cursor.com/docs/agent/debug-mode)).
 - **Plan Mode:** Best for unclear requirements or many files; refine the plan before Build.
@@ -285,6 +288,7 @@ docs/
   GSTACK_INSPIRATION.md
   TROUBLESHOOTING.md
   CURSOR_LIMITS.md
+  CURSOR_INTEGRATION.md
   POWER_USER.md
   ADOPTION_AUDIT.md
   PLAYBOOK_FIRST_MESSAGES.md

@@ -21,6 +21,7 @@ alwaysApply: true
 
 - Use **fast, narrow** queries; widen only when blocked.
 - **Batch** independent reads when the environment allows.
+- When the **user already knows the file/location**, prefer **IDE search/navigation** or a direct open—avoid re-deriving paths in chat. Use **Agent** when exploration cost in chat is justified by a **bounded plan** (hypothesis + file budget); see `docs/CURSOR_INTEGRATION.md`.
 
 ## Communication
 

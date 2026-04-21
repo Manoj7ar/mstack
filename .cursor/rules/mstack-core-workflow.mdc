@@ -28,6 +28,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 
 - Trivial one-file fixes: Think + Build + Review in one pass; still state assumptions.
 - User explicitly says *quick patch only*: skip long plan template.
+- **IDE-first is OK** for obvious single-file edits: the human may use the editor, Tab, or inline edit; use full phases when blast radius grows or rules/consistency matter in Agent.
 - **Mechanical / chore work:** `@mstack-mechanical-pass` — short inline plan; see `mstack-mechanical-pass.mdc`.
 
 ## Optional invocations

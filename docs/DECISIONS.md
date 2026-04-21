@@ -160,3 +160,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/TOKEN_LEVERS.md`** (honest habits). Add **`templates/AGENT_RECAP_TEMPLATE.md`** and optional **`/mstack-lean-handoff`** skill. Add **`mstack-surgical-investigation.mdc`** to **standard** and **full** packs only (invoke via **@mention**; no `globs` so it is not always attached). Tighten **`mstack-debug.mdc`** with a short hypothesis ladder and minimal-instrumentation guidance. Extend first-message snippets. **No** token benchmark suite.
 
 **Consequences:** Standard pack grows by one optional rule; Lite/Minimal unchanged. Maintainers must keep README/PACKS tables in sync when adding rules.
+
+---
+
+### 2026-04-21 — Cursor product integration (Agent + IDE)
+
+**Context:** Users wanted mstack aligned with **Cursor’s actual surfaces** and clear guidance on when to use **Agent** vs **IDE** tools (Tab, inline edit, debugger, terminal).
+
+**Decision:** Add **`docs/CURSOR_INTEGRATION.md`** (official doc links, mstack mapping, Agent vs IDE table, remote import note). Extend **`docs/CURSOR_LIMITS.md`** (Agent vs Tab/inline, rule precedence Team → Project → User). One-line wiring in **`AGENTS.md`**, **`mstack-core-workflow.mdc`** (IDE-first OK for obvious single-file work), **`mstack-token-discipline.mdc`** (IDE navigation when location known). README / ONBOARDING / CONTRIBUTING / AGENT_MEMORY / workflow quick links. **No** claim that project rules control all IDE AI features.
+
+**Consequences:** Slightly more docs to maintain; reduces confusion between chat rules and editor workflows.

@@ -29,6 +29,7 @@ Here, **“saving tokens”** means **less wasted context**: fewer broad reads, 
 
 ## See also
 
+- [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE, Skills, modes
 - [EFFECTIVENESS.md](EFFECTIVENESS.md) — when mstack pays off vs ceremony
 - [POWER_USER.md](POWER_USER.md) — CI, session brief, mechanical pass
 - [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — low-token openers
