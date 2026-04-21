@@ -6,11 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- **Wave 8 (adoption):** `docs/STARTER_KIT.md` (one-page sync, doctor, first messages); **`/mstack-first-sync`** skill (`.cursor/skills/mstack-first-sync/`); `templates/MSTACK_DAY_ONE_CHECKLIST.md`; FAQ “first 10 minutes,” SHOWCASE README snippet, EFFECTIVENESS + ADOPTION_AUDIT wiring; README / ONBOARDING / AGENTS / AGENT_MEMORY / workflow / PLAYBOOK_FIRST_MESSAGES updates. **No** new rule packs or `alwaysApply` rules.
+
 ### Removed
 
 - **GitHub Actions** workflows `mstack-ci.yml` and `mstack-ci-smoke.yml` — use **`npm run mstack:ci`** locally and optional **`mstack-pack-verify.yml.example`** in consumer repos.
 
-### Added
+### Added (earlier unreleased)
 
 - **Cursor integration:** `docs/CURSOR_INTEGRATION.md` (Rules, Skills, modes, precedence, remote import, **Agent vs IDE** table); `docs/CURSOR_LIMITS.md` extended (Tab/inline vs Agent, precedence); light wiring in `AGENTS.md`, `mstack-core-workflow.mdc`, `mstack-token-discipline.mdc`, README, ONBOARDING, CONTRIBUTING, `docs/AGENT_MEMORY.md`, `docs/workflow.md`.
 - **Wave 7 (efficiency):** `docs/TOKEN_LEVERS.md`, `templates/AGENT_RECAP_TEMPLATE.md`, `mstack-surgical-investigation.mdc` (standard + full), `/mstack-lean-handoff` skill; tighter debug hypothesis/instrumentation guidance in `mstack-debug.mdc`; extended `PLAYBOOK_FIRST_MESSAGES.md`.

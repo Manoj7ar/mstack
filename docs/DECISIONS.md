@@ -190,3 +190,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Serve **`GET /v1/openapi.json`** from `src/openapi.ts` (no extra npm deps). Paginate **`GET /v1/ideas`** with `limit` (default 50, max 100) and opaque **`cursor`** (base64url JSON of last item’s `createdAt` + `id`); response adds optional **`nextCursor`**. Stable ordering: **`createdAt` desc, then `id` desc**. Bump **`API_VERSION`** to **0.3.0**.
 
 **Consequences:** Clients that need every idea must follow `nextCursor` until absent. Tools that only fetch the first page (e.g. `scripts/ideas-snapshot.mjs`) see at most `limit` items unless extended.
+
+---
+
+### 2026-04-21 — Wave 8: adoption kit (starter page + first-sync skill)
+
+**Context:** New users still hit **time-to-first-use** friction (wrong sync path, skipped doctor, unclear first message).
+
+**Decision:** Add **`docs/STARTER_KIT.md`** (single-page sync, verify, links). Add explicit-invocation skill **`/mstack-first-sync`** (`disable-model-invocation: true`) that prints copy-paste commands and points to **`STARTER_KIT`** — **no** new `alwaysApply` rules or pack entries. Add **`templates/MSTACK_DAY_ONE_CHECKLIST.md`**; wire **FAQ**, **SHOWCASE** (optional README blurb), **EFFECTIVENESS**, **ADOPTION_AUDIT**, **core-workflow** artifacts list, README / ONBOARDING / AGENTS / AGENT_MEMORY / workflow / **CURSOR_INTEGRATION** / **PLAYBOOK_FIRST_MESSAGES**.
+
+**Consequences:** More docs to maintain; adoption path is discoverable without growing rule surface area.

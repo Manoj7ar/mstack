@@ -13,6 +13,8 @@ Inspired by the “virtual team” workflow idea popularized by [GStack](https:/
 
 If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**.
 
+**Fastest install (another repo):** **[docs/STARTER_KIT.md](docs/STARTER_KIT.md)** — sync, doctor, first Agent messages.
+
 ### At a glance (how pieces connect)
 
 ```mermaid
@@ -83,6 +85,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 
 | Doc | Purpose |
 | --- | ------- |
+| [docs/STARTER_KIT.md](docs/STARTER_KIT.md) | One-page sync + doctor + first messages (**fastest path**) |
 | [docs/ONBOARDING.md](docs/ONBOARDING.md) | 5-minute first-time adoption |
 | [docs/PLAYBOOK.md](docs/PLAYBOOK.md) | Sprint shape, handoffs, modes |
 | [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
@@ -158,6 +161,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `DEBUG_SESSION_TEMPLATE.md` | Repro, hypotheses, **permission** for invasive debug. |
 | `SESSION_BRIEF_TEMPLATE.md` | Shape for root **`SESSION_BRIEF.md`** — durable handoff between Cursor chats. |
 | `AGENT_RECAP_TEMPLATE.md` | Optional **`docs/AGENT_RECAP.md`** — compact mid-thread recap; **`/mstack-lean-handoff`**. |
+| `MSTACK_DAY_ONE_CHECKLIST.md` | First-day onboarding checks; pairs with **`docs/STARTER_KIT.md`**. |
 | `REFLECT_TEMPLATE.md` | Reflect phase after non-trivial work. |
 | `POSTMORTEM_TEMPLATE.md` | Incident write-up. |
 | `INCIDENT_POSTMORTEM_TEMPLATE.md` | Alternate postmortem structure. |
@@ -192,11 +196,13 @@ mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`.
 
 ---
 
 ## Quick start (consume mstack in another repo)
+
+Prefer the single-page guide: **[docs/STARTER_KIT.md](docs/STARTER_KIT.md)**. Or follow the steps below.
 
 1. Copy **`AGENTS.md`**, **`.cursor/rules/mstack-*.mdc`**, and optionally **`templates/`** into your project.
 2. Merge **`AGENTS.md`** with your existing file if needed.
@@ -279,8 +285,10 @@ README.md
 .cursor/skills/mstack-doctor/
 .cursor/skills/mstack-pack-picker/
 .cursor/skills/mstack-lean-handoff/
+.cursor/skills/mstack-first-sync/
 docs/
   workflow.md
+  STARTER_KIT.md
   ONBOARDING.md
   PLAYBOOK.md
   GSTACK_INSPIRATION.md

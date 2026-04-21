@@ -21,6 +21,7 @@ Use this checklist when **onboarding a repo** or **quarterly** to catch silent d
 
 - [ ] **`bash scripts/mstack-doctor.sh`** passes (from repo root; set **`MSTACK_ROOT`** / **`MSTACK_PACK`** to also run pack verify)
 - [ ] First-message patterns fit your team: [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md)
+- [ ] Optional: day-one trace — [templates/MSTACK_DAY_ONE_CHECKLIST.md](../templates/MSTACK_DAY_ONE_CHECKLIST.md) or [STARTER_KIT.md](STARTER_KIT.md)
 
 ## Limits
 

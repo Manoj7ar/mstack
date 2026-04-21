@@ -44,6 +44,12 @@ Run: bash vendor/mstack/scripts/mstack-doctor.sh . (or from mstack repo root: np
 /mstack-pack-picker — solo dev, [UI+API or scripts-only], [localized app yes/no]. Recommend MSTACK_PACK and sync command.
 ```
 
+## First sync (new consumer repo)
+
+```text
+/mstack-first-sync — mstack is at [path, e.g. vendor/mstack]. Recommend MSTACK_PACK and print exact sync + doctor commands. Do not write files unless I ask.
+```
+
 ## Surgical investigation (standard+ pack)
 
 ```text

@@ -26,7 +26,8 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 
 | Weakness | Mitigation in-repo |
 | -------- | ------------------- |
-| **Adoption tax** (sync, `AGENTS.md`, memory) | [ONBOARDING.md](ONBOARDING.md) fast path, [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md), `mstack-doctor`, `/mstack-pack-picker` |
+| **Adoption tax** (sync, `AGENTS.md`, memory) | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md), [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md), `mstack-doctor`, `/mstack-pack-picker`, **`/mstack-first-sync`** |
+| **Never ran sync + doctor** (rules copied ad hoc) | [STARTER_KIT.md](STARTER_KIT.md) + **`/mstack-first-sync`** + `mstack-doctor.sh` |
 | **Overlap / heavy feel** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md), Lite/Solo/Minimal packs, [PACKS.md](PACKS.md) Custom |
 | **Ceremony can add turns/tokens** | `@mstack-mechanical-pass`, compress phases in [mstack-core-workflow.mdc](../.cursor/rules/mstack-core-workflow.mdc) |
 | **No proof of token savings without measurement** | [TOKEN_LEVERS.md](TOKEN_LEVERS.md) + Cursor **Usage** UI; same-task paired runs (with vs without recap / smaller context) if you want a subjective comparison |
@@ -41,8 +42,9 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 
 ## Make your install “actually useful” (checklist)
 
+0. Skim **[STARTER_KIT.md](STARTER_KIT.md)** or run **`/mstack-first-sync`** once so sync + verify are not guesswork.
 1. Pick **one** pack; do not start at Full unless you need it ([PACKS.md](PACKS.md)).
-2. Run **`mstack-doctor`** and optionally **strict verify** in CI ([POWER_USER.md](POWER_USER.md)).
+2. Run **`mstack-doctor`** and optionally **strict verify** ([POWER_USER.md](POWER_USER.md)).
 3. Adopt **`SESSION_BRIEF.md`** or accept more paste-heavy handoffs ([PLAYBOOK.md](PLAYBOOK.md)).
 4. Merge **`AGENTS.md`** or accept that bootstrap is weaker.
 5. For chores, **`@mstack-mechanical-pass`** in the first message.

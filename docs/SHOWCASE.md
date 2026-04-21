@@ -14,3 +14,13 @@ Public examples of projects **vendoring or documenting** mstack. **Add your repo
 3. If you want to stay anonymous, link a gist or minimal public sample instead.
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## Optional README snippet for adopters
+
+You can drop this into your project **`README.md`** (adjust the link if you vendor or fork mstack):
+
+```markdown
+## Cursor / mstack
+
+This repo uses [mstack](https://github.com/Manoj7ar/mstack) for **Cursor Agent** workflow: phased work (plan → build → review → …), token discipline, and optional specialist rules. Quick install: copy [Starter kit](https://raw.githubusercontent.com/Manoj7ar/mstack/main/docs/STARTER_KIT.md) into your notes or open it in the vendored tree. In Cursor: **`/mstack-first-sync`** for copy-paste setup commands.
+```
