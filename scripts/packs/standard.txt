@@ -18,3 +18,4 @@ mstack-model-strategy
 mstack-session-handoff
 mstack-project-memory
 mstack-mechanical-pass
+mstack-surgical-investigation

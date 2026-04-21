@@ -18,10 +18,14 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Adoption checklist** | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
 | **First-message snippets** | [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) |
 | **Honest usefulness / weaknesses** | [EFFECTIVENESS.md](EFFECTIVENESS.md) |
+| **Token habits (honest)** | [TOKEN_LEVERS.md](TOKEN_LEVERS.md) |
 | **Overlap: which specialist to drop** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md) |
+| **Showcase / FAQ** | [SHOWCASE.md](SHOWCASE.md), [FAQ.md](FAQ.md) |
+| **Contributing** | [CONTRIBUTING.md](../CONTRIBUTING.md), [CHANGELOG.md](../CHANGELOG.md) |
 | **GStack vs mstack** | [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) |
 | **Rules / Cursor issues** | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
 | **What rules cannot do** (model, modes) | [CURSOR_LIMITS.md](CURSOR_LIMITS.md) |
+| **Cursor features + Agent vs IDE** | [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) |
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
 | **Design / product memory** (voice, UX prefs, terminology) | [PROJECT_MEMORY.md](PROJECT_MEMORY.md) |
@@ -29,6 +33,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Cursor Canvas flight deck** (visual overview; type `/mstack-flight-deck`) | [.cursor/skills/mstack-flight-deck/SKILL.md](../.cursor/skills/mstack-flight-deck/SKILL.md) |
 | **mstack doctor** (local install check; type `/mstack-doctor`) | [.cursor/skills/mstack-doctor/SKILL.md](../.cursor/skills/mstack-doctor/SKILL.md) |
 | **Pack picker** (which `MSTACK_PACK`; type `/mstack-pack-picker`) | [.cursor/skills/mstack-pack-picker/SKILL.md](../.cursor/skills/mstack-pack-picker/SKILL.md) |
+| **Lean handoff** (recap file; type `/mstack-lean-handoff`) | [.cursor/skills/mstack-lean-handoff/SKILL.md](../.cursor/skills/mstack-lean-handoff/SKILL.md) |
 
 ## Conventions for agents
 

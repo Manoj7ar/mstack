@@ -28,6 +28,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 
 - Trivial one-file fixes: Think + Build + Review in one pass; still state assumptions.
 - User explicitly says *quick patch only*: skip long plan template.
+- **IDE-first is OK** for obvious single-file edits: the human may use the editor, Tab, or inline edit; use full phases when blast radius grows or rules/consistency matter in Agent.
 - **Mechanical / chore work:** `@mstack-mechanical-pass` — short inline plan; see `mstack-mechanical-pass.mdc`.
 
 ## Optional invocations
@@ -52,6 +53,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Product review** (before large Plan): `@mstack-product-review` with `templates/PRODUCT_REVIEW_TEMPLATE.md` (big bets) or `templates/PRODUCT_REVIEW_LITE.md` (small bets) — **no code** in that posture.
 - **Documentation pass** (before Ship when docs-heavy): `@mstack-documentation-pass` with `templates/DOC_TASK_TEMPLATE.md`.
 - **Mechanical pass** (typos, single-file chores, obvious fixes): `@mstack-mechanical-pass` — compress phases; still follow token discipline and permissions.
+- **Surgical investigation** (unknown codebase / spelunking): `@mstack-surgical-investigation` — hypothesis, file budget, stop condition before wide reads (standard + full pack).
 - **Adoption audit** (full pack): `@mstack-adoption-audit` with **`docs/ADOPTION_AUDIT.md`** — report install gaps; no secrets/remotes changes.
 - **Feature flags** (standard + full): `@mstack-feature-flags` when editing flag SDKs, experiments, or gated rollouts.
 - **Privacy / personal data** (full pack): `@mstack-privacy-data-handling` for retention, export/delete, privacy-oriented paths—not legal advice.
@@ -77,6 +79,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/DOC_TASK_TEMPLATE.md` (which docs to update after a change)
 - `templates/RISK_REGISTER_TEMPLATE.md` (living risk table)
 - `templates/SESSION_BRIEF_TEMPLATE.md` (shape for root `SESSION_BRIEF.md` handoffs)
+- `templates/AGENT_RECAP_TEMPLATE.md` (optional compact recap → `docs/AGENT_RECAP.md`)
 - `templates/SECRETS_AND_ENV_CHECKLIST.md` (before commits/PRs touching env or CI secrets)
 - `templates/LOCALIZATION_QA_TEMPLATE.md` (locale / RTL / formatting QA)
 - `templates/RELEASE_OWNER_CHECKLIST.md` (version, changelog, migrations, ship — pairs with release rule)
@@ -85,3 +88,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/LICENSE_HYGIENE_CHECKLIST.md` (NOTICE, attribution, root license—not legal advice)
 
 Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
+
+## Contributing
+
+- Proposing rules, packs, or docs: see root **`CONTRIBUTING.md`** and **`CHANGELOG.md`**.

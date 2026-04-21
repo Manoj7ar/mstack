@@ -143,6 +143,46 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 
 ---
 
+### 2026-04-20 — Community wave 6 (contributors + discoverability)
+
+**Context:** Sharing mstack with ambassadors and broader Cursor users needed a **low-friction** path to feedback and PRs, plus **trust signals** (conduct, templates) without adding new specialist rules.
+
+**Decision:** Add **`CONTRIBUTING.md`**, **`CODE_OF_CONDUCT.md`**, **`.github/ISSUE_TEMPLATE/*`**, **`PULL_REQUEST_TEMPLATE.md`**, **`docs/SHOWCASE.md`**, **`docs/FAQ.md`**, **`CHANGELOG.md`**. Polish **README** (badges, mermaid map, contributor links). Point **`AGENTS.md`** and **`mstack-core-workflow.mdc`** at CONTRIBUTING/CHANGELOG.
+
+**Consequences:** More maintainer surface area (templates, changelog entries).
+
+---
+
+### 2026-04-20 — Wave 7: token levers, recap, surgical investigation
+
+**Context:** Users wanted **more useful / efficient** agent behavior without claiming automatic token % or model switching. EFFECTIVENESS already stated measurement limits.
+
+**Decision:** Add **`docs/TOKEN_LEVERS.md`** (honest habits). Add **`templates/AGENT_RECAP_TEMPLATE.md`** and optional **`/mstack-lean-handoff`** skill. Add **`mstack-surgical-investigation.mdc`** to **standard** and **full** packs only (invoke via **@mention**; no `globs` so it is not always attached). Tighten **`mstack-debug.mdc`** with a short hypothesis ladder and minimal-instrumentation guidance. Extend first-message snippets. **No** token benchmark suite.
+
+**Consequences:** Standard pack grows by one optional rule; Lite/Minimal unchanged. Maintainers must keep README/PACKS tables in sync when adding rules.
+
+---
+
+### 2026-04-21 — Cursor product integration (Agent + IDE)
+
+**Context:** Users wanted mstack aligned with **Cursor’s actual surfaces** and clear guidance on when to use **Agent** vs **IDE** tools (Tab, inline edit, debugger, terminal).
+
+**Decision:** Add **`docs/CURSOR_INTEGRATION.md`** (official doc links, mstack mapping, Agent vs IDE table, remote import note). Extend **`docs/CURSOR_LIMITS.md`** (Agent vs Tab/inline, rule precedence Team → Project → User). One-line wiring in **`AGENTS.md`**, **`mstack-core-workflow.mdc`** (IDE-first OK for obvious single-file work), **`mstack-token-discipline.mdc`** (IDE navigation when location known). README / ONBOARDING / CONTRIBUTING / AGENT_MEMORY / workflow quick links. **No** claim that project rules control all IDE AI features.
+
+**Consequences:** Slightly more docs to maintain; reduces confusion between chat rules and editor workflows.
+
+---
+
+### 2026-04-21 — Remove GitHub Actions from this repo
+
+**Context:** Hosted runners were unreliable or unwanted for this maintainers; the pack does not require remote CI.
+
+**Decision:** Delete **`.github/workflows/mstack-ci.yml`** and **`mstack-ci-smoke.yml`**. Keep **`npm run mstack:ci`** / **`scripts/mstack-ci-local.sh`** for local verification and **`mstack-pack-verify.yml.example`** for consumers.
+
+**Consequences:** No automated checks on push/PR in this repository; contributors rely on local `mstack:ci` and PR checklist.
+
+---
+
 ### 2026-04-21 — OpenAPI surface and cursor pagination for ideas list
 
 **Context:** The sample API had no machine-readable contract, and `GET /v1/ideas` always returned the full in-memory list.

@@ -30,7 +30,7 @@ flowchart TD
 
 Exact file lists: **[PACKS.md](PACKS.md)** and **`scripts/packs/*.txt`** (used by `sync-mstack.sh`).
 
-**Next:** experienced users — [POWER_USER.md](POWER_USER.md) (session file, CI verify, mechanical pass). Copy-paste chat openers — [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md). Install checklist — [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md). **Is this worth it for me?** — [EFFECTIVENESS.md](EFFECTIVENESS.md). **Trimming overlap** — [SPECIALIST_MAP.md](SPECIALIST_MAP.md).
+**Next:** experienced users — [POWER_USER.md](POWER_USER.md) (session file, CI verify, mechanical pass). **Token habits (honest)** — [TOKEN_LEVERS.md](TOKEN_LEVERS.md). **Agent vs IDE** (when to use chat vs editor) — [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md). Copy-paste chat openers — [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md). Install checklist — [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md). **Is this worth it for me?** — [EFFECTIVENESS.md](EFFECTIVENESS.md). **Trimming overlap** — [SPECIALIST_MAP.md](SPECIALIST_MAP.md).
 
 ## 1. Choose a rule pack
 

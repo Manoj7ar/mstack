@@ -1,12 +1,49 @@
 # mstack
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Made for Cursor](https://img.shields.io/badge/Made%20for-Cursor-000000?logo=cursor&logoColor=white)](https://cursor.com)
+
 **mstack** is a **Markdown-first Cursor Agent workflow pack**: phase-separated work, token discipline, permission gates, and specialist rules you can **copy into any codebase**. It ships as `.cursor/rules/*.mdc`, root **`AGENTS.md`**, and **`templates/`**.
 
 This repository is also a **reference implementation**: it includes **`docs/`** for agent-oriented memory and an optional **Ideas HTTP API** (`src/`, `tests/`) that exercises structured API patterns.
 
 Inspired by the “virtual team” workflow idea popularized by [GStack](https://github.com/garrytan/gstack) (Claude Code). **mstack is independent** content for Cursor; it is not a fork of GStack.
 
-**Reality check:** mstack is **team glue and guardrails**, not automatic model intelligence. See **[docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md)** for when it tends to help, when it does not, and known weak spots.
+**Reality check:** mstack is **team glue and guardrails**, not automatic model intelligence. See **[docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md)** for when it tends to help, when it does not, and known weak spots. **Token habits (honest):** **[docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md)**.
+
+If this helps your team, **star the repo** and open a PR — see **[CONTRIBUTING.md](CONTRIBUTING.md)** and **[docs/SHOWCASE.md](docs/SHOWCASE.md)**.
+
+### At a glance (how pieces connect)
+
+```mermaid
+flowchart TB
+  subgraph adopt [Adopt]
+    P[Pack choice docs/PACKS.md]
+    S[sync-mstack.sh + scripts/packs/*.txt]
+  end
+  subgraph cursor [Cursor]
+    R[.cursor/rules mstack-*.mdc]
+    A[AGENTS.md]
+    K[.cursor/skills optional]
+  end
+  subgraph artifacts [Artifacts]
+    T[templates/*.md]
+    M[docs/PROJECT_MEMORY.md]
+  end
+  subgraph verify [Verify]
+    D[mstack-doctor.sh]
+    V[verify-mstack-sync.sh --strict]
+  end
+  P --> S
+  S --> R
+  S --> T
+  S --> K
+  R --> A
+  R --> T
+  R --> M
+  D --> R
+  V --> R
+```
 
 ---
 
@@ -51,8 +88,10 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Rules, globs, AGENTS, sync issues |
 | [docs/CURSOR_LIMITS.md](docs/CURSOR_LIMITS.md) | What project rules cannot do (model, modes, persistence) |
+| [docs/CURSOR_INTEGRATION.md](docs/CURSOR_INTEGRATION.md) | Cursor Rules, Skills, modes — **Agent vs IDE** when to use which |
 | [docs/POWER_USER.md](docs/POWER_USER.md) | Session brief file, verify sync in CI, mechanical pass |
 | [docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md) | Honest usefulness bands, weaknesses, how to get value |
+| [docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md) | What actually reduces wasted context (no magic savings) |
 | [docs/SPECIALIST_MAP.md](docs/SPECIALIST_MAP.md) | Which specialist to drop when trimming overlap |
 | [docs/ADOPTION_AUDIT.md](docs/ADOPTION_AUDIT.md) | Checklist for correct install and drift |
 | [docs/PLAYBOOK_FIRST_MESSAGES.md](docs/PLAYBOOK_FIRST_MESSAGES.md) | Copy-paste Agent chat openers |
@@ -100,6 +139,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-product-review.mdc` | On demand / mention | Product challenge before large plan; **no code** |
 | `mstack-documentation-pass.mdc` | README, `docs/`, changelog globs | Doc alignment before Ship |
 | `mstack-mechanical-pass.mdc` | On demand / mention | Compress phases for chores; not for auth/migrations/new UX |
+| `mstack-surgical-investigation.mdc` | On demand / mention | Hypothesis + file budget before wide reads (**standard** + **full**) |
 | `mstack-adoption-audit.mdc` | On demand / mention | Walk `docs/ADOPTION_AUDIT.md`; report gaps (**full** pack) |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
@@ -117,6 +157,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `DESIGN_BRIEF_TEMPLATE.md` | UI/UX before build. |
 | `DEBUG_SESSION_TEMPLATE.md` | Repro, hypotheses, **permission** for invasive debug. |
 | `SESSION_BRIEF_TEMPLATE.md` | Shape for root **`SESSION_BRIEF.md`** — durable handoff between Cursor chats. |
+| `AGENT_RECAP_TEMPLATE.md` | Optional **`docs/AGENT_RECAP.md`** — compact mid-thread recap; **`/mstack-lean-handoff`**. |
 | `REFLECT_TEMPLATE.md` | Reflect phase after non-trivial work. |
 | `POSTMORTEM_TEMPLATE.md` | Incident write-up. |
 | `INCIDENT_POSTMORTEM_TEMPLATE.md` | Alternate postmortem structure. |
@@ -140,6 +181,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 ---
 
 ## Cursor integration (modes and permissions)
+
+mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal IDE work—editor, search, terminal, debugger, Tab—for fast local edits; use Agent + phases when scope is wide or you want rule-consistent behavior. See **[docs/CURSOR_INTEGRATION.md](docs/CURSOR_INTEGRATION.md)**.
 
 - **Modes:** Use the Agent **mode picker** or **Shift+Tab** to switch **Agent**, **Plan**, and **Debug** modes ([Plan](https://cursor.com/docs/agent/plan-mode), [Debug](https://cursor.com/docs/agent/debug-mode)).
 - **Plan Mode:** Best for unclear requirements or many files; refine the plan before Build.
@@ -222,12 +265,20 @@ Rule **`mstack-repo-memory.mdc`** reminds agents to use these when editing `docs
 
 ```text
 AGENTS.md
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+CHANGELOG.md
 LICENSE
 README.md
+.github/
+  workflows/mstack-pack-verify.yml.example
+  ISSUE_TEMPLATE/
+  PULL_REQUEST_TEMPLATE.md
 .cursor/rules/mstack-*.mdc
 .cursor/skills/mstack-flight-deck/
 .cursor/skills/mstack-doctor/
 .cursor/skills/mstack-pack-picker/
+.cursor/skills/mstack-lean-handoff/
 docs/
   workflow.md
   ONBOARDING.md
@@ -235,11 +286,15 @@ docs/
   GSTACK_INSPIRATION.md
   TROUBLESHOOTING.md
   CURSOR_LIMITS.md
+  CURSOR_INTEGRATION.md
   POWER_USER.md
   ADOPTION_AUDIT.md
   PLAYBOOK_FIRST_MESSAGES.md
+  TOKEN_LEVERS.md
   EFFECTIVENESS.md
   SPECIALIST_MAP.md
+  SHOWCASE.md
+  FAQ.md
   PACKS.md
   AGENT_MEMORY.md
   ARCHITECTURE.md
@@ -248,6 +303,7 @@ docs/
 scripts/sync-mstack.sh
 scripts/verify-mstack-sync.sh
 scripts/mstack-doctor.sh
+scripts/mstack-ci-local.sh
 scripts/verify-packs-internal.sh
 scripts/packs/*.txt
 scripts/ideas-snapshot.mjs
@@ -304,6 +360,7 @@ Longer guide: **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 
 | Issue | What to try |
 | ----- | ----------- |
+| Verify before a PR | Run **`npm run mstack:ci`** locally (packs, doctor, sync smoke, lint, test). |
 | Rules not applying | Files under **`.cursor/rules/`**; `.mdc` or `.md`; check **Cursor Settings → Rules**. |
 | Too much guidance | Drop specialist rules; trim **`AGENTS.md`**. |
 | Wrong rule for files | Adjust **`globs`** in each `.mdc` to match your tree. |
@@ -314,3 +371,11 @@ Longer guide: **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Contributing
+
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- [CHANGELOG.md](CHANGELOG.md)
+- [docs/FAQ.md](docs/FAQ.md)
+- [docs/SHOWCASE.md](docs/SHOWCASE.md)

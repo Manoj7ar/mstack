@@ -44,7 +44,32 @@ Run: bash vendor/mstack/scripts/mstack-doctor.sh . (or from mstack repo root: np
 /mstack-pack-picker — solo dev, [UI+API or scripts-only], [localized app yes/no]. Recommend MSTACK_PACK and sync command.
 ```
 
+## Surgical investigation (standard+ pack)
+
+```text
+@mstack-surgical-investigation — Find where [X] is implemented / how [flow] works. Hypothesis + max 8 files + stop condition; then state-of-world ≤15 lines. Follow mstack-token-discipline.
+```
+
+## Recap-only continuation (same or new chat)
+
+```text
+Read docs/AGENT_RECAP.md (and SESSION_BRIEF.md if present) only—do not re-scan the repo—then: [one-line goal].
+```
+
+## Budgeted question (paths only)
+
+```text
+Answer in ≤7 bullets, cite file paths only (no code blocks unless one line). Question: […]
+```
+
+## Lean handoff (write recap)
+
+```text
+/mstack-lean-handoff — Summarize this thread into docs/AGENT_RECAP.md using templates/AGENT_RECAP_TEMPLATE.md; say if SESSION_BRIEF.md needs an update for a full chat switch.
+```
+
 ## See also
 
 - [PLAYBOOK.md](PLAYBOOK.md) — sprint shape
 - [POWER_USER.md](POWER_USER.md) — CI verify, packs
+- [TOKEN_LEVERS.md](TOKEN_LEVERS.md) — habits that reduce wasted context
