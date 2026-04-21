@@ -45,5 +45,6 @@ No fake “% faster” claims—try a **pilot pack** and see if your **team** sh
 
 - [STARTER_KIT.md](STARTER_KIT.md) — fastest path in another repo  
 - [SKILLS.md](SKILLS.md) — `/mstack-first-sync`, `/mstack-ship-check`, etc.  
+- [GLOSSARY.md](GLOSSARY.md) — terms · [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — avoid foot-guns  
 - [SHOWCASE.md](SHOWCASE.md) — add your project when you adopt  
 - [DOCS_MAP.md](DOCS_MAP.md) — next pages to read by role  

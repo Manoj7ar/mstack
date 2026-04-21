@@ -13,7 +13,8 @@
 1. [STARTER_KIT.md](STARTER_KIT.md) — sync, doctor, first Agent messages  
 2. [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative + pack diagram  
 3. [FAQ.md](FAQ.md) — common questions  
-4. [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — optional self-check after sync
+4. [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — optional self-check after sync  
+5. [GLOSSARY.md](GLOSSARY.md) — Cursor + mstack terms in one place
 
 ## Daily developer (already synced)
 
@@ -22,7 +23,9 @@
 3. [workflow.md](workflow.md) — phases and artifacts  
 4. [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) + **`/mstack-context-budget`** — long threads  
 5. [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + **`/mstack-agent-habits`**  
-6. **`/mstack-ship-check`** — before opening a PR ([SKILLS.md](SKILLS.md))
+6. [CURSOR_MCP.md](CURSOR_MCP.md) — optional MCP servers + safety with mstack  
+7. [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — avoid common mistakes  
+8. **`/mstack-ship-check`** — before opening a PR ([SKILLS.md](SKILLS.md))
 
 ## Team champion (rolling out to others)
 
@@ -58,9 +61,12 @@ flowchart LR
 
 - [CURSOR_LIMITS.md](CURSOR_LIMITS.md) — what project rules cannot do  
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — product base prompts vs mstack (paraphrased)  
+- [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — foot-guns and fixes  
 - [EFFECTIVENESS.md](EFFECTIVENESS.md) — when mstack helps vs adds noise
 
 ## See also
 
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE  
+- [CURSOR_MCP.md](CURSOR_MCP.md) — MCP + mstack  
+- [GLOSSARY.md](GLOSSARY.md) — terminology  
 - [SHOWCASE.md](SHOWCASE.md) — public adopters

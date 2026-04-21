@@ -260,3 +260,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/CURSOR_BASE_BEHAVIOR.md`** (paraphrased layering, Chat vs Agent table, distilled habits, link to research only) and skill **`/mstack-agent-habits`** (`disable-model-invocation: true`) for a pasteable kickoff. Wire **CURSOR_INTEGRATION**, **CURSOR_LIMITS**, **SKILLS**, **DOCS_MAP**, **RECIPES**, **AGENTS**, **AGENT_MEMORY**, **PLAYBOOK_FIRST_MESSAGES**, **FAQ**, **README**, **workflow**, **flight-deck** skill. **No** new `.mdc` rules or **`scripts/packs`** edits.
 
 **Consequences:** One more doc and skill to maintain; clearer mental model of **product base + project rules** without duplicating Cursor’s internal prompts.
+
+---
+
+### 2026-04-21 — Wave 14: CURSOR_MCP + GLOSSARY + ANTI_PATTERNS
+
+**Context:** Adopters use **MCP** with Agent but had no mstack-aligned note on trust boundaries; **terminology** (pack vs skill vs `@mention`) scattered across docs; **failure modes** were mostly reactive in TROUBLESHOOTING.
+
+**Decision:** Add **`docs/CURSOR_MCP.md`** (stack diagram, safety with **`mstack-permissions`** / **`mstack-secrets-env`**, when to use vs YAGNI), **`docs/GLOSSARY.md`**, **`docs/ANTI_PATTERNS.md`**. Cross-link **DOCS_MAP**, **RECIPES**, **EFFECTIVENESS**, **TROUBLESHOOTING**, **CURSOR_INTEGRATION**, **CURSOR_LIMITS**, **STARTER_KIT**, **README**, **workflow**, **AGENT_MEMORY**, **AGENTS**, **PLAYBOOK_FIRST_MESSAGES**, **SKILLS**, **FAQ**, **WHY_MSTACK**. **No** new `.mdc` rules or **`scripts/packs`** edits.
+
+**Consequences:** Three more docs to maintain when Cursor MCP UX changes; less Slack repetition for jargon and MCP safety.

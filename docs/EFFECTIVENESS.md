@@ -35,6 +35,7 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 | **Long threads / huge context** (over-@, re-read drift) | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`**, `@mstack-surgical-investigation` |
 | **Product judgment** still on humans | `mstack-product-review`, `PRODUCT_REVIEW_LITE` |
 | **Too many docs / where to start** | [DOCS_MAP.md](DOCS_MAP.md) — role-based reading order |
+| **MCP / external tools anxiety** (scope, prod, secrets) | [CURSOR_MCP.md](CURSOR_MCP.md), [ANTI_PATTERNS.md](ANTI_PATTERNS.md), `@mstack-permissions`, `@mstack-secrets-env` |
 
 ## Strongest parts of this stack (measurable + design)
 
@@ -54,6 +55,8 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 
 ## See also
 
+- [GLOSSARY.md](GLOSSARY.md) — jargon in one page
+- [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — common mistakes
 - [DOCS_MAP.md](DOCS_MAP.md) — pick a short reading path
 - [CURSOR_LIMITS.md](CURSOR_LIMITS.md)
 - [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md) — what this is / isn’t

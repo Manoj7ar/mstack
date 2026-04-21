@@ -112,6 +112,9 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/TEAM_ROLLOUT.md](docs/TEAM_ROLLOUT.md) | Champion guide: pilot pack, agreements, first-week links |
 | [docs/RULES_SOURCE.md](docs/RULES_SOURCE.md) | Vendor + `sync-mstack.sh` vs Cursor remote rule import |
 | [docs/SKILLS.md](docs/SKILLS.md) | Index of **`/mstack-*`** commands and skill paths |
+| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Cursor + mstack terms (Agent, pack, skill, globs, …) |
+| [docs/ANTI_PATTERNS.md](docs/ANTI_PATTERNS.md) | Common mistakes and fixes |
+| [docs/CURSOR_MCP.md](docs/CURSOR_MCP.md) | MCP servers + trust boundaries with mstack |
 
 ---
 
@@ -321,6 +324,9 @@ docs/
   TEAM_ROLLOUT.md
   RULES_SOURCE.md
   SKILLS.md
+  GLOSSARY.md
+  ANTI_PATTERNS.md
+  CURSOR_MCP.md
   ONBOARDING.md
   PLAYBOOK.md
   GSTACK_INSPIRATION.md
