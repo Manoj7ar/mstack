@@ -13,6 +13,9 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | -------- | ---- |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **First-time setup** | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md) |
+| **Upgrade vendored mstack** | [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md) |
+| **Monorepos** | [MONOREPO.md](MONOREPO.md) |
+| **Task → rule / template** | [RECIPES.md](RECIPES.md) |
 | **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
 | **Power-user recipes** (session brief, CI verify, mechanical pass) | [POWER_USER.md](POWER_USER.md) |
 | **Adoption checklist** | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
@@ -35,6 +38,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Pack picker** (which `MSTACK_PACK`; type `/mstack-pack-picker`) | [.cursor/skills/mstack-pack-picker/SKILL.md](../.cursor/skills/mstack-pack-picker/SKILL.md) |
 | **Lean handoff** (recap file; type `/mstack-lean-handoff`) | [.cursor/skills/mstack-lean-handoff/SKILL.md](../.cursor/skills/mstack-lean-handoff/SKILL.md) |
 | **First sync** (adopt in another repo; type `/mstack-first-sync`) | [.cursor/skills/mstack-first-sync/SKILL.md](../.cursor/skills/mstack-first-sync/SKILL.md) |
+| **Upgrade vendor** (submodule refresh + re-sync; type `/mstack-upgrade-vendor`) | [.cursor/skills/mstack-upgrade-vendor/SKILL.md](../.cursor/skills/mstack-upgrade-vendor/SKILL.md) |
 
 ## Conventions for agents
 

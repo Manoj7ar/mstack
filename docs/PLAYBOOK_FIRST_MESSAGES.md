@@ -1,6 +1,6 @@
 # First messages (copy-paste)
 
-Low-latency openers for Agent chat. Adjust paths to your repo.
+Low-latency openers for Agent chat. Adjust paths to your repo. **Task → rule index:** [RECIPES.md](RECIPES.md).
 
 ## New chat after handoff
 
@@ -50,6 +50,18 @@ Run: bash vendor/mstack/scripts/mstack-doctor.sh . (or from mstack repo root: np
 /mstack-first-sync — mstack is at [path, e.g. vendor/mstack]. Recommend MSTACK_PACK and print exact sync + doctor commands. Do not write files unless I ask.
 ```
 
+## Upgrade vendored mstack
+
+```text
+/mstack-upgrade-vendor — MSTACK_ROOT=[e.g. vendor/mstack], MSTACK_PACK=[same as install]. Print submodule/update, re-sync, doctor, strict verify. I will run the commands.
+```
+
+## Hotfix / rollback
+
+```text
+Prod hotfix: [symptom]. Use templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md in chat as a checklist; @mstack-permissions for destructive/prod steps; @mstack-debug only if runtime evidence needed—ask before invasive logging.
+```
+
 ## Surgical investigation (standard+ pack)
 
 ```text
@@ -76,6 +88,7 @@ Answer in ≤7 bullets, cite file paths only (no code blocks unless one line). Q
 
 ## See also
 
+- [RECIPES.md](RECIPES.md) — which `@mention` for which task
 - [PLAYBOOK.md](PLAYBOOK.md) — sprint shape
 - [POWER_USER.md](POWER_USER.md) — CI verify, packs
 - [TOKEN_LEVERS.md](TOKEN_LEVERS.md) — habits that reduce wasted context

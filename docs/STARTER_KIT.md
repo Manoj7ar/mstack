@@ -62,6 +62,10 @@ Consumer CI example: `.github/workflows/mstack-pack-verify.yml.example`. Details
 
 Track setup with [templates/MSTACK_DAY_ONE_CHECKLIST.md](../templates/MSTACK_DAY_ONE_CHECKLIST.md).
 
+## Already installed?
+
+Refresh after **`git submodule update`** or pulling mstack: [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md). In Agent: **`/mstack-upgrade-vendor`**.
+
 ## See also
 
 - [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative

@@ -200,3 +200,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/STARTER_KIT.md`** (single-page sync, verify, links). Add explicit-invocation skill **`/mstack-first-sync`** (`disable-model-invocation: true`) that prints copy-paste commands and points to **`STARTER_KIT`** — **no** new `alwaysApply` rules or pack entries. Add **`templates/MSTACK_DAY_ONE_CHECKLIST.md`**; wire **FAQ**, **SHOWCASE** (optional README blurb), **EFFECTIVENESS**, **ADOPTION_AUDIT**, **core-workflow** artifacts list, README / ONBOARDING / AGENTS / AGENT_MEMORY / workflow / **CURSOR_INTEGRATION** / **PLAYBOOK_FIRST_MESSAGES**.
 
 **Consequences:** More docs to maintain; adoption path is discoverable without growing rule surface area.
+
+---
+
+### 2026-04-21 — Wave 9: post-adoption usefulness (upgrade path, monorepo, recipes, hotfix template)
+
+**Context:** After first sync, teams still struggled with **vendor refreshes**, **monorepo layout**, **picking specialists**, and **hotfix discipline**—without wanting more `alwaysApply` rules.
+
+**Decision:** Add **`docs/VENDOR_UPGRADE.md`** + skill **`/mstack-upgrade-vendor`** (copy-paste only). Add **`docs/MONOREPO.md`** (nested `AGENTS.md`, one `vendor/mstack`, `@` narrowing). Add **`docs/RECIPES.md`** as the task-first index; cross-link **`SPECIALIST_MAP`**. Add **`templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md`** wired in **core-workflow** and first messages—**no** new `mstack-hotfix.mdc` in packs for this slice.
+
+**Consequences:** More docs; **`mstack-core-workflow`** artifact list grows by one template line; pack manifests unchanged.

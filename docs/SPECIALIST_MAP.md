@@ -1,6 +1,6 @@
 # Specialist map — pick one when slimming
 
-Use this when **Full** or **Standard** feels noisy: keep the **primary** rule; drop or **@mention** the **alternate**.
+Use this when **Full** or **Standard** feels noisy: keep the **primary** rule; drop or **@mention** the **alternate**. For **task-first** routing (before trimming), see [RECIPES.md](RECIPES.md).
 
 | Topic | Primary (broader) | Alternate (narrower) | Note |
 | ----- | ----------------- | -------------------- | ---- |
