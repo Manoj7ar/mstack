@@ -43,6 +43,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
    - **Doctor:** `/mstack-doctor` + `scripts/mstack-doctor.sh`; adoption checklist `docs/ADOPTION_AUDIT.md`; first messages `docs/PLAYBOOK_FIRST_MESSAGES.md`
    - **Pack picker:** `/mstack-pack-picker` — skill `.cursor/skills/mstack-pack-picker/`
    - **Context:** `/mstack-context-budget` + `docs/CONTEXT_BUDGET.md` for long threads
+   - **Ship:** `/mstack-ship-check` — pre-merge checklist for PRs
    - **Docs:** text links or labels for `docs/AGENT_MEMORY.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/CURSOR_LIMITS.md`, `docs/POWER_USER.md`, `docs/ADOPTION_AUDIT.md`, `docs/PROJECT_MEMORY.md`, `docs/ONBOARDING.md`, `docs/PLAYBOOK.md`
 3. **Table A — Phases → artifacts** (use README / workflow alignment; include typical template paths):
 
@@ -70,6 +71,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
    - After route changes, sync `docs/ARCHITECTURE.md`
    - Re-run `node scripts/ideas-snapshot.mjs` after starting `npm run dev` to refresh Table C
    - If a chat is noisy, use **`/mstack-context-budget`** or read `docs/CONTEXT_BUDGET.md`
+   - Before opening a PR, run **`/mstack-ship-check`** and paste into the description
 
 ## Closing message for the user
 

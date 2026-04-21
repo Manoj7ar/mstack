@@ -10,7 +10,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | Chore / tiny change | `@mstack-mechanical-pass` | — |
 | Explore unfamiliar code | `@mstack-surgical-investigation` | — |
 | Code review pass | `@mstack-review` | — |
-| Frontend / UI change | `@mstack-frontend` | `DESIGN_BRIEF_TEMPLATE.md` |
+| Frontend / UI change | `@mstack-frontend` | `DESIGN_BRIEF_TEMPLATE.md`, `UI_ACCEPTANCE_CHECKLIST.md` (before merge) |
 | Accessibility pass | `@mstack-accessibility` | — |
 | Backend / API route | `@mstack-backend` | — |
 | API contract / OpenAPI change | `@mstack-api-contracts` | `OPENAPI_DELTA_TEMPLATE.md` |
@@ -19,7 +19,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | Prod hotfix / rollback | `@mstack-permissions` (destructive gates) + `@mstack-debug` if runtime | `HOTFIX_OR_ROLLBACK_CHECKLIST.md` → `POSTMORTEM_TEMPLATE.md` |
 | Schema / data model | `@mstack-data-modeling` | `ADR_TEMPLATE.md` |
 | DB migration | `@mstack-data-migrations` | — |
-| Security-sensitive change | `@mstack-security-review` | — |
+| Security-sensitive change | `@mstack-security-review` | `SECURITY_REVIEW_LITE.md` (quick pass) |
 | Secrets / env / CI vars | `@mstack-secrets-env` | `SECRETS_AND_ENV_CHECKLIST.md` |
 | Docs / ship note | `@mstack-documentation-pass` or `@mstack-docs-ship` | `DOC_TASK_TEMPLATE.md` |
 | Release / versioning | `@mstack-release-versioning` | `RELEASE_OWNER_CHECKLIST.md` |
@@ -32,6 +32,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | Long thread / huge `@` context | **`/mstack-context-budget`**, `@mstack-surgical-investigation` | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) |
 | Breaking API / major dep / migration | `@mstack-breaking-change` (full pack; manual) | `BREAKING_CHANGE_CHECKLIST.md` |
 | Install audit | `@mstack-adoption-audit` (full pack) | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
+| Before merge / open PR | **`/mstack-ship-check`** | `PR_CHECKLIST_TEMPLATE.md`, `SECRETS_AND_ENV_CHECKLIST.md`, optional `UI_ACCEPTANCE_CHECKLIST.md`, `SECURITY_REVIEW_LITE.md` |
 
 **Principle:** Prefer **one primary** rule per task; add a **second** only when the task clearly spans domains (e.g. API + contract).
 

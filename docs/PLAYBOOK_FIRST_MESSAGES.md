@@ -98,6 +98,12 @@ Answer in ≤7 bullets, cite file paths only (no code blocks unless one line). Q
 @mstack-breaking-change — We are breaking [API field | endpoint | schema | webhook | dep]. Fill templates/BREAKING_CHANGE_CHECKLIST.md in the PR; pair @mstack-api-contracts and @mstack-release-versioning; confirm prod steps with me first.
 ```
 
+## Ship check (before PR)
+
+```text
+/mstack-ship-check — Changed: [UI | API | auth | deps | docs only]. Lint/test commands: [npm run lint && npm test or your commands]. Emit numbered checklist I can paste into the PR.
+```
+
 ## See also
 
 - [RECIPES.md](RECIPES.md) — which `@mention` for which task
