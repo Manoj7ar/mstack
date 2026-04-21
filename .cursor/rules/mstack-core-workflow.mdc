@@ -86,6 +86,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/PRIVACY_IMPACT_LITE.md` (engineering alignment for data use; not legal advice)
 - `templates/FEATURE_FLAG_CHANGE_CHECKLIST.md` (rollout, rollback, flag hygiene)
 - `templates/LICENSE_HYGIENE_CHECKLIST.md` (NOTICE, attribution, root license—not legal advice)
+- `templates/MSTACK_DAY_ONE_CHECKLIST.md` (onboarding checklist; pairs with `docs/STARTER_KIT.md`)
 
 Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
 

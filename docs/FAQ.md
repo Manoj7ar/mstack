@@ -1,5 +1,11 @@
 # mstack FAQ
 
+## What should I do in the first 10 minutes?
+
+1. Open **[STARTER_KIT.md](STARTER_KIT.md)** — copy the **sync** and **doctor** commands for your repo layout (`vendor/mstack` or adjust `MSTACK_ROOT`).
+2. In Cursor Agent, type **`/mstack-first-sync`** for tailored copy-paste commands (or **`/mstack-pack-picker`** if you have not chosen a pack).
+3. Send one message from **[PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md)** (e.g. mechanical pass or plan bootstrap).
+
 ## Does mstack switch my Cursor model?
 
 **No.** Rules cannot change the model, Plan Mode, or Debug Mode. See [CURSOR_LIMITS.md](CURSOR_LIMITS.md).

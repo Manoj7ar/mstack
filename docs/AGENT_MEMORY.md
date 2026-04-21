@@ -12,7 +12,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | Question | Read |
 | -------- | ---- |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
-| **First-time setup** | [ONBOARDING.md](ONBOARDING.md) |
+| **First-time setup** | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md) |
 | **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
 | **Power-user recipes** (session brief, CI verify, mechanical pass) | [POWER_USER.md](POWER_USER.md) |
 | **Adoption checklist** | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
@@ -34,6 +34,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **mstack doctor** (local install check; type `/mstack-doctor`) | [.cursor/skills/mstack-doctor/SKILL.md](../.cursor/skills/mstack-doctor/SKILL.md) |
 | **Pack picker** (which `MSTACK_PACK`; type `/mstack-pack-picker`) | [.cursor/skills/mstack-pack-picker/SKILL.md](../.cursor/skills/mstack-pack-picker/SKILL.md) |
 | **Lean handoff** (recap file; type `/mstack-lean-handoff`) | [.cursor/skills/mstack-lean-handoff/SKILL.md](../.cursor/skills/mstack-lean-handoff/SKILL.md) |
+| **First sync** (adopt in another repo; type `/mstack-first-sync`) | [.cursor/skills/mstack-first-sync/SKILL.md](../.cursor/skills/mstack-first-sync/SKILL.md) |
 
 ## Conventions for agents
 
