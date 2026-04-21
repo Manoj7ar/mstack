@@ -15,7 +15,7 @@ mstack is a **project rules pack** for **Cursor Agent (chat)**. It works best wh
 | **Project rules** (`.cursor/rules`, `.md` / `.mdc`, globs, apply modes, `@mention`) | [Rules](https://cursor.com/docs/context/rules) | mstack ships `mstack-*.mdc`; core trio `alwaysApply`; specialists use globs or manual `@mention`. |
 | **Rule precedence** | [Rules](https://cursor.com/docs/context/rules) (Team Rules section) | **Team → Project → User.** mstack is **project-level**; enforced **team rules** can override—investigate conflicts if behavior surprises you. |
 | **`AGENTS.md`** (root + **nested** subdirs) | [Rules](https://cursor.com/docs/context/rules) | Root bootstrap in this repo; in monorepos, nested `AGENTS.md` stacks—merge mstack snippets per area as needed. Practical notes: [MONOREPO.md](MONOREPO.md). |
-| **Skills** (`/skill`, `@skill`, `.cursor/skills/`) | [Skills](https://cursor.com/docs/agent/chat/commands) | `/mstack-flight-deck`, `/mstack-doctor`, `/mstack-pack-picker`, `/mstack-lean-handoff`, `/mstack-first-sync`, `/mstack-upgrade-vendor` (see `.cursor/skills/`). |
+| **Skills** (`/skill`, `@skill`, `.cursor/skills/`) | [Skills](https://cursor.com/docs/agent/chat/commands) | `/mstack-flight-deck`, `/mstack-doctor`, `/mstack-pack-picker`, `/mstack-lean-handoff`, `/mstack-first-sync`, `/mstack-upgrade-vendor`, `/mstack-context-budget` (see [SKILLS.md](SKILLS.md)). |
 | **Plan Mode** (mode picker, **Shift+Tab**) | [Plan Mode](https://cursor.com/docs/agent/plan-mode) | Use for ambiguous / multi-file work; save plans to the **workspace** when useful; align with `templates/PLAN_TEMPLATE.md`. |
 | **Debug Mode** | [Debug Mode](https://cursor.com/docs/agent/debug-mode) | Runtime bugs; pair with `mstack-debug.mdc` (consent before invasive logging). |
 | **Canvas** | [Canvas](https://cursor.com/docs/agent/tools/canvas) | Visual overview via `/mstack-flight-deck` (Cursor 3.1+). |
@@ -45,6 +45,7 @@ Use the **smallest surface** that solves the task. mstack rules **complement** A
 
 - [RULES_SOURCE.md](RULES_SOURCE.md) — vendor + sync vs remote import
 - [SKILLS.md](SKILLS.md) — `/mstack-*` index
+- [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) — bounded context habits (not auto-trimmed by Cursor)
 - [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md) — introducing mstack to a team
 - [RECIPES.md](RECIPES.md) — task → `@mention` index
 - [TOKEN_LEVERS.md](TOKEN_LEVERS.md) — context habits (narrow `@`, recap files)

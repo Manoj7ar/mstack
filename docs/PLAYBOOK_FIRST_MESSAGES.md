@@ -86,6 +86,18 @@ Answer in ≤7 bullets, cite file paths only (no code blocks unless one line). Q
 /mstack-lean-handoff — Summarize this thread into docs/AGENT_RECAP.md using templates/AGENT_RECAP_TEMPLATE.md; say if SESSION_BRIEF.md needs an update for a full chat switch.
 ```
 
+## Context budget (long thread)
+
+```text
+/mstack-context-budget — Task: [fix | feature | spelunk | review]. Emit pasteable block: max N files, narrow @ paths, stop condition, read AGENT_RECAP first if present.
+```
+
+## Breaking change (full pack)
+
+```text
+@mstack-breaking-change — We are breaking [API field | endpoint | schema | webhook | dep]. Fill templates/BREAKING_CHANGE_CHECKLIST.md in the PR; pair @mstack-api-contracts and @mstack-release-versioning; confirm prod steps with me first.
+```
+
 ## See also
 
 - [RECIPES.md](RECIPES.md) — which `@mention` for which task

@@ -111,6 +111,7 @@ Add specialists most teams hit daily.
 - `mstack-documentation-pass.mdc`
 - `mstack-repo-memory.mdc` (only if you are **vendoring from this repo** and keep `docs/AGENT_MEMORY` pattern; skip in generic app repos)
 - `mstack-adoption-audit.mdc` (walk **`docs/ADOPTION_AUDIT.md`** in workspace; **`@mstack-adoption-audit`**)
+- `mstack-breaking-change.mdc` (manual **`@mstack-breaking-change`**; use with **`templates/BREAKING_CHANGE_CHECKLIST.md`**)
 
 **Note:** Add **`docs/PROJECT_MEMORY.md`** (copy from `templates/PROJECT_MEMORY_TEMPLATE.md`) in **consumer** repos when using `mstack-project-memory.mdc`. Copy **`docs/ONBOARDING.md`**, **`PLAYBOOK.md`**, etc., if you want the same navigation docs in your app repo.
 

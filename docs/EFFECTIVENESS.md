@@ -32,6 +32,7 @@ Bands are **subjective**; use them to **set expectations**, not as benchmarks.
 | **Overlap / heavy feel** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md), Lite/Solo/Minimal packs, [PACKS.md](PACKS.md) Custom |
 | **Ceremony can add turns/tokens** | `@mstack-mechanical-pass`, compress phases in [mstack-core-workflow.mdc](../.cursor/rules/mstack-core-workflow.mdc) |
 | **No proof of token savings without measurement** | [TOKEN_LEVERS.md](TOKEN_LEVERS.md) + Cursor **Usage** UI; same-task paired runs (with vs without recap / smaller context) if you want a subjective comparison |
+| **Long threads / huge context** (over-@, re-read drift) | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`**, `@mstack-surgical-investigation` |
 | **Product judgment** still on humans | `mstack-product-review`, `PRODUCT_REVIEW_LITE` |
 
 ## Strongest parts of this stack (measurable + design)

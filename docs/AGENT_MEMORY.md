@@ -25,6 +25,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **First-message snippets** | [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) |
 | **Honest usefulness / weaknesses** | [EFFECTIVENESS.md](EFFECTIVENESS.md) |
 | **Token habits (honest)** | [TOKEN_LEVERS.md](TOKEN_LEVERS.md) |
+| **Context budget (long threads)** | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`** |
 | **Overlap: which specialist to drop** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md) |
 | **Showcase / FAQ** | [SHOWCASE.md](SHOWCASE.md), [FAQ.md](FAQ.md) |
 | **Contributing** | [CONTRIBUTING.md](../CONTRIBUTING.md), [CHANGELOG.md](../CHANGELOG.md) |
@@ -42,6 +43,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Lean handoff** (recap file; type `/mstack-lean-handoff`) | [.cursor/skills/mstack-lean-handoff/SKILL.md](../.cursor/skills/mstack-lean-handoff/SKILL.md) |
 | **First sync** (adopt in another repo; type `/mstack-first-sync`) | [.cursor/skills/mstack-first-sync/SKILL.md](../.cursor/skills/mstack-first-sync/SKILL.md) |
 | **Upgrade vendor** (submodule refresh + re-sync; type `/mstack-upgrade-vendor`) | [.cursor/skills/mstack-upgrade-vendor/SKILL.md](../.cursor/skills/mstack-upgrade-vendor/SKILL.md) |
+| **Context budget** (pasteable cap + `@`; type `/mstack-context-budget`) | [.cursor/skills/mstack-context-budget/SKILL.md](../.cursor/skills/mstack-context-budget/SKILL.md) |
 
 ## Conventions for agents
 

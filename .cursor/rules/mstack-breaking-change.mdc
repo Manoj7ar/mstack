@@ -1,0 +1,30 @@
+---
+description: Breaking changes — API, schema, webhooks, major dependency bumps; compat, migration, comms, rollback. Invoke with @mstack-breaking-change; not file-scoped (no globs).
+alwaysApply: false
+---
+
+# mstack breaking change
+
+Use when the work **removes**, **renames**, or **changes semantics** in a way **consumers** (HTTP clients, workers, mobile, other services) or **deployments** cannot absorb without action.
+
+## Before implementation
+
+1. Fill **`templates/BREAKING_CHANGE_CHECKLIST.md`** (or paste sections in the PR body).
+2. Prefer **additive** + **deprecation** over hard break; use **feature flags** when appropriate (`@mstack-feature-flags`).
+3. Pair with:
+   - **`@mstack-api-contracts`** — versioning, errors, pagination consistency, OpenAPI delta.
+   - **`@mstack-data-modeling`** / **`@mstack-data-migrations`** — schema and rollout.
+   - **`@mstack-dependencies`** — major semver / lockfile blast radius.
+   - **`@mstack-release-versioning`** — tags, changelog, ship order.
+4. **Prod / irreversible steps:** confirm per `mstack-permissions.mdc`.
+
+## Output expectations
+
+- **Migration path** in plain language (or explicit “none — greenfield only”).
+- **Verify** commands and **rollback** one-liner.
+- **Consumer comms** pointer (issue, doc, or “internal only”).
+
+## When not to use
+
+- **Additive-only** API change — `@mstack-api-contracts` alone.
+- **Chore** or mechanical edit — `@mstack-mechanical-pass`.

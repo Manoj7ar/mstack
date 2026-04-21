@@ -29,6 +29,7 @@ Here, **“saving tokens”** means **less wasted context**: fewer broad reads, 
 
 ## See also
 
+- [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) — explicit file caps + **`/mstack-context-budget`**
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE, Skills, modes
 - [EFFECTIVENESS.md](EFFECTIVENESS.md) — when mstack pays off vs ceremony
 - [POWER_USER.md](POWER_USER.md) — CI, session brief, mechanical pass

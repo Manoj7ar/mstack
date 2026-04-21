@@ -29,6 +29,8 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | Privacy / PII | `@mstack-privacy-data-handling` | `PRIVACY_IMPACT_LITE.md` |
 | OSS license / NOTICE | `@mstack-open-source-license` | `LICENSE_HYGIENE_CHECKLIST.md` |
 | Session / chat handoff | `@mstack-session-handoff`, **`/mstack-lean-handoff`** | `SESSION_BRIEF_TEMPLATE.md`, `AGENT_RECAP_TEMPLATE.md` |
+| Long thread / huge `@` context | **`/mstack-context-budget`**, `@mstack-surgical-investigation` | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) |
+| Breaking API / major dep / migration | `@mstack-breaking-change` (full pack; manual) | `BREAKING_CHANGE_CHECKLIST.md` |
 | Install audit | `@mstack-adoption-audit` (full pack) | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
 
 **Principle:** Prefer **one primary** rule per task; add a **second** only when the task clearly spans domains (e.g. API + contract).

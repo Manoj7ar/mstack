@@ -220,3 +220,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/TEAM_ROLLOUT.md`**, **`docs/RULES_SOURCE.md`**, **`docs/SKILLS.md`**. Extend **FAQ**, **SHOWCASE** (“what counts as adopted”), **CURSOR_INTEGRATION** remote-import row, **ONBOARDING**, and navigation (**README**, **AGENTS**, **AGENT_MEMORY**, **workflow**, **STARTER_KIT**). **No** CI in this repo; **no** new rules or pack files.
 
 **Consequences:** More docs to maintain; clearer paths for teams and for “no submodule” questions.
+
+---
+
+### 2026-04-21 — Wave 11: context budget skill + breaking-change rule (full only)
+
+**Context:** Users needed **explicit chat budgets** for long threads (Cursor does not auto-trim context) and a **consistent posture** for true breaking changes without bloating **standard** pack.
+
+**Decision:** Add **`docs/CONTEXT_BUDGET.md`** + skill **`/mstack-context-budget`** (`disable-model-invocation: true`). Add **`templates/BREAKING_CHANGE_CHECKLIST.md`** and **`mstack-breaking-change.mdc`** (`alwaysApply: false`, **no globs**, manual **`@mstack-breaking-change`**), listed only in **`scripts/packs/full.txt`**. Wire navigation and **RECIPES** / **SPECIALIST_MAP** / **core-workflow**.
+
+**Consequences:** Full pack gains one more `.mdc`; verify-packs must list it in `full.txt` (already required for all shipped rules).
