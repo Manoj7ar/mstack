@@ -7,6 +7,30 @@
 
 This repository is also a **reference implementation**: it includes **`docs/`** for agent-oriented memory and an optional **Ideas HTTP API** (`src/`, `tests/`) that exercises structured API patterns.
 
+### Two layers (10-second map)
+
+| Layer | What it is | Copy to other repos? |
+| ----- | ---------- | --------------------- |
+| **A — mstack core** | `.cursor/rules/`, `AGENTS.md`, `templates/`, most `docs/`, `scripts/sync-mstack.sh`, `scripts/packs/*.txt` | **Yes** — this is the product people adopt |
+| **B — reference app** | `src/`, `tests/`, `package.json` (npm workspace for the demo API) | **No** — optional; delete if you only want rules ([FAQ](docs/FAQ.md)) |
+
+- **npm** `package.json` **name** is **`mstack`** (workspace / repo identity). **`GET /v1/meta`** returns **`product: mstack`** and **`service: mstack-ideas-api`** for the HTTP demo. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/DEMO_WALKTHROUGH.md](docs/DEMO_WALKTHROUGH.md).
+
+```mermaid
+flowchart LR
+  subgraph layerA [Layer_A_mstack_core]
+    rules[rules_templates_docs]
+  end
+  subgraph consumer [Consumer_repo]
+    copied[copied_via_sync]
+  end
+  subgraph layerB [Layer_B_reference_only]
+    api[src_tests_Ideas_API]
+  end
+  layerA -->|sync-mstack.sh| copied
+  layerB -->|stays_in_this_repo| maintainer[maintainers_and_demo_users]
+```
+
 Inspired by the “virtual team” workflow idea popularized by [GStack](https://github.com/garrytan/gstack) (Claude Code). **mstack is independent** content for Cursor; it is not a fork of GStack.
 
 **Reality check:** mstack is **team glue and guardrails**, not automatic model intelligence. See **[docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md)** for when it tends to help, when it does not, and known weak spots. **Token habits (honest):** **[docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md)**.
@@ -112,6 +136,11 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/TEAM_ROLLOUT.md](docs/TEAM_ROLLOUT.md) | Champion guide: pilot pack, agreements, first-week links |
 | [docs/RULES_SOURCE.md](docs/RULES_SOURCE.md) | Vendor + `sync-mstack.sh` vs Cursor remote rule import |
 | [docs/SKILLS.md](docs/SKILLS.md) | Index of **`/mstack-*`** commands and skill paths |
+| [docs/DEMO_WALKTHROUGH.md](docs/DEMO_WALKTHROUGH.md) | End-to-end demo: pack → plan → build API change → review → ship |
+| [docs/SRC_INTERNAL.md](docs/SRC_INTERNAL.md) | Reference Ideas API: modules, env, request flow |
+| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Cursor + mstack terms (Agent, pack, skill, globs, …) |
+| [docs/ANTI_PATTERNS.md](docs/ANTI_PATTERNS.md) | Common mistakes and fixes |
+| [docs/CURSOR_MCP.md](docs/CURSOR_MCP.md) | MCP servers + trust boundaries with mstack |
 
 ---
 
@@ -321,6 +350,9 @@ docs/
   TEAM_ROLLOUT.md
   RULES_SOURCE.md
   SKILLS.md
+  GLOSSARY.md
+  ANTI_PATTERNS.md
+  CURSOR_MCP.md
   ONBOARDING.md
   PLAYBOOK.md
   GSTACK_INSPIRATION.md
@@ -341,6 +373,9 @@ docs/
   ARCHITECTURE.md
   DECISIONS.md
   PROJECT_MEMORY.md
+  DEMO_WALKTHROUGH.md
+  SRC_INTERNAL.md
+  sample-workflow/
 scripts/sync-mstack.sh
 scripts/verify-mstack-sync.sh
 scripts/mstack-doctor.sh
@@ -349,16 +384,17 @@ scripts/verify-packs-internal.sh
 scripts/packs/*.txt
 scripts/ideas-snapshot.mjs
 templates/*.md
-package.json          # Ideas API
-src/                  # Ideas API
-tests/                # Ideas API
+package.json          # npm workspace name mstack; scripts run reference API
+src/                  # mstack-ideas-api reference service
+tests/                # Vitest for reference API
+docs/sample-workflow/ # Example plan/debug/ADR/runbook snippets
 ```
 
 ---
 
 ## Ideas HTTP API (demo service in this repo)
 
-A small **Node/TypeScript** HTTP service: validation, session preferences, idempotency, rate limits. Data is **in-memory**; restart clears it.
+A small **Node/TypeScript** HTTP service: validation, session preferences, idempotency (replay + **409** on body mismatch), rate limits. Default store is **in-memory** (restart clears). Optional **file-backed** persistence: set **`IDEAS_STORE_PATH`** to a JSON file path (demo-only; not for high concurrency). Internal map: [docs/SRC_INTERNAL.md](docs/SRC_INTERNAL.md).
 
 ### Run
 

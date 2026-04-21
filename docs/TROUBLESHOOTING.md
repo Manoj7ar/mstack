@@ -1,5 +1,7 @@
 # mstack troubleshooting
 
+**Preventive:** [ANTI_PATTERNS.md](ANTI_PATTERNS.md) · **Terms:** [GLOSSARY.md](GLOSSARY.md)
+
 ## Maintainer checks (this repo has no GitHub Actions CI)
 
 Contributors should run **`npm run mstack:ci`** before opening a PR (see [CONTRIBUTING.md](../CONTRIBUTING.md)). Consumers who vendor mstack can add their own CI using **`scripts/verify-mstack-sync.sh`** — see **`mstack-pack-verify.yml.example`**.

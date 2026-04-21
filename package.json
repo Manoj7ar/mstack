@@ -1,7 +1,8 @@
 {
-  "name": "ideas-api",
+  "name": "mstack",
   "version": "0.1.0",
   "private": true,
+  "description": "Cursor workflow pack (rules, templates, docs) with optional reference Ideas HTTP API in src/",
   "type": "module",
   "scripts": {
     "build": "tsc",

@@ -6,8 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **`GET /v1/meta`:** adds **`product`**; **`service`** is now **`mstack-ideas-api`** (was `ideas-api`). Clients that branch on `service` should update.
+
 ### Added
 
+- **Repo identity + demo + reference API hardening:** `package.json` **name** `mstack` with **description**; **`GET /v1/meta`** adds **`product`** (`mstack`) and renames HTTP **`service`** to **`mstack-ideas-api`**; **`IdeasStore`** + optional **`IDEAS_STORE_PATH`** file persistence; **409** `idempotency_conflict` when `Idempotency-Key` reused with different body; `createAppServer({ rateLimitMax, store })` for tests; **`resetRateLimitState`**. Docs: README **two-layer** table + mermaid; **`docs/DEMO_WALKTHROUGH.md`**; **`docs/SRC_INTERNAL.md`**; **`docs/sample-workflow/`** snippets; **ARCHITECTURE** contributor diagram; **OpenAPI** meta + 409; **`ideas-snapshot.mjs`** includes **`product`**. API **0.4.0**. Expanded **Vitest** (404, 429, idempotency conflict, empty page, limit 100, bad JSON, empty PATCH, file restart).
+- **Wave 14 (MCP + glossary + anti-patterns):** `docs/CURSOR_MCP.md` (MCP stack, safety, link to [cursor.com/docs/mcp](https://cursor.com/docs/mcp)); `docs/GLOSSARY.md`; `docs/ANTI_PATTERNS.md`. Wired from DOCS_MAP, RECIPES, EFFECTIVENESS, TROUBLESHOOTING, CURSOR_INTEGRATION, CURSOR_LIMITS, STARTER_KIT, README, workflow, AGENT_MEMORY, AGENTS, PLAYBOOK_FIRST_MESSAGES, SKILLS, FAQ, WHY_MSTACK. **No** new `.mdc` rules or pack changes.
 - **Cursor base + mstack:** `docs/CURSOR_BASE_BEHAVIOR.md` — how Cursor’s built-in Chat/Agent instructions stack with mstack (paraphrased; links to research repo for verbatim snapshots only). Skill **`/mstack-agent-habits`** (`.cursor/skills/mstack-agent-habits/`). Wired from CURSOR_INTEGRATION, CURSOR_LIMITS, SKILLS, DOCS_MAP, RECIPES, AGENTS, AGENT_MEMORY, PLAYBOOK_FIRST_MESSAGES, FAQ, README, workflow, flight-deck skill. **No** new `.mdc` rules or pack list changes.
 - **Wave 13 (navigation):** `docs/DOCS_MAP.md` — role-based reading order (mobile, install, daily, champion, agent) + mermaid; links from README, FAQ, workflow, AGENT_MEMORY, STARTER_KIT, CURSOR_INTEGRATION, AGENTS; **Alternatives** subsection in `WHY_MSTACK.md`; EFFECTIVENESS mitigations + See also. **No** new rules or pack changes.
 - **Wave 12 (ship + UX + security lite):** **`/mstack-ship-check`** skill; `templates/UI_ACCEPTANCE_CHECKLIST.md`, `templates/SECURITY_REVIEW_LITE.md`; `docs/WHY_MSTACK.md`; wiring across SKILLS, README, AGENTS, AGENT_MEMORY, CURSOR_INTEGRATION, flight-deck, PLAYBOOK_FIRST_MESSAGES, RECIPES, workflow, `mstack-core-workflow.mdc`. **No** new `.mdc` rules or pack list changes.

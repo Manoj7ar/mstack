@@ -43,9 +43,9 @@ See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 4. **README:** add a one-line row to the rules or templates table if you add a rule or template.
 5. **Changelog:** add an entry under **Unreleased** in [CHANGELOG.md](CHANGELOG.md) (or the maintainer will fold it).
 
-## Ideas API (`src/`, `tests/`)
+## Reference Ideas API (`src/`, `tests/`)
 
-If you change routes, env vars, or behavior: update [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and a line in [docs/DECISIONS.md](docs/DECISIONS.md).
+If you change routes, env vars, or behavior: update [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/SRC_INTERNAL.md](docs/SRC_INTERNAL.md), and a line in [docs/DECISIONS.md](docs/DECISIONS.md). End-to-end demo narrative: [docs/DEMO_WALKTHROUGH.md](docs/DEMO_WALKTHROUGH.md).
 
 ## Showcase
 

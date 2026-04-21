@@ -34,11 +34,14 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | Breaking API / major dep / migration | `@mstack-breaking-change` (full pack; manual) | `BREAKING_CHANGE_CHECKLIST.md` |
 | Install audit | `@mstack-adoption-audit` (full pack) | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
 | Before merge / open PR | **`/mstack-ship-check`** | `PR_CHECKLIST_TEMPLATE.md`, `SECRETS_AND_ENV_CHECKLIST.md`, optional `UI_ACCEPTANCE_CHECKLIST.md`, `SECURITY_REVIEW_LITE.md` |
+| MCP / external tool servers (issues, DB, APIs) | [CURSOR_MCP.md](CURSOR_MCP.md), `@mstack-permissions` (mutations), `@mstack-secrets-env` (credentials) | [ANTI_PATTERNS.md](ANTI_PATTERNS.md) |
 
 **Principle:** Prefer **one primary** rule per task; add a **second** only when the task clearly spans domains (e.g. API + contract).
 
 ## See also
 
+- [CURSOR_MCP.md](CURSOR_MCP.md) — MCP stack and safety
+- [GLOSSARY.md](GLOSSARY.md) — terms
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + mstack
 - [workflow.md](workflow.md) — phases
 - [PACKS.md](PACKS.md) — which rules ship in each pack

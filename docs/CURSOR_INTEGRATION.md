@@ -8,6 +8,8 @@ Cursor also injects **built-in** instructions for **Chat** vs **Agent**; mstack 
 
 **Full Cursor doc index:** [cursor.com/llms.txt](https://cursor.com/llms.txt)
 
+Optional **MCP servers** add more Agent tools; mstack still applies to permissions and secrets—see [CURSOR_MCP.md](CURSOR_MCP.md).
+
 ---
 
 ## Cursor × mstack (reference)
@@ -45,6 +47,7 @@ Use the **smallest surface** that solves the task. mstack rules **complement** A
 
 ## See also
 
+- [CURSOR_MCP.md](CURSOR_MCP.md) — Model Context Protocol + mstack safety
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent posture + habits merged with mstack
 - [DOCS_MAP.md](DOCS_MAP.md) — which docs to open first (by role)
 - [RULES_SOURCE.md](RULES_SOURCE.md) — vendor + sync vs remote import

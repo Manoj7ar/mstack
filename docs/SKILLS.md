@@ -18,6 +18,8 @@ Skills are **explicit-invocation** procedures in Agent chat. They complement **p
 
 ## See also
 
+- [GLOSSARY.md](GLOSSARY.md) — what “skill” vs “rule” means
+- [CURSOR_MCP.md](CURSOR_MCP.md) — MCP + Agent tools
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — how skills sit on Cursor’s base Chat/Agent behavior
 - [DOCS_MAP.md](DOCS_MAP.md) — which docs to read first by role
 - [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) — habits behind **`/mstack-context-budget`**

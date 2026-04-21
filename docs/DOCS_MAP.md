@@ -13,7 +13,8 @@
 1. [STARTER_KIT.md](STARTER_KIT.md) — sync, doctor, first Agent messages  
 2. [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative + pack diagram  
 3. [FAQ.md](FAQ.md) — common questions  
-4. [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — optional self-check after sync
+4. [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — optional self-check after sync  
+5. [GLOSSARY.md](GLOSSARY.md) — Cursor + mstack terms in one place
 
 ## Daily developer (already synced)
 
@@ -22,7 +23,10 @@
 3. [workflow.md](workflow.md) — phases and artifacts  
 4. [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) + **`/mstack-context-budget`** — long threads  
 5. [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + **`/mstack-agent-habits`**  
-6. **`/mstack-ship-check`** — before opening a PR ([SKILLS.md](SKILLS.md))
+6. [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md) — end-to-end story in **this** repo (pack → ship)  
+7. [CURSOR_MCP.md](CURSOR_MCP.md) — optional MCP servers + safety with mstack  
+8. [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — avoid common mistakes  
+9. **`/mstack-ship-check`** — before opening a PR ([SKILLS.md](SKILLS.md))
 
 ## Team champion (rolling out to others)
 
@@ -34,9 +38,11 @@
 ## Agent / maintainer (this repo or heavy edits)
 
 1. [AGENT_MEMORY.md](AGENT_MEMORY.md) — where to look first  
-2. [ARCHITECTURE.md](ARCHITECTURE.md) — Ideas API map (if using `src/`)  
-3. [DECISIONS.md](DECISIONS.md) — why things are the way they are  
-4. [TROUBLESHOOTING.md](TROUBLESHOOTING.md) — rules, globs, sync
+2. [ARCHITECTURE.md](ARCHITECTURE.md) — repo layers + Ideas API map  
+3. [SRC_INTERNAL.md](SRC_INTERNAL.md) — `src/` module map (reference API)  
+4. [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md) — maintainer demo path  
+5. [DECISIONS.md](DECISIONS.md) — why things are the way they are  
+6. [TROUBLESHOOTING.md](TROUBLESHOOTING.md) — rules, globs, sync
 
 ## Pick your role (diagram)
 
@@ -58,9 +64,12 @@ flowchart LR
 
 - [CURSOR_LIMITS.md](CURSOR_LIMITS.md) — what project rules cannot do  
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — product base prompts vs mstack (paraphrased)  
+- [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — foot-guns and fixes  
 - [EFFECTIVENESS.md](EFFECTIVENESS.md) — when mstack helps vs adds noise
 
 ## See also
 
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE  
+- [CURSOR_MCP.md](CURSOR_MCP.md) — MCP + mstack  
+- [GLOSSARY.md](GLOSSARY.md) — terminology  
 - [SHOWCASE.md](SHOWCASE.md) — public adopters

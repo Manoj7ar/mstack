@@ -26,6 +26,12 @@ mstack phases: Think → Plan only. Scope: [X]. Use Plan Mode; output should fit
 Runtime bug: [symptom]. Use mstack-debug / Debug Mode. Do not add logging or repro-for-logs until I confirm.
 ```
 
+## MCP-aware task (external tools)
+
+```text
+Task uses MCP / external tools: [e.g. issue DB, internal API]. Read docs/CURSOR_MCP.md posture; @mstack-permissions before any mutation; @mstack-secrets-env — no secrets in chat. Goal: [one line].
+```
+
 ## Mechanical pass
 
 ```text

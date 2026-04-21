@@ -70,8 +70,11 @@ Refresh after **`git submodule update`** or pulling mstack: [VENDOR_UPGRADE.md](
 
 ## See also
 
+- [GLOSSARY.md](GLOSSARY.md) — Cursor + mstack terms if anything above is jargon-heavy
 - [DOCS_MAP.md](DOCS_MAP.md) — reading order by role if this repo feels huge
 - [WHY_MSTACK.md](WHY_MSTACK.md) — why try mstack (honest)
 - [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative
 - [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — full audit list
-- [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE
+- [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE  
+- [CURSOR_MCP.md](CURSOR_MCP.md) — optional MCP servers + safety  
+- [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — mistakes to avoid

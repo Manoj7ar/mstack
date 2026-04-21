@@ -2,6 +2,40 @@
 
 High-level map of this repository: **mstack workflow pack** plus an optional **Ideas API** service.
 
+**End-to-end demo (this repo):** [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md) · **Reference API modules:** [SRC_INTERNAL.md](SRC_INTERNAL.md) · **Example artifacts:** [sample-workflow/README.md](sample-workflow/README.md)
+
+## Repository layout (contributors)
+
+**Layer A (mstack core)** is what consumers copy via `sync-mstack.sh`. **Layer B (reference app)** lives only in this repo to demonstrate structured API patterns.
+
+```mermaid
+flowchart TB
+  subgraph layerA [Layer_A_mstack_core]
+    packs[scripts/packs]
+    sync[sync-mstack.sh]
+    rules[.cursor/rules_and_skills]
+    tmpl[templates]
+    docsCore[docs_guides]
+  end
+  subgraph consumer [Consumer_repository]
+    installed[copied_rules_AGENTS_templates]
+  end
+  subgraph layerB [Layer_B_reference_Ideas_API]
+    src[src]
+    tst[tests]
+    pkg[package.json_npm_mstack]
+  end
+  subgraph maintainer [This_repo_maintainer]
+    edit[edit_A_and_B_together]
+  end
+  sync --> installed
+  packs --> sync
+  rules --> sync
+  tmpl --> sync
+  layerA --> maintainer
+  layerB --> maintainer
+```
+
 ```mermaid
 flowchart TB
   subgraph cursor [Cursor project]
@@ -46,7 +80,7 @@ flowchart TB
 2. **Rate limit**: Sliding window per client key (`X-Session-ID` if present, else first `X-Forwarded-For` hop or socket address). Tunable via `RATE_LIMIT_MAX`, `RATE_LIMIT_WINDOW_MS`.
 3. **Routing**: `handleRequest` in `src/server.ts` dispatches by method + path. JSON bodies parsed once; errors return structured `{ error, message, requestId }` (and `details` for Zod failures).
 4. **Listing**: `GET /v1/ideas` returns a **paginated** window (default `limit=50`, max `100`) sorted by `createdAt` descending, tie-broken by `id`. Pass `cursor` from `nextCursor` to fetch the next page. Invalid `limit` or `cursor` returns **400** with `invalid_limit` / `invalid_cursor`.
-5. **State**: `src/store.ts` holds in-memory `Map`s for ideas, sessions, and idempotency keys. **Not durable** across restarts.
+5. **State**: `src/store.ts` — default **`InMemoryIdeasStore`** (not durable). Optional **`FileIdeasStore`** when **`IDEAS_STORE_PATH`** is set (JSON snapshot on each mutation; demo-only concurrency). **`POST /v1/ideas`** with the same **`Idempotency-Key`** replays when the body matches; **409** `idempotency_conflict` when the key is reused with a different body.
 
 ## Ideas API — data model (in-memory)
 
@@ -58,7 +92,7 @@ flowchart TB
 | Method | Path | Purpose |
 | ------ | ---- | ------- |
 | GET | `/health` | Liveness. |
-| GET | `/v1/meta` | Service name, API version, Node version. |
+| GET | `/v1/meta` | `product` (mstack), `service` (mstack-ideas-api), API version, Node version. |
 | GET | `/v1/openapi.json` | OpenAPI 3.0 document (`src/openapi.ts`). |
 | GET | `/v1/ideas` | List ideas; optional `?tag=`, `?limit=`, `?cursor=` (see lifecycle). |
 | GET | `/v1/ideas/:id` | Single idea. |
@@ -74,6 +108,7 @@ flowchart TB
 | `PORT` | `3000` | Listen port. |
 | `RATE_LIMIT_MAX` | `120` | Max requests per window per client key. |
 | `RATE_LIMIT_WINDOW_MS` | `60000` | Window length in ms. |
+| `IDEAS_STORE_PATH` | _(unset)_ | If set, persist ideas to this JSON file (`FileIdeasStore`). |
 
 ## Testing and build
 

@@ -2,7 +2,7 @@
 
 ## Where do I start? There are too many docs.
 
-Open **[DOCS_MAP.md](DOCS_MAP.md)** — pick **mobile**, **first-time install**, **daily dev**, or **team champion**; each lists 3–6 pages in order.
+Open **[DOCS_MAP.md](DOCS_MAP.md)** — pick **mobile**, **first-time install**, **daily dev**, or **team champion**; each lists 3–6 pages in order. **Jargon?** [GLOSSARY.md](GLOSSARY.md) · **Common mistakes:** [ANTI_PATTERNS.md](ANTI_PATTERNS.md).
 
 ## What should I do in the first 10 minutes?
 
