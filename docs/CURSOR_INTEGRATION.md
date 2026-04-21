@@ -43,6 +43,7 @@ Use the **smallest surface** that solves the task. mstack rules **complement** A
 
 ## See also
 
+- [DOCS_MAP.md](DOCS_MAP.md) — which docs to open first (by role)
 - [RULES_SOURCE.md](RULES_SOURCE.md) — vendor + sync vs remote import
 - [SKILLS.md](SKILLS.md) — `/mstack-*` index
 - [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) — bounded context habits (not auto-trimmed by Cursor)

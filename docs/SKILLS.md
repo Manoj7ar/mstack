@@ -17,6 +17,7 @@ Skills are **explicit-invocation** procedures in Agent chat. They complement **p
 
 ## See also
 
+- [DOCS_MAP.md](DOCS_MAP.md) — which docs to read first by role
 - [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md) — habits behind **`/mstack-context-budget`**
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE, rules precedence
 - [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste openers that reference these commands
