@@ -86,6 +86,8 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | Doc | Purpose |
 | --- | ------- |
 | [docs/STARTER_KIT.md](docs/STARTER_KIT.md) | One-page sync + doctor + first messages (**fastest path**) |
+| [docs/VENDOR_UPGRADE.md](docs/VENDOR_UPGRADE.md) | Refresh vendored/submodule mstack + re-sync + verify |
+| [docs/MONOREPO.md](docs/MONOREPO.md) | One vendor copy, nested `AGENTS.md`, package `@` context |
 | [docs/ONBOARDING.md](docs/ONBOARDING.md) | 5-minute first-time adoption |
 | [docs/PLAYBOOK.md](docs/PLAYBOOK.md) | Sprint shape, handoffs, modes |
 | [docs/GSTACK_INSPIRATION.md](docs/GSTACK_INSPIRATION.md) | How mstack maps to GStack-style ideas (not a fork) |
@@ -95,9 +97,14 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/POWER_USER.md](docs/POWER_USER.md) | Session brief file, verify sync in CI, mechanical pass |
 | [docs/EFFECTIVENESS.md](docs/EFFECTIVENESS.md) | Honest usefulness bands, weaknesses, how to get value |
 | [docs/TOKEN_LEVERS.md](docs/TOKEN_LEVERS.md) | What actually reduces wasted context (no magic savings) |
+| [docs/CONTEXT_BUDGET.md](docs/CONTEXT_BUDGET.md) | File caps + recap habits; pairs with **`/mstack-context-budget`** |
 | [docs/SPECIALIST_MAP.md](docs/SPECIALIST_MAP.md) | Which specialist to drop when trimming overlap |
 | [docs/ADOPTION_AUDIT.md](docs/ADOPTION_AUDIT.md) | Checklist for correct install and drift |
 | [docs/PLAYBOOK_FIRST_MESSAGES.md](docs/PLAYBOOK_FIRST_MESSAGES.md) | Copy-paste Agent chat openers |
+| [docs/RECIPES.md](docs/RECIPES.md) | Task → `@mention` / skill → template index |
+| [docs/TEAM_ROLLOUT.md](docs/TEAM_ROLLOUT.md) | Champion guide: pilot pack, agreements, first-week links |
+| [docs/RULES_SOURCE.md](docs/RULES_SOURCE.md) | Vendor + `sync-mstack.sh` vs Cursor remote rule import |
+| [docs/SKILLS.md](docs/SKILLS.md) | Index of **`/mstack-*`** commands and skill paths |
 
 ---
 
@@ -144,6 +151,7 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `mstack-mechanical-pass.mdc` | On demand / mention | Compress phases for chores; not for auth/migrations/new UX |
 | `mstack-surgical-investigation.mdc` | On demand / mention | Hypothesis + file budget before wide reads (**standard** + **full**) |
 | `mstack-adoption-audit.mdc` | On demand / mention | Walk `docs/ADOPTION_AUDIT.md`; report gaps (**full** pack) |
+| `mstack-breaking-change.mdc` | On demand / mention | Breaking API/schema/deps; **`BREAKING_CHANGE_CHECKLIST.md`** (**full** pack) |
 
 **Overlapping specialists:** Some pairs cover similar areas with different scope—for example `mstack-docs-devx` vs `mstack-docs-ship`, `mstack-data-modeling` vs `mstack-data-migrations`, `mstack-ci-quality` vs `mstack-ci`. Keep both or delete one set when vendoring into a smaller project.
 
@@ -162,6 +170,8 @@ Rules use YAML frontmatter (`description`, `globs`, `alwaysApply`). See [Cursor 
 | `SESSION_BRIEF_TEMPLATE.md` | Shape for root **`SESSION_BRIEF.md`** — durable handoff between Cursor chats. |
 | `AGENT_RECAP_TEMPLATE.md` | Optional **`docs/AGENT_RECAP.md`** — compact mid-thread recap; **`/mstack-lean-handoff`**. |
 | `MSTACK_DAY_ONE_CHECKLIST.md` | First-day onboarding checks; pairs with **`docs/STARTER_KIT.md`**. |
+| `HOTFIX_OR_ROLLBACK_CHECKLIST.md` | Prod hotfix / rollback trace; then **`POSTMORTEM_TEMPLATE.md`**. |
+| `BREAKING_CHANGE_CHECKLIST.md` | Breaking API/schema/deps; **`@mstack-breaking-change`** (**full** pack). |
 | `REFLECT_TEMPLATE.md` | Reflect phase after non-trivial work. |
 | `POSTMORTEM_TEMPLATE.md` | Incident write-up. |
 | `INCIDENT_POSTMORTEM_TEMPLATE.md` | Alternate postmortem structure. |
@@ -196,7 +206,7 @@ mstack targets **Cursor Agent** (chat + project rules). It **pairs with** normal
 
 ### Cursor Canvas (3.1+)
 
-[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`.
+[Canvas](https://cursor.com/docs/agent/tools/canvas) lets the agent open **interactive dashboards** (tables, diagrams, todos) as durable artifacts in the Agents Window. This repo includes project skills: **`mstack-flight-deck`** — type **`/mstack-flight-deck`** for a Canvas overview (phases, docs, Ideas API; `node scripts/ideas-snapshot.mjs`). **`mstack-doctor`** — type **`/mstack-doctor`** to run local install checks (`scripts/mstack-doctor.sh`). **`mstack-pack-picker`** — type **`/mstack-pack-picker`** to choose **`MSTACK_PACK`**. **`mstack-first-sync`** — type **`/mstack-first-sync`** for copy-paste sync + merge hints when adopting in a new repo. **`mstack-upgrade-vendor`** — type **`/mstack-upgrade-vendor`** after updating **`vendor/mstack`** (submodule pull → re-sync → doctor). **`mstack-context-budget`** — type **`/mstack-context-budget`** for a pasteable **file cap + narrow `@`** block (long threads). Paths: `.cursor/skills/mstack-flight-deck/SKILL.md`, `.cursor/skills/mstack-doctor/SKILL.md`, `.cursor/skills/mstack-pack-picker/SKILL.md`, `.cursor/skills/mstack-first-sync/SKILL.md`, `.cursor/skills/mstack-upgrade-vendor/SKILL.md`, `.cursor/skills/mstack-context-budget/SKILL.md`.
 
 ---
 
@@ -286,9 +296,18 @@ README.md
 .cursor/skills/mstack-pack-picker/
 .cursor/skills/mstack-lean-handoff/
 .cursor/skills/mstack-first-sync/
+.cursor/skills/mstack-upgrade-vendor/
+.cursor/skills/mstack-context-budget/
 docs/
   workflow.md
+  CONTEXT_BUDGET.md
   STARTER_KIT.md
+  VENDOR_UPGRADE.md
+  MONOREPO.md
+  RECIPES.md
+  TEAM_ROLLOUT.md
+  RULES_SOURCE.md
+  SKILLS.md
   ONBOARDING.md
   PLAYBOOK.md
   GSTACK_INSPIRATION.md

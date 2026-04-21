@@ -30,6 +30,18 @@ Pick a smaller pack: [PACKS.md](PACKS.md) (Minimal, Lite, Solo). Trim overlap wi
 
 mstack is **inspired by** workflow ideas popularized by projects like GStack; it is **Cursor-native** (`.cursor/rules`, `AGENTS.md`) and **not a fork**. See [GSTACK_INSPIRATION.md](GSTACK_INSPIRATION.md).
 
+## Does mstack work in a monorepo?
+
+**Yes.** Use **one** vendored mstack at the **repo root**, run **`sync-mstack.sh`** once, and add **nested `AGENTS.md`** only for package-specific notes. See [MONOREPO.md](MONOREPO.md).
+
+## Can we use mstack without a submodule?
+
+**Yes.** You can **copy** mstack, use **`sync-mstack.sh`** from any path, or use **Cursor’s remote rule import** from GitHub (rules only—templates/skills are separate). Compare paths in [RULES_SOURCE.md](RULES_SOURCE.md).
+
+## How do I introduce mstack to my team?
+
+Share [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md): pilot one pack, name an **`AGENTS.md`** owner, and point people at [STARTER_KIT.md](STARTER_KIT.md) + [SKILLS.md](SKILLS.md).
+
 ## The sample API — do I need it?
 
 **No.** Consumers can delete `src/`, `tests/`, and related docs if they only want the rules pack.

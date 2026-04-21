@@ -44,6 +44,7 @@ Contributors should run **`npm run mstack:ci`** before opening a PR (see [CONTRI
 
 ## Merge / sync after submodule
 
+- Pull or update the submodule, then follow **[VENDOR_UPGRADE.md](VENDOR_UPGRADE.md)** (re-run **`sync-mstack.sh`** with the same **`MSTACK_PACK`**, **`mstack-doctor`**, optional **`--strict` verify**). In Agent: **`/mstack-upgrade-vendor`**.
 - Run **`MSTACK_ROOT=vendor/mstack ./scripts/sync-mstack.sh`** from your app root; re-merge **`AGENTS.md`** if needed.
 - Skills copy when **`vendor/mstack/.cursor/skills`** exists (see `sync-mstack.sh`).
 

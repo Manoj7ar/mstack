@@ -15,6 +15,10 @@ Public examples of projects **vendoring or documenting** mstack. **Add your repo
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
+## What counts as “adopted”?
+
+Enough to list here: **one** chosen **pack** ([PACKS.md](PACKS.md)), **`sync-mstack.sh`** (or equivalent) run so **`.cursor/rules`** matches intent, **`mstack-doctor`** passing once, and **`AGENTS.md`** merged or deliberately owned. Self-check: [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md).
+
 ## Optional README snippet for adopters
 
 You can drop this into your project **`README.md`** (adjust the link if you vendor or fork mstack):

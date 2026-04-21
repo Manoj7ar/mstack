@@ -50,6 +50,8 @@ Copy-paste library: [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md).
 - **Guided commands:** Type **`/mstack-first-sync`** (prints sync + merge hints; does not edit files unless you ask).
 - **Overview (Canvas):** **`/mstack-flight-deck`** (Cursor 3.1+).
 
+**All `/mstack-*` skills:** [SKILLS.md](SKILLS.md). **Long thread / huge `@`:** [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`**. **No submodule?** [RULES_SOURCE.md](RULES_SOURCE.md). **Team rollout:** [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md).
+
 ## Optional — drift check
 
 ```bash
@@ -61,6 +63,10 @@ Consumer CI example: `.github/workflows/mstack-pack-verify.yml.example`. Details
 ## Day-one checklist
 
 Track setup with [templates/MSTACK_DAY_ONE_CHECKLIST.md](../templates/MSTACK_DAY_ONE_CHECKLIST.md).
+
+## Already installed?
+
+Refresh after **`git submodule update`** or pulling mstack: [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md). In Agent: **`/mstack-upgrade-vendor`**.
 
 ## See also
 

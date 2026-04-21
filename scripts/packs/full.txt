@@ -36,3 +36,4 @@ mstack-repo-memory
 mstack-mechanical-pass
 mstack-surgical-investigation
 mstack-adoption-audit
+mstack-breaking-change

@@ -13,12 +13,19 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | -------- | ---- |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **First-time setup** | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md) |
+| **Upgrade vendored mstack** | [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md) |
+| **Monorepos** | [MONOREPO.md](MONOREPO.md) |
+| **Task → rule / template** | [RECIPES.md](RECIPES.md) |
+| **Team rollout (champion)** | [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md) |
+| **Vendor vs remote rules** | [RULES_SOURCE.md](RULES_SOURCE.md) |
+| **Skills index (`/mstack-*`)** | [SKILLS.md](SKILLS.md) |
 | **Sprint / playbook** | [PLAYBOOK.md](PLAYBOOK.md) |
 | **Power-user recipes** (session brief, CI verify, mechanical pass) | [POWER_USER.md](POWER_USER.md) |
 | **Adoption checklist** | [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
 | **First-message snippets** | [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) |
 | **Honest usefulness / weaknesses** | [EFFECTIVENESS.md](EFFECTIVENESS.md) |
 | **Token habits (honest)** | [TOKEN_LEVERS.md](TOKEN_LEVERS.md) |
+| **Context budget (long threads)** | [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`** |
 | **Overlap: which specialist to drop** | [SPECIALIST_MAP.md](SPECIALIST_MAP.md) |
 | **Showcase / FAQ** | [SHOWCASE.md](SHOWCASE.md), [FAQ.md](FAQ.md) |
 | **Contributing** | [CONTRIBUTING.md](../CONTRIBUTING.md), [CHANGELOG.md](../CHANGELOG.md) |
@@ -35,6 +42,8 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Pack picker** (which `MSTACK_PACK`; type `/mstack-pack-picker`) | [.cursor/skills/mstack-pack-picker/SKILL.md](../.cursor/skills/mstack-pack-picker/SKILL.md) |
 | **Lean handoff** (recap file; type `/mstack-lean-handoff`) | [.cursor/skills/mstack-lean-handoff/SKILL.md](../.cursor/skills/mstack-lean-handoff/SKILL.md) |
 | **First sync** (adopt in another repo; type `/mstack-first-sync`) | [.cursor/skills/mstack-first-sync/SKILL.md](../.cursor/skills/mstack-first-sync/SKILL.md) |
+| **Upgrade vendor** (submodule refresh + re-sync; type `/mstack-upgrade-vendor`) | [.cursor/skills/mstack-upgrade-vendor/SKILL.md](../.cursor/skills/mstack-upgrade-vendor/SKILL.md) |
+| **Context budget** (pasteable cap + `@`; type `/mstack-context-budget`) | [.cursor/skills/mstack-context-budget/SKILL.md](../.cursor/skills/mstack-context-budget/SKILL.md) |
 
 ## Conventions for agents
 

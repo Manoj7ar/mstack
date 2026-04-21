@@ -200,3 +200,33 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/STARTER_KIT.md`** (single-page sync, verify, links). Add explicit-invocation skill **`/mstack-first-sync`** (`disable-model-invocation: true`) that prints copy-paste commands and points to **`STARTER_KIT`** — **no** new `alwaysApply` rules or pack entries. Add **`templates/MSTACK_DAY_ONE_CHECKLIST.md`**; wire **FAQ**, **SHOWCASE** (optional README blurb), **EFFECTIVENESS**, **ADOPTION_AUDIT**, **core-workflow** artifacts list, README / ONBOARDING / AGENTS / AGENT_MEMORY / workflow / **CURSOR_INTEGRATION** / **PLAYBOOK_FIRST_MESSAGES**.
 
 **Consequences:** More docs to maintain; adoption path is discoverable without growing rule surface area.
+
+---
+
+### 2026-04-21 — Wave 9: post-adoption usefulness (upgrade path, monorepo, recipes, hotfix template)
+
+**Context:** After first sync, teams still struggled with **vendor refreshes**, **monorepo layout**, **picking specialists**, and **hotfix discipline**—without wanting more `alwaysApply` rules.
+
+**Decision:** Add **`docs/VENDOR_UPGRADE.md`** + skill **`/mstack-upgrade-vendor`** (copy-paste only). Add **`docs/MONOREPO.md`** (nested `AGENTS.md`, one `vendor/mstack`, `@` narrowing). Add **`docs/RECIPES.md`** as the task-first index; cross-link **`SPECIALIST_MAP`**. Add **`templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md`** wired in **core-workflow** and first messages—**no** new `mstack-hotfix.mdc` in packs for this slice.
+
+**Consequences:** More docs; **`mstack-core-workflow`** artifact list grows by one template line; pack manifests unchanged.
+
+---
+
+### 2026-04-21 — Wave 10: discovery + team adoption (docs only)
+
+**Context:** Champions needed a **single page** to roll out mstack; many users do not know **remote rule import** vs **vendoring**; **`/mstack-*` skills** were only listed inline in README.
+
+**Decision:** Add **`docs/TEAM_ROLLOUT.md`**, **`docs/RULES_SOURCE.md`**, **`docs/SKILLS.md`**. Extend **FAQ**, **SHOWCASE** (“what counts as adopted”), **CURSOR_INTEGRATION** remote-import row, **ONBOARDING**, and navigation (**README**, **AGENTS**, **AGENT_MEMORY**, **workflow**, **STARTER_KIT**). **No** CI in this repo; **no** new rules or pack files.
+
+**Consequences:** More docs to maintain; clearer paths for teams and for “no submodule” questions.
+
+---
+
+### 2026-04-21 — Wave 11: context budget skill + breaking-change rule (full only)
+
+**Context:** Users needed **explicit chat budgets** for long threads (Cursor does not auto-trim context) and a **consistent posture** for true breaking changes without bloating **standard** pack.
+
+**Decision:** Add **`docs/CONTEXT_BUDGET.md`** + skill **`/mstack-context-budget`** (`disable-model-invocation: true`). Add **`templates/BREAKING_CHANGE_CHECKLIST.md`** and **`mstack-breaking-change.mdc`** (`alwaysApply: false`, **no globs**, manual **`@mstack-breaking-change`**), listed only in **`scripts/packs/full.txt`**. Wire navigation and **RECIPES** / **SPECIALIST_MAP** / **core-workflow**.
+
+**Consequences:** Full pack gains one more `.mdc`; verify-packs must list it in `full.txt` (already required for all shipped rules).

@@ -58,6 +58,7 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - **Feature flags** (standard + full): `@mstack-feature-flags` when editing flag SDKs, experiments, or gated rollouts.
 - **Privacy / personal data** (full pack): `@mstack-privacy-data-handling` for retention, export/delete, privacy-oriented paths—not legal advice.
 - **OSS license files** (full pack): `@mstack-open-source-license` for `LICENSE`, `NOTICE`, third-party attribution—not legal advice.
+- **Breaking changes** (full pack): `@mstack-breaking-change` when removing/renaming public API, schema, webhooks, or shipping **consumer-visible** breaking behavior—use `templates/BREAKING_CHANGE_CHECKLIST.md`; pair with `@mstack-api-contracts`, `@mstack-dependencies`, `@mstack-release-versioning` as needed.
 
 ## Artifacts (paths in this pack)
 
@@ -87,8 +88,10 @@ Use **separate postures** per phase. Do not plan and ship in the same breath on 
 - `templates/FEATURE_FLAG_CHANGE_CHECKLIST.md` (rollout, rollback, flag hygiene)
 - `templates/LICENSE_HYGIENE_CHECKLIST.md` (NOTICE, attribution, root license—not legal advice)
 - `templates/MSTACK_DAY_ONE_CHECKLIST.md` (onboarding checklist; pairs with `docs/STARTER_KIT.md`)
+- `templates/HOTFIX_OR_ROLLBACK_CHECKLIST.md` (prod hotfix / rollback trace; then postmortem)
+- `templates/BREAKING_CHANGE_CHECKLIST.md` (breaking API/schema/dep rollout; full pack + `@mstack-breaking-change`)
 
-Human-readable narrative: `docs/workflow.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
+Human-readable narrative: `docs/workflow.md`. Task → rule index: `docs/RECIPES.md`. Rule presets: `docs/PACKS.md`. Onboarding: `docs/ONBOARDING.md`, sprint shape: `docs/PLAYBOOK.md`, GStack mapping: `docs/GSTACK_INSPIRATION.md`, fixes: `docs/TROUBLESHOOTING.md`.
 
 ## Contributing
 
