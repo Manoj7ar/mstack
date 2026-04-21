@@ -1,6 +1,5 @@
 # mstack
 
-[![mstack CI](https://github.com/Manoj7ar/mstack/actions/workflows/mstack-ci.yml/badge.svg)](https://github.com/Manoj7ar/mstack/actions/workflows/mstack-ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Made for Cursor](https://img.shields.io/badge/Made%20for-Cursor-000000?logo=cursor&logoColor=white)](https://cursor.com)
 
@@ -272,8 +271,6 @@ CHANGELOG.md
 LICENSE
 README.md
 .github/
-  workflows/mstack-ci.yml
-  workflows/mstack-ci-smoke.yml
   workflows/mstack-pack-verify.yml.example
   ISSUE_TEMPLATE/
   PULL_REQUEST_TEMPLATE.md
@@ -362,7 +359,7 @@ Longer guide: **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
 
 | Issue | What to try |
 | ----- | ----------- |
-| **GitHub CI** fails in seconds, no logs | Often **billing / account locked** on GitHub—see **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**. Run **`npm run mstack:ci`** locally (same steps as Actions). |
+| Verify before a PR | Run **`npm run mstack:ci`** locally (packs, doctor, sync smoke, lint, test). |
 | Rules not applying | Files under **`.cursor/rules/`**; `.mdc` or `.md`; check **Cursor Settings → Rules**. |
 | Too much guidance | Drop specialist rules; trim **`AGENTS.md`**. |
 | Wrong rule for files | Adjust **`globs`** in each `.mdc` to match your tree. |

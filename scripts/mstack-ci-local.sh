@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Mirror .github/workflows/mstack-ci.yml for local / pre-push checks.
-# Usage (from repo root): bash scripts/mstack-ci-local.sh
+# Recommended local verification before PRs (this repo does not run GitHub Actions).
+# Usage (from repo root): npm run mstack:ci  or  bash scripts/mstack-ci-local.sh
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

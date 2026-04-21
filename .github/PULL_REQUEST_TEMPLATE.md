@@ -8,7 +8,7 @@
 - [ ] Template(s)
 - [ ] Pack manifest(s)
 - [ ] Docs only
-- [ ] Scripts / CI
+- [ ] Scripts / tooling
 - [ ] Sample API (`src/` / `tests/`)
 
 ## Checklist

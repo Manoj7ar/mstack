@@ -1,22 +1,8 @@
 # mstack troubleshooting
 
-## GitHub Actions: workflow fails in 1–4s with no step logs
+## Maintainer checks (this repo has no GitHub Actions CI)
 
-If the job shows **no steps ran** (or finishes almost instantly), GitHub **never assigned a runner**—this is **not** a failing `npm` command in your YAML. Check, in order:
-
-1. **Repo:** **Settings → Actions → General** — Actions must be **allowed** (not “Disable actions”).
-2. **Fork PRs:** **Settings → Actions → General → Fork pull request workflows** — if PRs are from forks, choose **Require approval for all outside collaborators** or allow workflows as needed; otherwise fork PRs never run.
-3. **Organization:** Org **Settings → Actions → Policies** — the org may **restrict** which workflows run or require approval for public repos.
-4. **Billing / limits:** **Settings → Billing** (user or org) — **Actions minutes**, **spend limits**, or account flags can block hosted runners. The UI sometimes says **“billing issue”** even when the fix is **raising the spend limit** or **enabling Actions** on a free/org plan.
-5. **Sanity check:** Open **Actions → “mstack CI smoke” → Run workflow** (manual). If **smoke** also fails with empty steps, the problem is **platform/settings**, not the main `mstack-ci.yml` script.
-
-**Run the same checks locally** (mirrors CI):
-
-```bash
-npm run mstack:ci
-```
-
-Or: `bash scripts/mstack-ci-local.sh` from the repo root.
+Contributors should run **`npm run mstack:ci`** before opening a PR (see [CONTRIBUTING.md](../CONTRIBUTING.md)). Consumers who vendor mstack can add their own CI using **`scripts/verify-mstack-sync.sh`** — see **`mstack-pack-verify.yml.example`**.
 
 ## Is mstack helping or just adding noise?
 

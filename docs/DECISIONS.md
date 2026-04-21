@@ -170,3 +170,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add **`docs/CURSOR_INTEGRATION.md`** (official doc links, mstack mapping, Agent vs IDE table, remote import note). Extend **`docs/CURSOR_LIMITS.md`** (Agent vs Tab/inline, rule precedence Team → Project → User). One-line wiring in **`AGENTS.md`**, **`mstack-core-workflow.mdc`** (IDE-first OK for obvious single-file work), **`mstack-token-discipline.mdc`** (IDE navigation when location known). README / ONBOARDING / CONTRIBUTING / AGENT_MEMORY / workflow quick links. **No** claim that project rules control all IDE AI features.
 
 **Consequences:** Slightly more docs to maintain; reduces confusion between chat rules and editor workflows.
+
+---
+
+### 2026-04-21 — Remove GitHub Actions from this repo
+
+**Context:** Hosted runners were unreliable or unwanted for this maintainers; the pack does not require remote CI.
+
+**Decision:** Delete **`.github/workflows/mstack-ci.yml`** and **`mstack-ci-smoke.yml`**. Keep **`npm run mstack:ci`** / **`scripts/mstack-ci-local.sh`** for local verification and **`mstack-pack-verify.yml.example`** for consumers.
+
+**Consequences:** No automated checks on push/PR in this repository; contributors rely on local `mstack:ci` and PR checklist.
