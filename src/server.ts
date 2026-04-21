@@ -7,24 +7,57 @@ import {
   patchPreferencesSchema,
 } from "./schemas.js";
 import { log } from "./logger.js";
-import { checkRateLimit } from "./rateLimit.js";
+import { checkRateLimit, resetRateLimitState } from "./rateLimit.js";
 import { openApiDocument } from "./openapi.js";
-import { API_VERSION, SERVICE_NAME } from "./version.js";
+import { API_VERSION, REPO_PRODUCT_NAME, SERVICE_NAME } from "./version.js";
 import {
-  createIdea,
-  deleteIdea,
-  getIdea,
-  listIdeasPage,
-  patchSessionPreferences,
-  updateIdea,
+  FileIdeasStore,
+  InMemoryIdeasStore,
+  isIdempotencyMismatch,
+  type IdeasStore,
 } from "./store.js";
 
 const LIST_DEFAULT_LIMIT = 50;
 const LIST_MAX_LIMIT = 100;
 
 const PORT = Number(process.env.PORT) || 3000;
-const RATE_MAX = Number(process.env.RATE_LIMIT_MAX) || 120;
-const RATE_WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS) || 60_000;
+
+export type AppServerOptions = {
+  /** Override env RATE_LIMIT_MAX for tests. */
+  rateLimitMax?: number;
+  /** Override env RATE_LIMIT_WINDOW_MS for tests. */
+  rateLimitWindowMs?: number;
+  /** Injected store (tests); default from env or in-memory. */
+  store?: IdeasStore;
+};
+
+function resolveStoreFromEnv(): IdeasStore {
+  const path = process.env.IDEAS_STORE_PATH;
+  if (path && path.length > 0) {
+    return new FileIdeasStore(path);
+  }
+  return new InMemoryIdeasStore();
+}
+
+function resolveRateConfig(opts: AppServerOptions): {
+  max: number;
+  windowMs: number;
+} {
+  const envMax = Number(process.env.RATE_LIMIT_MAX);
+  const envWindow = Number(process.env.RATE_LIMIT_WINDOW_MS);
+  return {
+    max: opts.rateLimitMax ?? (Number.isFinite(envMax) && envMax > 0 ? envMax : 120),
+    windowMs:
+      opts.rateLimitWindowMs ??
+      (Number.isFinite(envWindow) && envWindow > 0 ? envWindow : 60_000),
+  };
+}
+
+export type RequestContext = {
+  store: IdeasStore;
+  rateMax: number;
+  rateWindowMs: number;
+};
 
 function json(
   res: http.ServerResponse,
@@ -68,6 +101,7 @@ function clientKey(req: http.IncomingMessage): string {
 export async function handleRequest(
   req: http.IncomingMessage,
   res: http.ServerResponse,
+  ctx: RequestContext,
 ): Promise<void> {
   const requestId =
     (typeof req.headers["x-request-id"] === "string" &&
@@ -86,7 +120,11 @@ export async function handleRequest(
   }
 
   const url = new URL(req.url, `http://${req.headers.host ?? "localhost"}`);
-  const rl = checkRateLimit(clientKey(req), RATE_MAX, RATE_WINDOW_MS);
+  const rl = checkRateLimit(
+    clientKey(req),
+    ctx.rateMax,
+    ctx.rateWindowMs,
+  );
   if (!rl.ok) {
     res.setHeader("Retry-After", String(Math.ceil(rl.retryAfterMs / 1000)));
     json(res, 429, {
@@ -99,6 +137,8 @@ export async function handleRequest(
     return;
   }
 
+  const { store } = ctx;
+
   try {
     if (req.method === "GET" && url.pathname === "/health") {
       json(res, 200, { ok: true, requestId });
@@ -107,6 +147,7 @@ export async function handleRequest(
 
     if (req.method === "GET" && url.pathname === "/v1/meta") {
       json(res, 200, {
+        product: REPO_PRODUCT_NAME,
         service: SERVICE_NAME,
         apiVersion: API_VERSION,
         node: process.version,
@@ -141,7 +182,7 @@ export async function handleRequest(
         cursorParam !== null && cursorParam.length > 0
           ? cursorParam
           : undefined;
-      const page = listIdeasPage(tag, limit, cursor);
+      const page = store.listIdeasPage(tag, limit, cursor);
       if (page === null) {
         json(res, 400, {
           error: "invalid_cursor",
@@ -167,7 +208,7 @@ export async function handleRequest(
       const ideaId = ideaMatch[1]!;
 
       if (req.method === "GET") {
-        const idea = getIdea(ideaId);
+        const idea = store.getIdea(ideaId);
         if (!idea) {
           json(res, 404, {
             error: "not_found",
@@ -208,7 +249,7 @@ export async function handleRequest(
           typeof sessionHeader === "string" && sessionHeader.length > 0
             ? sessionHeader
             : "anonymous";
-        const updated = updateIdea(ideaId, bodyResult.data, sessionId);
+        const updated = store.updateIdea(ideaId, bodyResult.data, sessionId);
         if (!updated) {
           json(res, 404, {
             error: "not_found",
@@ -227,7 +268,7 @@ export async function handleRequest(
       }
 
       if (req.method === "DELETE") {
-        const removed = deleteIdea(ideaId);
+        const removed = store.deleteIdea(ideaId);
         if (!removed) {
           json(res, 404, {
             error: "not_found",
@@ -273,13 +314,26 @@ export async function handleRequest(
       const idem = req.headers["idempotency-key"];
       const idempotencyKey =
         typeof idem === "string" && idem.length > 0 ? idem : undefined;
-      const idea = createIdea(bodyResult.data, sessionId, idempotencyKey);
+      const created = store.createIdea(
+        bodyResult.data,
+        sessionId,
+        idempotencyKey,
+      );
+      if (isIdempotencyMismatch(created)) {
+        json(res, 409, {
+          error: "idempotency_conflict",
+          message:
+            "Idempotency-Key was already used with a different request body",
+          requestId,
+        });
+        return;
+      }
       log("info", "idea_created", {
         requestId,
-        ideaId: idea.id,
+        ideaId: created.id,
         sessionId,
       });
-      json(res, 201, { idea, requestId });
+      json(res, 201, { idea: created, requestId });
       return;
     }
 
@@ -315,7 +369,7 @@ export async function handleRequest(
         });
         return;
       }
-      const preferences = patchSessionPreferences(
+      const preferences = store.patchSessionPreferences(
         sessionHeader,
         prefResult.data,
       );
@@ -341,11 +395,20 @@ export async function handleRequest(
   }
 }
 
-export function createAppServer(): http.Server {
+export function createAppServer(opts: AppServerOptions = {}): http.Server {
+  const rate = resolveRateConfig(opts);
+  const store = opts.store ?? resolveStoreFromEnv();
+  const ctx: RequestContext = {
+    store,
+    rateMax: rate.max,
+    rateWindowMs: rate.windowMs,
+  };
   return http.createServer((req, res) => {
-    void handleRequest(req, res);
+    void handleRequest(req, res, ctx);
   });
 }
+
+export { resetRateLimitState };
 
 const isMain =
   process.argv[1] !== undefined &&

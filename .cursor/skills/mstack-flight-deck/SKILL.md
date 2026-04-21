@@ -36,7 +36,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
 
 1. **Title** — `mstack flight deck` + one line: this repo is the **mstack rules pack** plus optional **Ideas HTTP API** (`src/`, `tests/`).
 2. **Stats row (boxes)** — e.g.:
-   - **API:** `meta.service` + `meta.apiVersion` from snapshot, or `API offline`
+   - **API:** `meta.product` + `meta.service` + `meta.apiVersion` from snapshot, or `API offline`
    - **Runtime:** `meta.node` if present, else `—`
    - **Pack:** short hint — e.g. “sync: `MSTACK_PACK` (minimal / lite / solo / standard / full / all)” + link `docs/PACKS.md`; add “verify: `scripts/verify-mstack-sync.sh`” + link `docs/POWER_USER.md`
    - **Session:** root `SESSION_BRIEF.md` (handoff) + `templates/SESSION_BRIEF_TEMPLATE.md`; optional compact **`docs/AGENT_RECAP.md`** + `templates/AGENT_RECAP_TEMPLATE.md` / **`/mstack-lean-handoff`**
@@ -64,7 +64,7 @@ Build the canvas with these sections, using Cursor canvas components (stats/boxe
 
 5. **Table C (conditional)** — If snapshot has `ideas` array: show up to **20** rows with columns e.g. **Title**, **Tags** (joined), **Updated** (`updatedAt`). If empty: one row “No ideas yet (or server just started).”
 
-6. **Diagram** — Simple **system map**: box **mstack** (`.cursor/rules`, `AGENTS.md`, `templates/`, `docs/`) → box **Ideas API** (`src/server.ts`, `src/store.ts`, in-memory). Arrow: “optional demo service in same repo.” Use the canvas diagram component or a mermaid-style structure the canvas supports.
+6. **Diagram** — Simple **system map**: box **mstack core** (rules, `AGENTS.md`, `templates/`, `docs/`, `sync-mstack.sh`) vs box **reference API** (`src/`, `tests/`, optional `IDEAS_STORE_PATH` file store). Arrow: “Layer A copied to consumers; Layer B demo-only in this repo.” Use the canvas diagram component or a mermaid-style structure the canvas supports.
 
 7. **Todos (3–5)** — Actionable checklist, e.g.:
    - Update `docs/DECISIONS.md` when API or layout changes

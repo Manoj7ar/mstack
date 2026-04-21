@@ -33,7 +33,7 @@ export function openApiDocument(): Record<string, unknown> {
       title: `${SERVICE_NAME} HTTP API`,
       version: API_VERSION,
       description:
-        "Reference in-memory Ideas API: validation, rate limits, idempotency, session preferences. Source: `src/openapi.ts`.",
+        "Reference Ideas API (mstack repo): validation, rate limits, idempotency (replay; 409 on key+body mismatch), session preferences. Optional file store via IDEAS_STORE_PATH. Source: `src/openapi.ts`.",
     },
     paths: {
       "/health": {
@@ -53,6 +53,12 @@ export function openApiDocument(): Record<string, unknown> {
                     },
                   },
                 },
+              },
+            },
+            "429": {
+              description: "Rate limited (applies to all routes per client key)",
+              content: {
+                "application/json": { schema: errorSchema },
               },
             },
           },
@@ -83,8 +89,15 @@ export function openApiDocument(): Record<string, unknown> {
                 "application/json": {
                   schema: {
                     type: "object",
-                    required: ["service", "apiVersion", "node", "requestId"],
+                    required: [
+                      "product",
+                      "service",
+                      "apiVersion",
+                      "node",
+                      "requestId",
+                    ],
                     properties: {
+                      product: { type: "string" },
                       service: { type: "string" },
                       apiVersion: { type: "string" },
                       node: { type: "string" },
@@ -209,6 +222,13 @@ export function openApiDocument(): Record<string, unknown> {
             },
             "422": {
               description: "Validation error",
+              content: {
+                "application/json": { schema: errorSchema },
+              },
+            },
+            "409": {
+              description:
+                "Idempotency-Key reused with a different request body",
               content: {
                 "application/json": { schema: errorSchema },
               },

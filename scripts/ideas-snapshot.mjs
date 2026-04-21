@@ -51,6 +51,7 @@ if (!metaRes.ok || !metaRes.data || typeof metaRes.data !== "object") {
 
 const meta = metaRes.data;
 out.meta = {
+  product: meta.product,
   service: meta.service,
   apiVersion: meta.apiVersion,
   node: meta.node,

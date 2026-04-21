@@ -40,6 +40,9 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **Cursor features + Agent vs IDE** | [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) |
 | **Cursor base Chat/Agent + mstack** | [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) |
 | **System map** (dirs, API, data flow) | [ARCHITECTURE.md](ARCHITECTURE.md) |
+| **Demo path** (this repo: pack → ship) | [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md) |
+| **`src/` reference API** | [SRC_INTERNAL.md](SRC_INTERNAL.md) |
+| **Example plan/debug/ADR stubs** | [sample-workflow/README.md](sample-workflow/README.md) |
 | **Why** something is the way it is | [DECISIONS.md](DECISIONS.md) |
 | **Design / product memory** (voice, UX prefs, terminology) | [PROJECT_MEMORY.md](PROJECT_MEMORY.md) |
 | Human install / copy instructions | [README.md](../README.md) |

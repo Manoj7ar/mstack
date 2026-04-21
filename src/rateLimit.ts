@@ -2,6 +2,11 @@ type Bucket = { count: number; resetAt: number };
 
 const buckets = new Map<string, Bucket>();
 
+/** Clear sliding windows (e.g. between Vitest cases). */
+export function resetRateLimitState(): void {
+  buckets.clear();
+}
+
 export function checkRateLimit(
   key: string,
   max: number,
