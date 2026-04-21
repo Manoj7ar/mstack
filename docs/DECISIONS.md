@@ -145,11 +145,11 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 
 ### 2026-04-20 — Community wave 6 (contributors + discoverability)
 
-**Context:** Sharing mstack with ambassadors and broader Cursor users needed a **low-friction** path to feedback and PRs, plus **trust signals** (conduct, templates, CI) without adding new specialist rules.
+**Context:** Sharing mstack with ambassadors and broader Cursor users needed a **low-friction** path to feedback and PRs, plus **trust signals** (conduct, templates) without adding new specialist rules.
 
-**Decision:** Add **`CONTRIBUTING.md`**, **`CODE_OF_CONDUCT.md`**, **`.github/ISSUE_TEMPLATE/*`**, **`PULL_REQUEST_TEMPLATE.md`**, **`docs/SHOWCASE.md`**, **`docs/FAQ.md`**, **`CHANGELOG.md`**, and **`.github/workflows/mstack-ci.yml`** (verify-packs, doctor, strict sync smoke for minimal/standard/full, lint, test). Polish **README** (badges, mermaid map, contributor links). Point **`AGENTS.md`** and **`mstack-core-workflow.mdc`** at CONTRIBUTING/CHANGELOG.
+**Decision:** Add **`CONTRIBUTING.md`**, **`CODE_OF_CONDUCT.md`**, **`.github/ISSUE_TEMPLATE/*`**, **`PULL_REQUEST_TEMPLATE.md`**, **`docs/SHOWCASE.md`**, **`docs/FAQ.md`**, **`CHANGELOG.md`**. Polish **README** (badges, mermaid map, contributor links). Point **`AGENTS.md`** and **`mstack-core-workflow.mdc`** at CONTRIBUTING/CHANGELOG.
 
-**Consequences:** More maintainer surface area (templates, changelog entries); CI must stay green on `main` and `cursor/**` branches.
+**Consequences:** More maintainer surface area (templates, changelog entries).
 
 ---
 
@@ -180,3 +180,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Delete **`.github/workflows/mstack-ci.yml`** and **`mstack-ci-smoke.yml`**. Keep **`npm run mstack:ci`** / **`scripts/mstack-ci-local.sh`** for local verification and **`mstack-pack-verify.yml.example`** for consumers.
 
 **Consequences:** No automated checks on push/PR in this repository; contributors rely on local `mstack:ci` and PR checklist.
+
+---
+
+### 2026-04-21 — OpenAPI surface and cursor pagination for ideas list
+
+**Context:** The sample API had no machine-readable contract, and `GET /v1/ideas` always returned the full in-memory list.
+
+**Decision:** Serve **`GET /v1/openapi.json`** from `src/openapi.ts` (no extra npm deps). Paginate **`GET /v1/ideas`** with `limit` (default 50, max 100) and opaque **`cursor`** (base64url JSON of last item’s `createdAt` + `id`); response adds optional **`nextCursor`**. Stable ordering: **`createdAt` desc, then `id` desc**. Bump **`API_VERSION`** to **0.3.0**.
+
+**Consequences:** Clients that need every idea must follow `nextCursor` until absent. Tools that only fetch the first page (e.g. `scripts/ideas-snapshot.mjs`) see at most `limit` items unless extended.

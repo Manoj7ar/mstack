@@ -2,6 +2,8 @@
 /**
  * Fetch Ideas API /v1/meta and /v1/ideas; print one JSON line to stdout.
  * Always exits 0 with parseable JSON (ok:false on failure).
+ * Note: GET /v1/ideas is paginated; this script only requests the first page
+ * (default limit). For a full dump, loop with ?cursor= from each nextCursor.
  * Usage: IDEAS_API_BASE=http://127.0.0.1:3000 node scripts/ideas-snapshot.mjs
  */
 const base = (process.env.IDEAS_API_BASE || "http://127.0.0.1:3000").replace(
