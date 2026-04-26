@@ -2,6 +2,8 @@
 
 Use this checklist when **onboarding a repo** or **quarterly** to catch silent drift. For an agent-driven pass, **`@mstack-adoption-audit`** (rule in **full** pack).
 
+**Fast automated check:** [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) or **`/mstack-scorecard`**. Use the scorecard first, then this checklist for team/process items.
+
 ## Rules and location
 
 - [ ] **`.cursor/rules/`** exists and contains at least **`mstack-core-workflow.mdc`**, **`mstack-token-discipline.mdc`**, **`mstack-permissions.mdc`**
@@ -20,6 +22,7 @@ Use this checklist when **onboarding a repo** or **quarterly** to catch silent d
 ## Local verify
 
 - [ ] **`bash scripts/mstack-doctor.sh`** passes (from repo root; set **`MSTACK_ROOT`** / **`MSTACK_PACK`** to also run pack verify)
+- [ ] **`bash scripts/mstack-scorecard.sh`** is **good** or **excellent** ([ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md))
 - [ ] First-message patterns fit your team: [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md)
 - [ ] Optional: day-one trace — [templates/MSTACK_DAY_ONE_CHECKLIST.md](../templates/MSTACK_DAY_ONE_CHECKLIST.md) or [STARTER_KIT.md](STARTER_KIT.md)
 

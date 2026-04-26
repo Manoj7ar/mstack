@@ -17,6 +17,7 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | **MCP + mstack safety** | [CURSOR_MCP.md](CURSOR_MCP.md) |
 | Phases, handoffs, templates | [workflow.md](workflow.md), [PACKS.md](PACKS.md), `AGENTS.md`, `templates/` |
 | **First-time setup** | [STARTER_KIT.md](STARTER_KIT.md), [ONBOARDING.md](ONBOARDING.md) |
+| **Install score / demo** | [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md), **`/mstack-scorecard`**, **`/mstack-demo-consumer`** |
 | **Why mstack (pitch)** | [WHY_MSTACK.md](WHY_MSTACK.md) |
 | **Upgrade vendored mstack** | [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md) |
 | **Monorepos** | [MONOREPO.md](MONOREPO.md) |
@@ -49,6 +50,8 @@ This file is **durable context** for Cursor and other agents. Read it when start
 | Human install / copy instructions | [README.md](../README.md) |
 | **Cursor Canvas flight deck** (visual overview; type `/mstack-flight-deck`) | [.cursor/skills/mstack-flight-deck/SKILL.md](../.cursor/skills/mstack-flight-deck/SKILL.md) |
 | **mstack doctor** (local install check; type `/mstack-doctor`) | [.cursor/skills/mstack-doctor/SKILL.md](../.cursor/skills/mstack-doctor/SKILL.md) |
+| **mstack scorecard** (0–100 install health; type `/mstack-scorecard`) | [.cursor/skills/mstack-scorecard/SKILL.md](../.cursor/skills/mstack-scorecard/SKILL.md) |
+| **Demo consumer** (temp clean-room sync; type `/mstack-demo-consumer`) | [.cursor/skills/mstack-demo-consumer/SKILL.md](../.cursor/skills/mstack-demo-consumer/SKILL.md) |
 | **Pack picker** (which `MSTACK_PACK`; type `/mstack-pack-picker`) | [.cursor/skills/mstack-pack-picker/SKILL.md](../.cursor/skills/mstack-pack-picker/SKILL.md) |
 | **Lean handoff** (recap file; type `/mstack-lean-handoff`) | [.cursor/skills/mstack-lean-handoff/SKILL.md](../.cursor/skills/mstack-lean-handoff/SKILL.md) |
 | **First sync** (adopt in another repo; type `/mstack-first-sync`) | [.cursor/skills/mstack-first-sync/SKILL.md](../.cursor/skills/mstack-first-sync/SKILL.md) |

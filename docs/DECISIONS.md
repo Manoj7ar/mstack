@@ -290,3 +290,13 @@ Short **decision log** so future agents and humans know *why* things are shaped 
 **Decision:** Add skill **`/mstack-pitch-short`** (`disable-model-invocation: true`), **`docs/SHARE_AND_COMPARE.md`**, **`docs/BADGE.md`**, root **`SECURITY.md`**. Cross-link navigation; **no** new `.mdc` or **`scripts/packs`** edits.
 
 **Consequences:** One more skill and docs to maintain; clearer path from **curiosity → star → showcase row**.
+
+---
+
+### 2026-04-26 — Adoption scorecard + clean-room demo
+
+**Context:** `mstack-doctor` was pass/fail and `ADOPTION_AUDIT.md` was manual; new users still needed a quick way to see whether an install is **good enough** and to try mstack without touching their repo.
+
+**Decision:** Add **`scripts/mstack-scorecard.sh`** (0–100 install health, bands, warnings, next steps, optional JSON), **`scripts/mstack-demo-consumer.sh`** (temp-dir sync → doctor → scorecard), skills **`/mstack-scorecard`** and **`/mstack-demo-consumer`**, and **`docs/ADOPTION_SCORECARD.md`**. Wire README, STARTER_KIT, ADOPTION_AUDIT, POWER_USER, SKILLS, DOCS_MAP, RECIPES, AGENTS, workflow, AGENT_MEMORY, and CHANGELOG. **No** new `.mdc` rules or pack changes.
+
+**Consequences:** More concrete “try it now” path for adopters; score is an install-health heuristic, not productivity or token-savings proof.

@@ -91,6 +91,7 @@ flowchart TB
 | **Specialists** | Scoped rules for frontend, backend, a11y, data, CI, docs, security, review, dependencies, web perf, AI product, API contracts, observability, releases, session handoff, and more (see table below). |
 | **Templates** | Plan, tests, PRs, ADRs, postmortems, debug sessions, reflect, model notes, OpenAPI delta, runbook (see list below). |
 | **Rule packs** | Minimal / **Lite** / **Solo** / standard / full — **[docs/PACKS.md](docs/PACKS.md)** + **`scripts/packs/*.txt`** for `sync-mstack.sh`. |
+| **Install proof** | **`mstack-scorecard.sh`** gives a 0–100 install-health score; **`mstack-demo-consumer.sh`** runs a clean temp demo. |
 | **Project memory** | Durable **design and product** prefs in **`docs/PROJECT_MEMORY.md`**; Agent reads before UI work and updates when you lock decisions (`mstack-project-memory.mdc`). Not a full chat log. |
 
 ---
@@ -131,6 +132,7 @@ Human-readable detail: **[docs/workflow.md](docs/workflow.md)**. Preset rule bun
 | [docs/CONTEXT_BUDGET.md](docs/CONTEXT_BUDGET.md) | File caps + recap habits; pairs with **`/mstack-context-budget`** |
 | [docs/SPECIALIST_MAP.md](docs/SPECIALIST_MAP.md) | Which specialist to drop when trimming overlap |
 | [docs/ADOPTION_AUDIT.md](docs/ADOPTION_AUDIT.md) | Checklist for correct install and drift |
+| [docs/ADOPTION_SCORECARD.md](docs/ADOPTION_SCORECARD.md) | Automated 0–100 install health score + temp demo |
 | [docs/PLAYBOOK_FIRST_MESSAGES.md](docs/PLAYBOOK_FIRST_MESSAGES.md) | Copy-paste Agent chat openers |
 | [docs/RECIPES.md](docs/RECIPES.md) | Task → `@mention` / skill → template index |
 | [docs/TEAM_ROLLOUT.md](docs/TEAM_ROLLOUT.md) | Champion guide: pilot pack, agreements, first-week links |
@@ -341,6 +343,8 @@ README.md
 .cursor/skills/mstack-ship-check/
 .cursor/skills/mstack-agent-habits/
 .cursor/skills/mstack-pitch-short/
+.cursor/skills/mstack-scorecard/
+.cursor/skills/mstack-demo-consumer/
 SECURITY.md
 docs/
   workflow.md
@@ -366,6 +370,7 @@ docs/
   CURSOR_INTEGRATION.md
   POWER_USER.md
   ADOPTION_AUDIT.md
+  ADOPTION_SCORECARD.md
   PLAYBOOK_FIRST_MESSAGES.md
   TOKEN_LEVERS.md
   EFFECTIVENESS.md
@@ -385,6 +390,8 @@ docs/
 scripts/sync-mstack.sh
 scripts/verify-mstack-sync.sh
 scripts/mstack-doctor.sh
+scripts/mstack-scorecard.sh
+scripts/mstack-demo-consumer.sh
 scripts/mstack-ci-local.sh
 scripts/verify-packs-internal.sh
 scripts/packs/*.txt

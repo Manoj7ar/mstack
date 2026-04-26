@@ -32,6 +32,17 @@ In **this** mstack repo: `npm run mstack:doctor`. Manifest typos: `npm run mstac
 
 **Cursor:** invoke **`/mstack-doctor`** (skill `.cursor/skills/mstack-doctor/`). Full checklist: [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md).
 
+## Scorecard (install health)
+
+For a weighted install check with warnings and next steps:
+
+```bash
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard bash vendor/mstack/scripts/mstack-scorecard.sh .
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard MSTACK_SCORE_JSON=1 bash vendor/mstack/scripts/mstack-scorecard.sh .
+```
+
+Use **`/mstack-scorecard`** in Cursor for path-specific commands. Details: [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md).
+
 ## New chat bootstrap
 
 - **Prefer:** maintain root **`SESSION_BRIEF.md`** (shape: `templates/SESSION_BRIEF_TEMPLATE.md`). First message: *Read `SESSION_BRIEF.md` and `docs/PROJECT_MEMORY.md`.*
@@ -57,3 +68,4 @@ In **this** mstack repo: `npm run mstack:doctor`. Manifest typos: `npm run mstac
 - [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md) — copy-paste openers
 - [ONBOARDING.md](ONBOARDING.md) — packs and first sync
 - [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — onboarding checklist
+- [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) — weighted install health
