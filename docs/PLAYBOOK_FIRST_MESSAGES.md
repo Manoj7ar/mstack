@@ -122,6 +122,18 @@ Answer in ≤7 bullets, cite file paths only (no code blocks unless one line). Q
 /mstack-pitch-short — Audience: [README one-liner | Slack | both]. Include honest caveat line if I’m posting publicly.
 ```
 
+## Adoption scorecard
+
+```text
+/mstack-scorecard — Consumer root: [.]. mstack path: [vendor/mstack]. Expected pack: [standard]. Print commands and explain the score bands.
+```
+
+## Clean-room demo
+
+```text
+/mstack-demo-consumer — Print the temp-dir demo command for MSTACK_PACK=[standard]; do not write to my app repo.
+```
+
 ## See also
 
 - [RECIPES.md](RECIPES.md) — which `@mention` for which task

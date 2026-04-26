@@ -4,17 +4,19 @@
 
 ## Browsing on mobile / without Cursor yet
 
-1. [WHY_MSTACK.md](WHY_MSTACK.md) — honest pitch and limits  
-2. [STARTER_KIT.md](STARTER_KIT.md) — or raw copy: `https://raw.githubusercontent.com/Manoj7ar/mstack/main/docs/STARTER_KIT.md`  
-3. [PACKS.md](PACKS.md) — which **`MSTACK_PACK`** to sync
+1. [WHY_MSTACK.md](WHY_MSTACK.md) — honest pitch and limits
+2. [STARTER_KIT.md](STARTER_KIT.md) — or raw copy: `https://raw.githubusercontent.com/Manoj7ar/mstack/main/docs/STARTER_KIT.md`
+3. [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) — what “installed well” means; includes temp demo
+4. [PACKS.md](PACKS.md) — which **`MSTACK_PACK`** to sync
 
 ## First-time human (installing in a repo)
 
 1. [STARTER_KIT.md](STARTER_KIT.md) — sync, doctor, first Agent messages  
 2. [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative + pack diagram  
 3. [FAQ.md](FAQ.md) — common questions  
-4. [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — optional self-check after sync  
-5. [GLOSSARY.md](GLOSSARY.md) — Cursor + mstack terms in one place
+4. [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) — automated install score + next steps
+5. [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — optional self-check after sync
+6. [GLOSSARY.md](GLOSSARY.md) — Cursor + mstack terms in one place
 
 ## Daily developer (already synced)
 

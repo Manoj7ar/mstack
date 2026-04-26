@@ -9,6 +9,16 @@
 
 Pick a **pack** first (one minute): [PACKS.md](PACKS.md) — `minimal`, `lite`, `solo`, `standard`, or `full`.
 
+## Step 0 — Try a clean-room demo
+
+From the **mstack checkout**, create a temporary consumer repo and see what sync + doctor + scorecard look like:
+
+```bash
+MSTACK_PACK=standard bash scripts/mstack-demo-consumer.sh
+```
+
+In Cursor, type **`/mstack-demo-consumer`** for a copy-paste command. The script writes only to a temp directory and prints a cleanup command.
+
 ## Step 1 — Sync into your app repo
 
 From **your app’s root** (adjust `MSTACK_ROOT` if mstack lives elsewhere):
@@ -42,6 +52,16 @@ MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard MSTACK_VERIFY_STRICT=1 bash vendo
 
 From **mstack repo root** only: `npm run mstack:doctor`.
 
+## Step 2b — Scorecard
+
+Run a weighted install check with next steps:
+
+```bash
+MSTACK_ROOT=vendor/mstack MSTACK_PACK=standard bash vendor/mstack/scripts/mstack-scorecard.sh .
+```
+
+In Cursor, type **`/mstack-scorecard`**. Details: [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md).
+
 ## Step 3 — First messages in Agent
 
 Copy-paste library: [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md).
@@ -49,6 +69,7 @@ Copy-paste library: [PLAYBOOK_FIRST_MESSAGES.md](PLAYBOOK_FIRST_MESSAGES.md).
 - **Unsure which pack?** Type **`/mstack-pack-picker`** in chat.
 - **Guided commands:** Type **`/mstack-first-sync`** (prints sync + merge hints; does not edit files unless you ask).
 - **Overview (Canvas):** **`/mstack-flight-deck`** (Cursor 3.1+).
+- **Install health:** **`/mstack-scorecard`**.
 
 **All `/mstack-*` skills:** [SKILLS.md](SKILLS.md). **Long thread / huge `@`:** [CONTEXT_BUDGET.md](CONTEXT_BUDGET.md), **`/mstack-context-budget`**. **No submodule?** [RULES_SOURCE.md](RULES_SOURCE.md). **Team rollout:** [TEAM_ROLLOUT.md](TEAM_ROLLOUT.md).
 
@@ -75,6 +96,7 @@ Refresh after **`git submodule update`** or pulling mstack: [VENDOR_UPGRADE.md](
 - [WHY_MSTACK.md](WHY_MSTACK.md) — why try mstack (honest)
 - [ONBOARDING.md](ONBOARDING.md) — 5-minute narrative
 - [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) — full audit list
+- [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) — automated install health check
 - [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md) — Agent vs IDE  
 - [CURSOR_MCP.md](CURSOR_MCP.md) — optional MCP servers + safety  
 - [ANTI_PATTERNS.md](ANTI_PATTERNS.md) — mistakes to avoid

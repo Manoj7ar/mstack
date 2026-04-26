@@ -6,6 +6,8 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 | -------- | -------------- | ------------------------ |
 | First install in a repo | **`/mstack-first-sync`**, **`/mstack-pack-picker`** | [STARTER_KIT.md](STARTER_KIT.md), [MSTACK_DAY_ONE_CHECKLIST.md](../templates/MSTACK_DAY_ONE_CHECKLIST.md) |
 | Submodule / vendor bump | **`/mstack-upgrade-vendor`** | [VENDOR_UPGRADE.md](VENDOR_UPGRADE.md) |
+| Try mstack without touching an app | **`/mstack-demo-consumer`** | [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md), [STARTER_KIT.md](STARTER_KIT.md) |
+| Install health / drift score | **`/mstack-scorecard`** | [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md), [ADOPTION_AUDIT.md](ADOPTION_AUDIT.md) |
 | Ambiguous multi-file feature | Plan Mode + `@mstack-core-workflow` (implicit) | `PLAN_TEMPLATE.md` |
 | Chore / tiny change | `@mstack-mechanical-pass` | — |
 | Explore unfamiliar code | `@mstack-surgical-investigation` | — |
@@ -43,6 +45,7 @@ Use this when you know **what you are doing** but not **which `@mention` or temp
 ## See also
 
 - [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) — attract adopters without overselling  
+- [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) — install score + temp demo
 - [CURSOR_MCP.md](CURSOR_MCP.md) — MCP stack and safety
 - [GLOSSARY.md](GLOSSARY.md) — terms
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — Cursor base Chat/Agent + mstack

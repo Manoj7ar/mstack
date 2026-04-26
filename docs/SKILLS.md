@@ -14,6 +14,8 @@ Skills are **explicit-invocation** procedures in Agent chat. They complement **p
 | **`/mstack-ship-check`** | Pre-merge / pre-PR **numbered checklist** (lint, tests, secrets, security, QA, UI) | [.cursor/skills/mstack-ship-check/SKILL.md](../.cursor/skills/mstack-ship-check/SKILL.md) |
 | **`/mstack-agent-habits`** | Pasteable **Agent kickoff** — progress notes, bounded parallel reads, mstack hooks | [.cursor/skills/mstack-agent-habits/SKILL.md](../.cursor/skills/mstack-agent-habits/SKILL.md) |
 | **`/mstack-pitch-short`** | Pasteable **README / Slack / social** blurbs (honest, no fake metrics) | [.cursor/skills/mstack-pitch-short/SKILL.md](../.cursor/skills/mstack-pitch-short/SKILL.md) |
+| **`/mstack-scorecard`** | Copy-paste **install health scorecard** commands (0–100, warnings, next steps) | [.cursor/skills/mstack-scorecard/SKILL.md](../.cursor/skills/mstack-scorecard/SKILL.md) |
+| **`/mstack-demo-consumer`** | Safe **temp-dir demo**: sync pack → doctor → scorecard → first Agent message | [.cursor/skills/mstack-demo-consumer/SKILL.md](../.cursor/skills/mstack-demo-consumer/SKILL.md) |
 
 **Note:** Skills do **not** change Cursor’s model or modes—see [CURSOR_LIMITS.md](CURSOR_LIMITS.md).
 
@@ -21,6 +23,7 @@ Skills are **explicit-invocation** procedures in Agent chat. They complement **p
 
 - [SHARE_AND_COMPARE.md](SHARE_AND_COMPARE.md) — pitches + comparison table  
 - [BADGE.md](BADGE.md) — README shields  
+- [ADOPTION_SCORECARD.md](ADOPTION_SCORECARD.md) — scorecard bands and commands
 - [GLOSSARY.md](GLOSSARY.md) — what “skill” vs “rule” means
 - [CURSOR_MCP.md](CURSOR_MCP.md) — MCP + Agent tools
 - [CURSOR_BASE_BEHAVIOR.md](CURSOR_BASE_BEHAVIOR.md) — how skills sit on Cursor’s base Chat/Agent behavior
